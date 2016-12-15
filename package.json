@@ -1,0 +1,22 @@
+{
+  "name": "rpg",
+  "version": "0.0.0",
+  "description": "A short rpg test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zleub/rpgtest.git"
+  },
+  "author": "zleub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zleub/rpgtest/issues"
+  },
+  "homepage": "https://github.com/Zleub/rpgtest#readme",
+  "dependencies": {
+    "electron": "^1.4.12"
+  }
+}
