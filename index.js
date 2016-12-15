@@ -5,7 +5,12 @@ const url = require('url')
 let win
 
 function createWindow () {
-	win = new BrowserWindow({width: 800, height: 600})
+	win = new BrowserWindow({
+		width: 800,
+		height: 600,
+		useContentSize: true,
+		resizable: true
+	})
 
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
@@ -13,7 +18,11 @@ function createWindow () {
 		slashes: true
 	}))
 
-	win.webContents.openDevTools()
+	// win.webContents.openDevTools()
+
+	win.on('app-command', (e, cmd) => {
+		console.log(e, cmd)
+	})
 
 	win.on('closed', () => {
 		win = null
@@ -33,4 +42,3 @@ app.on('activate', () => {
 		createWindow()
 	}
 })
-
