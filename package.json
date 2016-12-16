@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Zleub/rpgtest#readme",
   "dependencies": {
+    "bower": "^1.8.0",
     "electron": "^1.4.12"
   }
 }
