@@ -1,0 +1,22 @@
+{
+  "name": "render",
+  "homepage": "https://github.com/Zleub/rpgtest",
+  "authors": [
+    "Zleub <debray.arnaud@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "noisejs": "*",
+    "konva": "^1.2.2"
+  }
+}

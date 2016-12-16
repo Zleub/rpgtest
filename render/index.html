@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+    body {
+      /*margin: 0px;*/
+      /*overflow: hidden;*/
+    }
+
+    .konvajs-content, .bordered {
+      border: 1px dashed red;
+    }
+
+    img {
+      /*border: 1px dashed green;*/
+      width: 100px;
+      height: 100px;
+      margin: 4px;
+      padding: 8px;
+    }
+
+    </style>
+
+  <script type="text/javascript" src="bower_components/noisejs/index.js"></script>
+  <script type="text/javascript" src="bower_components/konva/konva.min.js"></script>
+  <script type="text/javascript" src="scripts/map.js"></script>
+  </head>
+  <body>
+  <div id="container"></div>
+  <script type="text/javascript">
+
+    var resolution = 21
+    var size = 10
+    let draw = ({f, color}) => new Promise( (res, rej) => {
+      var canvas = document.createElement('canvas')
+      canvas.width = resolution * size
+      canvas.height = resolution * size
+
+      var resol = Math.floor( (resolution / 2) )
+      var ctx = canvas.getContext('2d');
+
+      for (var i = -resol; i <= resol; i += 1) {
+        for (var j = -resol; j <= resol; j += 1) {
+
+          if (f(i, j))
+            ctx.fillStyle = color || "rgba(0, 255, 0, 255)";
+          else
+            ctx.fillStyle = "rgba(0, 0, 0, 0)";
+
+          ctx.fillRect(
+            (i + resol) * size,
+            (j + resol) * size,
+            size,
+            size);
+        }
+      }
+
+      var dataURL = canvas.toDataURL();
+      var image = new Image()
+      image.onload = () => res(image)
+      image.src = dataURL
+
+    })
+
+    // var stage = new Konva.Stage({
+    //   container: 'container',
+    //   width: 800,
+    //   height: 600
+    // })
+
+    // var layer = new Konva.Layer()
+    // stage.add(layer)
+
+    let append = (e) => {
+      document.body.appendChild(e)
+    }
+
+    let appendFirst = (e) => {
+      document.body.insertBefore(e, document.body.firstChild)
+    }
+
+    let appendCanvas = (e) => {
+      let i = new Konva.Image({
+        image: e
+      })
+
+      i.draggable(true)
+
+      layer.add(i)
+      layer.draw()
+    }
+
+    let functions = [
+      (i) => ({
+        color: 'red',
+        f: (x, y) => Math.cos(x * x + y * y) > i
+      }),
+      (i) => ({
+        color: 'blue',
+        f: (x, y) => Math.cos(x * x + y * y) < i
+      }),
+      // (i) => ({
+      //   color: 'green',
+      //   f: (x, y) => Math.sin(x * x + y * y) > i
+      // }),
+      // (i) => ({
+      //   color: 'purple',
+      //   f: (x, y) => Math.sin(x * x + y * y) < i
+      // }),
+      // (i) => ({
+      //   color: 'magenta',
+      //   f: (x, y) => Math.sin(x * x + y * y) < i && Math.cos(x * x + y * y) < i
+      // }),
+      // (i) => ({
+      //   color: 'pink',
+      //   f: (x, y) => Math.sin(x * x + y * y) > i && Math.cos(x * x + y * y) > i
+      // })
+    ]
+
+    functions.map( (e) => {
+      for (var i = 0; i <= 1; i += 0.1) {
+        draw(e(i)).then( appendFirst )
+      }
+    } )
+
+    var resolution = 100
+    var size = 2
+    let draw2 = ({f, color}) => new Promise( (res, rej) => {
+      var canvas = document.createElement('canvas')
+      canvas.width = resolution
+      canvas.height = resolution
+
+      var resol = resolution
+      var ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = color || "rgba(0, 0, 0, 255)";
+      for (var i = 0; i <= resol; i += 1) {
+          let j = canvas.height - f(i / resol) * resol
+
+          ctx.fillRect(
+            i,
+            j,
+            size,
+            size);
+      }
+
+      var dataURL = canvas.toDataURL();
+      var image = new Image()
+      image.onload = () => res(image)
+      image.src = dataURL
+    })
+
+    let interpolations = [
+      (x1, y1) => (x2, y2) => (x) => y1 + (y2 - y1) * ( (x - x1) / (x2 - x1) ),
+      (x1, y1) => (x2, y2) => (x) => {
+        var mu2 = ( 1 - Math.cos(x * Math.PI) ) / 2;
+        return y1 * (1 - mu2) + y2 * mu2;
+      }
+    ]
+
+    // let interpolations = [
+    //   { f: (x) => x },
+    //   { f: (x) => Math.log(x + 1) },
+    //   { f: (x) => Math.cos(x) },
+    //   { f: (x) => Math.cos(x + 1) },
+    //   { f: (x) => x * x }
+    // ]
+
+    // interpolations.map( (e) => {
+    //   draw2( e ).then( append )
+    // } )
+
+    let points = [
+      { x1: 0.1, y1: 0.1, x2: 0.8, y2: 0.6 },
+      { x1: 0.1, y1: 0.1, x2: 0.8, y2: 0.7 },
+      { x1: 0.1, y1: 0.1, x2: 0.8, y2: 0.2 },
+    ]
+
+    points.forEach( ({x1, y1, x2, y2}) => {
+      interpolations.forEach( (i) => {
+        draw2( {f: i(x1, y1)(x2, y2)} ).then( append )
+      })
+    })
+
+    let m = Map( (x, y) => Math.round(Math.random() * 10) / 10 )
+    let M = m(0, 0, 10, 10)
+
+    var resolution = 10
+    var size = 1
+    let draw3 = ({f, color}) => new Promise( (res, rej) => {
+      var canvas = document.createElement('canvas')
+      canvas.width = resolution
+      canvas.height = resolution
+
+      var ctx = canvas.getContext('2d');
+      for (var i = 0; i <= resolution; i += 1) {
+        for (var j = 0; j <= resolution; j += 1) {
+          let z = f(i, j)
+
+          console.log( Math.round(255 * z) )
+          ctx.fillStyle = "rgba(0, 0, 0, " + Math.round(255 * z) + ")";
+          ctx.fillRect(i, j, 1, 1)
+        }
+      }
+
+      var dataURL = canvas.toDataURL();
+      var image = new Image()
+      image.onload = () => res(image)
+      image.src = dataURL
+    } )
+
+    draw3({f: M}).then(append)
+
+  </script>
+  </body>
+</html>
