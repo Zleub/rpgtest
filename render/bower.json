@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "noisejs": "*",
+    "simplexnoise.js": "*",
     "konva": "^1.2.2"
   }
 }
