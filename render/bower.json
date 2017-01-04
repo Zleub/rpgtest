@@ -17,6 +17,9 @@
   ],
   "dependencies": {
     "simplexnoise.js": "*",
-    "konva": "^1.2.2"
+    "konva": "^1.2.2",
+    "polymer": "^1.7.1",
+    "iron-elements": "^1.0.10",
+    "paper-elements": "^1.0.7"
   }
 }

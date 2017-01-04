@@ -1,0 +1,50 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="../elements/adebray-map.html">
+<link rel="import" href="../elements/adebray-pretty.html">
+
+<dom-module id="adebray-home">
+	<template>
+		<style>
+			:host {
+				display: block;
+				--paper-tab-ink : red;
+				--paper-tabs-selection-bar-color: red;
+			}
+		</style>
+
+		<paper-tabs attr-for-selected=route selected={{route}}>
+			<paper-tab route=map>map</paper-tab>
+			<paper-tab route=pretty>pretty</paper-tab>
+		</paper-tabs>
+		<iron-pages attr-for-selected=route selected={{route}}>
+			<section route="map">
+				<adebray-map></adebray-map>
+			</section>
+			<section route="pretty">
+				<adebray-pretty></adebray-pretty>
+			</section>
+		</iron-pages>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-home',
+
+			properties: {
+				route: {
+					type: String,
+					value: 'map',
+					observer: 'log'
+				}
+			},
+
+			log: function (e) {
+				console.log(e)
+			}
+
+		});
+	</script>
+</dom-module>
