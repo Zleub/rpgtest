@@ -1,0 +1,206 @@
+<link rel=import href=../bower_components/iron-localstorage/iron-localstorage.html>
+<link rel=import href=../bower_components/iron-list/iron-list.html>
+<link rel=import href=../bower_components/paper-item/paper-item.html>
+
+<dom-module id="adebray-work">
+	<template>
+		<style>
+			:host {
+				padding: 8px;
+				margin: 4px;
+				display: block;
+
+			}
+
+			.centered {
+				display: block;
+				@apply(--layout-horizontal);
+				@apply(--layout-center-justified);
+			}
+
+			.float {
+				z-index: 1;
+				background: lightgrey;
+				position: absolute
+			}
+		</style>
+
+<!--
+ 		<div class="float">
+			<paper-item>a dluhdil uhawlidu hawl duahiwudh lawiuhd laiu </paper-item>
+			<paper-item>Item 2</paper-item>
+			<paper-item>Item 3</paper-item>
+			<paper-item>Item 4</paper-item>
+		</div>
+-->
+
+		<!-- <iron-localstorage id='storage' name="{{key}}" value="{{storage}}"></iron-localstorage> -->
+
+		<div class=centered>
+			<div id='container'></div>
+		</div>
+
+		<div id='menu' class=centered>
+			<div class="layout vertical">
+				<h3 class=centered>Great Menu</h3>
+				<div id='content'></div>
+			</div>
+		</div>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'adebray-work',
+
+			properties: {
+				teamA: {
+					type: Array,
+					value: [
+						// { image : 'combat_dummy/BODY_animation.png' }
+					]
+				},
+				teamB: {
+					type: Array,
+					value: [
+						{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},{
+							position: 1,
+							image : 'images2/combat_dummy/BODY_animation.png'
+						},
+					]
+				},
+				key: String,
+				storage: Object
+			},
+
+			attached: function () {
+				var stage = new Konva.Stage({
+					container : this.$$('#container'),
+					width: 800,
+					height: 600
+				})
+				var layer = new Konva.Layer()
+
+				stage.add(layer)
+
+				var ell = (x, y, color) => {
+					let ell = new Konva.Ellipse({
+						x, y,
+						radius: {
+							x: 50,
+							y: 25
+						},
+						stroke: color,
+					})
+
+					ell.on('click', (e) => this.$.content.innerText = JSON.stringify(e.target.attrs))
+					return ell
+				}
+
+				var cmp = 0
+				var step = 60
+				var w = stage.width() / 2 - step
+				var h = stage.height() / 2 + step
+
+				for (var i = 0; i < 8; i++) {
+					layer.add( ell(w - cmp * step, h + cmp * step, 'blue') )
+					cmp += 1
+					if ( h + (cmp + 1) * step > stage.height() ) {
+						cmp = 0
+						w -= 120
+					}
+				}
+
+				var cmp = 0
+				var step = 60
+				var w = stage.width() / 2 + step
+				var h = stage.height() / 2 + step
+
+				for (var i = 0; i < 8; i++) {
+
+					if (this.teamB[i]) {
+						layer.add( ell(w + cmp * step, h + cmp * step, 'red') )
+
+						var imageObj = new Image();
+						imageObj.onload = ((x, y) => (e) => {
+
+							var array = []
+							for (var i = 0; i < 8; i++) {
+								array.push( new Promise( (res, rej) => {
+									var container = document.createElement('div')
+									var stage = new Konva.Stage({
+										container: container,
+										width: 64,
+										height: 64
+									})
+
+									var layer = new Konva.Layer()
+
+									stage.add(layer)
+
+									layer.add( new Konva.Image({
+										x: 0,
+										y: 0,
+										crop: {
+											x: i * 64,
+											y: 0,
+											width: 512,
+											height: 64
+										},
+										image: e.target
+									}) )
+									layer.draw()
+
+									stage.toImage({
+										callback: res
+									})
+								}))
+							}
+
+							Promise.all(array).then( (_) => {
+								layer.add( new Konva.Image({
+									x: x - _[1].width / 2,
+									y: y - _[1].height / 2 - 50,
+									image: _[1]
+								}) )
+								layer.draw()
+							})
+
+						})(w + cmp * step, h + cmp * step)
+
+						imageObj.src = this.teamB[i].image
+					}
+					else
+						layer.add( ell(w + cmp * step, h + cmp * step, 'red') )
+					cmp += 1
+					if ( h + (cmp + 1) * step > stage.height() ) {
+						cmp = 0
+						w += 120
+					}
+				}
+
+				layer.draw()
+			}
+		});
+	</script>
+</dom-module>

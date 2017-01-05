@@ -73,7 +73,7 @@
 
 				points.forEach( ({x1, y1, x2, y2}) => {
 				  interpolations.forEach( (i) => {
-				    draw2( {f: i(x1, y1)(x2, y2)} ).then( append )
+				    draw2( {f: i(x1, y1)(x2, y2)} ).then( e => this.appendChild(e) )
 				  })
 				})
 
