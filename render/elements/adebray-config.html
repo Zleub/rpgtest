@@ -1,0 +1,61 @@
+<dom-module id="adebray-config">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-config',
+
+			properties: {
+				jobs: {
+					type: Object,
+					value: {
+						'Onion Knight': {
+							name: 'Onion Knight',
+							commands: [],
+							stats: [
+								{
+									level: 1,
+									strength: 5,
+									agility: 5,
+									vitality: 5,
+									intellect: 5,
+									mind: 5
+								},
+								{
+									level: 10,
+									strength: 6,
+									agility: 6,
+									vitality: 6,
+									intellect: 6,
+									mind: 6
+								},
+								{
+									level: 20,
+									strength: 7,
+									agility: 7,
+									vitality: 7,
+									intellect: 7,
+									mind: 7
+								},
+								{
+									level: 30,
+									strength: 7,
+									agility: 7,
+									vitality: 7,
+									intellect: 7,
+									mind: 7
+								},
+							]
+						}
+					}
+				}
+			}
+		});
+	</script>
+</dom-module>
