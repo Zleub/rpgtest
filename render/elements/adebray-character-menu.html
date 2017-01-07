@@ -1,0 +1,35 @@
+<dom-module id="adebray-character-menu">
+	<template>
+		<style>
+			:host {
+				z-index: 1;
+				position: absolute;
+				background-color: #fcfcfc;
+			}
+		</style>
+
+		<paper-item>Fight</paper-item>
+		<paper-item>Item</paper-item>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-character-menu',
+
+			properties: {
+				x: Number,
+				y: Number
+			},
+
+			observers: [
+				'restyle(x, y)'
+			],
+
+			restyle: function (x, y) {
+				this.style['left'] = x + 'px'
+				this.style['top'] = y + 'px'
+				this.updateStyles()
+			}
+		});
+	</script>
+</dom-module>

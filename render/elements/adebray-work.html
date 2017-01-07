@@ -1,11 +1,20 @@
 <link rel=import href=../bower_components/iron-localstorage/iron-localstorage.html>
 <link rel=import href=../bower_components/iron-list/iron-list.html>
 <link rel=import href=../bower_components/paper-item/paper-item.html>
+<link rel=import href=../bower_components/iron-icons/iron-icons.html>
+<link rel=import href=../bower_components/iron-image/iron-image.html>
+<link rel=import href=../bower_components/paper-icon-button/paper-icon-button.html>
 
+<link rel=import href=mdi.html>
 <link rel=import href=adebray-config.html>
+<link rel=import href=adebray-character-menu.html>
+
+<script type="text/javascript" src="../scripts/BattleStage.js"></script>
+<script type="text/javascript" src="../scripts/Character.js"></script>
 
 <dom-module id="adebray-work">
 	<template>
+
 		<style>
 			:host {
 				padding: 8px;
@@ -24,7 +33,36 @@
 				background: lightgrey;
 				position: absolute
 			}
+
+			.mode {
+				left: 48px;
+				position: absolute;
+				z-index: 1;
+			}
+
+			.portrait {
+				display: inline-block;
+				border: 1px solid black;
+				image-rendering: pixelated;
+				width: 100px;
+				height: 100px;
+			}
+
+			paper-tabs paper-tab {
+				border: 1px solid black;
+				display: inline-block;
+			}
+
+			#content {
+				@apply(--layout-horizontal);
+			}
 		</style>
+		<template is="dom-if" if="{{isOn(mode)}}">
+			<paper-icon-button class=mode icon="mdi:pause" on-tap="toggle"></paper-icon-button>
+		</template>
+		<template is="dom-if" if="{{isOff(mode)}}">
+			<paper-icon-button class=mode icon="mdi:play" on-tap="toggle"></paper-icon-button>
+		</template>
 
 		<adebray-config></adebray-config>
 <!--
@@ -42,11 +80,10 @@
 			<div id='container'></div>
 		</div>
 
-		<div id='menu' class=centered>
-			<div class="layout vertical">
-				<h3 class=centered>Great Menu</h3>
-				<div id='content'></div>
-			</div>
+		<div id='content'>
+			<iron-image class='portrait' src="{{getSrc(selected)}}" preload sizing="cover"></iron-image>
+			<paper-item>Fight</paper-item>
+			<paper-item>Item</paper-item>
 		</div>
 
 		<div class=centered>
@@ -105,139 +142,28 @@
 				key: String,
 				storage: Object,
 
-				mode: String,
-				stack: Array
+				mode: {
+					type: Boolean,
+					value: true
+				},
+				stack: Array,
+				selected: Object
 			},
 
-			cropImage: function (index, name) {
-				return new Promise( (res, rej) => {
-					let container = document.createElement('div')
-					let layer = new Konva.Layer()
-					let stage = new Konva.Stage({
-						container: container,
-						width: 64,
-						height: 64
-					})
-
-					stage.add(layer)
-					layer.add( new Konva.Image({
-						x: 0, y: 0,
-						crop: {
-							x: index * 64,
-							y: 0,
-							width: 512,
-							height: 64
-						},
-						image: e.target
-					}) )
-					layer.draw()
-
-					stage.toImage({
-						callback: (e) => {
-							localStorage.setItem(name, e.src)
-							res(e)
-						}
-					})
-				})
+			isOn: function (mode) {
+				return mode === true
 			},
 
-			makeImage: function (item) {
-				return new Promise( (res, rej) => {
-					let imageObj = new Image();
-					imageObj.onload = ((x, y) => (e) => {
-
-						let name = e.target.src
-						let array = []
-						for (var i = 0; i < 8; i++) {
-
-							let n = name.match('\\w://([\\w_/]+)')[1] + '/' + i
-							if (!localStorage.getItem(n)) {
-								array.push( this.cropImage(i, n) )
-							}
-							else {
-								array.push( new Promise( (res, rej) => {
-									let i = new Image()
-									i.onload = (e) => res(e.target)
-									i.src = localStorage.getItem(n)
-								}))
-							}
-
-						}
-
-						Promise.all(array).then( (_) => {
-							let i = new Konva.Image({
-								pos: item.position,
-								x: x - _[item.position].width / 2,
-								y: y - _[item.position].height / 2 - 32,
-								images: _,
-								image: _[item.position]
-							})
-							res(i)
-						})
-
-					})(item.x, item.y)
-
-					imageObj.src = item.image
-				})
+			isOff: function (mode) {
+				return mode === false
 			},
 
-			make: function (item) {
-				return new Promise( (res, rej) => {
-					this.makeImage( item ).then( (e) => {
-						let group = new Konva.Group({
-							lvl: 1,
-							strength: 5,
-							agility: 5,
-							vitality: 5,
-							intellect: 5,
-							mind: 5,
+			toggle: function () {
+				this.mode = !this.mode
+			},
 
-							x: e.x(),
-							y: e.y()
-						})
-						e.x(0)
-						e.y(0)
-
-						group.add(e)
-						group.add(new Konva.Rect({
-							y: -8,
-							width: 64,
-							height: 8,
-							fill: 'grey'
-						}))
-						group.add(new Konva.Rect({
-							x: 2,
-							y: -6,
-							width: 60,
-							height: 4,
-							fill: 'white'
-						}))
-
-						let jauge = new Konva.Rect({
-							x: 2,
-							y: -6,
-							width: 0,
-							height: 4,
-							fill: 'darkred'
-						})
-
-						group.add(jauge)
-
-						group.update = (incr) => {
-							group.children[3].width( group.children[3].width() + incr * group.attrs.agility)
-							if ( group.children[3].width() > 60 )
-								group.children[3].width(60)
-						}
-
-						group.on('click', (e) => {
-							this.$.content.innerHTML = JSON.stringify(group.attrs) + '</br>' +
-								JSON.stringify(item)
-						})
-
-						res(group)
-					})
-
-				})
+			getSrc: function (character) {
+				return character.children[0].attrs.image.src
 			},
 
 			attached: function () {
@@ -249,97 +175,24 @@
 				var layer = new Konva.Layer()
 
 				stage.add(layer)
-
-				var ell = (x, y, color) => {
-					let ell = new Konva.Ellipse({
-						x, y,
-						radius: {
-							x: 50,
-							y: 25
-						},
-						stroke: color,
-					})
-
-					ell.on('click', (e) => this.$.content.innerText = JSON.stringify(e.target.attrs))
-					return ell
-				}
-
-				var cmp = 0
-				var step = 60
-				var w = stage.width() / 2 - step
-				var h = stage.height() / 2 + step
-				var promises = []
-
-				for (var i = 0; i < 8; i++) {
-					if (this.teamA[i]) {
-						// layer.add( ell(w - cmp * step, h + cmp * step, 'blue') )
-						this.teamA[i].x = w - cmp * step
-						this.teamA[i].y = h + cmp * step
-						promises.push( this.make( this.teamA[i] ) )
-					}
-					// else
-						// layer.add( ell(w - cmp * step, h + cmp * step, 'blue') )
-
-
-					cmp += 1
-					if ( h + (cmp + 1) * step > stage.height() ) {
-						cmp = 0
-						w -= 120
-					}
-				}
-
-				var cmp = 0
-				var step = 60
-				var w = stage.width() / 2 + step
-				var h = stage.height() / 2 + step
-
-				for (var i = 0; i < 8; i++) {
-
-					if (this.teamB[i]) {
-						this.teamB[i].x = w + cmp * step
-						this.teamB[i].y = h + cmp * step
-						// layer.add( ell(w + cmp * step, h + cmp * step, 'red') )
-						promises.push( this.make( this.teamB[i] ) )
-					}
-					// else
-						// layer.add( ell(w + cmp * step, h + cmp * step, 'red') )
-
-					cmp += 1
-					if ( h + (cmp + 1) * step > stage.height() ) {
-						cmp = 0
-						w += 120
-					}
-				}
-
-				let _time = {
-					ticks: 0,
-					time: 0
-				}
-
-				this.set('stack', [
-					(_time) => _time.ticks += 1
-				])
-
-				Promise.all(promises).then( _ => {
-					_.forEach( e => layer.add(e) )
-
-					 this.set('stack', this.stack.concat( layer.children.map( (e) => (_time) => {
-						if (parseInt(_time.ticks / 60) > _time.time) {
-							e.update(1)
-							layer.draw()
-						}
-					})))
-
-					 this.set('stack', this.stack.concat([(_time) => {
-						if (parseInt(_time.ticks / 60) > _time.time)
-							_time.time = parseInt(_time.ticks / 60)
-					}]))
-
-					layer.draw()
+				stage.on('contentClick', (e) => {
+					console.log(e)
+					// e.cancelBubble = true
+					// this.set('selected', {
+					// 	children: [ { attrs: { image: { src: ""} } } ]
+					// })
 				})
 
+				let bs = new BattleStage({
+					layer,
+					teamA: this.teamA,
+					teamB: this.teamB,
+					callback: (bs) => this.set('stack', bs.stack)
+				})
 				let render = () => {
-					// this.stack.forEach( f => f(_time))
+					if (this.mode) {
+						bs.update()
+					}
 					requestAnimationFrame(render)
 				}
 
