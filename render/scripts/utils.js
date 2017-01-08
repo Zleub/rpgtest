@@ -1,3 +1,9 @@
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 Array.prototype.extend = function (other_array) {
     other_array.forEach( (v) => this.push(v) )
 }

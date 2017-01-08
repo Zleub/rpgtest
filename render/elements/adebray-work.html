@@ -1,12 +1,14 @@
+<link rel=import href=../bower_components/iron-a11y-keys/iron-a11y-keys.html>
 <link rel=import href=../bower_components/iron-localstorage/iron-localstorage.html>
 <link rel=import href=../bower_components/iron-list/iron-list.html>
 <link rel=import href=../bower_components/paper-item/paper-item.html>
+<link rel=import href=../bower_components/paper-input/paper-input.html>
 <link rel=import href=../bower_components/iron-icons/iron-icons.html>
 <link rel=import href=../bower_components/iron-image/iron-image.html>
 <link rel=import href=../bower_components/paper-icon-button/paper-icon-button.html>
 
 <link rel=import href=mdi.html>
-<link rel=import href=adebray-config.html>
+<!-- <link rel=import href=adebray-config.html> -->
 <link rel=import href=adebray-character-menu.html>
 
 <script type="text/javascript" src="../scripts/BattleStage.js"></script>
@@ -53,18 +55,24 @@
 				display: inline-block;
 			}
 
-			#content {
+			.horizontal {
 				@apply(--layout-horizontal);
 			}
 		</style>
+
+		<iron-a11y-keys target=[[target]] keys="1" on-keys-pressed="selectFight"></iron-a11y-keys>
+		<iron-a11y-keys target=[[target]] keys="2" on-keys-pressed="selectItem"></iron-a11y-keys>
+		<iron-a11y-keys target=[[target]] keys="3" on-keys-pressed="selectMenu"></iron-a11y-keys>
+		<iron-a11y-keys target=[[target]] keys="space" on-keys-pressed="toggle"></iron-a11y-keys>
+
 		<template is="dom-if" if="{{isOn(mode)}}">
-			<paper-icon-button class=mode icon="mdi:pause" on-tap="toggle"></paper-icon-button>
+			<paper-icon-button icon="mdi:pause" on-tap="toggle"></paper-icon-button>
 		</template>
 		<template is="dom-if" if="{{isOff(mode)}}">
-			<paper-icon-button class=mode icon="mdi:play" on-tap="toggle"></paper-icon-button>
+			<paper-icon-button icon="mdi:play" on-tap="toggle"></paper-icon-button>
 		</template>
 
-		<adebray-config></adebray-config>
+		<!-- <adebray-config></adebray-config> -->
 <!--
  		<div class="float">
 			<paper-item>a dluhdil uhawlidu hawl duahiwudh lawiuhd laiu </paper-item>
@@ -80,12 +88,25 @@
 			<div id='container'></div>
 		</div>
 
-		<div id='content'>
-			<iron-image class='portrait' src="{{getSrc(selected)}}" preload sizing="cover"></iron-image>
-			<paper-item>Fight</paper-item>
-			<paper-item>Item</paper-item>
+		<div id='content' class='horizontal centered'>
+			<iron-image class='portrait' src="{{selected.character.attrs.image.src}}" preload sizing="cover"></iron-image>
+			<paper-item id=fight>Fight</paper-item>
+			<paper-item id=item>Item</paper-item>
+			<paper-item id=menu>Menu</paper-item>
 		</div>
-
+<!-- 		<div class='horizontal'>
+			<paper-item>strength: {{selected.attrs.strength}}</paper-item>
+			<paper-item>agility: {{selected.attrs.agility}}</paper-item>
+			<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
+			<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
+			<paper-item>mind: {{selected.attrs.mind}}</paper-item>
+		</div>
+		<div class='horizontal'>
+			<paper-item>head: {{selected.attrs.head.name}}</paper-item>
+			<paper-item>body: {{selected.attrs.body.name}}</paper-item>
+			<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
+		</div>
+ -->
 		<div class=centered>
 			<div class="layout vertical">
 				<h3>Notes</h3>
@@ -96,10 +117,10 @@
 		<div class=centered>
 			<div class="layout vertical">
 				<h3 class=centered>stack</h3>
-				<template is=dom-repeat items={{stack}}>
+<!-- 				<template is=dom-repeat items={{stack}}>
 					<paper-item>{{item}}</paper-item>
 				</template>
-			</div>
+ -->			</div>
 		</div>
 
 	</template>
@@ -109,17 +130,27 @@
 			is: 'adebray-work',
 
 			properties: {
+				 userInput: {
+				    type: String,
+				    notify: true,
+				  },
+				target: {
+					type: Object,
+					value: function() {
+						return window
+					}
+				},
 				teamA: {
 					type: Array,
 					value: [
 						{
 							position: 7,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Onion Knight'
+							class: 'Freelancer'
 						},{
 							position: 7,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Onion Knight'
+							class: 'Freelancer'
 						}
 					]
 				},
@@ -130,12 +161,12 @@
 
 							position: 1,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Onion Knight'
+							class: 'Freelancer'
 						},{
 
 							position: 1,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Onion Knight'
+							class: 'Freelancer'
 						}
 					]
 				},
@@ -147,8 +178,17 @@
 					value: true
 				},
 				stack: Array,
-				selected: Object
+				selected: {
+					type: Object,
+					value: {
+						children: [ { attrs: { image: { src: "" } } } ]
+					}
+				}
 			},
+
+			observers: [
+				'isSelected(selected)'
+			],
 
 			isOn: function (mode) {
 				return mode === true
@@ -162,26 +202,74 @@
 				this.mode = !this.mode
 			},
 
-			getSrc: function (character) {
-				return character.children[0].attrs.image.src
+			selectFight: function (e) {
+				if (!this.$.fight.focused)
+					this.$.fight.focus()
+				else
+			        this.$.fight.blur();
+			},
+			selectItem: function () {
+				if (!this.$.item.focused)
+					this.$.item.focus()
+				else
+			        this.$.item.blur();
+			},
+			selectMenu: function () {
+				if (!this.$.menu.focused)
+					this.$.menu.focus()
+				else
+			        this.$.menu.blur();
 			},
 
+			isSelected: function (s) {
+				if (s instanceof Konva.Group && s.attrs.ready == true)
+					this.querySelectorAll('#content > paper-item').forEach( e => {
+						e.disabled = false
+					})
+				else if (s instanceof Konva.Group && s.attrs.ready == false) {
+					this.$.fight.disabled = true
+					this.$.item.disabled = true
+					this.$.menu.disabled = false
+				}
+				else
+					this.querySelectorAll('#content > paper-item').forEach( e => {
+						e.disabled = true
+					})
+			},
+
+			// fightHandler: function (e) {
+			// 	console.log( config.Number_of_Hits(this.selected) )
+			// },
+
 			attached: function () {
+				this.$.fight.keyEventTarget = null
+				this.$.item.keyEventTarget = null
+				this.$.menu.keyEventTarget = null
+
 				var stage = new Konva.Stage({
 					container : this.$$('#container'),
 					width: 800,
 					height: 600
 				})
-				var layer = new Konva.Layer()
+				layer = new Konva.Layer()
 
 				stage.add(layer)
-				stage.on('contentClick', (e) => {
-					console.log(e)
-					// e.cancelBubble = true
-					// this.set('selected', {
-					// 	children: [ { attrs: { image: { src: ""} } } ]
-					// })
+
+				var back = new Konva.Rect({
+					width: 800,
+					height: 600,
+					fill: 'rgba(127, 127, 127, 0)'
 				})
+
+				back.on('click', (e) => {
+					// console.log('back click', e)
+					// e.cancelBubble = true
+					this.set('selected', {
+						children: [ { attrs: { image: { src: "" } } } ]
+					})
+				})
+
+				layer.add(back)
 
 				let bs = new BattleStage({
 					layer,
@@ -189,10 +277,34 @@
 					teamB: this.teamB,
 					callback: (bs) => this.set('stack', bs.stack)
 				})
+
+				// setTimeout(() => {
+				// 	setTimeout( () => {
+				// 		layer.children[1].attackAnimation.stop()
+				// 		layer.children[1].replace()
+				// 	}, 200)
+				// 	layer.children[1].attackAnimation.start()
+				// }, 2000)
+				// setTimeout(() => {
+				// 	setTimeout( () => {
+				// 		layer.children[1].attackAnimation.stop()
+				// 		layer.children[1].replace()
+				// 	}, 400)
+				// 	layer.children[1].attackAnimation.start()
+				// }, 4000)
+				// setTimeout(() => {
+				// 	setTimeout( () => {
+				// 		layer.children[1].attackAnimation.stop()
+				// 		layer.children[1].replace()
+				// 	}, 600)
+				// 	layer.children[1].attackAnimation.start()
+				// }, 6000)
+
 				let render = () => {
 					if (this.mode) {
 						bs.update()
 					}
+					layer.draw()
 					requestAnimationFrame(render)
 				}
 
