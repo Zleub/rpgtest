@@ -264,6 +264,10 @@
 				back.on('click', (e) => {
 					// console.log('back click', e)
 					// e.cancelBubble = true
+					if (this.selected.attrs) {
+						this.selected.lock = false
+						this.selected.children[0].hide()
+					}
 					this.set('selected', {
 						children: [ { attrs: { image: { src: "" } } } ]
 					})
@@ -277,28 +281,6 @@
 					teamB: this.teamB,
 					callback: (bs) => this.set('stack', bs.stack)
 				})
-
-				// setTimeout(() => {
-				// 	setTimeout( () => {
-				// 		layer.children[1].attackAnimation.stop()
-				// 		layer.children[1].replace()
-				// 	}, 200)
-				// 	layer.children[1].attackAnimation.start()
-				// }, 2000)
-				// setTimeout(() => {
-				// 	setTimeout( () => {
-				// 		layer.children[1].attackAnimation.stop()
-				// 		layer.children[1].replace()
-				// 	}, 400)
-				// 	layer.children[1].attackAnimation.start()
-				// }, 4000)
-				// setTimeout(() => {
-				// 	setTimeout( () => {
-				// 		layer.children[1].attackAnimation.stop()
-				// 		layer.children[1].replace()
-				// 	}, 600)
-				// 	layer.children[1].attackAnimation.start()
-				// }, 6000)
 
 				let render = () => {
 					if (this.mode) {

@@ -15,6 +15,23 @@ class BattleStage {
 			if (this.teamA[i]) {
 				this.teamA[i].x = w - cmp * step
 				this.teamA[i].y = h + cmp * step
+				this.teamA[i].mouseenter = (group) => (e) => {
+					e.evt.preventDefault()
+					e.evt.stopPropagation()
+					e.cancelBubble = true
+
+					group.children[0].show()
+					// console.log('mouseenter', group )
+				}
+				this.teamA[i].mouseleave = (group) => (e) => {
+					e.evt.preventDefault()
+					e.evt.stopPropagation()
+					e.cancelBubble = true
+
+					if (group.lock == false)
+						group.children[0].hide()
+					// console.log('mouseleave', group )
+				}
 				this.teamA[i].click = (group) => (e) => {
 					// this.
 					e.evt.preventDefault()
@@ -22,27 +39,22 @@ class BattleStage {
 					e.cancelBubble = true
 					// console.log('click')
 					let menu = document.querySelector('adebray-work')
+
+					if (menu.selected.attrs) {
+						menu.selected.lock = false
+						menu.selected.children[0].hide()
+					}
+
 					menu.selected = group
-				// 	menu.hidden = false
-				// 	menu.x = e.evt.clientX
-				// 	menu.y = 0e.evt.clientY
+
+					group.lock = true
 				}
 				this.teamA[i].ready = (group) => (e) => {
-					// this.
-					// e.evt.preventDefault()
-					// e.evt.stopPropagation()
-					// e.cancelBubble = true
-					// console.log('ready')
-					e.target.attrs.ready = true
 					let menu = document.querySelector('adebray-work')
 					if (menu.selected == e.target) {
 						menu.$.fight.disabled = false
 						menu.$.item.disabled = false
 					}
-					// menu.selected = group
-				// 	menu.hidden = false
-				// 	menu.x = e.evt.clientX
-				// 	menu.y = 0e.evt.clientY
 				}
 				promises.push( make( this.teamA[i] ) )
 			}
@@ -64,6 +76,13 @@ class BattleStage {
 			if (this.teamB[i]) {
 				this.teamB[i].x = w + cmp * step
 				this.teamB[i].y = h + cmp * step
+				this.teamB[i].ready = (group) => (e) => {
+					e.cancelBubble = true
+					group.attrs.ready = false
+					group.resetAction()
+					if (this.layer.children.length > 3)
+						makeAttack(this.layer, group, this.layer.children[getRandomInt(1, this.layer.children.length - 2)])
+				}
 				this.teamB[i].click = (group) => (e) => {
 					// this.
 					e.evt.preventDefault()
@@ -72,68 +91,9 @@ class BattleStage {
 					// console.log('click')
 					let menu = document.querySelector('adebray-work')
 
-					if (menu.$.fight.focused && menu.selected.attrs.ready) {
-						let player = menu.selected
-						let hits = config.Number_of_Hits(menu.selected).left
-						let hit_rate = config.Hit_Rate(menu.selected, group)
-						let damages = config.Basic_Damage(menu.selected, group).left
-						// console.log('hit_rate', hit_rate)
+					if (menu.$.fight.focused && menu.selected.attrs.ready)
+						makeAttack(this.layer, menu.selected, group)
 
-						let time = 0
-						for (var i = 0; i < hits; i++) {
-							setTimeout(() => {
-
-								setTimeout( () => {
-									// console.log('anim end')
-									player.attackAnimation.stop()
-									player.replace()
-								}, 200)
-
-								let t_config = {
-								  x: group.x() + 32,
-								  y: group.y() - 42,
-								  text: damages,
-								  fontSize: 30,
-								  fontFamily: 'Calibri',
-								  fill: 'green'
-								}
-								if ( hit_rate > getRandomInt(0, 100) ) {
-									group.loseLife(damages)
-									t_config.text = damages
-									t_config.fill = 'green'
-								}
-								else {
-									t_config.text = 'miss'
-									t_config.fill = 'red'
-
-								}
-
-								var text = new Konva.Text(t_config)
-
-								setTimeout( () => {
-									text.destroy()
-								}, 200)
-
-								this.layer.add(text)
-
-
-								// console.log('anim start')
-								player.attackAnimation.start()
-
-							}, time)
-							time += 300
-						}
-						setTimeout( () => {
-							player.attrs.ready = false
-							player.resetAction()
-						}, time)
-
-
-					}
-					// menu.selected = group
-					// 	menu.hidden = false
-					// 	menu.x = e.evt.clientX
-					// 	menu.y = 0e.evt.clientY
 				}
 				promises.push( make( this.teamB[i] ) )
 			}
@@ -154,19 +114,21 @@ class BattleStage {
 			(_time) => _time.ticks += 1
 		]
 
+		let divisor = 10
+
 		Promise.all(promises).then( _ => {
 			_.forEach( e => this.layer.add(e) )
 
 			this.stack.extend( this.layer.children.map( (e) => (_time) => {
 				if (e.nodeType == 'Group') {
-					e.update(1 / 60)
+					e.update(1 / divisor)
 					this.layer.draw()
 				}
 			}))
 
 			this.stack.extend([(_time) => {
-				if (parseInt(_time.ticks / 60) > _time.time)
-					_time.time = parseInt(_time.ticks / 60)
+				if (parseInt(_time.ticks / divisor) > _time.time)
+					_time.time = parseInt(_time.ticks / divisor)
 			}])
 
 			this.layer.draw()

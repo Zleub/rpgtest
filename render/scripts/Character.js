@@ -6,7 +6,7 @@ class Character {
 			let group = new Konva.Group({
 				lvl: 1,
 				strength: 5,
-				agility: 5,
+				agility: getRandomInt(2, 6),
 				vitality: 5,
 				intellect: 5,
 				mind: 5,
@@ -38,6 +38,14 @@ class Character {
 			e.x(0)
 			e.y(0)
 
+			group.add( new Konva.Rect({
+				width: 64,
+				height: 64,
+				stroke: 'black'
+			}))
+			group.lock = false
+			group.children[0].hide()
+
 			group.add(e)
 			group.character = e
 
@@ -64,6 +72,9 @@ class Character {
 			})
 
 			group.add(Actionjauge)
+			group.resetAction = () => {
+				Actionjauge.width(0)
+			}
 
 			group.add(new Konva.Rect({
 				x: 2,
@@ -85,6 +96,8 @@ class Character {
 
 			group.loseLife = (x) => {
 				Lifejauge.width( Lifejauge.width() - x)
+				if (Lifejauge.width() < 0)
+					group.destroy()
 			}
 
 			group.add(new Konva.Rect({
@@ -132,21 +145,45 @@ class Character {
 				group.attrs.mind = group.attrs.mind + m
 			}
 
-			group.resetAction = () => {
-				Actionjauge.width(0)
-			}
 			group.update = (incr) => {
 				Actionjauge.width( Actionjauge.width() + incr * group.attrs.agility)
-				if ( Actionjauge.width() >= 60 ) {
-					group.fire('ready')
+				// console.log(Actionjauge.width())
+				if ( Actionjauge.width() > 60 ) {
+					group.attrs.ready = true
 					Actionjauge.width(60)
+					group.fire('ready')
 				}
 			}
 
-			if (opt.item.click)
-				group.on('click', opt.item.click(group))
-			if (opt.item.ready)
-				group.on('ready', opt.item.ready(group))
+			let eventTable = [
+				// konva
+				'mouseover',
+				'mousemove',
+				'mouseout',
+				'mouseenter',
+				'mouseleave',
+				'mousedown',
+				'mouseup',
+				'wheel',
+				'click',
+				'dblclick',
+				'touchstart',
+				'touchmove',
+				'touchend',
+				'tap',
+				'dbltap',
+				'dragstart',
+				'dragmove',
+				'dragend',
+
+				// adebray
+				'ready',
+			]
+
+			eventTable.forEach( (e) => {
+				if (opt.item[e])
+					group.on(e, opt.item[e](group))
+			})
 
 			callback(group)
 		})

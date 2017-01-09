@@ -8,7 +8,7 @@ Array.prototype.extend = function (other_array) {
     other_array.forEach( (v) => this.push(v) )
 }
 
-cropImage = function (index, name) {
+cropImage = function (e, index, name) {
 	return new Promise( (res, rej) => {
 		let container = document.createElement('div')
 		let layer = new Konva.Layer()
@@ -51,7 +51,7 @@ makeImage = function (item) {
 
 				let n = name.match('\\w://([\\w_/]+)')[1] + '/' + i
 				if (!localStorage.getItem(n)) {
-					array.push( this.cropImage(i, n) )
+					array.push( this.cropImage(e, i, n) )
 				}
 				else {
 					array.push( new Promise( (res, rej) => {
@@ -88,4 +88,60 @@ make = function (item) {
 		})
 
 	})
+}
+
+makeAttack = function (layer, attacker, defender) {
+	let player = attacker
+	let target = defender
+	let hits = config.Number_of_Hits(player).left
+	let hit_rate = config.Hit_Rate(player, target)
+	let damages = config.Basic_Damage(player, target).left
+
+	let time = 0
+	for (var i = 0; i < hits; i++) {
+		setTimeout(() => {
+
+			setTimeout( () => {
+				// console.log('anim end')
+				player.attackAnimation.stop()
+				player.replace()
+			}, 200)
+
+			let t_config = {
+			  x: target.x() + 32,
+			  y: target.y() - 42,
+			  text: damages,
+			  fontSize: 30,
+			  fontFamily: 'Calibri',
+			  fill: 'green'
+			}
+			if ( hit_rate > getRandomInt(0, 100) ) {
+				target.loseLife(damages)
+				t_config.text = damages
+				t_config.fill = 'green'
+			}
+			else {
+				t_config.text = 'miss'
+				t_config.fill = 'red'
+
+			}
+
+			var text = new Konva.Text(t_config)
+
+			setTimeout( () => {
+				text.destroy()
+			}, 200)
+
+			layer.add(text)
+			// console.log('anim start')
+			player.attackAnimation.start()
+
+		}, time)
+		time += 300
+	}
+
+	// setTimeout( () => {
+		player.attrs.ready = false
+		player.resetAction()
+	// }, 100)
 }

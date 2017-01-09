@@ -45,7 +45,7 @@ let config = {
     },
 
     Basic_Damage: (character, enemy) => {
-    	console.log(character, enemy)
+    	// console.log(character, enemy)
     	return {
     		left: parseInt( ( character.attrs.attack
 	    		+ character.attrs.strength
