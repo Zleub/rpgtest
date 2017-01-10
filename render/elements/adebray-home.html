@@ -1,10 +1,14 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/marked-element/marked-element.html">
 
 <link rel="import" href="../elements/adebray-work.html">
 <link rel="import" href="../elements/adebray-map.html">
 <link rel="import" href="../elements/adebray-pretty.html">
+<link rel="import" href="../elements/adebray-graph.html">
+<link rel="import" href="../elements/adebray-collapse.html">
 
 <dom-module id="adebray-home">
 	<template>
@@ -20,6 +24,8 @@
 			<paper-tab route=map>map</paper-tab>
 			<paper-tab route=pretty>pretty</paper-tab>
 			<paper-tab route=work>work</paper-tab>
+			<paper-tab route=graph>graph</paper-tab>
+			<paper-tab route=todo>todo</paper-tab>
 		</paper-tabs>
 		<iron-pages attr-for-selected=route selected={{route}}>
 			<section route="map">
@@ -31,6 +37,21 @@
 			<section route="work">
 				<adebray-work></adebray-work>
 			</section>
+			<section route="graph">
+				<adebray-graph></adebray-graph>
+			</section>
+			<section route="todo">
+				<iron-ajax
+					auto
+					url="../TODO.md"
+					handle-as="text"
+					last-response="{{res}}">
+				</iron-ajax>
+
+				<marked-element markdown={{res}}>
+      				<div class="markdown-html"></div>
+    			</marked-element>
+			</section>
 		</iron-pages>
 
 	</template>
@@ -41,7 +62,7 @@
 			properties: {
 				route: {
 					type: String,
-					value: 'work',
+					value: 'todo',
 					observer: 'log'
 				}
 			},

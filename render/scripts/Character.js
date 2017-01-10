@@ -6,25 +6,26 @@ class Character {
 			let group = new Konva.Group({
 				lvl: 1,
 				strength: 5,
-				agility: getRandomInt(2, 6),
+				agility: 5,
 				vitality: 5,
 				intellect: 5,
 				mind: 5,
 
-				attack: 1,
-				defense: 1,
-				magic_defense: 1,
+				hp: 100,
+				hp_max: 100,
 
-				head: {},
- 				body: items.Vest,
- 				arm: {},
- 				left: items.Knife,
- 				right: {},
+				head: opt.item.head || {},
+ 				body: opt.item.body || {},
+ 				arm: opt.item.arm || {},
+ 				left: opt.item.left || {},
+ 				right: opt.item.right || {},
 
 				rightproficiency: 1,
 				leftproficiency: 1,
 
 				weight: 1,
+
+				job: window[opt.item.class],
 				jobpoints: 0,
 				joblvl: 1,
 
@@ -37,6 +38,49 @@ class Character {
 			})
 			e.x(0)
 			e.y(0)
+
+			group.attrs.attack = () => {
+				let a = 1
+
+				if (group.attrs.left.attack)
+					a += group.attrs.left.attack
+				else if (group.attrs.right.attack)
+					a += group.attrs.right.attack
+
+				return a
+			}
+			group.attrs.defense = () => {
+				let a = 1
+
+				if (group.attrs.left.defense)
+					a += group.attrs.left.defense
+				if (group.attrs.right.defense)
+					a += group.attrs.right.defense
+				if (group.attrs.head.defense)
+					a += group.attrs.head.defense
+				if (group.attrs.body.defense)
+					a += group.attrs.body.defense
+				if (group.attrs.arm.defense)
+					a += group.attrs.arm.defense
+
+				return a
+			}
+			group.attrs.magic_defense = () => {
+				let a = 1
+
+				if (group.attrs.left.magic_defense)
+					a += group.attrs.left.magic_defense
+				if (group.attrs.right.magic_defense)
+					a += group.attrs.right.magic_defense
+				if (group.attrs.head.magic_defense)
+					a += group.attrs.head.magic_defense
+				if (group.attrs.body.magic_defense)
+					a += group.attrs.body.magic_defense
+				if (group.attrs.arm.magic_defense)
+					a += group.attrs.arm.magic_defense
+
+				return a
+			}
 
 			group.add( new Konva.Rect({
 				width: 64,
@@ -93,10 +137,12 @@ class Character {
 			})
 
 			group.add(Lifejauge)
-
 			group.loseLife = (x) => {
-				Lifejauge.width( Lifejauge.width() - x)
-				if (Lifejauge.width() < 0)
+				group.attrs.hp -= x
+
+				let pc = group.attrs.hp / group.attrs.hp_max
+				Lifejauge.width( pc * 60 )
+				if (group.attrs.hp < 0)
 					group.destroy()
 			}
 
@@ -117,13 +163,6 @@ class Character {
 			})
 
 			group.add(Manajauge)
-
-			// console.log(document.querySelector('adebray-config').jobs[opt.item.class])
-			// console.log( config.jobs[opt.item.class](1) )
-			// console.log(group.attrs.lvl)
-			// group.attack = () => {
-			// 	if (group.left.attack)
-			// }
 
 			group.attackAnimation = new Konva.Animation( function(frame) {
   				var dist = Math.cos(frame.time / 30) * 10
@@ -147,7 +186,7 @@ class Character {
 
 			group.update = (incr) => {
 				Actionjauge.width( Actionjauge.width() + incr * group.attrs.agility)
-				// console.log(Actionjauge.width())
+
 				if ( Actionjauge.width() > 60 ) {
 					group.attrs.ready = true
 					Actionjauge.width(60)

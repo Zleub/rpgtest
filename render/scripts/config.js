@@ -1,4 +1,4 @@
-let Freelancer = {
+Freelancer = {
 	name: 'Freelancer',
 	commands: [],
 	stats: {
@@ -47,22 +47,22 @@ let config = {
     Basic_Damage: (character, enemy) => {
     	// console.log(character, enemy)
     	return {
-    		left: parseInt( ( character.attrs.attack
+    		left: parseInt( ( character.attrs.attack()
 	    		+ character.attrs.strength
 	    		- enemy.attrs.vitality / 2
-	    		- enemy.attrs.defense / 2
+	    		- enemy.attrs.defense() / 2
 	    		+ character.attrs.joblvl / 11
 	    		+ character.attrs.leftproficiency / 9)
-	    			* (character.attrs.attack / enemy.attrs.defense)
+	    			* (character.attrs.attack() / enemy.attrs.defense()) > 2 ? 2 : (character.attrs.attack() / enemy.attrs.defense())
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */),
-	    	right: parseInt( ( character.attrs.attack
+	    	right: parseInt( ( character.attrs.attack()
 	    		+ character.attrs.strength
 	    		- enemy.attrs.vitality / 2
-	    		- enemy.attrs.defense / 2
+	    		- enemy.attrs.defense() / 2
 	    		+ character.attrs.joblvl / 11
-	    		+ character.attrs.leftproficiency / 9)
-	    			* (character.attrs.attack / enemy.attrs.defense)
+	    		+ character.attrs.rightproficiency / 9)
+	    			* (character.attrs.attack() / enemy.attrs.defense()) > 2 ? 2 : (character.attrs.attack() / enemy.attrs.defense())
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */)
 	    }

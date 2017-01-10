@@ -1,0 +1,126 @@
+<link rel=import href=../bower_components/google-chart/google-chart.html>
+
+<dom-module id="adebray-graph">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+
+			:host ::content google-chart {
+			  height: 450px;
+			  width: 50em;
+			}
+		</style>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'adebray-graph',
+
+			attached: function () {
+				var chart = document.createElement('google-chart')
+
+				chart.type = 'area'
+				chart.cols = [
+					{ label: 'Items', type: 'string' },
+					{ label: 'Attack', type: 'number' }
+				]
+
+				chart.rows = Object.keys(weapons).map( e => [e, weapons[e].attack] )
+
+				this.appendChild(chart)
+
+				let bs = new BattleStage({
+					layer: {
+						children: [],
+						width: () => 100,
+						height: () => 100,
+						add: function (e) { this.children.push(e) },
+						draw: () => {}
+					},
+					teamA: [{
+						position: 6,
+						image: 'images2/combat_dummy/BODY_animation.png',
+						class: 'Freelancer',
+						body: items.Vest,
+						left: items.Knife
+					}],
+					teamB: [{
+						position: 6,
+						image: 'images2/combat_dummy/BODY_animation.png',
+						class: 'Freelancer'
+					}, {
+						position: 6,
+						image: 'images2/combat_dummy/BODY_animation.png',
+						class: 'Freelancer',
+						body: items.Vest
+					}, {
+						position: 6,
+						image: 'images2/combat_dummy/BODY_animation.png',
+						class: 'Freelancer',
+						head: items['Leather Cap'],
+						body: items.Vest,
+						left: items.Knife
+					}, {
+						position: 6,
+						image: 'images2/combat_dummy/BODY_animation.png',
+						class: 'Freelancer',
+						head: items['Leather Cap'],
+						body: items.Vest,
+						arm: items['Bronze Bracers'],
+						left: items.Knife
+					}],
+					callback: (bs) => {
+						var chart = document.createElement('google-chart')
+
+						chart.type = 'combo'
+						chart.options = {
+							 hAxis: {title: "Attack"},
+							 vAxis: {title: "Damage"},
+						}
+						chart.cols = [
+							{ label: 'ID', type: 'string' },
+							{ label: 'Attack Value', type: 'number' },
+							{ label: 'Defense Value', type: 'number' },
+							{ label: 'Damage Value', type: 'number' }
+						]
+
+						let stack = []
+						bs.layer.children.reduce( (p, e) => {
+							stack.push([
+								p.attrs.left.name + ' vs ' +
+									(e.attrs.head.name == undefined ? '' : e.attrs.head.name) + ', ' +
+									(e.attrs.body.name == undefined ? '' : e.attrs.body.name) + ', ' +
+									(e.attrs.arm.name == undefined ? '' : e.attrs.arm.name) + ', ' ,
+								p.attrs.attack(),
+								e.attrs.defense(),
+								config.Basic_Damage( p, e).left
+							])
+							return p
+						})
+						bs.layer.children.reduce( (p, e) => {
+							stack.push([
+								e.attrs.left.name + ' vs ' +
+									(p.attrs.head.name == undefined ? '' : p.attrs.head.name) + ', ' +
+									(p.attrs.body.name == undefined ? '' : p.attrs.body.name) + ', ' +
+									(p.attrs.arm.name == undefined ? '' : p.attrs.arm.name) + ', ',
+								e.attrs.attack(),
+								p.attrs.defense(),
+								config.Basic_Damage(e, p).left
+							])
+							return p
+						})
+
+						chart.rows = stack
+
+						this.appendChild(chart)
+					}
+				})
+
+
+
+			}
+		});
+	</script>
+</dom-module>

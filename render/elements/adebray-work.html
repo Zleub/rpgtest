@@ -5,6 +5,7 @@
 <link rel=import href=../bower_components/paper-input/paper-input.html>
 <link rel=import href=../bower_components/iron-icons/iron-icons.html>
 <link rel=import href=../bower_components/iron-image/iron-image.html>
+<link rel=import href=../bower_components/iron-list/iron-list.html>
 <link rel=import href=../bower_components/paper-icon-button/paper-icon-button.html>
 
 <link rel=import href=mdi.html>
@@ -94,19 +95,34 @@
 			<paper-item id=item>Item</paper-item>
 			<paper-item id=menu>Menu</paper-item>
 		</div>
-<!-- 		<div class='horizontal'>
-			<paper-item>strength: {{selected.attrs.strength}}</paper-item>
-			<paper-item>agility: {{selected.attrs.agility}}</paper-item>
-			<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
-			<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
-			<paper-item>mind: {{selected.attrs.mind}}</paper-item>
+
+		<div class="layout horizontal centered">
+			<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
+			<paper-item style="width: 15em">joblvl: {{selected.attrs.joblvl}}</paper-item>
 		</div>
-		<div class='horizontal'>
-			<paper-item>head: {{selected.attrs.head.name}}</paper-item>
-			<paper-item>body: {{selected.attrs.body.name}}</paper-item>
-			<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
+
+		<div class="layout horizontal centered">
+			<div style="width: 15em">
+				<paper-item>strength: {{selected.attrs.strength}}</paper-item>
+				<paper-item>agility: {{selected.attrs.agility}}</paper-item>
+				<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
+				<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
+				<paper-item>mind: {{selected.attrs.mind}}</paper-item>
+			</div>
+			<div style="width: 15em">
+				<paper-item>attack: {{do(selected.attrs, 'attack')}}</paper-item>
+				<paper-item>defense: {{do(selected.attrs, 'defense')}}</paper-item>
+				<paper-item>magic_defense: {{do(selected.attrs, 'magic_defense')}}</paper-item>
+			</div>
+			<div style="width: 15em">
+				<paper-item>head: {{selected.attrs.head.name}}</paper-item>
+				<paper-item>body: {{selected.attrs.body.name}}</paper-item>
+				<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
+				<paper-item>left: {{selected.attrs.left.name}}</paper-item>
+				<paper-item>right: {{selected.attrs.right.name}}</paper-item>
+			</div>
 		</div>
- -->
+
 		<div class=centered>
 			<div class="layout vertical">
 				<h3>Notes</h3>
@@ -137,20 +153,23 @@
 				target: {
 					type: Object,
 					value: function() {
-						return window
+						return document
 					}
 				},
 				teamA: {
 					type: Array,
 					value: [
 						{
-							position: 7,
+							position: 6,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
+							class: 'Freelancer',
+							body: items.Vest,
+							left: items.Knife
 						},{
-							position: 7,
+							position: 6,
 							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
+							class: 'Freelancer',
+							left: items.Knife
 						}
 					]
 				},
@@ -159,13 +178,13 @@
 					value: [
 						{
 
-							position: 1,
-							image: 'images2/combat_dummy/BODY_animation.png',
+							position: 2,
+							image: 'images2/combat_dummy/test.png',
 							class: 'Freelancer'
 						},{
 
-							position: 1,
-							image: 'images2/combat_dummy/BODY_animation.png',
+							position: 2,
+							image: 'images2/combat_dummy/test.png',
 							class: 'Freelancer'
 						}
 					]
@@ -189,6 +208,10 @@
 			observers: [
 				'isSelected(selected)'
 			],
+
+			do: function (obj, method) {
+				return obj[method]()
+			},
 
 			isOn: function (mode) {
 				return mode === true
@@ -279,7 +302,10 @@
 					layer,
 					teamA: this.teamA,
 					teamB: this.teamB,
-					callback: (bs) => this.set('stack', bs.stack)
+					callback: (bs) => {
+						this.set('stack', bs.stack)
+						render()
+					}
 				})
 
 				let render = () => {

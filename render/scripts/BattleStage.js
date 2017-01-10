@@ -1,3 +1,72 @@
+let Player_conf = {
+	mouseenter : (group) => (e) => {
+		e.evt.preventDefault()
+		e.evt.stopPropagation()
+		e.cancelBubble = true
+
+		group.children[0].show()
+		// console.log('mouseenter', group )
+	},
+
+	mouseleave : (group) => (e) => {
+		e.evt.preventDefault()
+		e.evt.stopPropagation()
+		e.cancelBubble = true
+
+		if (group.lock == false)
+			group.children[0].hide()
+		// console.log('mouseleave', group )
+	},
+
+	click : (group) => (e) => {
+		e.evt.preventDefault()
+		e.evt.stopPropagation()
+		e.cancelBubble = true
+
+		let menu = document.querySelector('adebray-work')
+
+		if (menu.selected.attrs) {
+			menu.selected.lock = false
+			menu.selected.children[0].hide()
+		}
+
+		menu.selected = group
+		menu.selected.children[0].show()
+
+		group.lock = true
+	},
+
+	ready : (group) => (e) => {
+		let menu = document.querySelector('adebray-work')
+
+		if (menu.selected == e.target) {
+			menu.$.fight.disabled = false
+			menu.$.item.disabled = false
+		}
+	}
+}
+
+let IA_conf = {
+	ready : (group) => (e) => {
+		e.cancelBubble = true
+
+		group.attrs.ready = false
+		group.resetAction()
+
+		if (this.layer.children.length > 3)
+			makeAttack(this.layer, group, this.layer.children[getRandomInt(1, this.layer.children.length - 2)])
+	},
+	click : (group) => (e) => {
+		e.evt.preventDefault()
+		e.evt.stopPropagation()
+		e.cancelBubble = true
+
+		let menu = document.querySelector('adebray-work')
+		if (menu.$.fight.focused && menu.selected.attrs.ready)
+			makeAttack(this.layer, menu.selected, group)
+	}
+}
+
 class BattleStage {
 	constructor (opt) {
 		this.layer = opt.layer
@@ -15,47 +84,11 @@ class BattleStage {
 			if (this.teamA[i]) {
 				this.teamA[i].x = w - cmp * step
 				this.teamA[i].y = h + cmp * step
-				this.teamA[i].mouseenter = (group) => (e) => {
-					e.evt.preventDefault()
-					e.evt.stopPropagation()
-					e.cancelBubble = true
 
-					group.children[0].show()
-					// console.log('mouseenter', group )
-				}
-				this.teamA[i].mouseleave = (group) => (e) => {
-					e.evt.preventDefault()
-					e.evt.stopPropagation()
-					e.cancelBubble = true
+				Object.keys(Player_conf).forEach( k => {
+					this.teamA[i][k] = Player_conf[k]
+				})
 
-					if (group.lock == false)
-						group.children[0].hide()
-					// console.log('mouseleave', group )
-				}
-				this.teamA[i].click = (group) => (e) => {
-					// this.
-					e.evt.preventDefault()
-					e.evt.stopPropagation()
-					e.cancelBubble = true
-					// console.log('click')
-					let menu = document.querySelector('adebray-work')
-
-					if (menu.selected.attrs) {
-						menu.selected.lock = false
-						menu.selected.children[0].hide()
-					}
-
-					menu.selected = group
-
-					group.lock = true
-				}
-				this.teamA[i].ready = (group) => (e) => {
-					let menu = document.querySelector('adebray-work')
-					if (menu.selected == e.target) {
-						menu.$.fight.disabled = false
-						menu.$.item.disabled = false
-					}
-				}
 				promises.push( make( this.teamA[i] ) )
 			}
 
@@ -76,25 +109,11 @@ class BattleStage {
 			if (this.teamB[i]) {
 				this.teamB[i].x = w + cmp * step
 				this.teamB[i].y = h + cmp * step
-				this.teamB[i].ready = (group) => (e) => {
-					e.cancelBubble = true
-					group.attrs.ready = false
-					group.resetAction()
-					if (this.layer.children.length > 3)
-						makeAttack(this.layer, group, this.layer.children[getRandomInt(1, this.layer.children.length - 2)])
-				}
-				this.teamB[i].click = (group) => (e) => {
-					// this.
-					e.evt.preventDefault()
-					e.evt.stopPropagation()
-					e.cancelBubble = true
-					// console.log('click')
-					let menu = document.querySelector('adebray-work')
 
-					if (menu.$.fight.focused && menu.selected.attrs.ready)
-						makeAttack(this.layer, menu.selected, group)
+				Object.keys(IA_conf).forEach( k => {
+					this.teamB[i][k] = IA_conf[k]
+				})
 
-				}
 				promises.push( make( this.teamB[i] ) )
 			}
 

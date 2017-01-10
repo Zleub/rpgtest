@@ -117,8 +117,11 @@ makeAttack = function (layer, attacker, defender) {
 			}
 			if ( hit_rate > getRandomInt(0, 100) ) {
 				target.loseLife(damages)
-				t_config.text = damages
-				t_config.fill = 'green'
+				t_config.text = String(damages)
+				if (damages <= 0)
+					t_config.fill = 'grey'
+				else
+					t_config.fill = 'green'
 			}
 			else {
 				t_config.text = 'miss'

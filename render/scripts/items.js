@@ -1,11 +1,15 @@
-let items = {
+let weapons = {
 	'Knife': {
 		name: 'Knife',
 		attack: 8,
 		effect: [],
 		bonus: [],
-		job: ['FR','WA','RM','TH','DK','BA','NI','OK']
-	},
+		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
+	}
+}
+
+let items = {
+	'Knife': weapons.Knife,
 
 	'Leather Cap' : {
 		name: 'Leather Cap',
