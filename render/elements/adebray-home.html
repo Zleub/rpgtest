@@ -27,20 +27,20 @@
 			<paper-tab route=graph>graph</paper-tab>
 			<paper-tab route=todo>todo</paper-tab>
 		</paper-tabs>
-		<iron-pages attr-for-selected=route selected={{route}}>
-			<section route="map">
+		<iron-pages attr-for-selected=id selected={{route}}>
+			<section id="map">
 				<adebray-map></adebray-map>
 			</section>
-			<section route="pretty">
+			<section id="pretty">
 				<adebray-pretty></adebray-pretty>
 			</section>
-			<section route="work">
+			<section id="work">
 				<adebray-work></adebray-work>
 			</section>
-			<section route="graph">
-				<adebray-graph></adebray-graph>
+			<section id="graph">
+				<adebray-graph id=agraph></adebray-graph>
 			</section>
-			<section route="todo">
+			<section id="todo">
 				<iron-ajax
 					auto
 					url="../TODO.md"
@@ -48,7 +48,7 @@
 					last-response="{{res}}">
 				</iron-ajax>
 
-				<marked-element markdown={{res}}>
+				<marked-element id="marked" markdown={{res}}>
       				<div class="markdown-html"></div>
     			</marked-element>
 			</section>
@@ -68,7 +68,8 @@
 			},
 
 			log: function (e) {
-				console.log(e)
+				if (e == 'graph')
+					this.$.agraph.fire('onShow')
 			}
 
 		});

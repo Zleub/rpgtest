@@ -18,7 +18,15 @@
 		Polymer({
 			is: 'adebray-graph',
 
-			attached: function () {
+			listeners: {
+				'onShow' : 'show'
+			},
+
+			show: function () {
+				while (this.firstChild) {
+				    this.removeChild(this.firstChild);
+				}
+
 				var chart = document.createElement('google-chart')
 
 				chart.type = 'area'
