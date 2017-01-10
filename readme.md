@@ -5,7 +5,7 @@ git clone --recursive https://github.com/Zleub/rpgtest.git
 cd rpgtest
 npm install
 cd render
-bower install
+./bower install
 cd ..
 ./electron .
 ```
