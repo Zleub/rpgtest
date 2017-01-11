@@ -89,37 +89,39 @@
 			<div id='container'></div>
 		</div>
 
-		<div id='content' class='horizontal centered'>
-			<iron-image class='portrait' src="{{selected.character.attrs.image.src}}" preload sizing="cover"></iron-image>
-			<paper-item id=fight>Fight</paper-item>
-			<paper-item id=item>Item</paper-item>
-			<paper-item id=menu>Menu</paper-item>
-		</div>
-
-		<div class="layout horizontal centered">
-			<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
-			<paper-item style="width: 15em">joblvl: {{selected.attrs.joblvl}}</paper-item>
-		</div>
-
-		<div class="layout horizontal centered">
-			<div style="width: 15em">
-				<paper-item>strength: {{selected.attrs.strength}}</paper-item>
-				<paper-item>agility: {{selected.attrs.agility}}</paper-item>
-				<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
-				<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
-				<paper-item>mind: {{selected.attrs.mind}}</paper-item>
+		<div style='top: -100px'>
+			<div id='content' class='horizontal centered'>
+				<iron-image class='portrait' src="{{selected.character.attrs.image.src}}" preload sizing="cover"></iron-image>
+				<paper-item id=fight>Fight</paper-item>
+				<paper-item id=item>Item</paper-item>
+				<paper-item id=menu>Menu</paper-item>
 			</div>
-			<div style="width: 15em">
-				<paper-item>attack: {{do(selected.attrs, 'attack')}}</paper-item>
-				<paper-item>defense: {{do(selected.attrs, 'defense')}}</paper-item>
-				<paper-item>magic_defense: {{do(selected.attrs, 'magic_defense')}}</paper-item>
+
+			<div class="layout horizontal centered">
+				<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
+				<paper-item style="width: 15em">joblvl: {{selected.attrs.joblvl}}</paper-item>
 			</div>
-			<div style="width: 15em">
-				<paper-item>head: {{selected.attrs.head.name}}</paper-item>
-				<paper-item>body: {{selected.attrs.body.name}}</paper-item>
-				<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
-				<paper-item>left: {{selected.attrs.left.name}}</paper-item>
-				<paper-item>right: {{selected.attrs.right.name}}</paper-item>
+
+			<div class="layout horizontal centered">
+				<div style="width: 15em">
+					<paper-item>strength: {{selected.attrs.strength}}</paper-item>
+					<paper-item>agility: {{selected.attrs.agility}}</paper-item>
+					<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
+					<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
+					<paper-item>mind: {{selected.attrs.mind}}</paper-item>
+				</div>
+				<div style="width: 15em">
+					<paper-item>attack: {{do(selected.attrs, 'attack')}}</paper-item>
+					<paper-item>defense: {{do(selected.attrs, 'defense')}}</paper-item>
+					<paper-item>magic_defense: {{do(selected.attrs, 'magic_defense')}}</paper-item>
+				</div>
+				<div style="width: 15em">
+					<paper-item>head: {{selected.attrs.head.name}}</paper-item>
+					<paper-item>body: {{selected.attrs.body.name}}</paper-item>
+					<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
+					<paper-item>left: {{selected.attrs.left.name}}</paper-item>
+					<paper-item>right: {{selected.attrs.right.name}}</paper-item>
+				</div>
 			</div>
 		</div>
 
