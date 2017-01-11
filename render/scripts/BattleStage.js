@@ -43,6 +43,10 @@ let Player_conf = {
 			menu.$.fight.disabled = false
 			menu.$.item.disabled = false
 		}
+
+		let rand = getRandomInt(3, 5)
+		let enemy = this.layer.children[rand]
+		makeAttack(this.layer, group, enemy)
 	}
 }
 
@@ -53,8 +57,9 @@ let IA_conf = {
 		group.attrs.ready = false
 		group.resetAction()
 
-		if (this.layer.children.length > 3)
-			makeAttack(this.layer, group, this.layer.children[getRandomInt(1, this.layer.children.length - 2)])
+		let rand = getRandomInt(1, 3)
+		let enemy = this.layer.children[rand]
+		makeAttack(this.layer, group, enemy)
 	},
 	click : (group) => (e) => {
 		e.evt.preventDefault()
