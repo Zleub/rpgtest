@@ -4,7 +4,7 @@ let Player_conf = {
 		e.evt.stopPropagation()
 		e.cancelBubble = true
 
-		group.children[0].show()
+		group.selectionRect.show()
 		// console.log('mouseenter', group )
 	},
 
@@ -14,7 +14,7 @@ let Player_conf = {
 		e.cancelBubble = true
 
 		if (group.lock == false)
-			group.children[0].hide()
+			group.selectionRect.hide()
 		// console.log('mouseleave', group )
 	},
 
@@ -27,11 +27,11 @@ let Player_conf = {
 
 		if (menu.selected.attrs) {
 			menu.selected.lock = false
-			menu.selected.children[0].hide()
+			menu.selected.selectionRect.hide()
 		}
 
 		menu.selected = group
-		menu.selected.children[0].show()
+		menu.selected.selectionRect.show()
 
 		group.lock = true
 	},
@@ -55,7 +55,7 @@ let IA_conf = {
 		e.cancelBubble = true
 
 		group.attrs.ready = false
-		group.resetAction()
+		group.actionJauge.reset()
 
 		let rand = getRandomInt(1, 3)
 		let enemy = this.layer.children[rand]
@@ -94,7 +94,7 @@ class BattleStage {
 					this.teamA[i][k] = Player_conf[k]
 				})
 
-				promises.push( make( this.teamA[i] ) )
+				promises.push( characterPromise( this.teamA[i] ) )
 			}
 
 			cmp += 1
@@ -119,7 +119,7 @@ class BattleStage {
 					this.teamB[i][k] = IA_conf[k]
 				})
 
-				promises.push( make( this.teamB[i] ) )
+				promises.push( characterPromise( this.teamB[i] ) )
 			}
 
 			cmp += 1
@@ -141,7 +141,10 @@ class BattleStage {
 		let divisor = 10
 
 		Promise.all(promises).then( _ => {
-			_.forEach( e => this.layer.add(e) )
+			_.forEach( e => {
+				console.log('layer add')
+				this.layer.add(e)
+			})
 
 			this.stack.extend( this.layer.children.map( (e) => (_time) => {
 				if (e.nodeType == 'Group') {

@@ -7,6 +7,42 @@ let weapons = {
 		accuracy: 85,
 		weight: 0,
 		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
+	},
+	'Kn12ife': {
+		name: 'Knife',
+		attack: 8,
+		effect: [],
+		bonus: [],
+		accuracy: 85,
+		weight: 0,
+		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
+	},
+	'Kni13fe': {
+		name: 'Knife',
+		attack: 8,
+		effect: [],
+		bonus: [],
+		accuracy: 85,
+		weight: 0,
+		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
+	},
+	'Kni31e': {
+		name: 'Knife',
+		attack: 8,
+		effect: [],
+		bonus: [],
+		accuracy: 85,
+		weight: 0,
+		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
+	},
+	'Kni14fe': {
+		name: 'Knife',
+		attack: 8,
+		effect: [],
+		bonus: [],
+		accuracy: 85,
+		weight: 0,
+		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
 	}
 }
 

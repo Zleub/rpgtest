@@ -99,7 +99,7 @@
 
 			<div class="layout horizontal centered">
 				<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
-				<paper-item style="width: 15em">joblvl: {{do(selected.attrs, 'joblvl')}}</paper-item>
+				<paper-item style="width: 15em">joblvl: {{do(selected, 'joblvl')}}</paper-item>
 			</div>
 
 			<div class="layout horizontal centered">
@@ -111,9 +111,9 @@
 					<paper-item>mind: {{selected.attrs.mind}}</paper-item>
 				</div>
 				<div style="width: 15em">
-					<paper-item>attack: {{do(selected.attrs, 'attack')}}</paper-item>
-					<paper-item>defense: {{do(selected.attrs, 'defense')}}</paper-item>
-					<paper-item>magic_defense: {{do(selected.attrs, 'magic_defense')}}</paper-item>
+					<paper-item>attack: {{do(selected, 'attack')}}</paper-item>
+					<paper-item>defense: {{do(selected, 'defense')}}</paper-item>
+					<paper-item>magic_defense: {{do(selected, 'magic_defense')}}</paper-item>
 				</div>
 				<div style="width: 15em">
 					<paper-item>head: {{selected.attrs.head.name}}</paper-item>
@@ -196,7 +196,8 @@
 			],
 
 			do: function (obj, method) {
-				return obj[method]()
+				if (obj[method])
+					return obj[method]()
 			},
 
 			isOn: function (mode) {

@@ -82,11 +82,8 @@ makeImage = function (item) {
 
 make = function (item) {
 	return new Promise( (res, rej) => {
-		new Character({
-			item,
-			callback: res
-		})
-
+		item.callback = res
+		new Character(item)
 	})
 }
 
@@ -103,7 +100,7 @@ makeAttack = function (layer, attacker, defender) {
 
 			setTimeout( () => {
 				// console.log('anim end')
-				player.attackAnimation.stop()
+				// player.attackAnimation.stop()
 				player.replace()
 			}, 200)
 
@@ -116,7 +113,8 @@ makeAttack = function (layer, attacker, defender) {
 			  fill: 'green'
 			}
 			if ( hit_rate > getRandomInt(0, 100) ) {
-				target.loseLife(damages)
+
+				target.life(damages)
 				t_config.text = String(damages)
 				if (damages <= 0)
 					t_config.fill = 'grey'
@@ -137,7 +135,7 @@ makeAttack = function (layer, attacker, defender) {
 
 			layer.add(text)
 			// console.log('anim start')
-			player.attackAnimation.start()
+			// player.attackAnimation.start()
 
 		}, time)
 		time += 300
@@ -145,6 +143,6 @@ makeAttack = function (layer, attacker, defender) {
 
 	// setTimeout( () => {
 		player.attrs.ready = false
-		player.resetAction()
+		player.actionJauge.reset()
 	// }, 100)
 }

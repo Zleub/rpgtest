@@ -22,12 +22,12 @@ let config = {
 		return {
 			left: parseInt( 1
 		+ character.attrs.agility / 7
-		+ character.attrs.joblvl() / 14
+		+ character.joblvl() / 14
 		+ (character.attrs.leftproficiency - 1) / 7
 		- /* Wt. of Equipment */ 1 / 6 ),
 			right: parseInt( 1
 		+ character.attrs.agility / 7
-		+ character.attrs.joblvl() / 14
+		+ character.joblvl() / 14
 		+ (character.attrs.rightproficiency - 1) / 7
 		- /* Wt. of Equipment */ 1 / 6 )
 		}
@@ -36,22 +36,22 @@ let config = {
     Basic_Damage: (character, enemy) => {
     	// console.log(character, enemy)
     	return {
-    		left: parseInt( ( character.attrs.attack()
+    		left: parseInt( ( character.attack()
 	    		+ character.attrs.strength
 	    		- enemy.attrs.vitality / 2
-	    		- enemy.attrs.defense() / 2
-	    		+ character.attrs.joblvl() / 11
+	    		- enemy.defense() / 2
+	    		+ character.joblvl() / 11
 	    		+ character.attrs.leftproficiency / 9)
-	    			* (character.attrs.attack() / enemy.attrs.defense()) > 2 ? 2 : (character.attrs.attack() / enemy.attrs.defense())
+	    			* (character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense())
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */),
-	    	right: parseInt( ( character.attrs.attack()
+	    	right: parseInt( ( character.attack()
 	    		+ character.attrs.strength
 	    		- enemy.attrs.vitality / 2
-	    		- enemy.attrs.defense() / 2
-	    		+ character.attrs.joblvl() / 11
+	    		- enemy.defense() / 2
+	    		+ character.joblvl() / 11
 	    		+ character.attrs.rightproficiency / 9)
-	    			* (character.attrs.attack() / enemy.attrs.defense()) > 2 ? 2 : (character.attrs.attack() / enemy.attrs.defense())
+	    			* (character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense())
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */)
 	    }
@@ -61,7 +61,7 @@ let config = {
     	return parseInt( (80 +
     		/* Weapon Hit Rate*/ 80 +
     		character.attrs.agility / 10 +
-    		character.attrs.joblvl() / 10 -
+    		character.joblvl() / 10 -
     		enemy.attrs.agility / 20 -
     		/* Wt. of the Weapon */ 1 / 6) / 2)
     }
