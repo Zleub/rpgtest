@@ -4,6 +4,8 @@ let weapons = {
 		attack: 8,
 		effect: [],
 		bonus: [],
+		accuracy: 85,
+		weight: 0,
 		job: [ 'FR','WA','RM','TH','DK','BA','NI','OK' ]
 	}
 }
