@@ -6,7 +6,7 @@ class Character {
 			let group = new Konva.Group({
 				lvl: 1,
 				strength: 5,
-				agility: 5,
+				agility: getRandomInt(2, 6),
 				vitality: 5,
 				intellect: 5,
 				mind: 5,
@@ -25,9 +25,12 @@ class Character {
 
 				weight: 1,
 
-				job: window[opt.item.class],
+				job: jobs[opt.item.class],
 				jobpoints: 0,
-				joblvl: 1,
+				joblvls: Object.keys(jobs).reduce((p, e) => {
+					p[e] = 1
+					return p
+				}, {}),
 
 				ready: false,
 
@@ -38,6 +41,8 @@ class Character {
 			})
 			e.x(0)
 			e.y(0)
+
+			group.attrs.joblvl = () => group.attrs.joblvls[group.attrs.job.name]
 
 			group.attrs.attack = () => {
 				let a = 1

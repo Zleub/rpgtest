@@ -99,7 +99,7 @@
 
 			<div class="layout horizontal centered">
 				<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
-				<paper-item style="width: 15em">joblvl: {{selected.attrs.joblvl}}</paper-item>
+				<paper-item style="width: 15em">joblvl: {{do(selected.attrs, 'joblvl')}}</paper-item>
 			</div>
 
 			<div class="layout horizontal centered">
@@ -123,22 +123,6 @@
 					<paper-item>right: {{selected.attrs.right.name}}</paper-item>
 				</div>
 			</div>
-		</div>
-
-		<div class=centered>
-			<div class="layout vertical">
-				<h3>Notes</h3>
-				<p>gamemode</p>
-			</div>
-		</div>
-
-		<div class=centered>
-			<div class="layout vertical">
-				<h3 class=centered>stack</h3>
-<!-- 				<template is=dom-repeat items={{stack}}>
-					<paper-item>{{item}}</paper-item>
-				</template>
- -->			</div>
 		</div>
 
 	</template>
