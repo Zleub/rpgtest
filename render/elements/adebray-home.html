@@ -8,7 +8,7 @@
 <link rel="import" href="../elements/adebray-map.html">
 <link rel="import" href="../elements/adebray-pretty.html">
 <link rel="import" href="../elements/adebray-graph.html">
-<link rel="import" href="../elements/adebray-collapse.html">
+<link rel="import" href="../elements/adebray-todo.html">
 
 <script type="text/javascript" src=../TODO.js></script>
 
@@ -44,15 +44,7 @@
 			</section>
 			<section id="todo">
 			<template is="dom-repeat" items="{{TODO}}">
-				<p>{{item.status}}</p>
-				<pre>{{item.text}}</pre>
-				<template is="dom-if" if={{item.content}}>
-					<template is="dom-repeat" items={{item.content}}>
-						<p>{{item.status}}</p>
-						<pre>{{item.text}}</pre>
-					</template>
-				</template>
-
+				<adebray-todo item={{item}}></adebray-todo>
 			</template>
 			</section>
 		</iron-pages>
@@ -65,7 +57,7 @@
 			properties: {
 				route: {
 					type: String,
-					value: 'todo',
+					value: 'work',
 					observer: 'log'
 				}
 			},

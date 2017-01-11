@@ -1,0 +1,65 @@
+<link rel="import" href="adebray-collapse.html">
+
+<dom-module id="adebray-todo">
+	<template>
+		<style>
+			:host {
+				display: flex;
+				overflow: hidden;
+				position: relative;
+				left: 12px;
+ 				/*@apply(--layout-horizontal)*/
+			}
+
+			iron-icon {
+				display: inline-block;
+			}
+
+			adebray-collapse {
+				display: inline-block;
+			}
+		</style>
+
+		<template is="dom-if" if={{isOk(item.status)}}>
+			<iron-icon icon="mdi:checkbox-marked"></iron-icon>
+			<adebray-collapse title="show">
+				<code>{{item.text}}</code>
+				<template is="dom-if" if={{item.content}}>
+					<template is="dom-repeat" items={{item.content}}>
+						<adebray-todo item={{item}}></adebray-todo>
+					</template>
+				</template>
+			</adebray-collapse>
+		</template>
+
+		<template is="dom-if" if={{isKo(item.status)}}>
+			<iron-icon icon="mdi:checkbox-blank"></iron-icon>
+			<adebray-collapse title="show">
+				<code>{{item.text}}</code>
+				<template is="dom-if" if={{item.content}}>
+					<template is="dom-repeat" items={{item.content}}>
+						<adebray-todo item={{item}}></adebray-todo>
+					</template>
+				</template>
+			</adebray-collapse>
+		</template>
+
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-todo',
+
+			properties: {
+				item: Object
+			},
+
+			isOk: function (s) { return s == 'ok' },
+			isKo: function (s) { return s == 'ko' },
+
+			toMarkdown: function (text) {
+				this.markdown = '```\n' + text + '\n```'
+			}
+		});
+	</script>
+</dom-module>

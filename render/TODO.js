@@ -1,6 +1,6 @@
 TODO = [
     {
-        "status": "half",
+        "status": "ok",
         "text": `Each character can have, at most, 23 jobs, and every Job comes with a Job LV showing how proficient that specific character is at that Job`
     },{
         "status": "ko",
@@ -54,7 +54,7 @@ TODO = [
                 "status": "ko",
                 "text": `Your HP Increases; Your HP gain depends on your Vitality and current Character LV.`
             },{
-                "status": "half",
+                "status": "ko",
                 "text": `Your stats will shift up to the next level within your Job class.`
             },{
                 "status": "ko",
@@ -111,7 +111,7 @@ TODO = [
         "text": `Mechanics and Formulae`,
         "content": [
             {
-                "status": "half",
+                "status": "ko",
                 "text": `Number of Hits = 1 + Agility / 7 + JobLV / 14 + (Melee Proficiency. - 1) / 7 - Wt. of Equipment / 6`
             },{
                 "status": "ko",
@@ -120,7 +120,7 @@ TODO = [
                 "status": "ko",
                 "text": `Harp Number of hits = 1 + Agility / 6 + JobLV / 22 + (Sum of both Melee Prof. - 2) / 14`
             },{
-                "status": "half",
+                "status": "ko",
                 "text": `Basic Damage = (Attack + Strength - Enemy's Vitality / 2 - Enemy's Def. / 2 + JobLV / 11 + Melee Prof. / 9) x (Attack / Enemy's Def.) x Weapon Property Adjustment x Magical Property Adjustment`,
                 "content" : [
                     {
