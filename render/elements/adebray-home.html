@@ -10,6 +10,8 @@
 <link rel="import" href="../elements/adebray-graph.html">
 <link rel="import" href="../elements/adebray-collapse.html">
 
+<script type="text/javascript" src=../TODO.js></script>
+
 <dom-module id="adebray-home">
 	<template>
 		<style>
@@ -41,16 +43,17 @@
 				<adebray-graph id=agraph></adebray-graph>
 			</section>
 			<section id="todo">
-				<iron-ajax
-					auto
-					url="../TODO.md"
-					handle-as="text"
-					last-response="{{res}}">
-				</iron-ajax>
+			<template is="dom-repeat" items="{{TODO}}">
+				<p>{{item.status}}</p>
+				<pre>{{item.text}}</pre>
+				<template is="dom-if" if={{item.content}}>
+					<template is="dom-repeat" items={{item.content}}>
+						<p>{{item.status}}</p>
+						<pre>{{item.text}}</pre>
+					</template>
+				</template>
 
-				<marked-element id="marked" markdown={{res}}>
-      				<div class="markdown-html"></div>
-    			</marked-element>
+			</template>
 			</section>
 		</iron-pages>
 
@@ -70,6 +73,10 @@
 			log: function (e) {
 				if (e == 'graph')
 					this.$.agraph.fire('onShow')
+			},
+
+			attached: function (e) {
+				this.TODO = TODO
 			}
 
 		});

@@ -1,0 +1,175 @@
+
+=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=
+{M1-3} Healing Magic  |
+----------------------'
+
+(Outside Battle)
+----------------
+Total Recovery = Root Recovery x MTA
+
+Root Recovery  = Base x (Mind / 2 + JobLv / 4 + Recipient's Vitality / 8)
+MTA            = 1, if 1 ally targeted.
+ "             = 0.8, if 2 allies targeted.
+ "             = 0.75, if 3 allies targeted.
+ "             = 0.7, if 4 allies targeted.
+
+(Inside Battle)
+---------------
+Total Recovery = Root Recovery x MPA x Random No. x MTA
+
+Root Recovery  = Base x (Mind / 2 + JobLv / 4 + Recipient's Vitality / 8)
+MPA            = 1
+               = 2, if used on undead.
+Random No.     = number between 0.9 and 1.0.
+MTA            = 1, if 1 ally targeted.
+ "             = 0.7, if 2 allies targeted.
+ "             = 0.6, if 3 allies targeted.
+ "             = 0.5, if 4 allies targeted.
+
+---------.------------.
+W. Magic:|   Base:    |
+---------|------------|
+Cure     |     10     |
+Cura     |     30     |
+Curaga   |     80     |
+Curaja   |    120     |
+---------'------------'
+---------.------------.
+Summon:  |   Base:    |
+---------|------------|
+Heatra   |    120     | - Healing Light
+---------'------------'
+
+MPA = Magical Property Adjustment
+MTA = Multiple Target Adjustment
+
+
+=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=
+{M1-4} Offensive Magic  |
+------------------------'
+
+Total Damage = Root Damage x MPA x Random No. x MTA
+Success Rate = (30 + Int - Enemy's Mind)%
+
+Root Damage  = (Base + JobLv - Enemy's MDef - Enemy's Mind) x Int / 3
+MPA          = 2, if weak against.
+ "           = 0.5, if resistant.
+Random No.   = number between 0.9 and 1.1, if Success Rate IS passed.
+ "           = number between 0.5 and 0.6, if Success Rate ISN'T passed.
+MTA          = 1, if 1 enemy targeted.
+ "           = 0.6, if 2 enemies targeted.
+ "           = 0.5, if 3 enemies targeted.
+ "           = 0.4, if 4 enemies targeted.
+
+---------.-----------.
+W. Magic:|   Base:   |
+---------|-----------|
+Aero     |     40    |
+Aeroga   |    200    |
+Holy     |    300    |
+---------'-----------'
+---------.-----------.
+B. Magic:|   Base:   |
+---------|-----------|
+Fire     |     40    |
+Blizzard |     43    |
+Thunder  |     46    |
+Poison   |     35    |
+Fira     |     85    |
+Blizzara |     88    |
+Thundara |     85    |
+Break    |    110    |
+Blizzaga |    180    |
+Thundaga |    183    |
+Firaga   |    190    |
+Bio      |    170    |
+Quake    |    140    |
+Drain    |    130    |
+Flare    |    320    |
+Meteor   |    170    |
+---------'-----------'
+---------.-----------.
+Summon:  |   Base:   |
+---------|-----------|
+Icen     |    190    | - Icy Stare
+Icen     |    220    | - Diamond Dust
+Spark    |    193    | - Thunderstorm
+Spark    |    220    | - Judgment Bolt
+Heatra   |    200    | - Hellfire
+Heatra   |    220    | - Inferno
+Hyper    |    170    | - Clobber
+Hyper    |    175    | - Stomp
+Hyper    |    220    | - Earthen Fury
+Catastro |    255    | - Slash
+Leviath  |    300    | - Cyclone
+Leviath  |    350    | - Tidal Wave
+Bahamur  |    400    | - Megaflare
+---------'-----------'
+
+MPA = Magical Property Adjustment
+MTA = Multiple Target Adjustment
+
+
+=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=
+{M1-5} Status Magic  |
+---------------------'
+
+Inflict Rate = Chance + (JobLv / 7 + Int - Enemy's Mind)%
+
+---------.-----------.
+W. Magic:|  Chance:  |
+---------|-----------|
+Toad     |    10%    |
+Mini     |    10%    |
+Confuse  |    25%    |
+Silence  |    40%    |
+Tornado  |    40%    |
+---------'-----------'
+---------.-----------.
+B. Magic:|  Chance:  |
+---------|-----------|
+Sleep    |    25%    |
+Poison   |    30%    |
+Blind    |    30%    |
+Break    |    30%    |
+Shade    |    20%    |
+Warp     |    20%    |
+Breakga  |    10%    |
+Death    |    10%    |
+---------'-----------'
+---------.-----------.
+Summon:  |  Chance:  |
+---------|-----------|
+Icen     |    25%    | - Mesmerize
+Spark    |    20%    | - Mind Blast
+Catastro |    10%    | - Zantetsuken
+Leviath  |    10%    | - Demon Eye
+Bahamur  |    10%    | - Rend
+---------'-----------'
+
+
+=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=-*=
+{M1-6} Other Formulae  |
+-----------------------'
+
+Action Sequence:
+~~~~~~~~~~~~~~~~
+Action Score = Agility x 2 - All weight + Random No.
+
+Random No.   = number between 0 and Agility.
+
+- The higher the score, the earlier to take a turn; Calculated every turn.
+- All weight includes equipment weight and action weight. Both are not covered
+  in this FAQ.
+
+Defend:  (except Knights)
+~~~~~~~
+For one turn:
+Damage received = Original damage x 0.5
+
+Escape:
+~~~~~~~
+Escape Score = Lowest CharacterLV in party - Highest Monster LV in enemies
+
+- If result > 1, escape is successful.
+- If failed, multiple attempts will accumulate the chance.
