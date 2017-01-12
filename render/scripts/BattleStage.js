@@ -5,6 +5,7 @@ let Player_conf = {
 		e.cancelBubble = true
 
 		group.selectionRect.show()
+		group.getParent().draw()
 		// console.log('mouseenter', group )
 	},
 
@@ -15,6 +16,7 @@ let Player_conf = {
 
 		if (group.lock == false)
 			group.selectionRect.hide()
+		group.getParent().draw()
 		// console.log('mouseleave', group )
 	},
 
@@ -28,10 +30,12 @@ let Player_conf = {
 		if (menu.selected.attrs) {
 			menu.selected.lock = false
 			menu.selected.selectionRect.hide()
+			group.getParent().draw()
 		}
 
 		menu.selected = group
 		menu.selected.selectionRect.show()
+		group.getParent().draw()
 
 		group.lock = true
 	},
@@ -88,7 +92,7 @@ class BattleStage {
 		this.teamB = opt.teamB
 
 		var cmp = 0
-		var step = 60
+		var step = 50
 		var w = this.layer.width() / 2 - step
 		var h = this.layer.height() / 2 + step
 		var promises = []
@@ -106,14 +110,14 @@ class BattleStage {
 			}
 
 			cmp += 1
-			if ( h + (cmp + 1) * step > this.layer.height() ) {
+			if ( h + 32 + (cmp + 1) * step > this.layer.height() ) {
 				cmp = 0
 				w -= 120
 			}
 		}
 
 		var cmp = 0
-		var step = 60
+		var step = 50
 		var w = this.layer.width() / 2 + step
 		var h = this.layer.height() / 2 + step
 
@@ -131,7 +135,7 @@ class BattleStage {
 			}
 
 			cmp += 1
-			if ( h + (cmp + 1) * step > this.layer.height() ) {
+			if ( h + 32 + (cmp + 1) * step > this.layer.height() ) {
 				cmp = 0
 				w += 120
 			}
@@ -156,7 +160,7 @@ class BattleStage {
 			this.stack.extend( this.layer.children.map( (e) => (_time) => {
 				if (e.nodeType == 'Group') {
 					e.update(1 / divisor)
-					this.layer.draw()
+					e.draw()
 				}
 			}))
 

@@ -159,7 +159,7 @@
 							left: items.Knife,
  						},{
 							position: 6,
-							image: 'images2/combat_dummy/BODY_animation.png',
+							image: 'images2/combat_dummy/test.png',
 							class: 'Freelancer',
 							left: items.Knife,
  						},{
@@ -170,7 +170,29 @@
 							left: items.Knife,
  						},{
 							position: 6,
+							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer',
+							left: items.Knife,
+ 						},{
+							position: 6,
 							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer',
+							body: items.Vest,
+							left: items.Knife,
+ 						},{
+							position: 6,
+							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer',
+							left: items.Knife,
+ 						},{
+							position: 6,
+							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer',
+							body: items.Vest,
+							left: items.Knife,
+ 						},{
+							position: 6,
+							image: 'images2/combat_dummy/test.png',
 							class: 'Freelancer',
 							left: items.Knife,
  						}
@@ -187,7 +209,7 @@
 						},{
 
 							position: 2,
-							image: 'images2/combat_dummy/test.png',
+							image: 'images2/combat_dummy/BODY_animation.png',
 							class: 'Freelancer'
 						},{
 
@@ -197,7 +219,27 @@
 						},{
 
 							position: 2,
+							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer'
+						},{
+
+							position: 2,
 							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer'
+						},{
+
+							position: 2,
+							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer'
+						},{
+
+							position: 2,
+							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer'
+						},{
+
+							position: 2,
+							image: 'images2/combat_dummy/BODY_animation.png',
 							class: 'Freelancer'
 						}
 					]
@@ -304,6 +346,7 @@
 					if (this.selected.attrs) {
 						this.selected.lock = false
 						this.selected.children[0].hide()
+						layer.draw()
 					}
 					this.set('selected', {
 						children: [ { attrs: { image: { src: "" } } } ]

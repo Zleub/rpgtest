@@ -101,8 +101,8 @@
 									(e.attrs.head.name == undefined ? '' : e.attrs.head.name) + ', ' +
 									(e.attrs.body.name == undefined ? '' : e.attrs.body.name) + ', ' +
 									(e.attrs.arm.name == undefined ? '' : e.attrs.arm.name) + ', ' ,
-								p.attrs.attack(),
-								e.attrs.defense(),
+								p.attack(),
+								e.defense(),
 								config.Basic_Damage( p, e).left
 							])
 							return p
@@ -113,8 +113,8 @@
 									(p.attrs.head.name == undefined ? '' : p.attrs.head.name) + ', ' +
 									(p.attrs.body.name == undefined ? '' : p.attrs.body.name) + ', ' +
 									(p.attrs.arm.name == undefined ? '' : p.attrs.arm.name) + ', ',
-								e.attrs.attack(),
-								p.attrs.defense(),
+								e.attack(),
+								p.defense(),
 								config.Basic_Damage(e, p).left
 							])
 							return p

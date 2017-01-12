@@ -162,6 +162,7 @@ class Character extends Konva.Group {
 				this.move({x: dist, y: 0})
 			if (this.character.attrs._position == 2)
 				this.move({x: -dist, y: 0})
+			this.getParent().draw()
 		}, opt.layer)
 
 		eventTable.forEach( (e) => {
@@ -181,7 +182,6 @@ class Character extends Konva.Group {
 	update(incr) {
 		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
 
-		this.experience(1)
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
 			this.actionJauge.fromNumber(60)

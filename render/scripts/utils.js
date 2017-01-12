@@ -133,6 +133,7 @@ makeAttack = function (layer, attacker, defender) {
 
 			setTimeout( () => {
 				text.destroy()
+				this.layer.draw()
 			}, 200)
 
 			layer.add(text)
