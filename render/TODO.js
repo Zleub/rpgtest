@@ -3,16 +3,16 @@ TODO = [
         "status": "ok",
         "text": `Each character can have, at most, 23 jobs, and every Job comes with a Job LV showing how proficient that specific character is at that Job`
     },{
-        "status": "ko",
+        "status": "ok",
         "text": `Maximum Job LV is 99`
     },{
         "status": "ok",
         "text": `Every character has a hidden stat called Job Points (JP) that dictates their Job LV growth`
     },{
-        "status": "ko",
+        "status": "ok",
         "text": `When JP is accumulated to 99, Job level goes up by 1. Each action (except: Front, Back, Escape, and Flee) will contribute a fixed amount of job points to the character.`
     },{
-        "status": "ko",
+        "status": "ok",
         "text": `The amount of JP contributed follows the rules below:
                  .------------------------.
                  |         JP Gain:       |
@@ -44,7 +44,7 @@ TODO = [
     |Onion Knight|     20     |      8    |
     '------------'------------'-----------'`
     },{
-        "status": "ko",
+        "status": "ok",
         "text": `EXP is experience points you collect after each battle. When you have gained enough EXP, your character will gain one Character LV`
     },{
         "status": "ko",
@@ -54,7 +54,7 @@ TODO = [
                 "status": "ko",
                 "text": `Your HP Increases; Your HP gain depends on your Vitality and current Character LV.`
             },{
-                "status": "ko",
+                "status": "ok",
                 "text": `Your stats will shift up to the next level within your Job class.`
             },{
                 "status": "ko",
@@ -62,7 +62,7 @@ TODO = [
             },
         ]
     },{
-        "status": "ko",
+        "status": "ok",
         "text": `This is a chart showing you how much experience is needed to level up at each character level.
     .-------.---------------------------------------------------------------------.
     | Level |     1      2      3      4      5      6      7      8      9     10|
