@@ -77,12 +77,16 @@ let eventTable = [
 	'dragend',
 
 	// adebray
+	'update',
 	'ready',
 ]
 
 class Character extends Konva.Group {
 	constructor(opt) {
 		super({
+			experience: opt.experience || 0,
+			experience_max: Level_table[opt.lvl - 1 || 0],
+
 			lvl: opt.lvl || 1,
 			strength: opt.strength || 5,
 			agility: opt.agility || getRandomInt(2, 6),
@@ -90,8 +94,8 @@ class Character extends Konva.Group {
 			intellect: opt.intellect || 5,
 			mind: opt.mind || 5,
 
-			hp: opt.hp || 100,
-			hp_max: opt.hp_max || 100,
+			hp: opt.hp || 1000,
+			hp_max: opt.hp_max || 1000,
 
 			head: opt.head || {},
 			body: opt.body || {},
@@ -105,7 +109,10 @@ class Character extends Konva.Group {
 			weight: 1,
 
 			job: jobs[opt.class || 'Freelancer'],
-			jobpoints: 0,
+			jobpoints: Object.keys(jobs).reduce((p, e) => {
+				p[e] = 0
+				return p
+			}, {}),
 			joblvls: Object.keys(jobs).reduce((p, e) => {
 				p[e] = 1
 				return p
@@ -118,6 +125,8 @@ class Character extends Konva.Group {
 			y: opt.y,
 			_y: opt.y
 		})
+
+		// this.transformsEnabled('position')
 
 		this.lock = false
 		this.add( this.selectionRect = new Konva.Rect({
@@ -147,6 +156,14 @@ class Character extends Konva.Group {
 		this.manaJauge.addTo(this)
 		this.manaJauge.max()
 
+		this.attackAnimation = new Konva.Animation( (frame) => {
+			var dist = Math.cos(frame.time / 30) * 10
+			if (this.character.attrs._position == 6)
+				this.move({x: dist, y: 0})
+			if (this.character.attrs._position == 2)
+				this.move({x: -dist, y: 0})
+		}, opt.layer)
+
 		eventTable.forEach( (e) => {
 			if (opt[e])
 				this.on(e, opt[e](this))
@@ -164,12 +181,66 @@ class Character extends Konva.Group {
 	update(incr) {
 		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
 
+		this.experience(1)
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
 			this.actionJauge.fromNumber(60)
 			this.fire('ready')
 		}
 	}
+
+	jobpoints(n) {
+		if (n) {
+			if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
+				if ( (this.attrs.joblvls[this.attrs.job.name] += 1) > 99 )
+					this.attrs.joblvls[this.attrs.job.name] = 99
+				this.attrs.jobpoints[this.attrs.job.name] = 0
+			}
+			this.fire('update')
+		}
+		else
+			return this.attrs.jobpoints[this.attrs.job.name]
+	}
+
+	experience(n) {
+		if (n) {
+			if ( (this.attrs.experience += n) > this.attrs.experience_max ) {
+				this.attrs.lvl += 1
+				this.levelup()
+				this.attrs.experience = 0
+				this.attrs.experience_max = Level_table[this.attrs.lvl - 1]
+			}
+			this.fire('update')
+		}
+		else
+			return this.attrs.experience
+	}
+
+	levelup() {
+			let lvl = this.attrs.lvl
+			let stat = jobs[this.attrs.job.name].stats
+
+			if (stat[lvl]){
+				this.attrs.strength = stat[lvl][0]
+				this.attrs.agility = stat[lvl][1]
+				this.attrs.vitality = stat[lvl][2]
+				this.attrs.intellect = stat[lvl][3]
+				this.attrs.mind = stat[lvl][4]
+			}
+			else {
+				let i = 1
+				Object.keys(stat).reduce( (p, k) => {
+					if (Number(k) < p)
+						i = Number(k)
+					return p
+				}, lvl)
+				this.attrs.strength = stat[i][0]
+				this.attrs.agility = stat[i][1]
+				this.attrs.vitality = stat[i][2]
+				this.attrs.intellect = stat[i][3]
+				this.attrs.mind = stat[i][4]
+			}
+		}
 
 	joblvl() {
 		return this.attrs.joblvls[this.attrs.job.name]
@@ -219,11 +290,17 @@ class Character extends Konva.Group {
 	}
 
 	life(value) {
-		this.attrs.hp -= value
+		if (value) {
+			this.attrs.hp -= value
 
-		this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
-		if (this.attrs.hp < 0)
-			this.destroy()
+			this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
+			if (this.attrs.hp < 0)
+				this.destroy()
+
+			this.fire('update')
+		}
+		else
+			return this.attrs.hp
 	}
 
 	replace() {

@@ -65,7 +65,7 @@ makeImage = function (item) {
 
 			Promise.all(array).then( (_) => {
 				let i = new Konva.Image({
-					pos: item.position,
+					_position: item.position,
 					x: x - _[item.position].width / 2,
 					y: y - _[item.position].height / 2 - 32,
 					images: _,
@@ -94,13 +94,15 @@ makeAttack = function (layer, attacker, defender) {
 	let hit_rate = config.Hit_Rate(player, target)
 	let damages = config.Basic_Damage(player, target).left
 
+	player.jobpoints( config.JP_Gain(player) )
+
 	let time = 0
 	for (var i = 0; i < hits; i++) {
 		setTimeout(() => {
 
 			setTimeout( () => {
 				// console.log('anim end')
-				// player.attackAnimation.stop()
+				player.attackAnimation.stop()
 				player.replace()
 			}, 200)
 
@@ -135,7 +137,7 @@ makeAttack = function (layer, attacker, defender) {
 
 			layer.add(text)
 			// console.log('anim start')
-			// player.attackAnimation.start()
+			player.attackAnimation.start()
 
 		}, time)
 		time += 300
