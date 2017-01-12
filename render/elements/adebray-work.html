@@ -98,8 +98,14 @@
 			</div>
 
 			<div class="layout horizontal centered">
+				<paper-item style="width: 15em">HP: {{do(selected, 'life')}} / {{selected.attrs.hp_max}}</paper-item>
+				<paper-item style="width: 15em">lvl: {{selected.attrs.lvl}}</paper-item>
+				<paper-item style="width: 15em">XP: {{do(selected, 'experience')}} / {{selected.attrs.experience_max}}</paper-item>
+			</div>
+			<div class="layout horizontal centered">
 				<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
 				<paper-item style="width: 15em">joblvl: {{do(selected, 'joblvl')}}</paper-item>
+				<paper-item style="width: 15em">jobpoints: {{do(selected, 'jobpoints')}}</paper-item>
 			</div>
 
 			<div class="layout horizontal centered">
@@ -150,19 +156,40 @@
 							image: 'images2/combat_dummy/BODY_animation.png',
 							class: 'Freelancer',
 							body: items.Vest,
-							left: items.Knife
-						},{
+							left: items.Knife,
+ 						},{
 							position: 6,
 							image: 'images2/combat_dummy/BODY_animation.png',
 							class: 'Freelancer',
-							left: items.Knife
-						}
+							left: items.Knife,
+ 						},{
+							position: 6,
+							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer',
+							body: items.Vest,
+							left: items.Knife,
+ 						},{
+							position: 6,
+							image: 'images2/combat_dummy/BODY_animation.png',
+							class: 'Freelancer',
+							left: items.Knife,
+ 						}
 					]
 				},
 				teamB: {
 					type: Array,
 					value: [
 						{
+
+							position: 2,
+							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer'
+						},{
+
+							position: 2,
+							image: 'images2/combat_dummy/test.png',
+							class: 'Freelancer'
+						},{
 
 							position: 2,
 							image: 'images2/combat_dummy/test.png',
@@ -299,7 +326,6 @@
 					if (this.mode) {
 						bs.update()
 					}
-					layer.draw()
 					requestAnimationFrame(render)
 				}
 

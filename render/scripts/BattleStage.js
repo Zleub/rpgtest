@@ -36,6 +36,14 @@ let Player_conf = {
 		group.lock = true
 	},
 
+	update: (group) => (e) => {
+		if (document.querySelector('adebray-work').selected === group)
+		{
+			document.querySelector('adebray-work').set('selected', {})
+			document.querySelector('adebray-work').set('selected', group)
+		}
+	},
+
 	ready : (group) => (e) => {
 		let menu = document.querySelector('adebray-work')
 
@@ -44,7 +52,7 @@ let Player_conf = {
 			menu.$.item.disabled = false
 		}
 
-		let rand = getRandomInt(3, 5)
+		let rand = getRandomInt(5, 9)
 		let enemy = this.layer.children[rand]
 		makeAttack(this.layer, group, enemy)
 	}
@@ -57,7 +65,7 @@ let IA_conf = {
 		group.attrs.ready = false
 		group.actionJauge.reset()
 
-		let rand = getRandomInt(1, 3)
+		let rand = getRandomInt(1, 5)
 		let enemy = this.layer.children[rand]
 		makeAttack(this.layer, group, enemy)
 	},
@@ -138,11 +146,10 @@ class BattleStage {
 			(_time) => _time.ticks += 1
 		]
 
-		let divisor = 10
+		let divisor = 20
 
 		Promise.all(promises).then( _ => {
 			_.forEach( e => {
-				console.log('layer add')
 				this.layer.add(e)
 			})
 
