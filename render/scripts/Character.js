@@ -53,6 +53,10 @@ class Jauge {
 	fromPercent(p) {
 		this.jauge.width(p * 60)
 	}
+
+	draw() {
+		this.jauge.draw()
+	}
 }
 
 let eventTable = [
@@ -187,6 +191,8 @@ class Character extends Konva.Group {
 			this.actionJauge.fromNumber(60)
 			this.fire('ready')
 		}
+
+		this.actionJauge.draw()
 	}
 
 	jobpoints(n) {

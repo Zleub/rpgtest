@@ -1,5 +1,5 @@
 let Player_conf = {
-	mouseenter : (group) => (e) => {
+	mouseenter : (battlestage) => (group) => (e) => {
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
@@ -9,7 +9,7 @@ let Player_conf = {
 		// console.log('mouseenter', group )
 	},
 
-	mouseleave : (group) => (e) => {
+	mouseleave : (battlestage) => (group) => (e) => {
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
@@ -20,7 +20,7 @@ let Player_conf = {
 		// console.log('mouseleave', group )
 	},
 
-	click : (group) => (e) => {
+	click : (battlestage) => (group) => (e) => {
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
@@ -40,7 +40,7 @@ let Player_conf = {
 		group.lock = true
 	},
 
-	update: (group) => (e) => {
+	update: (battlestage) => (group) => (e) => {
 		if (document.querySelector('adebray-work').selected === group)
 		{
 			document.querySelector('adebray-work').set('selected', {})
@@ -48,7 +48,7 @@ let Player_conf = {
 		}
 	},
 
-	ready : (group) => (e) => {
+	ready : (battlestage) => (group) => (e) => {
 		let menu = document.querySelector('adebray-work')
 
 		if (menu.selected == e.target) {
@@ -57,30 +57,30 @@ let Player_conf = {
 		}
 
 		let rand = getRandomInt(5, 9)
-		let enemy = this.layer.children[rand]
-		makeAttack(this.layer, group, enemy)
+		let enemy = battlestage.layer.children[rand]
+		makeAttack(battlestage, group, enemy)
 	}
 }
 
 let IA_conf = {
-	ready : (group) => (e) => {
+	ready : (battlestage) => (group) => (e) => {
 		e.cancelBubble = true
 
 		group.attrs.ready = false
 		group.actionJauge.reset()
 
 		let rand = getRandomInt(1, 5)
-		let enemy = this.layer.children[rand]
-		makeAttack(this.layer, group, enemy)
+		let enemy = battlestage.layer.children[rand]
+		makeAttack(battlestage, group, enemy)
 	},
-	click : (group) => (e) => {
+	click : (battlestage) => (group) => (e) => {
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
 
 		let menu = document.querySelector('adebray-work')
 		if (menu.$.fight.focused && menu.selected.attrs.ready)
-			makeAttack(this.layer, menu.selected, group)
+			makeAttack(battlestage, menu.selected, group)
 	}
 }
 
@@ -103,7 +103,7 @@ class BattleStage {
 				this.teamA[i].y = h + cmp * step
 
 				Object.keys(Player_conf).forEach( k => {
-					this.teamA[i][k] = Player_conf[k]
+					this.teamA[i][k] = Player_conf[k](this)
 				})
 
 				promises.push( characterPromise( this.teamA[i] ) )
@@ -128,7 +128,7 @@ class BattleStage {
 				this.teamB[i].y = h + cmp * step
 
 				Object.keys(IA_conf).forEach( k => {
-					this.teamB[i][k] = IA_conf[k]
+					this.teamB[i][k] = IA_conf[k](this)
 				})
 
 				promises.push( characterPromise( this.teamB[i] ) )
@@ -146,9 +146,11 @@ class BattleStage {
 			time: 0
 		}
 
-		this.stack = [
-			(_time) => _time.ticks += 1
-		]
+		// this.stack = [
+		// 	(_time) => _time.ticks += 1
+		// ]
+
+		this.stack = []
 
 		let divisor = 20
 
@@ -157,17 +159,20 @@ class BattleStage {
 				this.layer.add(e)
 			})
 
-			this.stack.extend( this.layer.children.map( (e) => (_time) => {
-				if (e.nodeType == 'Group') {
-					e.update(1 / divisor)
-					e.draw()
+			this.stack.extend( this.layer.children.map(
+				(e) => (frame) => {
+					if (e.nodeType == 'Group') {
+						e.update(frame.timeDiff / 1000)
+					}
 				}
-			}))
+			))
 
-			this.stack.extend([(_time) => {
-				if (parseInt(_time.ticks / divisor) > _time.time)
-					_time.time = parseInt(_time.ticks / divisor)
-			}])
+			// this.stack.extend([
+			// 	(_time) => {
+			// 		if (parseInt(_time.ticks / divisor) > _time.time)
+			// 			_time.time = parseInt(_time.ticks / divisor)
+			// 	}
+			// ])
 
 			this.layer.draw()
 			opt.callback(this)
@@ -176,5 +181,14 @@ class BattleStage {
 
 	update() {
 		this.stack.forEach( (f) => f(this._time))
+	}
+
+	run() {
+		let loop = new Konva.Animation( (frame) => {
+			this.stack.forEach( (f) => f(frame))
+			return true
+		}, this.layer)
+
+		loop.start()
 	}
 }

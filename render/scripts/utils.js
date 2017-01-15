@@ -80,14 +80,7 @@ makeImage = function (item) {
 	})
 }
 
-make = function (item) {
-	return new Promise( (res, rej) => {
-		item.callback = res
-		new Character(item)
-	})
-}
-
-makeAttack = function (layer, attacker, defender) {
+makeAttack = function (battlestage, attacker, defender) {
 	let player = attacker
 	let target = defender
 	let hits = config.Number_of_Hits(player).left
@@ -95,6 +88,34 @@ makeAttack = function (layer, attacker, defender) {
 	let damages = config.Basic_Damage(player, target).left
 
 	player.jobpoints( config.JP_Gain(player) )
+
+	let t_config = {
+	  x: player.x(),
+	  y: player.y() - 42,
+	  text: hits + ' hits',
+	  fontSize: 30,
+	  fontFamily: 'Calibri',
+	  fill: 'black'
+	}
+	var text = new Konva.Text(t_config)
+
+	; (function () {
+		let time = 0
+		let duration = 100
+
+		battlestage.layer.add(text)
+		battlestage.layer.draw()
+
+		let f =(frame) => {
+			time += frame.timeDiff
+			if (time > duration) {
+				text.destroy()
+				battlestage.layer.draw()
+				battlestage.stack = battlestage.stack.filter((_f) => _f !== f)
+			}
+		}
+		battlestage.stack.splice(-1, 0, f)
+	})()
 
 	let time = 0
 	for (var i = 0; i < hits; i++) {
@@ -104,6 +125,7 @@ makeAttack = function (layer, attacker, defender) {
 				// console.log('anim end')
 				player.attackAnimation.stop()
 				player.replace()
+				player.getParent().draw()
 			}, 200)
 
 			let t_config = {
@@ -131,13 +153,24 @@ makeAttack = function (layer, attacker, defender) {
 
 			var text = new Konva.Text(t_config)
 
-			setTimeout( () => {
-				text.destroy()
-				this.layer.draw()
-			}, 200)
+			; (function () {
+				let time = 0
+				let duration = 100
 
-			layer.add(text)
-			// console.log('anim start')
+				battlestage.layer.add(text)
+				battlestage.layer.draw()
+
+				let f =(frame) => {
+					time += frame.timeDiff
+					if (time > duration) {
+						text.destroy()
+						battlestage.layer.draw()
+						battlestage.stack = battlestage.stack.filter((_f) => _f !== f)
+					}
+				}
+				battlestage.stack.splice(-1, 0, f)
+			})()
+
 			player.attackAnimation.start()
 
 		}, time)

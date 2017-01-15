@@ -355,24 +355,25 @@
 
 				layer.add(back)
 
-				let bs = new BattleStage({
+				  bs = new BattleStage({
 					layer,
 					teamA: this.teamA,
 					teamB: this.teamB,
 					callback: (bs) => {
 						this.set('stack', bs.stack)
-						render()
+						// render()
 					}
 				})
 
-				let render = () => {
-					if (this.mode) {
-						bs.update()
-					}
-					requestAnimationFrame(render)
-				}
+				bs.run()
+				// let render = () => {
+				// 	if (this.mode) {
+				// 		bs.update()
+				// 	}
+				// 	requestAnimationFrame(render)
+				// }
 
-				render()
+				// render()
 			}
 		});
 	</script>
