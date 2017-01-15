@@ -101,16 +101,16 @@ makeAttack = function (battlestage, attacker, defender) {
 
 	; (function () {
 		let time = 0
-		let duration = 100
+		let duration = 1000
 
 		battlestage.layer.add(text)
-		battlestage.layer.draw()
+		// battlestage.layer.draw()
 
 		let f =(frame) => {
 			time += frame.timeDiff
 			if (time > duration) {
 				text.destroy()
-				battlestage.layer.draw()
+				// battlestage.layer.draw()
 				battlestage.stack = battlestage.stack.filter((_f) => _f !== f)
 			}
 		}
@@ -119,52 +119,63 @@ makeAttack = function (battlestage, attacker, defender) {
 
 	let time = 0
 	for (var i = 0; i < hits; i++) {
-		setTimeout(() => {
-
-			setTimeout( () => {
-				// console.log('anim end')
-				player.attackAnimation.stop()
-				player.replace()
-				player.getParent().draw()
-			}, 200)
-
-			let t_config = {
-			  x: target.x() + 32,
-			  y: target.y() - 42,
-			  text: damages,
-			  fontSize: 30,
-			  fontFamily: 'Calibri',
-			  fill: 'green'
-			}
-			if ( hit_rate > getRandomInt(0, 100) ) {
-
-				target.life(damages)
-				t_config.text = String(damages)
-				if (damages <= 0)
-					t_config.fill = 'grey'
-				else
-					t_config.fill = 'green'
-			}
-			else {
-				t_config.text = 'miss'
-				t_config.fill = 'red'
-
-			}
-
-			var text = new Konva.Text(t_config)
-
-			; (function () {
+		; (function () {
 				let time = 0
-				let duration = 100
+				let duration = 1000
+
+				; (function () {
+					let time = 0
+					let duration = 1000
+					let t_config = {
+					  x: target.x() + 32,
+					  y: target.y() - 42,
+					  text: damages,
+					  fontSize: 30,
+					  fontFamily: 'Calibri',
+					  fill: 'green'
+					}
+					if ( hit_rate > getRandomInt(0, 100) ) {
+
+						target.life(damages)
+						t_config.text = String(damages)
+						if (damages <= 0)
+							t_config.fill = 'grey'
+						else
+							t_config.fill = 'green'
+					}
+					else {
+						t_config.text = 'miss'
+						t_config.fill = 'red'
+
+					}
+
+					var text = new Konva.Text(t_config)
+
+					battlestage.layer.add(text)
+					// battlestage.layer.draw()
+
+					let f =(frame) => {
+						time += frame.timeDiff
+						if (time > duration) {
+							text.destroy()
+							// battlestage.layer.draw()
+							battlestage.stack = battlestage.stack.filter((_f) => _f !== f)
+						}
+					}
+					battlestage.stack.splice(-1, 0, f)
+				})()
 
 				battlestage.layer.add(text)
-				battlestage.layer.draw()
+				// battlestage.layer.draw()
 
 				let f =(frame) => {
 					time += frame.timeDiff
 					if (time > duration) {
-						text.destroy()
-						battlestage.layer.draw()
+
+						// console.log('anim end')
+						player.attackAnimation.stop()
+						player.replace()
+						// player.getParent().draw()
 						battlestage.stack = battlestage.stack.filter((_f) => _f !== f)
 					}
 				}
@@ -172,9 +183,6 @@ makeAttack = function (battlestage, attacker, defender) {
 			})()
 
 			player.attackAnimation.start()
-
-		}, time)
-		time += 300
 	}
 
 	// setTimeout( () => {

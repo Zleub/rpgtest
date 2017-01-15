@@ -93,7 +93,7 @@ class Character extends Konva.Group {
 
 			lvl: opt.lvl || 1,
 			strength: opt.strength || 5,
-			agility: opt.agility || getRandomInt(2, 6),
+			agility: opt.agility || 5,
 			vitality: opt.vitality || 5,
 			intellect: opt.intellect || 5,
 			mind: opt.mind || 5,
@@ -166,8 +166,8 @@ class Character extends Konva.Group {
 				this.move({x: dist, y: 0})
 			if (this.character.attrs._position == 2)
 				this.move({x: -dist, y: 0})
-			this.getParent().draw()
-		}, opt.layer)
+			// this.getParent().draw()
+		})
 
 		eventTable.forEach( (e) => {
 			if (opt[e])
@@ -184,7 +184,7 @@ class Character extends Konva.Group {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility )
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
@@ -192,7 +192,7 @@ class Character extends Konva.Group {
 			this.fire('ready')
 		}
 
-		this.actionJauge.draw()
+		// this.actionJauge.draw()
 	}
 
 	jobpoints(n) {
