@@ -1,15 +1,25 @@
+<link rel=import href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel=import href="../bower_components/paper-listbox/paper-listbox.html">
+
 <dom-module id="adebray-character-menu">
 	<template>
 		<style>
 			:host {
-				z-index: 1;
-				position: absolute;
-				background-color: #fcfcfc;
+				display: block;
+				padding: 8px;
+				margin: 4px;
 			}
 		</style>
 
-		<paper-item>Fight</paper-item>
-		<paper-item>Item</paper-item>
+		<paper-dropdown-menu label="Job">
+		  <paper-listbox id="joblist" class="dropdown-content" selected={{getJobI(character)}} on-iron-select=changeJob>
+		    <template is="dom-repeat" items={{getJobList(jobs)}}>
+			    <paper-item>{{item}}</paper-item>
+			</template>
+		  </paper-listbox>
+		</paper-dropdown-menu>
+
+		<iron-image src={{getFaceImage(character)}}></iron-image>
 
 	</template>
 	<script>
@@ -17,18 +27,52 @@
 			is: 'adebray-character-menu',
 
 			properties: {
-				x: Number,
-				y: Number
+				character: Object,
+				jobs: {
+					type: Object,
+					value: jobs
+				}
 			},
 
-			observers: [
-				'restyle(x, y)'
-			],
+			getFaceImage: function (c) {
+				return c.character.attrs.images[0].src
+			},
 
-			restyle: function (x, y) {
-				this.style['left'] = x + 'px'
-				this.style['top'] = y + 'px'
-				this.updateStyles()
+			getJobI: function (c) {
+				let i = undefined
+				Object.keys(jobs).forEach( (k, _i) => {
+					if (k == c.attrs.job.name)
+						i = _i
+				})
+				return i
+			},
+
+			getJobList: function (jobs) {
+				return Object.keys(jobs)
+			},
+
+			changeJob: function (e) {
+				let i = undefined
+				Object.keys(jobs).forEach( (k, _i) => {
+					if (_i == e.target.selected)
+						i = k
+				})
+				this.character.attrs.job = jobs[i]
+			},
+
+			fill: function () {
+				new Character({
+					position: 6,
+					image: 'images2/combat_dummy/BODY_animation.png',
+					class: 'Freelancer',
+					body: items.Vest,
+					left: items.Knife,
+					callback: (c) => this.set('character', c)
+				})
+			},
+
+			attached: function () {
+				this.fill()
 			}
 		});
 	</script>

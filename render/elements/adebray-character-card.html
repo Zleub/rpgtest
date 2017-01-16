@@ -1,0 +1,43 @@
+<link rel=import href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel=import href="../bower_components/paper-listbox/paper-listbox.html">
+
+<dom-module id="adebray-character-card">
+	<template>
+		<style>
+			:host {
+				border: 1px solid black;
+				display: inline-block;
+				padding: 8px;
+				margin: 4px;
+
+				width: 240px;
+			}
+		</style>
+
+		<paper-item>Job: {{character.attrs.job.name}}</paper-item>
+
+		<iron-image src={{getFaceImage(character)}}></iron-image>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-character-card',
+
+			properties: {
+				character: Object,
+				jobs: {
+					type: Object,
+					value: jobs
+				}
+			},
+
+			getFaceImage: function (c) {
+				if (c)
+					return c.character.attrs.images[0].src
+				else
+					return this.fill()
+			}
+
+		});
+	</script>
+</dom-module>

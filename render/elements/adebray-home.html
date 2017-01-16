@@ -4,11 +4,12 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/marked-element/marked-element.html">
 
-<link rel="import" href="../elements/adebray-work.html">
-<link rel="import" href="../elements/adebray-map.html">
-<link rel="import" href="../elements/adebray-pretty.html">
-<link rel="import" href="../elements/adebray-graph.html">
-<link rel="import" href="../elements/adebray-todo.html">
+<link rel="import" href="adebray-menu.html">
+<link rel="import" href="adebray-work.html">
+<link rel="import" href="adebray-map.html">
+<link rel="import" href="adebray-pretty.html">
+<link rel="import" href="adebray-graph.html">
+<link rel="import" href="adebray-todo.html">
 
 <script type="text/javascript" src=../TODO.js></script>
 
@@ -27,7 +28,6 @@
 			<paper-tab route=pretty>pretty</paper-tab>
 			<paper-tab route=work>work</paper-tab>
 			<paper-tab route=graph>graph</paper-tab>
-			<paper-tab route=todo>todo</paper-tab>
 		</paper-tabs>
 		<iron-pages attr-for-selected=id selected={{route}}>
 			<section id="map">
@@ -37,15 +37,11 @@
 				<adebray-pretty></adebray-pretty>
 			</section>
 			<section id="work">
-				<adebray-work></adebray-work>
+				<adebray-menu></adebray-menu>
+				<!-- <adebray-work></adebray-work> -->
 			</section>
 			<section id="graph">
 				<adebray-graph id=agraph></adebray-graph>
-			</section>
-			<section id="todo">
-			<template is="dom-repeat" items="{{TODO}}">
-				<adebray-todo item={{item}}></adebray-todo>
-			</template>
 			</section>
 		</iron-pages>
 
