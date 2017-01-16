@@ -84,8 +84,10 @@ let IA_conf = {
 	}
 }
 
-class BattleStage {
+class BattleStage extends AdebrayStage {
 	constructor (opt) {
+		super(opt)
+
 		this.layer = opt.layer
 
 		this.teamA = opt.teamA
@@ -146,12 +148,6 @@ class BattleStage {
 			time: 0
 		}
 
-		// this.stack = [
-		// 	(_time) => _time.ticks += 1
-		// ]
-
-		this.stack = []
-
 		let divisor = 20
 
 		Promise.all(promises).then( _ => {
@@ -167,28 +163,8 @@ class BattleStage {
 				}
 			))
 
-			// this.stack.extend([
-			// 	(_time) => {
-			// 		if (parseInt(_time.ticks / divisor) > _time.time)
-			// 			_time.time = parseInt(_time.ticks / divisor)
-			// 	}
-			// ])
-
 			this.layer.draw()
 			opt.callback(this)
 		})
-	}
-
-	update() {
-		this.stack.forEach( (f) => f(this._time))
-	}
-
-	run() {
-		let loop = new Konva.Animation( (frame) => {
-			this.stack.forEach( (f) => f(frame))
-			return true
-		}, this.layer)
-
-		loop.start()
 	}
 }
