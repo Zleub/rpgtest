@@ -30,7 +30,7 @@
 		<div class=centered>
 			<iron-image src="/logo.png" alt="Awesome logo"></iron-image>
 
-			<div class="layout horizontal">
+			<div class="layout horizontal" style="width:550px">
 				<template is=dom-repeat items={{team}}>
 					<adebray-character-card character={{item}}></adebray-character-card>
 				</template>
@@ -40,13 +40,13 @@
 				<paper-button class=button raised>Play</paper-button>
 			</template>
 
-			<paper-button class=button on-tap="toggleTeam" raised>Team Up</paper-button>
-			<iron-collapse id="play" >
-				<template is=dom-if	if="{{teamNotFull(team.length)}}">
+			<template is=dom-if	if="{{teamNotFull(team.length)}}">
+				<paper-button class=button on-tap="toggleTeam" raised>Team Up</paper-button>
+				<iron-collapse id="play">
 					<adebray-character-menu></adebray-character-menu>
 					<paper-button on-tap="addToTeam" raised>Add</paper-button>
-				</template>
-			</iron-collapse>
+				</iron-collapse>
+			</template>
 			<paper-button class=button raised>Option</paper-button>
 		</div>
 
@@ -63,7 +63,7 @@
 			},
 
 			toggleTeam: function () {
-				this.$.play.toggle()
+				this.$$('#play').toggle()
 			},
 
 			addToTeam: function () {
