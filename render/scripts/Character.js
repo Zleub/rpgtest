@@ -106,15 +106,6 @@ class Character extends Konva.Group {
 		this.manaJauge.addTo(this)
 		this.manaJauge.max()
 
-		this.attackAnimation = new Konva.Animation( (frame) => {
-			var dist = Math.cos(frame.time / 30) * 10
-			if (this.character.attrs._position == 6)
-				this.move({x: dist, y: 0})
-			if (this.character.attrs._position == 2)
-				this.move({x: -dist, y: 0})
-			// this.getParent().draw()
-		})
-
 		eventTable.forEach( (e) => {
 			if (opt[e])
 				this.on(e, opt[e](this))

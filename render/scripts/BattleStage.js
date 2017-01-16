@@ -56,7 +56,7 @@ let Player_conf = {
 			menu.$.item.disabled = false
 		}
 
-		let rand = getRandomInt(5, 9)
+		let rand = getRandomInt(8, 15)
 		let enemy = battlestage.layer.children[rand]
 		makeAttack(battlestage, group, enemy)
 	}
@@ -69,7 +69,7 @@ let IA_conf = {
 		group.attrs.ready = false
 		group.actionJauge.reset()
 
-		let rand = getRandomInt(1, 5)
+		let rand = getRandomInt(1, 8)
 		let enemy = battlestage.layer.children[rand]
 		makeAttack(battlestage, group, enemy)
 	},
@@ -87,8 +87,6 @@ let IA_conf = {
 class BattleStage extends AdebrayStage {
 	constructor (opt) {
 		super(opt)
-
-		this.layer = opt.layer
 
 		this.teamA = opt.teamA
 		this.teamB = opt.teamB
@@ -156,12 +154,16 @@ class BattleStage extends AdebrayStage {
 			})
 
 			this.stack.extend( this.layer.children.map(
-				(e) => (frame) => {
-					if (e.nodeType == 'Group') {
-						e.update(frame.timeDiff / 1000)
+				(e) => new StackElem({
+					fun: (frame) => {
+						if (e.nodeType == 'Group') {
+							e.update(frame.timeDiff / 300)
+						}
 					}
-				}
+				})
 			))
+
+			console.log(this.stack.length)
 
 			this.layer.draw()
 			opt.callback(this)

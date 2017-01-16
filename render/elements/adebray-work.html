@@ -68,10 +68,10 @@
 		<iron-a11y-keys target=[[target]] keys="3" on-keys-pressed="selectMenu"></iron-a11y-keys>
 		<iron-a11y-keys target=[[target]] keys="space" on-keys-pressed="toggle"></iron-a11y-keys>
 
-		<template is="dom-if" if="{{isOn(mode)}}">
+		<template is="dom-if" if="{{isOn(stage.boolean)}}">
 			<paper-icon-button icon="mdi:pause" on-tap="toggle"></paper-icon-button>
 		</template>
-		<template is="dom-if" if="{{isOff(mode)}}">
+		<template is="dom-if" if="{{isOff(stage.boolean)}}">
 			<paper-icon-button icon="mdi:play" on-tap="toggle"></paper-icon-button>
 		</template>
 
@@ -249,9 +249,8 @@
 				key: String,
 				storage: Object,
 
-				mode: {
-					type: Boolean,
-					value: true
+				stage: {
+					type: Object
 				},
 				stack: Array,
 				selected: {
@@ -280,7 +279,8 @@
 			},
 
 			toggle: function () {
-				this.mode = !this.mode
+				this.notifyPath('stage.boolean')
+				this.stage.toggle()
 			},
 
 			selectFight: function (e) {
@@ -357,25 +357,16 @@
 
 				layer.add(back)
 
-				  bs = new BattleStage({
+				this.set('stage', new BattleStage({
 					layer,
 					teamA: this.teamA,
 					teamB: this.teamB,
 					callback: (bs) => {
 						this.set('stack', bs.stack)
-						// render()
 					}
-				})
+				}))
 
-				bs.run()
-				// let render = () => {
-				// 	if (this.mode) {
-				// 		bs.update()
-				// 	}
-				// 	requestAnimationFrame(render)
-				// }
-
-				// render()
+				this.stage.run()
 			}
 		});
 	</script>
