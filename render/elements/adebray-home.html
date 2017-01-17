@@ -10,6 +10,7 @@
 <link rel="import" href="adebray-pretty.html">
 <link rel="import" href="adebray-graph.html">
 <link rel="import" href="adebray-todo.html">
+<link rel="import" href="adebray-effects.html">
 
 <script type="text/javascript" src=../TODO.js></script>
 
@@ -26,6 +27,7 @@
 		<paper-tabs attr-for-selected=route selected={{route}}>
 			<paper-tab route=map>map</paper-tab>
 			<paper-tab route=pretty>pretty</paper-tab>
+			<paper-tab route=effects>effects</paper-tab>
 			<paper-tab route=work>work</paper-tab>
 			<paper-tab route=graph>graph</paper-tab>
 		</paper-tabs>
@@ -35,6 +37,9 @@
 			</section>
 			<section id="pretty">
 				<adebray-pretty></adebray-pretty>
+			</section>
+			<section id="effects">
+				<adebray-effects></adebray-effects>
 			</section>
 			<section id="work">
 				<adebray-menu></adebray-menu>
@@ -52,7 +57,7 @@
 			properties: {
 				route: {
 					type: String,
-					value: 'work',
+					value: 'effects',
 					observer: 'log'
 				}
 			},
