@@ -15,7 +15,8 @@
 <script type="text/javascript" src="../scripts/Stage.js"></script>
 <script type="text/javascript" src="../scripts/BattleStage.js"></script>
 <script type="text/javascript" src="../scripts/Jauge.js"></script>
-<script type="text/javascript" src="../scripts/Character.js"></script>
+<script type="text/javascript" src="../scripts/Character/Character.js"></script>
+<script type="text/javascript" src="../scripts/Character/Monster.js"></script>
 
 <dom-module id="adebray-work">
 	<template>
@@ -152,99 +153,11 @@
 				},
 				teamA: {
 					type: Array,
-					value: [
-						{
-							position: 6,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer',
-							body: items.Vest,
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer',
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer',
-							body: items.Vest,
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer',
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer',
-							body: items.Vest,
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer',
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer',
-							body: items.Vest,
-							left: items.Knife,
- 						},{
-							position: 6,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer',
-							left: items.Knife,
- 						}
-					]
+					value: []
 				},
 				teamB: {
 					type: Array,
-					value: [
-						{
-
-							position: 2,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/test.png',
-							class: 'Freelancer'
-						},{
-
-							position: 2,
-							image: 'images2/combat_dummy/BODY_animation.png',
-							class: 'Freelancer'
-						}
-					]
+					value: []
 				},
 				key: String,
 				storage: Object,
@@ -363,10 +276,12 @@
 					teamB: this.teamB,
 					callback: (bs) => {
 						this.set('stack', bs.stack)
-					}
+						bs.run()
+					},
+					callback_end: this.callback_end
 				}))
 
-				this.stage.run()
+				// this.stage.run()
 			}
 		});
 	</script>

@@ -15,8 +15,10 @@
 		</style>
 
 		<paper-item>Job: {{character.attrs.job.name}}</paper-item>
+		<paper-item>joblvl: {{do(character, 'joblvl')}}</paper-item>
+		<paper-item>jobpoints: {{do(character, 'jobpoints')}}</paper-item>
 
-		<iron-image src={{getFaceImage(character)}}></iron-image>
+		<iron-image src={{getFaceImage(character.character.attrs.images)}}></iron-image>
 
 	</template>
 	<script>
@@ -32,11 +34,13 @@
 			},
 
 			getFaceImage: function (c) {
-				if (c)
-					return c.character.attrs.images[0].src
-				else
-					return this.fill()
-			}
+				return c[4].src
+			},
+
+			do: function (obj, method) {
+				if (obj[method])
+					return obj[method]()
+			},
 
 		});
 	</script>

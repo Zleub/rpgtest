@@ -29,6 +29,7 @@ let eventTable = [
 	// adebray
 	'update',
 	'ready',
+	'death'
 ]
 
 class Character extends Konva.Group {
@@ -44,8 +45,8 @@ class Character extends Konva.Group {
 			intellect: opt.intellect || 5,
 			mind: opt.mind || 5,
 
-			hp: opt.hp || 1000,
-			hp_max: opt.hp_max || 1000,
+			hp: opt.hp || 100,
+			hp_max: opt.hp_max || 100,
 
 			head: opt.head || {},
 			body: opt.body || {},
@@ -75,8 +76,6 @@ class Character extends Konva.Group {
 			y: opt.y,
 			_y: opt.y
 		})
-
-		// this.transformsEnabled('position')
 
 		this.lock = false
 		this.add( this.selectionRect = new Konva.Rect({
@@ -111,12 +110,39 @@ class Character extends Konva.Group {
 				this.on(e, opt[e](this))
 		})
 
+		opt.image = this.attrs.job.image
 		makeImage( opt ).then( (e) => {
 			e.x(0)
 			e.y(0)
 			this.add(e)
 			this.character = e
 			opt.callback(this)
+		})
+	}
+
+	attachEventTable(et) {
+		eventTable.forEach( (e) => {
+			if (et[e]) {
+				console.log('attaching ' + e)
+				this.on(e, et[e](this))
+			}
+		})
+	}
+
+	changejob(jobname, callback) {
+		this.attrs.job = jobs[jobname]
+		makeImage({
+			x: 0,
+			y: 0,
+			image: this.attrs.job.image,
+			position: this.character.attrs._position
+		}).then((e) => {
+			e.x(0)
+			e.y(0)
+			this.character.destroy()
+			this.add(e)
+			this.character = e
+			callback(this)
 		})
 	}
 
@@ -157,6 +183,12 @@ class Character extends Konva.Group {
 		}
 		else
 			return this.attrs.experience
+	}
+
+	purgeEvents() {
+		eventTable.forEach((e) => {
+			this.off(e)
+		})
 	}
 
 	levelup() {
@@ -237,8 +269,10 @@ class Character extends Konva.Group {
 			this.attrs.hp -= value
 
 			this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
-			if (this.attrs.hp < 0)
+			if (this.attrs.hp < 0) {
+				this.fire('death')
 				this.destroy()
+			}
 
 			this.fire('update')
 		}

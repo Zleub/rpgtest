@@ -24,10 +24,11 @@
 				@apply(--layout-vertical);
 				/*@apply(--layout-center-justified);*/
 			}
+
 		</style>
 
 
-		<div class=centered>
+		<div id=menu class=centered>
 			<iron-image src="/logo.png" alt="Awesome logo"></iron-image>
 
 			<div class="layout horizontal" style="width:550px">
@@ -37,7 +38,7 @@
 			</div>
 
 			<template is=dom-if	if="{{teamHasPlayer(team.length)}}">
-				<paper-button class=button raised>Play</paper-button>
+				<paper-button class=button on-tap="toggleBattle" raised>Play</paper-button>
 			</template>
 
 			<template is=dom-if	if="{{teamNotFull(team.length)}}">
@@ -49,7 +50,6 @@
 			</template>
 			<paper-button class=button raised>Option</paper-button>
 		</div>
-
 	</template>
 	<script>
 		Polymer({
@@ -58,12 +58,41 @@
 			properties: {
 				team: {
 					type: Array,
-					value: []
+					value: [],
+					notify: true
 				}
 			},
 
 			toggleTeam: function () {
 				this.$$('#play').toggle()
+			},
+
+			toggleBattle: function () {
+				this.$.menu.hidden = true
+
+				let b = document.createElement('adebray-work')
+				let e = monsters[0]
+
+				console.log(e)
+				b.callback_end = () => {
+					this.$.menu.hidden = false
+					this.set('team', null)
+
+					this.async( function() {
+						this.set('team', b.teamA)
+					}, 100)
+
+					this.removeChild(b)
+				}
+
+				this.team.forEach( e => e.actionJauge.fromNumber(0) )
+
+				b.teamA = this.team
+				b.teamB = [
+					new Monster(e)
+				]
+				this.appendChild(b)
+				// b.stage.run()
 			},
 
 			addToTeam: function () {
@@ -81,6 +110,10 @@
 			},
 			teamHasPlayer: function (len) {
 				return len >= 1
+			},
+
+			attached: function () {
+				this.toggleTeam()
 			}
 		});
 	</script>

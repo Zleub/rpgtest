@@ -26,14 +26,14 @@ class AdebrayStage {
 	}
 
 	run() {
-		let loop = new Konva.Animation( (frame) => {
+		this.loop = new Konva.Animation( (frame) => {
 			if (this.boolean) {
 				this.stack.forEach( (e) => e.fun(frame))
 				return true
 			}
 		}, this.layer)
 
-		loop.start()
+		this.loop.start()
 	}
 
 	add(stackelem) {
@@ -43,5 +43,10 @@ class AdebrayStage {
 		stackelem.time = 0
 		stackelem.parent = this.stack
 		this.stack.push(stackelem)
+	}
+
+	destroy() {
+		this.stack.forEach( se => se.destroy() )
+		this.loop.stop()
 	}
 }

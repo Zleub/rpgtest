@@ -1,0 +1,5755 @@
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#001. Goblin
+
+Basic Stats:
+  • Level      : 1
+  • Maximum HP : 7
+  • Attack     : 6
+  • Defense    : 6
+  • Gil Earned : 10
+  • EXP. Earned: 1
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#002. Carbuncle
+
+Basic Stats:
+  • Level      : 1
+  • Maximum HP : 10
+  • Attack     : 6
+  • Defense    : 6
+  • Gil Earned : 5
+  • EXP. Earned: 2
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#003. Eye Fang
+
+Basic Stats:
+  • Level      : 1
+  • Maximum HP : 11
+  • Attack     : 7
+  • Defense    : 6
+  • Gil Earned : 7
+  • EXP. Earned: 3
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#004. Blue Wisp
+
+Basic Stats:
+  • Level      : 1
+  • Maximum HP : 14
+  • Attack     : 7
+  • Defense    : 6
+  • Gil Earned : 10
+  • EXP. Earned: 4
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#005. Killer Bee
+
+Basic Stats:
+  • Level      : 2
+  • Maximum HP : 18
+  • Attack     : 8
+  • Defense    : 6
+  • Gil Earned : 12
+  • EXP. Earned: 12
+
+Potential Item Steals:
+  • Eye Drops
+  • Eye Drops
+  • Antidote
+  • Antidote
+
+Potential Item Drops:
+  • Eye Drops
+  • Antidote
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#006. Werewolf
+
+Basic Stats:
+  • Level      : 3
+  • Maximum HP : 24
+  • Attack     : 9
+  • Defense    : 6
+  • Gil Earned : 14
+  • EXP. Earned: 12
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#007. Berserker
+
+Basic Stats:
+  • Level      : 4
+  • Maximum HP : 28
+  • Attack     : 11
+  • Defense    : 6
+  • Gil Earned : 22
+  • EXP. Earned: 14
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#008. Red Wisp
+
+Basic Stats:
+  • Level      : 5
+  • Maximum HP : 39
+  • Attack     : 12
+  • Defense    : 10
+  • Gil Earned : 18
+  • EXP. Earned: 70
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#009. Dark Eye
+
+Basic Stats:
+  • Level      : 5
+  • Maximum HP : 43
+  • Attack     : 12
+  • Defense    : 10
+  • Gil Earned : 20
+  • EXP. Earned: 95
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#010. Zombie
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 47
+  • Attack     : 14
+  • Defense    : 10
+  • Gil Earned : 22
+  • EXP. Earned: 100
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#011. Mummy
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 52
+  • Attack     : 15
+  • Defense    : 10
+  • Gil Earned : 24
+  • EXP. Earned: 100
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#012. Skeleton
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 57
+  • Attack     : 14
+  • Defense    : 10
+  • Gil Earned : 26
+  • EXP. Earned: 105
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#013. Cursed Copper
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 42
+  • Attack     : 14
+  • Defense    : 10
+  • Gil Earned : 52
+  • EXP. Earned: 105
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#014. Larva
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 44
+  • Attack     : 15
+  • Defense    : 10
+  • Gil Earned : 30
+  • EXP. Earned: 120
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#015. Shadow
+
+Basic Stats:
+  • Level      : 7
+  • Maximum HP : 66
+  • Attack     : 15
+  • Defense    : 10
+  • Gil Earned : 32
+  • EXP. Earned: 120
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#016. Revenant
+
+Basic Stats:
+  • Level      : 7
+  • Maximum HP : 70
+  • Attack     : 14
+  • Defense    : 10
+  • Gil Earned : 34
+  • EXP. Earned: 130
+
+Potential Item Steals:
+  • Eye Drops
+  • Eye Drops
+  • Antidote
+  • Antidote
+
+Potential Item Drops:
+  • Eye Drops
+  • Antidote
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#017. Firefly
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 92
+  • Attack     : 17
+  • Defense    : 15
+  • Gil Earned : 36
+  • EXP. Earned: 130
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#018. Helldiver
+
+Basic Stats:
+  • Level      : 8
+  • Maximum HP : 120
+  • Attack     : 17
+  • Defense    : 15
+  • Gil Earned : 38
+  • EXP. Earned: 130
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Neddle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#019. Rust Bird
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 135
+  • Attack     : 18
+  • Defense    : 15
+  • Gil Earned : 40
+  • EXP. Earned: 150
+
+Potential Item Steals:
+  • Phoenix Down
+  • Phoenix Down
+  • Phoenix Down
+  • Phoenix Down
+
+Potential Item Drops:
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#020. Rukh
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 155
+  • Attack     : 19
+  • Defense    : 15
+  • Gil Earned : 42
+  • EXP. Earned: 150
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#021. Basilisk
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 100
+  • Attack     : 18
+  • Defense    : 15
+  • Gil Earned : 44
+  • EXP. Earned: 150
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#022. Bugbear
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 110
+  • Attack     : 20
+  • Defense    : 15
+  • Gil Earned : 46
+  • EXP. Earned: 180
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#023. Mandrake
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 120
+  • Attack     : 19
+  • Defense    : 15
+  • Gil Earned : 48
+  • EXP. Earned: 180
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#024. Leprechaun
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 142
+  • Attack     : 16
+  • Defense    : 15
+  • Gil Earned : 52
+  • EXP. Earned: 200
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#025. Darkface
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 168
+  • Attack     : 16
+  • Defense    : 15
+  • Gil Earned : 53
+  • EXP. Earned: 200
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#026. Petit
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 103
+  • Attack     : 15
+  • Defense    : 15
+  • Gil Earned : 54
+  • EXP. Earned: 200
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#027. Poison Bat
+
+Basic Stats:
+  • Level      : 9
+  • Maximum HP : 98
+  • Attack     : 15
+  • Defense    : 15
+  • Gil Earned : 56
+  • EXP. Earned: 220
+
+Potential Item Steals:
+  • Eye Drops
+  • Eye Drops
+  • Antidote
+  • Antidote
+
+Potential Item Drops:
+  • Eye Drops
+  • Antidote
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#028. Lilliputian
+
+Basic Stats:
+  • Level      : 10
+  • Maximum HP : 118
+  • Attack     : 17
+  • Defense    : 15
+  • Gil Earned : 58
+  • EXP. Earned: 220
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#029. Wererat
+
+Basic Stats:
+  • Level      : 10
+  • Maximum HP : 130
+  • Attack     : 18
+  • Defense    : 15
+  • Gil Earned : 60
+  • EXP. Earned: 220
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#030. Blood Worm
+
+Basic Stats:
+  • Level      : 11
+  • Maximum HP : 165
+  • Attack     : 22
+  • Defense    : 15
+  • Gil Earned : 62
+  • EXP. Earned: 240
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#031. Killer Fish
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 135
+  • Attack     : 22
+  • Defense    : 16
+  • Gil Earned : 64
+  • EXP. Earned: 240
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#032. Hermit
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 173
+  • Attack     : 22
+  • Defense    : 16
+  • Gil Earned : 66
+  • EXP. Earned: 240
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#033. Sea Elemental
+
+Basic Stats:
+  • Level      : 22
+  • Maximum HP : 155
+  • Attack     : 22
+  • Defense    : 16
+  • Gil Earned : 67
+  • EXP. Earned: 250
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#034. Tangie
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 225
+  • Attack     : 24
+  • Defense    : 16
+  • Gil Earned : 68
+  • EXP. Earned: 250
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#035. Sahagin
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 190
+  • Attack     : 22
+  • Defense    : 16
+  • Gil Earned : 70
+  • EXP. Earned: 250
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#036. Parademon
+
+Basic Stats:
+  • Level      : 16
+  • Maximum HP : 245
+  • Attack     : 27
+  • Defense    : 16
+  • Gil Earned : 72
+  • EXP. Earned: 270
+
+Potential Item Steals:
+  • Wooden Arrow
+  • Holy Arrow
+  • Iron Arrow
+  • Ice Arrow
+
+Potential Item Drops:
+  • Wooden Arrow
+  • Holy Arrow
+  • Iron Arrow
+  • Ice Arrow
+  • Light Arrow
+  • Fire Arrow
+  • Medusa Arrow
+  • Yoichi Arrow
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#037. Griffon
+
+Basic Stats:
+  • Level      : 6
+  • Maximum HP : 230
+  • Attack     : 15
+  • Defense    : 8
+  • Gil Earned : 40
+  • EXP. Earned: 130
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#038. Lynx
+
+Basic Stats:
+  • Level      : 16
+  • Maximum HP : 265
+  • Attack     : 27
+  • Defense    : 16
+  • Gil Earned : 76
+  • EXP. Earned: 270
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#039. Hornet
+
+Basic Stats:
+  • Level      : 15
+  • Maximum HP : 260
+  • Attack     : 25
+  • Defense    : 16
+  • Gil Earned : 78
+  • EXP. Earned: 300
+
+Potential Item Steals:
+  • Eye Drops
+  • Eye Drops
+  • Antidote
+  • Antidote
+
+Potential Item Drops:
+  • Eye Drops
+  • Antidote
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#040. Knocker
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 131
+  • Attack     : 23
+  • Defense    : 16
+  • Gil Earned : 80
+  • EXP. Earned: 300
+
+Potential Item Steals:
+  • Potion
+  • Zeus's Wrath
+  • Zeus's Wrath
+  • Angel's Sigh
+
+Potential Item Drops:
+  • Zeus's Wrath
+  • Angel's Sigh
+  • Potion
+  • Shell Breaker
+  • Heavenly Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#041. Flyer
+
+Basic Stats:
+  • Level      : 12
+  • Maximum HP : 139
+  • Attack     : 23
+  • Defense    : 16
+  • Gil Earned : 82
+  • EXP. Earned: 300
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#042. Lizardman
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 155
+  • Attack     : 24
+  • Defense    : 16
+  • Gil Earned : 84
+  • EXP. Earned: 320
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#043. Gorgon
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 145
+  • Attack     : 24
+  • Defense    : 16
+  • Gil Earned : 86
+  • EXP. Earned: 320
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#044. Red Cap
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 252
+  • Attack     : 31
+  • Defense    : 16
+  • Gil Earned : 87
+  • EXP. Earned: 320
+
+Potential Item Steals:
+  • Potion
+  • Zeus's Wrath
+  • Zeus's Wrath
+  • Angel's Sigh
+
+Potential Item Drops:
+  • Zeus's Wrath
+  • Angel's Sigh
+  • Potion
+  • Shell Breaker
+  • Heavenly Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#045. Barometz
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 264
+  • Attack     : 31
+  • Defense    : 16
+  • Gil Earned : 88
+  • EXP. Earned: 330
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#046. Slime
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 240
+  • Attack     : 28
+  • Defense    : 16
+  • Gil Earned : 90
+  • EXP. Earned: 330
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#047. Tarantula
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 240
+  • Attack     : 31
+  • Defense    : 16
+  • Gil Earned : 92
+  • EXP. Earned: 330
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#048. Cuphgel
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 240
+  • Attack     : 31
+  • Defense    : 16
+  • Gil Earned : 94
+  • EXP. Earned: 360
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#049. Pugman
+
+Basic Stats:
+  • Level      : 14
+  • Maximum HP : 171
+  • Attack     : 27
+  • Defense    : 17
+  • Gil Earned : 96
+  • EXP. Earned: 360
+
+Potential Item Steals:
+  • Potion
+  • Maiden's Kiss
+  • Echo Herbs
+  • Mallet
+
+Potential Item Drops:
+  • Maiden's Kiss
+  • Echo Herbs
+  • Potion
+  • Mallet
+  • Hi-Potion
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#050. Far Darrig
+
+Basic Stats:
+  • Level      : 14
+  • Maximum HP : 177
+  • Attack     : 25
+  • Defense    : 17
+  • Gil Earned : 98
+  • EXP. Earned: 360
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#051. Blood Bat
+
+Basic Stats:
+  • Level      : 14
+  • Maximum HP : 208
+  • Attack     : 27
+  • Defense    : 17
+  • Gil Earned : 100
+  • EXP. Earned: 380
+
+Potential Item Steals:
+  • Potion
+  • Maiden's Kiss
+  • Echo Herbs
+  • Mallet
+
+Potential Item Drops:
+  • Maiden's Kiss
+  • Echo Herbs
+  • Potion
+  • Mallet
+  • Hi-Potion
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#052. Petit Mage
+
+Basic Stats:
+  • Level      : 13
+  • Maximum HP : 196
+  • Attack     : 23
+  • Defense    : 17
+  • Gil Earned : 101
+  • EXP. Earned: 380
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#053. Fury
+
+Basic Stats:
+  • Level      : 16
+  • Maximum HP : 216
+  • Attack     : 29
+  • Defense    : 17
+  • Gil Earned : 102
+  • EXP. Earned: 380
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#054. Aughisky
+
+Basic Stats:
+  • Level      : 15
+  • Maximum HP : 235
+  • Attack     : 28
+  • Defense    : 17
+  • Gil Earned : 105
+  • EXP. Earned: 400
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#055. Bomb
+
+Basic Stats:
+  • Level      : 16
+  • Maximum HP : 315
+  • Attack     : 31
+  • Defense    : 19
+  • Gil Earned : 110
+  • EXP. Earned: 400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#056. Manticore
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 375
+  • Attack     : 32
+  • Defense    : 19
+  • Gil Earned : 112
+  • EXP. Earned: 400
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#057. Stalagmite
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 284
+  • Attack     : 30
+  • Defense    : 19
+  • Gil Earned : 115
+  • EXP. Earned: 400
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#058. Sea Devil
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 339
+  • Attack     : 31
+  • Defense    : 19
+  • Gil Earned : 116
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#059. Merman
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 345
+  • Attack     : 31
+  • Defense    : 19
+  • Gil Earned : 118
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#060. Ruinous Wave
+
+Basic Stats:
+  • Level      : 16
+  • Maximum HP : 296
+  • Attack     : 30
+  • Defense    : 19
+  • Gil Earned : 120
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#061. Balloon
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 386
+  • Attack     : 33
+  • Defense    : 19
+  • Gil Earned : 125
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#062. Myrmecoleon
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 494
+  • Attack     : 35
+  • Defense    : 19
+  • Gil Earned : 130
+  • EXP. Earned: 500
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#063. Crocotta
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 500
+  • Attack     : 35
+  • Defense    : 19
+  • Gil Earned : 135
+  • EXP. Earned: 500
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Bomb Fragment
+  • Sheep Pillow
+
+Potential Item Drops:
+  • Bomb Fragment
+  • Sheep Pillow
+  • Potion
+  • Lamia Scale
+  • Bomb Arm
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#064. Adamantoise
+
+Basic Stats:
+  • Level      : 21
+  • Maximum HP : 800
+  • Attack     : 40
+  • Defense    : 19
+  • Gil Earned : 270
+  • EXP. Earned: 700
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#065. Red Marshmallow
+
+Basic Stats:
+  • Level      : 18
+  • Maximum HP : 510
+  • Attack     : 34
+  • Defense    : 19
+  • Gil Earned : 140
+  • EXP. Earned: 500
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Bomb Fragment
+  • Sheep Pillow
+
+Potential Item Drops:
+  • Bomb Fragment
+  • Sheep Pillow
+  • Potion
+  • Lamia Scale
+  • Bomb Arm
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#066. Pharoah
+
+Basic Stats:
+  • Level      : 20
+  • Maximum HP : 580
+  • Attack     : 41
+  • Defense    : 19
+  • Gil Earned : 145
+  • EXP. Earned: 600
+
+Potential Item Steals:
+  • Eye Drops
+  • Eye Drops
+  • Antidote
+  • Antidote
+
+Potential Item Drops:
+  • Eye Drops
+  • Antidote
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#067. Lemur
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 752
+  • Attack     : 38
+  • Defense    : 19
+  • Gil Earned : 150
+  • EXP. Earned: 600
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#068. Lamia
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 850
+  • Attack     : 44
+  • Defense    : 19
+  • Gil Earned : 310
+  • EXP. Earned: 840
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#069. Demon
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 742
+  • Attack     : 45
+  • Defense    : 19
+  • Gil Earned : 316
+  • EXP. Earned: 1,008
+
+Potential Item Steals:
+  • Wooden Arrow
+  • Holy Arrow
+  • Iron Arrow
+  • Ice Arrow
+
+Potential Item Drops:
+  • Wooden Arrow
+  • Holy Arrow
+  • Iron Arrow
+  • Ice Arrow
+  • Light Arrow
+  • Fire Arrow
+  • Medusa Arrow
+  • Yoichi Arrow
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#070. Dullahan
+
+Basic Stats:
+  • Level      : 24
+  • Maximum HP : 1,000
+  • Attack     : 48
+  • Defense    : 19
+  • Gil Earned : 320
+  • EXP. Earned: 1,008
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#071. Anet
+
+Basic Stats:
+  • Level      : 14
+  • Maximum HP : 268
+  • Attack     : 25
+  • Defense    : 19
+  • Gil Earned : 100
+  • EXP. Earned: 400
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#072. Mermaid
+
+Basic Stats:
+  • Level      : 15
+  • Maximum HP : 164
+  • Attack     : 25
+  • Defense    : 19
+  • Gil Earned : 123
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#073. Seahorse
+
+Basic Stats:
+  • Level      : 14
+  • Maximum HP : 278
+  • Attack     : 25
+  • Defense    : 19
+  • Gil Earned : 119
+  • EXP. Earned: 450
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#074. Sea Serpent
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 530
+  • Attack     : 30
+  • Defense    : 19
+  • Gil Earned : 406
+  • EXP. Earned: 700
+
+Potential Item Steals:
+  • Potion
+  • Antarctic Wind
+  • Antarctic Wind
+  • Antarctic Wind
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#075. Cockatrice
+
+Basic Stats:
+  • Level      : 20
+  • Maximum HP : 890
+  • Attack     : 44
+  • Defense    : 19
+  • Gil Earned : 185
+  • EXP. Earned: 800
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#076. Poison Toad
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 800
+  • Attack     : 40
+  • Defense    : 19
+  • Gil Earned : 190
+  • EXP. Earned: 900
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#077. Twin Heads
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 910
+  • Attack     : 42
+  • Defense    : 19
+  • Gil Earned : 195
+  • EXP. Earned: 900
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#078. Roper
+
+Basic Stats:
+  • Level      : 20
+  • Maximum HP : 815
+  • Attack     : 43
+  • Defense    : 19
+  • Gil Earned : 200
+  • EXP. Earned: 900
+
+Potential Item Steals:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+  • Lamia Scale
+  • Bacchus's Cider
+  • Turtle Shell
+  • Earthen Drums
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#079. Agaliarept
+
+Basic Stats:
+  • Level      : 21
+  • Maximum HP : 930
+  • Attack     : 45
+  • Defense    : 19
+  • Gil Earned : 210
+  • EXP. Earned: 1,000
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#080. Dark Legs
+
+Basic Stats:
+  • Level      : 21
+  • Maximum HP : 940
+  • Attack     : 41
+  • Defense    : 20
+  • Gil Earned : 220
+  • EXP. Earned: 1,000
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#081. Gigantoad
+
+Basic Stats:
+  • Level      : 20
+  • Maximum HP : 838
+  • Attack     : 41
+  • Defense    : 20
+  • Gil Earned : 230
+  • EXP. Earned: 1,000
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#082. Twin Liger
+
+Basic Stats:
+  • Level      : 22
+  • Maximum HP : 960
+  • Attack     : 43
+  • Defense    : 20
+  • Gil Earned : 240
+  • EXP. Earned: 1,100
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#083. Stroper
+
+Basic Stats:
+  • Level      : 21
+  • Maximum HP : 1,100
+  • Attack     : 41
+  • Defense    : 20
+  • Gil Earned : 250
+  • EXP. Earned: 1,100
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#084. Black Flan
+
+Basic Stats:
+  • Level      : 22
+  • Maximum HP : 880
+  • Attack     : 44
+  • Defense    : 20
+  • Gil Earned : 260
+  • EXP. Earned: 1,100
+
+Potential Item Steals:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+  • Lamia Scale
+  • Bacchus's Cider
+  • Turtle Shell
+  • Earthen Drums
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#085. Hellgaroo
+
+Basic Stats:
+  • Level      : 22
+  • Maximum HP : 888
+  • Attack     : 44
+  • Defense    : 20
+  • Gil Earned : 1,250
+  • EXP. Earned: 270
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#086. Vulcan
+
+Basic Stats:
+  • Level      : 26
+  • Maximum HP : 2,200
+  • Attack     : 50
+  • Defense    : 20
+  • Gil Earned : 560
+  • EXP. Earned: 1,750
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#087. Dracrocotta
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 1,050
+  • Attack     : 44
+  • Defense    : 20
+  • Gil Earned : 290
+  • EXP. Earned: 1,250
+
+Potential Item Steals:
+  • Potion
+  • Potion
+  • Potion
+  • Potion
+
+Potential Item Drops:
+  • Potion
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#088. Magician
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 1,040
+  • Attack     : 43
+  • Defense    : 20
+  • Gil Earned : 300
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#089. Lost Gold
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 928
+  • Attack     : 38
+  • Defense    : 22
+  • Gil Earned : 310
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#090. Gold Eagle
+
+Basic Stats:
+  • Level      : 23
+  • Maximum HP : 935
+  • Attack     : 43
+  • Defense    : 22
+  • Gil Earned : 320
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#091. Gold Warrior
+
+Basic Stats:
+  • Level      : 24
+  • Maximum HP : 1,130
+  • Attack     : 47
+  • Defense    : 22
+  • Gil Earned : 330
+  • EXP. Earned: 1,500
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#092. Gold Bear
+
+Basic Stats:
+  • Level      : 24
+  • Maximum HP : 1,090
+  • Attack     : 49
+  • Defense    : 22
+  • Gil Earned : 340
+  • EXP. Earned: 1,500
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#093. Gold Knight
+
+Basic Stats:
+  • Level      : 25
+  • Maximum HP : 1,100
+  • Attack     : 48
+  • Defense    : 22
+  • Gil Earned : 350
+  • EXP. Earned: 1,500
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#094. Nightmare
+
+Basic Stats:
+  • Level      : 25
+  • Maximum HP : 1,120
+  • Attack     : 48
+  • Defense    : 22
+  • Gil Earned : 360
+  • EXP. Earned: 1,900
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#095. Hellgaroo Mage
+
+Basic Stats:
+  • Level      : 25
+  • Maximum HP : 1,093
+  • Attack     : 49
+  • Defense    : 22
+  • Gil Earned : 370
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#096. Needle Monkey
+
+Basic Stats:
+  • Level      : 25
+  • Maximum HP : 1,100
+  • Attack     : 48
+  • Defense    : 22
+  • Gil Earned : 380
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#097. Catoblepas
+
+Basic Stats:
+  • Level      : 26
+  • Maximum HP : 1,260
+  • Attack     : 54
+  • Defense    : 22
+  • Gil Earned : 390
+  • EXP. Earned: 1,600
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#098. Sorcerer
+
+Basic Stats:
+  • Level      : 26
+  • Maximum HP : 1,270
+  • Attack     : 51
+  • Defense    : 22
+  • Gil Earned : 400
+  • EXP. Earned: 1,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#099. Sand Worm
+
+Basic Stats:
+  • Level      : 26
+  • Maximum HP : 1,290
+  • Attack     : 53
+  • Defense    : 22
+  • Gil Earned : 420
+  • EXP. Earned: 1,920
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#100. Frostfly
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 1,200
+  • Attack     : 54
+  • Defense    : 23
+  • Gil Earned : 430
+  • EXP. Earned: 1,920
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Fire
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#101. Simurgh
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 1,220
+  • Attack     : 55
+  • Defense    : 23
+  • Gil Earned : 450
+  • EXP. Earned: 2,080
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#102. Harpy
+
+Basic Stats:
+  • Level      : 30
+  • Maximum HP : 1,650
+  • Attack     : 56
+  • Defense    : 23
+  • Gil Earned : 460
+  • EXP. Earned: 2,080
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#103. Gargoyle
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 1,240
+  • Attack     : 56
+  • Defense    : 23
+  • Gil Earned : 470
+  • EXP. Earned: 2,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#104. Chimera
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 1,250
+  • Attack     : 57
+  • Defense    : 23
+  • Gil Earned : 475
+  • EXP. Earned: 2,400
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#105. Demon Horse
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 710
+  • Attack     : 36
+  • Defense    : 23
+  • Gil Earned : 480
+  • EXP. Earned: 2,640
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#106. Rock Gargoyle
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 720
+  • Attack     : 36
+  • Defense    : 23
+  • Gil Earned : 490
+  • EXP. Earned: 2,640
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#107. Bovian
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 730
+  • Attack     : 36
+  • Defense    : 23
+  • Gil Earned : 500
+  • EXP. Earned: 2,640
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#108. Dread Knight
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 740
+  • Attack     : 36
+  • Defense    : 23
+  • Gil Earned : 510
+  • EXP. Earned: 2,880
+
+Potential Item Steals:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Arm
+  • Arctic Wind
+  • Heavenly Wrath
+  • Lamia Scale
+  • Bacchus's Cider
+  • Turtle Shell
+  • Earthen Drums
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#109. Flyer Mage
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 680
+  • Attack     : 36
+  • Defense    : 23
+  • Gil Earned : 520
+  • EXP. Earned: 2,880
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#110. Noggle
+
+Basic Stats:
+  • Level      : 30
+  • Maximum HP : 1,310
+  • Attack     : 56
+  • Defense    : 24
+  • Gil Earned : 540
+  • EXP. Earned: 2,880
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#111. Abtu
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 1,128
+  • Attack     : 54
+  • Defense    : 24
+  • Gil Earned : 550
+  • EXP. Earned: 2,880
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#112. Sea Dragon
+
+Basic Stats:
+  • Level      : 27
+  • Maximum HP : 2,550
+  • Attack     : 57
+  • Defense    : 24
+  • Gil Earned : 1,120
+  • EXP. Earned: 4,680
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#113. Kagura
+
+Basic Stats:
+  • Level      : 29
+  • Maximum HP : 1,143
+  • Attack     : 54
+  • Defense    : 24
+  • Gil Earned : 580
+  • EXP. Earned: 1,143
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#114. Charybdis
+
+Basic Stats:
+  • Level      : 30
+  • Maximum HP : 1,350
+  • Attack     : 57
+  • Defense    : 24
+  • Gil Earned : 600
+  • EXP. Earned: 3,120
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#115. Dozmare
+
+Basic Stats:
+  • Level      : 31
+  • Maximum HP : 1,650
+  • Attack     : 58
+  • Defense    : 24
+  • Gil Earned : 780
+  • EXP. Earned: 4,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#116. Sea Witch
+
+Basic Stats:
+  • Level      : 31
+  • Maximum HP : 1,660
+  • Attack     : 58
+  • Defense    : 24
+  • Gil Earned : 800
+  • EXP. Earned: 4,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#117. Killer Hermit
+
+Basic Stats:
+  • Level      : 31
+  • Maximum HP : 1,680
+  • Attack     : 59
+  • Defense    : 24
+  • Gil Earned : 820
+  • EXP. Earned: 4,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#118. Ologhai
+
+Basic Stats:
+  • Level      : 30
+  • Maximum HP : 1,415
+  • Attack     : 58
+  • Defense    : 24
+  • Gil Earned : 840
+  • EXP. Earned: 4,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#119. Kelpie
+
+Basic Stats:
+  • Level      : 30
+  • Maximum HP : 1,420
+  • Attack     : 58
+  • Defense    : 24
+  • Gil Earned : 850
+  • EXP. Earned: 5,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#120. Aegir
+
+Basic Stats:
+  • Level      : 31
+  • Maximum HP : 1,750
+  • Attack     : 58
+  • Defense    : 24
+  • Gil Earned : 860
+  • EXP. Earned: 5,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#121. Kyklops
+
+Basic Stats:
+  • Level      : 32
+  • Maximum HP : 1,580
+  • Attack     : 66
+  • Defense    : 24
+  • Gil Earned : 720
+  • EXP. Earned: 4,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#122. Boss Troll
+
+Basic Stats:
+  • Level      : 32
+  • Maximum HP : 1,600
+  • Attack     : 66
+  • Defense    : 24
+  • Gil Earned : 740
+  • EXP. Earned: 4,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#123. Fachan
+
+Basic Stats:
+  • Level      : 32
+  • Maximum HP : 1,620
+  • Attack     : 65
+  • Defense    : 24
+  • Gil Earned : 745
+  • EXP. Earned: 5,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#124. Cenchos
+
+Basic Stats:
+  • Level      : 32
+  • Maximum HP : 4,000
+  • Attack     : 69
+  • Defense    : 24
+  • Gil Earned : 1,500
+  • EXP. Earned: 6,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#125. Balor
+
+Basic Stats:
+  • Level      : 32
+  • Maximum HP : 1,660
+  • Attack     : 65
+  • Defense    : 24
+  • Gil Earned : 760
+  • EXP. Earned: 4,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#126. Dira
+
+Basic Stats:
+  • Level      : 33
+  • Maximum HP : 5,000
+  • Attack     : 73
+  • Defense    : 25
+  • Gil Earned : 610
+  • EXP. Earned: 3,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#127. Chimera Mage
+
+Basic Stats:
+  • Level      : 33
+  • Maximum HP : 1,540
+  • Attack     : 69
+  • Defense    : 25
+  • Gil Earned : 615
+  • EXP. Earned: 3,280
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#128. King Lizard
+
+Basic Stats:
+  • Level      : 33
+  • Maximum HP : 1,560
+  • Attack     : 68
+  • Defense    : 25
+  • Gil Earned : 620
+  • EXP. Earned: 3,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#129. Pterodactyl
+
+Basic Stats:
+  • Level      : 33
+  • Maximum HP : 1,570
+  • Attack     : 68
+  • Defense    : 25
+  • Gil Earned : 640
+  • EXP. Earned: 3,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#130. Wyvern
+
+Basic Stats:
+  • Level      : 36
+  • Maximum HP : 1,825
+  • Attack     : 76
+  • Defense    : 26
+  • Gil Earned : 1,300
+  • EXP. Earned: 6,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#131. Behemoth
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 12,650
+  • Attack     : 84
+  • Defense    : 26
+  • Gil Earned : 4,668
+  • EXP. Earned: 6,900
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#132. King Seahorse
+
+Basic Stats:
+  • Level      : 33
+  • Maximum HP : 1,405
+  • Attack     : 68
+  • Defense    : 25
+  • Gil Earned : 680
+  • EXP. Earned: 3,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#133. Dragon
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 11,000
+  • Attack     : 85
+  • Defense    : 26
+  • Gil Earned : 9,000
+  • EXP. Earned: 7,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#134. Pyralis
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 3,550
+  • Attack     : 81
+  • Defense    : 26
+  • Gil Earned : 1,760
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#135. Silenus
+
+Basic Stats:
+  • Level      : 35
+  • Maximum HP : 2,120
+  • Attack     : 74
+  • Defense    : 25
+  • Gil Earned : 900
+  • EXP. Earned: 1,020
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#136. Gaap
+
+Basic Stats:
+  • Level      : 34
+  • Maximum HP : 1,800
+  • Attack     : 73
+  • Defense    : 25
+  • Gil Earned : 623
+  • EXP. Earned: 1,020
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#137. Azrael
+
+Basic Stats:
+  • Level      : 34
+  • Maximum HP : 1,950
+  • Attack     : 73
+  • Defense    : 25
+  • Gil Earned : 640
+  • EXP. Earned: 1,020
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#138. Eater
+
+Basic Stats:
+  • Level      : 35
+  • Maximum HP : 2,700
+  • Attack     : 74
+  • Defense    : 25
+  • Gil Earned : 945
+  • EXP. Earned: 1,020
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#139. Ouroboros
+
+Basic Stats:
+  • Level      : 36
+  • Maximum HP : 2,660
+  • Attack     : 81
+  • Defense    : 26
+  • Gil Earned : 1,300
+  • EXP. Earned: 7,200
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#140. Plancti
+
+Basic Stats:
+  • Level      : 35
+  • Maximum HP : 2,260
+  • Attack     : 76
+  • Defense    : 26
+  • Gil Earned : 1,223
+  • EXP. Earned: 7,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#141. Sea Lion
+
+Basic Stats:
+  • Level      : 35
+  • Maximum HP : 2,275
+  • Attack     : 76
+  • Defense    : 26
+  • Gil Earned : 1,325
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#142. Remora
+
+Basic Stats:
+  • Level      : 36
+  • Maximum HP : 2,720
+  • Attack     : 81
+  • Defense    : 26
+  • Gil Earned : 1,354
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#143. Grenade
+
+Basic Stats:
+  • Level      : 36
+  • Maximum HP : 2,305
+  • Attack     : 82
+  • Defense    : 26
+  • Gil Earned : 1,400
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Bomb Arm
+  • Bomb Arm
+  • Tranquilizer
+
+Potential Item Drops:
+  • Bomb Arm
+  • Tranquilizer
+  • Hi-Potion
+  • Silence Seal
+  • Lilith's Kiss
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#144. Drake
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 3,260
+  • Attack     : 83
+  • Defense    : 26
+  • Gil Earned : 1,650
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#145. Greater Boros
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 3,280
+  • Attack     : 83
+  • Defense    : 26
+  • Gil Earned : 1,700
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+  • Gold Needle
+
+Potential Item Drops:
+  • Gold Needle
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#146. Sabertooth Liger
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 3,300
+  • Attack     : 83
+  • Defense    : 26
+  • Gil Earned : 1,800
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#147. Queen Lamia
+
+Basic Stats:
+  • Level      : 39
+  • Maximum HP : 7,200
+  • Attack     : 86
+  • Defense    : 27
+  • Gil Earned : 4,400
+  • EXP. Earned: 12,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#148. Zombie Dragon
+
+Basic Stats:
+  • Level      : 41
+  • Maximum HP : 11,000
+  • Attack     : 90
+  • Defense    : 27
+  • Gil Earned : 2,880
+  • EXP. Earned: 15,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#149. Death Claw
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 3,800
+  • Attack     : 85
+  • Defense    : 26
+  • Gil Earned : 680
+  • EXP. Earned: 7,500
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#150. Hellish Horse
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 4,360
+  • Attack     : 57
+  • Defense    : 26
+  • Gil Earned : 690
+  • EXP. Earned: 8,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#151. Chronos
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 4,100
+  • Attack     : 86
+  • Defense    : 26
+  • Gil Earned : 320
+  • EXP. Earned: 1,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#152. Valefor
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 4,240
+  • Attack     : 88
+  • Defense    : 26
+  • Gil Earned : 320
+  • EXP. Earned: 1,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#153. Haniel
+
+Basic Stats:
+  • Level      : 37
+  • Maximum HP : 3,400
+  • Attack     : 82
+  • Defense    : 26
+  • Gil Earned : 1,450
+  • EXP. Earned: 1,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#154. Vassago
+
+Basic Stats:
+  • Level      : 38
+  • Maximum HP : 4,440
+  • Attack     : 88
+  • Defense    : 26
+  • Gil Earned : 320
+  • EXP. Earned: 1,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Dark Blades
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#155. Peryton
+
+Basic Stats:
+  • Level      : 41
+  • Maximum HP : 9,650
+  • Attack     : 92
+  • Defense    : 27
+  • Gil Earned : 2,400
+  • EXP. Earned: 9,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#156. Ogre
+
+Basic Stats:
+  • Level      : 39
+  • Maximum HP : 5,680
+  • Attack     : 93
+  • Defense    : 26
+  • Gil Earned : 950
+  • EXP. Earned: 6,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#157. Cyclops
+
+Basic Stats:
+  • Level      : 39
+  • Maximum HP : 4,700
+  • Attack     : 91
+  • Defense    : 26
+  • Gil Earned : 1,000
+  • EXP. Earned: 6,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#158. Nemesis
+
+Basic Stats:
+  • Level      : 39
+  • Maximum HP : 4,720
+  • Attack     : 89
+  • Defense    : 26
+  • Gil Earned : 1,050
+  • EXP. Earned: 6,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Fire
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#159. Humbaba
+
+Basic Stats:
+  • Level      : 39
+  • Maximum HP : 6,740
+  • Attack     : 91
+  • Defense    : 26
+  • Gil Earned : 1,100
+  • EXP. Earned: 6,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#160. Death Needle
+
+Basic Stats:
+  • Level      : 40
+  • Maximum HP : 4,060
+  • Attack     : 91
+  • Defense    : 28
+  • Gil Earned : 1,550
+  • EXP. Earned: 6,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#161. Liger
+
+Basic Stats:
+  • Level      : 41
+  • Maximum HP : 5,870
+  • Attack     : 92
+  • Defense    : 28
+  • Gil Earned : 1,200
+  • EXP. Earned: 6,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#162. Aeon
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 10,060
+  • Attack     : 98
+  • Defense    : 28
+  • Gil Earned : 3,200
+  • EXP. Earned: 10,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#163. Minotaur
+
+Basic Stats:
+  • Level      : 41
+  • Maximum HP : 5,960
+  • Attack     : 93
+  • Defense    : 28
+  • Gil Earned : 1,640
+  • EXP. Earned: 6,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#164. Iron Claws
+
+Basic Stats:
+  • Level      : 41
+  • Maximum HP : 5,760
+  • Attack     : 93
+  • Defense    : 28
+  • Gil Earned : 2,000
+  • EXP. Earned: 7,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#165. Greater Demon
+
+Basic Stats:
+  • Level      : 42
+  • Maximum HP : 10,750
+  • Attack     : 97
+  • Defense    : 28
+  • Gil Earned : 4,800
+  • EXP. Earned: 11,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#166. Unei's Clone
+
+Basic Stats:
+  • Level      : 42
+  • Maximum HP : 10,000
+  • Attack     : 86
+  • Defense    : 28
+  • Gil Earned : 8,500
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • (none)
+  • (none)
+  • (none)
+  • (none)
+
+Potential Item Drops:
+  • None
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#167. Thanatos
+
+Basic Stats:
+  • Level      : 42
+  • Maximum HP : 11,800
+  • Attack     : 98
+  • Defense    : 28
+  • Gil Earned : 5,000
+  • EXP. Earned: 11,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#168. Bone Dragon
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 14,000
+  • Attack     : 95
+  • Defense    : 28
+  • Gil Earned : 7,800
+  • EXP. Earned: 11,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Light/Holy
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#169. King Behemoth
+
+Basic Stats:
+  • Level      : 50
+  • Maximum HP : 45,000
+  • Attack     : 112
+  • Defense    : 28
+  • Gil Earned : 10,800
+  • EXP. Earned: 15,200
+
+Potential Item Steals:
+  • Elixir
+  • Elixir
+  • Elixir
+  • Protect Ring
+
+Potential Item Drops:
+  • Elixir
+  • Protect Ring
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#170. Abaia
+
+Basic Stats:
+  • Level      : 42
+  • Maximum HP : 6,970
+  • Attack     : 93
+  • Defense    : 29
+  • Gil Earned : 2,700
+  • EXP. Earned: 8,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#171. Sleipnir
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 7,000
+  • Attack     : 94
+  • Defense    : 29
+  • Gil Earned : 2,800
+  • EXP. Earned: 8,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#172. Haokah
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 7,200
+  • Attack     : 93
+  • Defense    : 29
+  • Gil Earned : 2,900
+  • EXP. Earned: 8,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#173. Acheron
+
+Basic Stats:
+  • Level      : 44
+  • Maximum HP : 13,600
+  • Attack     : 102
+  • Defense    : 29
+  • Gil Earned : 6,600
+  • EXP. Earned: 12,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#174. Oceanus
+
+Basic Stats:
+  • Level      : 44
+  • Maximum HP : 13,200
+  • Attack     : 100
+  • Defense    : 29
+  • Gil Earned : 6,800
+  • EXP. Earned: 12,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#175. Gomory
+
+Basic Stats:
+  • Level      : 45
+  • Maximum HP : 19,976
+  • Attack     : 98
+  • Defense    : 29
+  • Gil Earned : 7,000
+  • EXP. Earned: 12,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#176. Bluck
+
+Basic Stats:
+  • Level      : 44
+  • Maximum HP : 6,720
+  • Attack     : 94
+  • Defense    : 29
+  • Gil Earned : 1,655
+  • EXP. Earned: 8,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#177. Doga's Clone
+
+Basic Stats:
+  • Level      : 45
+  • Maximum HP : 18,500
+  • Attack     : 96
+  • Defense    : 29
+  • Gil Earned : 5,000
+  • EXP. Earned: 16,000
+
+Potential Item Steals:
+  • (none)
+  • (none)
+  • (none)
+  • (none)
+
+Potential Item Drops:
+  • None
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#178. Azer
+
+Basic Stats:
+  • Level      : 45
+  • Maximum HP : 17,560
+  • Attack     : 106
+  • Defense    : 30
+  • Gil Earned : 7,400
+  • EXP. Earned: 17,560
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#179. Platinal
+
+Basic Stats:
+  • Level      : 47
+  • Maximum HP : 19,976
+  • Attack     : 107
+  • Defense    : 30
+  • Gil Earned : 7,600
+  • EXP. Earned: 13,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#180. Kum Kum
+
+Basic Stats:
+  • Level      : 46
+  • Maximum HP : 9,600
+  • Attack     : 84
+  • Defense    : 30
+  • Gil Earned : 3,600
+  • EXP. Earned: 8,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#181. Shinobi
+
+Basic Stats:
+  • Level      : 46
+  • Maximum HP : 11,000
+  • Attack     : 102
+  • Defense    : 30
+  • Gil Earned : 3,700
+  • EXP. Earned: 8,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#182. Shadow Master
+
+Basic Stats:
+  • Level      : 46
+  • Maximum HP : 10,000
+  • Attack     : 100
+  • Defense    : 30
+  • Gil Earned : 3,800
+  • EXP. Earned: 8,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#183. Kage
+
+Basic Stats:
+  • Level      : 47
+  • Maximum HP : 12,000
+  • Attack     : 104
+  • Defense    : 30
+  • Gil Earned : 3,900
+  • EXP. Earned: 9,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#184. Dark General
+
+Basic Stats:
+  • Level      : 48
+  • Maximum HP : 20,000
+  • Attack     : 110
+  • Defense    : 30
+  • Gil Earned : 8,600
+  • EXP. Earned: 13,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#185. Yellow Dragon
+
+Basic Stats:
+  • Level      : 50
+  • Maximum HP : 79,999
+  • Attack     : 107
+  • Defense    : 40
+  • Gil Earned : 12,000
+  • EXP. Earned: 30,000
+
+Potential Item Steals:
+  • Elixir
+  • Elixir
+  • Elixir
+  • Elixir
+
+Potential Item Drops:
+  • Elixir
+  • Onion Shield
+  • Onion Helm
+  • Onion Sword
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#186. Green Dragon
+
+Basic Stats:
+  • Level      : 60
+  • Maximum HP : 89,999
+  • Attack     : 129
+  • Defense    : 45
+  • Gil Earned : 13,330
+  • EXP. Earned: 45,000
+
+Potential Item Steals:
+  • Elixir
+  • Elixir
+  • Elixir
+  • Elixir
+
+Potential Item Drops:
+  • Elixir
+  • Onion Shield
+  • Onion Helm
+  • Onion Sword
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#187. Red Dragon
+
+Basic Stats:
+  • Level      : 70
+  • Maximum HP : 99,999
+  • Attack     : 150
+  • Defense    : 50
+  • Gil Earned : 14,666
+  • EXP. Earned: 60,000
+
+Potential Item Steals:
+  • Elixir
+  • Elixir
+  • Elixir
+  • Elixir
+
+Potential Item Drops:
+  • Elixir
+  • Onion Shield
+  • Onion Helm
+  • Onion Sword
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#188. Glasya Labolas
+
+Basic Stats:
+  • Level      : 52
+  • Maximum HP : 22,800
+  • Attack     : 112
+  • Defense    : 31
+  • Gil Earned : 8,400
+  • EXP. Earned: 13,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#189. Yormungand
+
+Basic Stats:
+  • Level      : 52
+  • Maximum HP : 30,560
+  • Attack     : 134
+  • Defense    : 31
+  • Gil Earned : 8,800
+  • EXP. Earned: 13,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#190. Thor
+
+Basic Stats:
+  • Level      : 50
+  • Maximum HP : 12,540
+  • Attack     : 105
+  • Defense    : 30
+  • Gil Earned : 4,000
+  • EXP. Earned: 9,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Heavenly Wrath
+  • Heavenly Wrath
+  • Tranquilizer
+
+Potential Item Drops:
+  • Heavenly Wrath
+  • Tranquilizer
+  • Hi-Potion
+  • Shining Curtain
+  • Chocobo's Wrath
+  • Black Musk
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#191. Hecatoncheir
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 28,000
+  • Attack     : 89
+  • Defense    : 32
+  • Gil Earned : 8,000
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#192. Hydra
+
+Basic Stats:
+  • Level      : 63
+  • Maximum HP : 33,800
+  • Attack     : 123
+  • Defense    : 32
+  • Gil Earned : 8,500
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Arctic Wind
+  • Arctic Wind
+  • Turtle Shell
+
+Potential Item Drops:
+  • Arctic Wind
+  • Turtle Shell
+  • Hi-Potion
+  • Black Hole
+  • Raven's Yawn
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#193. Queen Scylla
+
+Basic Stats:
+  • Level      : 52
+  • Maximum HP : 34,760
+  • Attack     : 107
+  • Defense    : 32
+  • Gil Earned : 10,000
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#194. Garm
+
+Basic Stats:
+  • Level      : 52
+  • Maximum HP : 19,960
+  • Attack     : 107
+  • Defense    : 32
+  • Gil Earned : 6,700
+  • EXP. Earned: 14,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#195. Twin Dragon
+
+Basic Stats:
+  • Level      : 54
+  • Maximum HP : 34,920
+  • Attack     : 131
+  • Defense    : 32
+  • Gil Earned : 11,000
+  • EXP. Earned: 15,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#196. Land Turtle
+
+Basic Stats:
+  • Level      : 4
+  • Maximum HP : 11
+  • Attack     : 8
+  • Defense    : 6
+  • Gil Earned : 500
+  • EXP. Earned: 20
+
+Potential Item Steals:
+  • (Doesn't matter; you cannot steal yet.)
+
+Potential Item Drops:
+  • Antarctic Wind
+  • Potion
+  • Bacchus's Cider
+  • Arctic Wind
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#197. Djinn
+
+Basic Stats:
+  • Level      : 7
+  • Maximum HP : 600
+  • Attack     : 20
+  • Defense    : 8
+  • Gil Earned : 200
+  • EXP. Earned: 1,400
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Bomb Fragment
+  • Sheep Pillow
+
+Potential Item Drops:
+  • Bomb Fragment
+  • Sheep Pillow
+  • Potion
+  • Lamia Scale
+  • Bomb Arm
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#198. Nepto Dragon
+
+Basic Stats:
+  • Level      : ???
+  • Maximum HP : ???
+  • Attack     : ???
+  • Defense    : ???
+  • Gil Earned : ???
+  • EXP. Earned: ???
+
+Potential Item Steals:
+  • ???
+  • ???
+  • ???
+  • ???
+
+Potential Item Drops:
+  • ???
+
+Elemental Weaknesses:
+  • ???
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#199. Giant Rat
+
+Basic Stats:
+  • Level      : 11
+  • Maximum HP : 900
+  • Attack     : 24
+  • Defense    : 29
+  • Gil Earned : 1,200
+  • EXP. Earned: 1,500
+
+Potential Item Steals:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+
+Potential Item Drops:
+  • Potion
+  • Bomb Fragment
+  • Antarctic Wind
+  • Zeus's Wrath
+  • Silence Seal
+  • Tranquilizer
+  • Angel's Sigh
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#200. Medusa
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 3,000
+  • Attack     : 35
+  • Defense    : 22
+  • Gil Earned : 2,600
+  • EXP. Earned: 1,680
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#201. Gutsco
+
+Basic Stats:
+  • Level      : 17
+  • Maximum HP : 3,500
+  • Attack     : 35
+  • Defense    : 24
+  • Gil Earned : 3,500
+  • EXP. Earned: 2,304
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#202. Salamander
+
+Basic Stats:
+  • Level      : 19
+  • Maximum HP : 5,700
+  • Attack     : 41
+  • Defense    : 25
+  • Gil Earned : 3,700
+  • EXP. Earned: 2,744
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Ice/Blizzard
+  • Water
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#203. Hein
+
+Basic Stats:
+  • Level      : 22
+  • Maximum HP : 4,500
+  • Attack     : 47
+  • Defense    : 26
+  • Gil Earned : 4,300
+  • EXP. Earned: 3,464
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • (varies)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#204. Kraken
+
+Basic Stats:
+  • Level      : 24
+  • Maximum HP : 8,000
+  • Attack     : 55
+  • Defense    : 27
+  • Gil Earned : 5,500
+  • EXP. Earned: 5,280
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#205. Goldor
+
+Basic Stats:
+  • Level      : 26
+  • Maximum HP : 9,000
+  • Attack     : 53
+  • Defense    : 28
+  • Gil Earned : 9,900
+  • EXP. Earned: 6,560
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#206. Garuda
+
+Basic Stats:
+  • Level      : 28
+  • Maximum HP : 10,000
+  • Attack     : 57
+  • Defense    : 29
+  • Gil Earned : 10,200
+  • EXP. Earned: 8,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#207. Odin
+
+Basic Stats:
+  • Level      : 40
+  • Maximum HP : 31,000
+  • Attack     : 81
+  • Defense    : 35
+  • Gil Earned : 16,800
+  • EXP. Earned: 20,000
+
+Potential Item Steals:
+  • Elixir
+  • Elixir
+  • Gungnir
+  • Gungnir
+
+Potential Item Drops:
+  • Elixir
+  • Gungnir
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#208. Leviathan
+
+Basic Stats:
+  • Level      : 43
+  • Maximum HP : 32,000
+  • Attack     : 85
+  • Defense    : 36
+  • Gil Earned : 17,200
+  • EXP. Earned: 20,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Lightning/Thunder
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#209. Bahamut
+
+Basic Stats:
+  • Level      : 45
+  • Maximum HP : 34,000
+  • Attack     : 90
+  • Defense    : 37
+  • Gil Earned : 16,500
+  • EXP. Earned: 20,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#210. Doga
+
+Basic Stats:
+  • Level      : 45
+  • Maximum HP : 22,800
+  • Attack     : 89
+  • Defense    : 40
+  • Gil Earned : 12,000
+  • EXP. Earned: 13,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#211. Unei
+
+Basic Stats:
+  • Level      : 44
+  • Maximum HP : 21,800
+  • Attack     : 86
+  • Defense    : 42
+  • Gil Earned : 12,600
+  • EXP. Earned: 16,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#212. Titan
+
+Basic Stats:
+  • Level      : 46
+  • Maximum HP : 29,000
+  • Attack     : 96
+  • Defense    : 44
+  • Gil Earned : 13,500
+  • EXP. Earned: 27,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#213. Ninja
+
+Basic Stats:
+  • Level      : 47
+  • Maximum HP : 24,000
+  • Attack     : 96
+  • Defense    : 46
+  • Gil Earned : 14,400
+  • EXP. Earned: 28,400
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kis
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#214. Amon
+
+Basic Stats:
+  • Level      : 48
+  • Maximum HP : 33,500
+  • Attack     : 96
+  • Defense    : 46
+  • Gil Earned : 20,350
+  • EXP. Earned: 26,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • (varies)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#215. Kunoichi
+
+Basic Stats:
+  • Level      : 48
+  • Maximum HP : 29,000
+  • Attack     : 96
+  • Defense    : 46
+  • Gil Earned : 14,500
+  • EXP. Earned: 29,200
+
+Potential Item Steals:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kis
+  • Raven's Yawn
+
+Potential Item Drops:
+  • Hi-Potion
+  • Black Hole
+  • Lilith's Kiss
+  • Raven's Yawn
+  • Shining Curtain
+  • Shell Breaker
+  • Black Musk
+  • Chocobo's Wrath
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#216. General
+
+Basic Stats:
+  • Level      : 48
+  • Maximum HP : 35,000
+  • Attack     : 105
+  • Defense    : 46
+  • Gil Earned : 15,600
+  • EXP. Earned: 30,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#217. Guardian
+
+Basic Stats:
+  • Level      : 49
+  • Maximum HP : 33,700
+  • Attack     : 107
+  • Defense    : 46
+  • Gil Earned : 16,500
+  • EXP. Earned: 31,600
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#218. Scylla
+
+Basic Stats:
+  • Level      : 49
+  • Maximum HP : 35,000
+  • Attack     : 104
+  • Defense    : 46
+  • Gil Earned : 16,200
+  • EXP. Earned: 30,800
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#219. Xande
+
+Basic Stats:
+  • Level      : 50
+  • Maximum HP : 49,999
+  • Attack     : 110
+  • Defense    : 48
+  • Gil Earned : 25,000
+  • EXP. Earned: 34,000
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#220. Xande's Clone
+
+Basic Stats:
+  • Level      : 49
+  • Maximum HP : 39,000
+  • Attack     : 109
+  • Defense    : 45
+  • Gil Earned : 15,000
+  • EXP. Earned: 24,800
+
+Potential Item Steals:
+  • (none)
+  • (none)
+  • (none)
+  • (none)
+
+Potential Item Drops:
+  • None
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#221. Cerberus
+
+Basic Stats:
+  • Level      : 55
+  • Maximum HP : 99,999
+  • Attack     : 123
+  • Defense    : 46
+  • Gil Earned : 66,666
+  • EXP. Earned: 66,666
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#222. 2-Headed Dragon
+
+Basic Stats:
+  • Level      : 55
+  • Maximum HP : 99,999
+  • Attack     : 151
+  • Defense    : 46
+  • Gil Earned : 66,666
+  • EXP. Earned: 66,666
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#223. Echidna
+
+Basic Stats:
+  • Level      : 55
+  • Maximum HP : 99,999
+  • Attack     : 117
+  • Defense    : 46
+  • Gil Earned : 66,666
+  • EXP. Earned: 66,666
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#224. Ahriman
+
+Basic Stats:
+  • Level      : 55
+  • Maximum HP : 99,999
+  • Attack     : 107
+  • Defense    : 46
+  • Gil Earned : 66,666
+  • EXP. Earned: 66,666
+
+Potential Item Steals:
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+  • Hi-Potion
+
+Potential Item Drops:
+  • Hi-Potion
+  • Phoenix Down
+
+Elemental Weaknesses:
+  • Wind/Aero
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#225. Cloud of Darkness
+
+Basic Stats:
+  • Level      : 60
+  • Maximum HP : 120,000
+  • Attack     : 120
+  • Defense    : 55
+  • Gil Earned : 70,000
+  • EXP. Earned: 99,999
+
+Potential Item Steals:
+  • (none)
+  • (none)
+  • (none)
+  • (none)
+
+Potential Item Drops:
+  • None
+
+Elemental Weaknesses:
+  • None
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#226. Iron Giant
+
+Basic Stats:
+  • Level      : 81
+  • Maximum HP : 199,999
+  • Attack     : 255
+  • Defense    : 150
+  • Gil Earned : 99,999
+  • EXP. Earned: 99,999
+
+Potential Item Steals:
+  • (none)
+  • (none)
+  • (none)
+  • (none)
+
+Potential Item Drops:
+  • None
+
+Elemental Weaknesses:
+  • None
+

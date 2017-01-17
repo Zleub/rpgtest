@@ -87,7 +87,8 @@ makeAttack = function (battlestage, attacker, defender) {
 	let hit_rate = config.Hit_Rate(player, target)
 	let damages = config.Basic_Damage(player, target).left
 
-	player.jobpoints( config.JP_Gain(player) )
+	if (player.jobpoints)
+		player.jobpoints( config.JP_Gain(player) )
 
 	battlestage.add( new StackElem({
 		node: new Konva.Text({
