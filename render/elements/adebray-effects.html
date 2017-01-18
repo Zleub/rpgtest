@@ -1,23 +1,15 @@
 <link rel=import href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel=import href="adebray-effect.html">
 
 <dom-module id="adebray-effects">
 	<template>
 		<style>
 			:host {
 				display: block;
+				@apply(--layout-horizontal)
 			}
 		</style>
 
-	<div class=centered>
-		<div id='container'></div>
-	</div>
-
-	<template is="dom-if" if="{{isOn(state)}}">
-		<paper-icon-button icon="mdi:pause" on-tap="toggleStop"></paper-icon-button>
-	</template>
-	<template is="dom-if" if="{{isOff(state)}}">
-		<paper-icon-button icon="mdi:play" on-tap="toggleStart"></paper-icon-button>
-	</template>
 	</template>
 
 	<script>
@@ -31,74 +23,85 @@
 				}
 			},
 
-			isOn: function (mode) {
-				return mode === true
-			},
-
-			isOff: function (mode) {
-				return mode === false
-			},
-
-			toggleStop: function () {
-				this.anim.stop()
-				this.state = false
-			},
-
-			toggleStart: function () {
-				this.anim.start()
-				this.state = true
-			},
-
 			attached: function () {
-				var stage = new Konva.Stage({
-					container : this.$$('#container'),
-					width: 400,
-					height: 400
-				})
-				layer = new Konva.Layer()
+				var a = [{
+					quantity: 8,
+					fun: (frame, quantity) => (e, i) => {
+						let c = Math.cos( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
+						let s = Math.sin( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
 
-				stage.add(layer)
+				    	e.x( 34 * 2 + 26 + (50) * c )
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s )
+						if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
 
-				var hexagon = new Konva.RegularPolygon({
-					x: 200,
-					y: 208,
-					sides: 6,
-					radius: 48,
-					// fill: 'red',
-					stroke: 'black',
-					strokeWidth: 4
-				})
+				    	let a = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+				    	e.fill('rgb(255,' + a + ',0)');
+				    }
+				}, {
+			    	quantity: 4,
+			    	fun: (frame, quantity) => (e, i) => {
+						let a = (frame.time / 8) * Math.PI / 180
+						let b = Math.cos(a)
 
-				var imageObj = new Image();
-				imageObj.onload = () => {
-					// console.log(imageObj)
-					var image = new Konva.Image({
-						x: 200 - imageObj.width / 2,
-						y: 200 - imageObj.height / 2,
-						image: imageObj,
-						width: imageObj.width,
-						height: imageObj.height
-					});
+				    	let s = Math.sin( -a + (Math.PI / (quantity / 2)) * (i + 1) )
+				    	e.x( 34 * 2 + 26 + (50 / 2) * Math.cos( -a + (Math.PI / (quantity / 2)) * (i + 1) ) )
+				    	e.y( 34 * 2 + 55 + (50 / 10) * s - (b + 1) * 10)
+				    	if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
 
-					// console.log(hexagon.getTransform())
+				    	let c = parseInt(127 * Math.abs(b))
+				    	e.fill('rgba(255,' + c + ',0,' + 1 + ')');
+				    }
+				}]
 
-					// hexagon.scaleY(0.3)
-					layer.add(hexagon)
-					layer.add(image)
-					layer.draw()
+				var ef = document.createElement('adebray-effect')
+				ef.functions = a
+				this.appendChild( ef )
 
+				var a = [{
+					quantity: 8,
+					fun: (frame, quantity) => (e, i) => {
+						let c = Math.cos( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
+						let s = Math.sin( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
 
-					this.anim = new Konva.Animation(function(frame) {
-					    var scale = Math.sin(frame.time * 2 * Math.PI / 2000) + 0.001;
-					    // hexagon.scaleX(Math.cos(frame.time * 2 * Math.PI / 2000) + 0.001);
-					    hexagon.rotate(1)
-					    hexagon.scaleY(Math.sin(frame.time * 2 * Math.PI / 2000) + 0.001);
-					}, layer);
+				    	e.x( 34 * 2 + 26 + (50) * c )
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s )
+						if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
 
+				    	let a = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+				    	let a2 = parseInt(200 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+				    	e.fill('rgb( 0, 180,' + (a + 127) + ')');
+				    }
+				}, {
+			    	quantity: 4,
+			    	fun: (frame, quantity) => (e, i) => {
+						let a = (frame.time / 8) * Math.PI / 180
+						let b = Math.cos(a)
 
-				};
-				imageObj.src = localStorage.getItem('/Users/adebray/rpgtest/render/images2/combat_dummy/test/6')
+				    	let s = Math.sin( -a + (Math.PI / (quantity / 2)) * (i + 1) )
+				    	e.x( 34 * 2 + 26 + (50 / 2) * Math.cos( -a + (Math.PI / (quantity / 2)) * (i + 1) ) )
+				    	e.y( 34 * 2 + 55 + (50 / 10) * s - (b + 1) * 10)
+				    	if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
 
+				    	let c = parseInt(127 * Math.abs(b))
+				    	e.fill('rgba(255,' + c + ',0,' + 1 + ')');
+				    }
+				}]
+
+				var ef = document.createElement('adebray-effect')
+				ef.functions = a
+				this.appendChild( ef )
 			}
 
 		});

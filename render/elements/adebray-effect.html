@@ -1,0 +1,116 @@
+<dom-module id="adebray-effect">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+
+		<div class=centered>
+			<div id='container'></div>
+		</div>
+
+	<template is="dom-if" if="{{isOn(state)}}">
+		<paper-icon-button icon="mdi:pause" on-tap="toggleStop"></paper-icon-button>
+	</template>
+	<template is="dom-if" if="{{isOff(state)}}">
+		<paper-icon-button icon="mdi:play" on-tap="toggleStart"></paper-icon-button>
+	</template>
+
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-effect',
+
+			properties: {
+				state: {
+					type: String,
+					value: false
+				},
+				functions: Array
+			},
+
+
+			isOn: function (mode) {
+				return mode === true
+			},
+
+			isOff: function (mode) {
+				return mode === false
+			},
+
+			toggleStop: function () {
+				this.anim.stop()
+				this.state = false
+			},
+
+			toggleStart: function () {
+				this.anim.start()
+				this.state = true
+			},
+
+
+			attached: function() {
+				let scale = 2
+				var stage = new Konva.Stage({
+					container : this.$$('#container'),
+					width: 200 * scale,
+					height: 200 * scale
+				})
+				var layer = new Konva.Layer()
+				stage.add(layer)
+
+				stage.scale( { x: scale, y: scale } )
+
+				var imageObj = new Image();
+				imageObj.onload = () => {
+					var image = new Konva.Image({
+						x: 100 - imageObj.width / 2,
+						y: 100 - imageObj.height / 2,
+						image: imageObj,
+						width: imageObj.width,
+						height: imageObj.height
+					});
+
+					layer.add(image)
+					layer.draw()
+
+					let w = 10
+					let h = w / 2
+					let radius = 50
+
+					let fxstack = new FXPlayer(layer, new Konva.Shape({
+						fill: 'red',
+						sceneFunc: function(context) {
+						    context.beginPath();
+						    context.moveTo(w / 2, 0);
+						    context.lineTo(w, h / 2);
+						    context.lineTo(w / 2, h);
+						    context.lineTo(0, h / 2);
+						    context.closePath();
+						    context.fillStrokeShape(this);
+						}
+					}))
+
+					this.functions.forEach( (e) => {
+						fxstack.create(e.quantity, e.fun)
+					});
+
+					this.anim = new Konva.Animation(function(frame) {
+
+						let a = (frame.time / 8) * Math.PI / 180
+						let b = Math.cos(a)
+
+					    fxstack.update(frame)
+
+					}, layer);
+
+					this.toggleStart()
+				};
+				imageObj.src = localStorage.getItem('/Users/adebray/rpgtest/render/images2/combat_dummy/test/6')
+
+			}
+		});
+	</script>
+</dom-module>
