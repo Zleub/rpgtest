@@ -43,7 +43,7 @@ class Monster extends Konva.Group {
 			text: opt.name
 		}))
 
-		opt.image = './images2/combat_dummy/' + opt.name + '.png'
+		opt.image = './images2/combat_dummy/' + opt.name.toLowerCase() + '.png'
 		opt.position = 2
 
 		makeImage( opt ).then( (e) => {
