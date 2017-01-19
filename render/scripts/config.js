@@ -94,4 +94,14 @@ let config = {
     }
 }
 
+let white_magic = {
+    Cure: {
+        base: 10,
+        text: 'Restore small amount of HP'
+    },
+    Cura: 30,
+    Curaga: 80,
+    Curaja: 120
+}
+
 
