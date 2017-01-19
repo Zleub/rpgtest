@@ -149,23 +149,6 @@
 
 
 				var a = [
-				// {
-				// 	quantity: 16,
-				// 	fun: (frame, FX) => (e, i) => {
-				// 		let c = Math.cos( (frame.time / 8) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
-				// 		let s = Math.sin( (frame.time / 8) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
-
-				//     	e.x( 34 * 2 + 26 + (50) * c )
-				//     	e.y( 34 * 2 + 55 + (50 / 4) * s )
-				// 		if (s > 0)
-				//     		e.moveToTop()
-				//     	else
-				//     		e.moveToBottom()
-
-				// 		let d = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
-				//     	e.fill('rgba(255,' + d + ',0,' + 1 + ')');
-				//     }
-				// },
 				{
 			    	quantity: 4,
 			    	fun: (frame, FX) => (e, i) => {
@@ -175,21 +158,16 @@
 				    	let s = Math.sin( a + (Math.PI / (FX.quantity / 2)) * (i + 1) )
 				    	let c = Math.cos( a + (Math.PI / (FX.quantity / 2)) * (i + 1) )
 
-				    	if (!FX.h)
-				    		FX.h = 0
-
-				    	if (FX.h > (b + 1) * 32)
-				    		FX.h = (b + 1) * 32
-
 				    	e.x( 34 * 2 + 26 + (50 ) * c )
-				    	e.y( 34 * 2 + 55 + (50 / 4) * s - FX.h)
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s - (b + 1) * 32)
+
 				    	if (s > 0)
 				    		e.moveToTop()
 				    	else
 				    		e.moveToBottom()
 
 				    	let d = parseInt(127 * Math.abs(b))
-				    	e.fill('rgba(255,' + d + ',0,' + (-b) + ')');
+				    	e.fill('rgba(255,' + d + ',0,' + -b + ')');
 				    }
 				},
 				{
@@ -209,6 +187,85 @@
 
 				    	let d = parseInt(127 * Math.abs(b))
 				    	e.fill('rgba(255,' + d + ',0,' + (-b) + ')');
+				    }
+				}]
+
+				var ef = document.createElement('adebray-effect')
+				ef.functions = a
+				this.appendChild( ef )
+
+				var w = 10
+				var h = w / 2
+				var a = [{
+			    	quantity: 1,
+			    	model: new Konva.Shape({
+			    		x: 50,
+			    		y: 88,
+			    		scaleY: 0.5,
+						fill: 'red',
+						test: 0,
+						sceneFunc: function(context) {
+						    context.beginPath();
+						    context.arc(this.x(), this.y(), 75, 0, Math.PI * 2);
+						    context.closePath();
+						    context.stroke();
+
+						    for (var i = 0; i < 6; i++) {
+						    	let p = Math.PI / 3 * i + Math.PI / 180 * this.attrs.test
+						    	let n = Math.PI / 3 * ((i + 1) % 6) + Math.PI / 180 * this.attrs.test
+
+								var x = 76 * Math.cos(p) + this.x()
+								var y = 76 * Math.sin(p) + this.y()
+
+								context.beginPath();
+							    context.arc(x, y, 25, Math.PI * 0.53 + p, Math.PI * 1.47 + p);
+							    // context.closePath();
+							    context.fillStyle = "white"
+							    context.fill();
+							    context.stroke();
+
+							    context.beginPath();
+							    context.moveTo(50 * Math.cos(p) + this.x(), 50 * Math.sin(p) + this.y())
+							    context.lineTo(50 * Math.cos(n) + this.x(), 50 * Math.sin(n) + this.y())
+							    context.closePath();
+
+							    context.stroke();
+
+
+								context.beginPath();
+							    context.arc(x, y, 25, 0, Math.PI * 2);
+
+								// var x = 60 * Math.cos(p) + this.x()
+								// var y = 60 * Math.sin(p) + this.y()
+
+
+							    context.fillStyle = "white"
+							    context.fill();
+							    context.stroke();
+
+						    }
+
+
+						}
+					}),
+			    	fun: (frame, FX) => (e, i) => {
+						// let a = (frame.time / 8) * Math.PI / 180
+						// let b = Math.cos(a)
+
+				  //   	let s = Math.sin( a + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+				  //   	let c = Math.cos( a + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+
+				  //   	e.x( 34 * 2 + 26 + (50 ) * c )
+				  //   	e.y( 34 * 2 + 55 + (50 / 4) * s - (b + 1) * 32)
+
+				    	// if (e.x() > 0)
+ 				    // 		e.moveToTop()
+				    	// else
+				    		e.moveToBottom()
+
+				  //   	let d = parseInt(127 * Math.abs(b))
+				  //   	e.fill('rgba(255,' + d + ',0,' + -b + ')');
+				  		e.attrs.test += 1
 				    }
 				}]
 

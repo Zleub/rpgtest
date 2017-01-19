@@ -101,7 +101,7 @@
 				// }))
 
 				this.functions.forEach( (e) => {
-					this.fxstack.create(e.quantity, e.fun)
+					this.fxstack.create(e.quantity, e.model, e.fun)
 				});
 
 				this.anim = new Konva.Animation((frame) => {

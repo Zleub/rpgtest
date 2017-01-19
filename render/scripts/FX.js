@@ -40,8 +40,8 @@ class FXPlayer {
 		this.model = model
 	}
 
-	create(quantity, fun) {
-		this.stack.push( new FX(this, this.layer, this.model.clone(), fun, quantity))
+	create(quantity, model, fun) {
+		this.stack.push( new FX(this, this.layer, model || this.model.clone(), fun, quantity))
 	}
 
 	remove(e) {
