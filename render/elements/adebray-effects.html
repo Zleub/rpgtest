@@ -6,8 +6,11 @@
 		<style>
 			:host {
 				display: block;
-				@apply(--layout-horizontal)
 			}
+
+			:host ::content adebray-effect {
+				display: inline-block;
+			};
 		</style>
 
 	</template>
@@ -86,9 +89,50 @@
 						let a = (frame.time / 8) * Math.PI / 180
 						let b = Math.cos(a)
 
+				    	let s = Math.sin( a + (Math.PI / (quantity / 2)) * (i + 1) )
+				    	e.x( 34 * 2 + 26 + (50 ) * Math.cos( a + (Math.PI / (quantity / 2)) * (i + 1) ) )
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s - 10)
+				    	if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
+
+				    	let c = parseInt(127 * Math.abs(b))
+				    	e.fill('rgba(255,' + c + ',0,' + 1 + ')');
+				    }
+				}]
+
+				var ef = document.createElement('adebray-effect')
+				ef.functions = a
+				this.appendChild( ef )
+
+
+				var a = [{
+					quantity: 8,
+					fun: (frame, quantity) => (e, i) => {
+						let c = Math.cos( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
+						let s = Math.sin( (frame.time / 8) * Math.PI / 180 + (Math.PI / (quantity / 2)) * (i + 1) )
+
+				    	e.x( 34 * 2 + 26 + (50) * c )
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s )
+						if (s > 0)
+				    		e.moveToTop()
+				    	else
+				    		e.moveToBottom()
+
+				    	let a = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+				    	let a2 = parseInt(200 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+				    	e.fill('rgb( 0, 180,' + (a + 127) + ')');
+				    }
+				}, {
+			    	quantity: 4,
+			    	fun: (frame, quantity) => (e, i) => {
+						let a = (frame.time / 8) * Math.PI / 180
+						let b = Math.cos(a)
+
 				    	let s = Math.sin( -a + (Math.PI / (quantity / 2)) * (i + 1) )
-				    	e.x( 34 * 2 + 26 + (50 / 2) * Math.cos( -a + (Math.PI / (quantity / 2)) * (i + 1) ) )
-				    	e.y( 34 * 2 + 55 + (50 / 10) * s - (b + 1) * 10)
+				    	e.x( 34 * 2 + 26 + (50 ) * Math.cos( a + (Math.PI / (quantity / 2)) * (i + 1) ) )
+				    	e.y( 34 * 2 + 55 + (50 / 4) * s - 10)
 				    	if (s > 0)
 				    		e.moveToTop()
 				    	else

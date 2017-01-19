@@ -63,52 +63,49 @@
 
 				stage.scale( { x: scale, y: scale } )
 
-				var imageObj = new Image();
-				imageObj.onload = () => {
-					var image = new Konva.Image({
-						x: 100 - imageObj.width / 2,
-						y: 100 - imageObj.height / 2,
-						image: imageObj,
-						width: imageObj.width,
-						height: imageObj.height
-					});
 
-					layer.add(image)
-					layer.draw()
+				var r = new Konva.Rect({
+					x: 100 - 40 / 2,
+					y: 100 - 64 / 2,
+					width: 40,
+					height: 64,
+					fill: 'black'
+  				});
 
-					let w = 10
-					let h = w / 2
-					let radius = 50
+				layer.add(r)
+				layer.draw()
 
-					let fxstack = new FXPlayer(layer, new Konva.Shape({
-						fill: 'red',
-						sceneFunc: function(context) {
-						    context.beginPath();
-						    context.moveTo(w / 2, 0);
-						    context.lineTo(w, h / 2);
-						    context.lineTo(w / 2, h);
-						    context.lineTo(0, h / 2);
-						    context.closePath();
-						    context.fillStrokeShape(this);
-						}
-					}))
+				let w = 10
+				let h = w / 2
+				let radius = 50
 
-					this.functions.forEach( (e) => {
-						fxstack.create(e.quantity, e.fun)
-					});
+				let fxstack = new FXPlayer(layer, new Konva.Shape({
+					fill: 'red',
+					sceneFunc: function(context) {
+					    context.beginPath();
+					    context.moveTo(w / 2, 0);
+					    context.lineTo(w, h / 2);
+					    context.lineTo(w / 2, h);
+					    context.lineTo(0, h / 2);
+					    context.closePath();
+					    context.fillStrokeShape(this);
+					}
+				}))
 
-					this.anim = new Konva.Animation(function(frame) {
+				this.functions.forEach( (e) => {
+					fxstack.create(e.quantity, e.fun)
+				});
 
-						let a = (frame.time / 8) * Math.PI / 180
-						let b = Math.cos(a)
+				this.anim = new Konva.Animation(function(frame) {
 
-					    fxstack.update(frame)
+					let a = (frame.time / 8) * Math.PI / 180
+					let b = Math.cos(a)
 
-					}, layer);
+				    fxstack.update(frame)
 
-					this.toggleStart()
-				};
-				imageObj.src = localStorage.getItem('/Users/adebray/rpgtest/render/images2/combat_dummy/test/6')
+				}, layer);
+
+				this.toggleStart()
 
 			}
 		});
