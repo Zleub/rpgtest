@@ -49,7 +49,7 @@ makeImage = function (item) {
 			let array = []
 			for (var i = 0; i < 8; i++) {
 
-				let n = name.match('\\w://([\\w_/]+)')[1] + '/' + i
+				let n = name.match('\\w://([\.\\w_/]+)')[1] + '/' + i
 				if (!localStorage.getItem(n)) {
 					array.push( this.cropImage(e, i, n) )
 				}

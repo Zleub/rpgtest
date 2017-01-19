@@ -3,6 +3,8 @@
 		<style>
 			:host {
 				display: block;
+				margin: 4px;
+				padding: 8px;
 			}
 		</style>
 
@@ -17,6 +19,7 @@
 		<paper-icon-button icon="mdi:play" on-tap="toggleStart"></paper-icon-button>
 	</template>
 
+	<paper-button on-tap=zero>zero</paper-button>
 
 	</template>
 	<script>
@@ -31,6 +34,7 @@
 				functions: Array
 			},
 
+			zero: function () { this.fxstack.zero() },
 
 			isOn: function (mode) {
 				return mode === true
@@ -79,7 +83,7 @@
 				let h = w / 2
 				let radius = 50
 
-				let fxstack = new FXPlayer(layer, new Konva.Shape({
+				this.set('fxstack', new FXPlayer(layer, new Konva.Shape({
 					fill: 'red',
 					sceneFunc: function(context) {
 					    context.beginPath();
@@ -90,18 +94,22 @@
 					    context.closePath();
 					    context.fillStrokeShape(this);
 					}
-				}))
+				})))
+				// let fxstack = new FXPlayer(layer, new Konva.Circle({
+				// 	radius: 1,
+				// 	fill: 'red',
+				// }))
 
 				this.functions.forEach( (e) => {
-					fxstack.create(e.quantity, e.fun)
+					this.fxstack.create(e.quantity, e.fun)
 				});
 
-				this.anim = new Konva.Animation(function(frame) {
+				this.anim = new Konva.Animation((frame) => {
 
 					let a = (frame.time / 8) * Math.PI / 180
 					let b = Math.cos(a)
 
-				    fxstack.update(frame)
+				    this.fxstack.update(frame)
 
 				}, layer);
 
