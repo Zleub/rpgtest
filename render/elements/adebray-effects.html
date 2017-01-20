@@ -218,9 +218,12 @@
 								var y = 75 * Math.sin(p) + this.y()
 
 						    	context.beginPath();
-							    context.moveTo(100 * Math.cos(p) + this.x(), 100 * Math.sin(p) + this.y())
-							    context.lineTo(100 * Math.cos(n) + this.x(), 100 * Math.sin(n) + this.y())
+							    context.moveTo(75 * Math.cos(p) + this.x(), 75 * Math.sin(p) + this.y())
+							    context.lineTo(75 * Math.cos(n) + this.x(), 75 * Math.sin(n) + this.y())
 							    context.closePath();
+
+						        context.fillStyle = "blue";
+							    context.fill();
 							    context.stroke();
 
 							}
