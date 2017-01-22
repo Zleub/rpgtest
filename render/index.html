@@ -3,26 +3,8 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>Hello World!</title>
-	<style>
-	body {
-		/*margin: 0px;*/
-		/*overflow: hidden;*/
-	}
 
-		.konvajs-content, .bordered {
-			border: 1px dashed red;
-		}
-
-	.img {
-		/*border: 1px dashed green;*/
-		width: 100px;
-		height: 100px;
-		margin: 4px;
-		padding: 8px;
-	}
-
-	</style>
-
+	<link rel="import" href="bower_components/polymer/polymer.html">
 
 	<script type="text/javascript" src="bower_components/simplexnoise.js/fast-simplex-noise.js"></script>
 	<script type="text/javascript" src="bower_components/konva/konva.min.js"></script>
@@ -38,6 +20,27 @@
 	<link rel="import" href="elements/adebray-home.html">
 
 	<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+	<style>
+	body {
+		/*margin: 0px;*/
+		/*overflow: hidden;*/
+	}
+
+	.konvajs-content, .bordered {
+		border: 1px dashed red;
+	}
+
+	.img {
+		/*border: 1px dashed green;*/
+		width: 100px;
+		height: 100px;
+		margin: 4px;
+		padding: 8px;
+	}
+
+	</style>
+
 	<style is="custom-style" include="iron-flex iron-flex-alignment"></style>
 	</head>
 	<body>
