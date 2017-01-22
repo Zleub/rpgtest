@@ -95,7 +95,7 @@ let IA_conf = {
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
 		if (battlestage.teamB.length <= 0)
-			battlestage.end()
+			setTimeout(battlestage.end, 700)
 	}
 }
 
