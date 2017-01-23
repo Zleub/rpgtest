@@ -37,23 +37,34 @@
 						test: 0,
 						sceneFunc: function(context) {
 
-						    	let p = Math.PI / 1.5 * 0 + Math.PI / 180 * 50// * this.attrs.test
+							var nbr = 2
+   							for (var w = 0; w < nbr; w++) {
+   							for (var h = 0; h < nbr; h++) {
 
-								let a = [
-									[ 75 * Math.cos(p) + this.x(), 75 * Math.sin(p) + this.y() ],
-									[ 75 * Math.cos(p) + this.x(), -75 * Math.sin(p) + this.y()],
-									[-75 * Math.cos(p) + this.x(), -75 * Math.sin(p) + this.y()],
-									[-75 * Math.cos(p) + this.x(), 75 * Math.sin(p) + this.y() ],
-								]
+   								let c = Math.PI / 180 * this.attrs.test
+   								let s = Math.PI / 180 * this.attrs.test
 
-						    	context.beginPath();
-						    	context.moveTo(a[0][0], a[0][1])
-						    	for (var i = 0; i < a.length; i++) {
-							    	context.lineTo(a[i][0], a[i][1])
-						    	}
-						    	context.closePath();
+   								// let x = this.x() + 30
+   								// let y = this.y() + 30
+
+							    context.beginPath();
+							    let a = [
+							    	[-20, -20],
+							    	[-20, 20],
+							    	[20, 20],
+							    	[20, -20]
+							    ]
+	   							for (var i = 0; i < 4; i++) {
+								    context.lineTo(
+								    	a[i][0] + w * 42 + this.x(),// * Math.cos(c),
+								    	a[i][1] + h * 42 + this.y() //* Math.sin(s)
+								    )
+								}
+								context.closePath();
 						    	context.stroke();
 
+							}
+							}
 						}
 					}),
 			    	fun: (frame, FX) => (e, i) => {

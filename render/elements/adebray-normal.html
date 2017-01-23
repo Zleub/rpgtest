@@ -1,0 +1,52 @@
+<dom-module id="adebray-normal">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+
+	<canvas id=c1></canvas>
+	<canvas id=c2></canvas>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'adebray-normal',
+
+			attached: function () {
+				var i = new Image()
+
+				i.onload = () => {
+					this.querySelector('#c1').width = i.width
+					this.querySelector('#c1').height = i.height
+
+					var context = this.querySelector('#c1').getContext('2d')
+					context.drawImage(i, 0, 0)
+					var myImageData = context.getImageData(0, 0, i.width, i.height)
+					var dt = myImageData.data
+
+					for (var x = 0; x < dt.length; x += 4) {
+							var val = dt[x] * 0.3 +
+									dt[x + 1] * 0.59 +
+									dt[x + 2] * 0.11
+
+							// if (i % 4 != 0)
+							// console.log(x + y * i.width)
+							dt[x] = val * 1.0 / 255.0
+							dt[x + 1] = val * 1.0 / 255.0
+							dt[x + 2] = val * 1.0 / 255.0
+					}
+
+					this.querySelector('#c2').width = i.width
+					this.querySelector('#c2').height = i.height
+					this.querySelector('#c2').getContext('2d').putImageData(myImageData, 0, 0);
+				}
+				i.src = 'images2/combat_dummy/BODY_animation.png'
+			}
+		});
+	</script>
+</dom-module>
