@@ -77,6 +77,8 @@ class Character extends Konva.Group {
 			_y: opt.y
 		})
 
+		console.dir(this.attrs.jobpoints)
+
 		this.lock = false
 		this.add( this.selectionRect = new Konva.Rect({
 			width: 64,
@@ -159,8 +161,10 @@ class Character extends Konva.Group {
 	}
 
 	jobpoints(n) {
+		console.dir(this.attrs.joblvls)
+		console.dir(this.attrs.jobpoints)
 		if (n) {
-			if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
+				if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
 				if ( (this.attrs.joblvls[this.attrs.job.name] += 1) > 99 )
 					this.attrs.joblvls[this.attrs.job.name] = 99
 				this.attrs.jobpoints[this.attrs.job.name] = 0

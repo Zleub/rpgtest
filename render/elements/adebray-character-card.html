@@ -5,16 +5,19 @@
 	<template>
 		<style>
 			:host {
-				border: 1px solid black;
 				display: inline-block;
-				padding: 8px;
-				margin: 4px;
-
-				width: 240px;
 			}
 		</style>
 
+		<img id=start src=../ui/jauge_start.png on-load='test' hidden></img>
+		<img id=middle src=../ui/jauge_middle.png on-load='test' hidden></img>
+		<img id=end src=../ui/jauge_end.png on-load='test' hidden></img>
+
 		<paper-item>Job: {{character.attrs.job.name}}</paper-item>
+
+		<paper-item>lvl: {{selected.attrs.lvl}}</paper-item>
+		<canvas width="100" height="20"></canvas>
+
 		<paper-item>joblvl: {{do(character, 'joblvl')}}</paper-item>
 		<paper-item>jobpoints: {{do(character, 'jobpoints')}}</paper-item>
 
@@ -41,6 +44,34 @@
 				if (obj[method])
 					return obj[method]()
 			},
+
+			test: function (e) {
+				if (e.target.id == 'start')
+					this._s = true
+				if (e.target.id == 'middle')
+					this._m = true
+				if (e.target.id == 'end')
+					this._e = true
+
+
+				if (this._s && this._m && this._e) {
+					let canvas = this.querySelector('canvas')
+					let ctx = canvas.getContext('2d')
+
+					let start = this.querySelector('#start')
+					let mid = this.querySelector('#middle')
+					let end = this.querySelector('#end')
+					ctx.drawImage(start, 0, 0)
+
+					var i = start.width
+					while (i + mid.width < canvas.width) {
+						ctx.drawImage(mid, i, 0)
+						i += mid.width
+					}
+
+					ctx.drawImage(end, canvas.width - end.width, 0)
+				}
+			}
 
 		});
 	</script>

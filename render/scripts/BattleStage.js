@@ -60,10 +60,9 @@ let Player_conf = {
 		}
 
 		let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
-		console.log( battlestage.layer.children )
 		let enemy = battlestage.layer.children[rand]
-		console.log(enemy)
-		makeAttack(battlestage, group, enemy)
+		if (enemy instanceof Monster)
+			makeAttack(battlestage, group, enemy)
 	},
 
 	death : (battlestage, group) => (e) => {

@@ -1,6 +1,6 @@
 jobs = {
 	Dummy : {
-		name: 'Freelancer',
+		name: 'Dummy',
 		image: 'images2/combat_dummy/BODY_animation.png',
 		commands: [
 			'Attack',

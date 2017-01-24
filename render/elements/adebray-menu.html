@@ -7,8 +7,13 @@
 				display: block;
 				padding: 8px;
 				margin: 4px;
-				@apply(--layout-horizontal);
-				@apply(--layout-center-justified);
+
+				--padded-test {
+					position: relative;
+					left: -50px;
+				}
+				/*@apply(--layout-horizontal);*/
+				/*@apply(--layout-center-justified);*/
 			}
 
 			.logo {
@@ -19,23 +24,28 @@
 				width: 128px;
 			}
 
-			.centered {
+			.vert {
 				display: block;
 				@apply(--layout-vertical);
-				/*@apply(--layout-center-justified);*/
 			}
 
+			.hori {
+				@apply(--layout-horizontal);
+			}
+
+			.top {
+				@apply(--layout-start);
+			}
+
+			.inline {
+				display: inline-block;
+			}
 		</style>
 
+		<!-- <iron-localstorage name="teamStorage" value="{{team}}"></iron-localstorage> -->
 
-		<div id=menu class=centered>
+		<div id=menu class="vert">
 			<iron-image src="/logo.png" alt="Awesome logo"></iron-image>
-
-			<div class="layout horizontal" style="width:550px">
-				<template is=dom-repeat items={{team}}>
-					<adebray-character-card character={{item}}></adebray-character-card>
-				</template>
-			</div>
 
 			<template is=dom-if	if="{{teamHasPlayer(team.length)}}">
 				<paper-button class=button on-tap="toggleBattle" raised>Play</paper-button>
@@ -48,7 +58,18 @@
 					<paper-button on-tap="addToTeam" raised>Add</paper-button>
 				</iron-collapse>
 			</template>
+
 			<paper-button class=button raised>Option</paper-button>
+
+			<div class="layout horizontal">
+				<template is=dom-repeat items={{team}}>
+				<div class="inline" item={{item}}>
+					<adebray-character-card character={{item}}></adebray-character-card>
+					<paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
+				</div>
+				</template>
+			</div>
+
 		</div>
 	</template>
 	<script>
@@ -58,7 +79,6 @@
 			properties: {
 				team: {
 					type: Array,
-					value: [],
 					notify: true
 				}
 			},
@@ -88,17 +108,26 @@
 				this.team.forEach( e => e.actionJauge.fromNumber(0) )
 
 				b.teamA = this.team
-				b.teamB = [
-					new Monster(e)
-				]
+				b.teamB = []
+				b.teamA.forEach( _ => {
+					b.teamB.push( new Monster(e) )
+				})
 				this.appendChild(b)
-				// b.stage.run()
 			},
 
 			addToTeam: function () {
 				let c = this.querySelector('adebray-character-menu').character
 				this.querySelector('adebray-character-menu').fill()
+				console.dir(c.attrs.jobpoints)
 				this.push('team', c)
+			},
+
+			deleteFromTeam: function (e) {
+				var el = e.target
+				while (el.tagName != 'DIV')
+					el = el.parentNode
+
+				this.splice('team', this.team.indexOf(el.item), 1)
 			},
 
 			getLen: function (team) {
@@ -106,14 +135,15 @@
 			},
 
 			teamNotFull: function (len) {
-				return len < 4
+				return len < 32
 			},
 			teamHasPlayer: function (len) {
 				return len >= 1
 			},
 
 			attached: function () {
-				this.toggleTeam()
+				if (this.team == null)
+					this.set('team', [])
 			}
 		});
 	</script>
