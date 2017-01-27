@@ -81,88 +81,88 @@
 					//       set output image pixel to accumulator
 
 
-					// for(x = 1; x < w; x += 4){
-					// 	dst[x + 0] = dst[x + 0 - 1] + src[x + 0 - 1];
-					// 	dst[x + 1] = dst[x + 1 - 1] + src[x + 1 - 1];
-					// 	dst[x + 2] = dst[x + 2 - 1] + src[x + 2 - 1];
-					// }
-					// for(y = 1; y < h; y += 4) {
-					// 	dst[(y + 0 - 1) * w] = dst[(y + 0 - 1) * w] + src[(y + 0 - 1) * w];
-					// 	dst[(y + 1 - 1) * w] = dst[(y + 1 - 1) * w] + src[(y + 1 - 1) * w];
-					// 	dst[(y + 2 - 1) * w] = dst[(y + 2 - 1) * w] + src[(y + 2 - 1) * w];
-					// }
-					// for(y = 1; y < h; y += 1)
-					// {
-					// 	for(x = 1; x < w; x += 4)
-					// 	{
-					// 		dst[x + 0 + y * w] = ( dst[x + 0 + (y - 1) * w] + dst[x + 0 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
-					// 		dst[x + 1 + y * w] = ( dst[x + 1 + (y - 1) * w] + dst[x + 1 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
-					// 		dst[x + 2 + y * w] = ( dst[x + 2 + (y - 1) * w] + dst[x + 2 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
-					// 	}
-					// }
-					// this.querySelector('#c3').getContext('2d').putImageData(newImageData, 0, 0);
+					for(x = 1; x < w; x += 4){
+						dst[x + 0] = dst[x + 0 - 1] + src[x + 0 - 1];
+						dst[x + 1] = dst[x + 1 - 1] + src[x + 1 - 1];
+						dst[x + 2] = dst[x + 2 - 1] + src[x + 2 - 1];
+					}
+					for(y = 1; y < h; y += 4) {
+						dst[(y + 0 - 1) * w] = dst[(y + 0 - 1) * w] + src[(y + 0 - 1) * w];
+						dst[(y + 1 - 1) * w] = dst[(y + 1 - 1) * w] + src[(y + 1 - 1) * w];
+						dst[(y + 2 - 1) * w] = dst[(y + 2 - 1) * w] + src[(y + 2 - 1) * w];
+					}
+					for(y = 1; y < h; y += 1)
+					{
+						for(x = 1; x < w; x += 4)
+						{
+							dst[x + 0 + y * w] = ( dst[x + 0 + (y - 1) * w] + dst[x + 0 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
+							dst[x + 1 + y * w] = ( dst[x + 1 + (y - 1) * w] + dst[x + 1 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
+							dst[x + 2 + y * w] = ( dst[x + 2 + (y - 1) * w] + dst[x + 2 - 1 + y * w] + S(x - 1, y, 0) + S(x, y - 1, 1)) * 0.5;
+						}
+					}
+					this.querySelector('#c3').getContext('2d').putImageData(newImageData, 0, 0);
 
-					// for(x = w - 2; x >= 0; --x)
-					//   dst[x + 1] = R(x + 1, 0, 1) - S(x + 1, 0, 0);
-					// for(y = 1; y < h; ++y)
-					//   dst[y * w + 1] = R(0, y - 1, 1) + S(0, y - 1, 1);
-					// for(y = 1; y < h; ++y)
-					// {
-					//   for(x = w - 2; x >= 0; --x)
-					//   {
-					//      dst[x + y * w + 1] = (R(x, y - 1, 1) + R(x + 1, y, 1) -
-					//                    S(x + 1, y, 0) + S(x, y - 1, 1)) * 0.5;
-					//   }
-					// }
-					// this.querySelector('#c4').getContext('2d').putImageData(newImageData, 0, 0);
+					for(x = w - 2; x >= 0; --x)
+					  dst[x + 1] = R(x + 1, 0, 1) - S(x + 1, 0, 0);
+					for(y = 1; y < h; ++y)
+					  dst[y * w + 1] = R(0, y - 1, 1) + S(0, y - 1, 1);
+					for(y = 1; y < h; ++y)
+					{
+					  for(x = w - 2; x >= 0; --x)
+					  {
+					     dst[x + y * w + 1] = (R(x, y - 1, 1) + R(x + 1, y, 1) -
+					                   S(x + 1, y, 0) + S(x, y - 1, 1)) * 0.5;
+					  }
+					}
+					this.querySelector('#c4').getContext('2d').putImageData(newImageData, 0, 0);
 
-					// for(x = 1; x < w; ++x)
-					//   dst[x + 2] = R(x - 1, 0, 2) + S(x - 1, 0, 0);
-					// for(y = h - 2; y >= 0; --y)
-					//   dst[y * w + 2] = R(0, y + 1, 2) - S(0, y + 1, 1);
-					// for(y = h - 2; y >= 0; --y)
-					// {
-					//   for(x = 1; x < w; ++x)
-					//   {
-					//      dst[x + y * w + 2] = (R(x, y + 1, 2) + R(x - 1, y, 2) +
-					//                    S(x - 1, y, 0) - S(x, y + 1, 1)) * 0.5;
-					//   }
-					// }
-					// this.querySelector('#c5').getContext('2d').putImageData(newImageData, 0, 0);
+					for(x = 1; x < w; ++x)
+					  dst[x + 2] = R(x - 1, 0, 2) + S(x - 1, 0, 0);
+					for(y = h - 2; y >= 0; --y)
+					  dst[y * w + 2] = R(0, y + 1, 2) - S(0, y + 1, 1);
+					for(y = h - 2; y >= 0; --y)
+					{
+					  for(x = 1; x < w; ++x)
+					  {
+					     dst[x + y * w + 2] = (R(x, y + 1, 2) + R(x - 1, y, 2) +
+					                   S(x - 1, y, 0) - S(x, y + 1, 1)) * 0.5;
+					  }
+					}
+					this.querySelector('#c5').getContext('2d').putImageData(newImageData, 0, 0);
 
-					// for(x = w - 2; x >= 0; --x)
-					//   dst[x + 3] = R(x + 1, 0, 3) - S(x + 1, 0, 0);
-					// for(y = h - 2; y >= 0; --y)
-					//   dst[y * w + 3] = R(0, y + 1, 3) - S(0, y + 1, 1);
-					// for(y = h - 2; y >= 0; --y)
-					// {
-					//   for(x = w - 2; x >= 0; --x)
-					//   {
-					//      dst[x + y * w + 3] = (R(x, y + 1, 3) + R(x + 1, y, 3) -
-					//                    S(x + 1, y, 0) - S(x, y + 1, 1)) * 0.5;
-					//   }
-					// }
-					// this.querySelector('#c6').getContext('2d').putImageData(newImageData, 0, 0);
+					for(x = w - 2; x >= 0; --x)
+					  dst[x + 3] = R(x + 1, 0, 3) - S(x + 1, 0, 0);
+					for(y = h - 2; y >= 0; --y)
+					  dst[y * w + 3] = R(0, y + 1, 3) - S(0, y + 1, 1);
+					for(y = h - 2; y >= 0; --y)
+					{
+					  for(x = w - 2; x >= 0; --x)
+					  {
+					     dst[x + y * w + 3] = (R(x, y + 1, 3) + R(x + 1, y, 3) -
+					                   S(x + 1, y, 0) - S(x, y + 1, 1)) * 0.5;
+					  }
+					}
+					this.querySelector('#c6').getContext('2d').putImageData(newImageData, 0, 0);
 
-				 //   hmin =  1e10;
-				 //   hmax = -1e10;
-				 //   for(i = 0; i < dst.length; ++i)
-				 //   {
-				 //      dst[i] += dst[i + 1] + dst[i + 2] + dst[i + 3];
-				 //      if(dst[i] < hmin) hmin = dst[i];
-				 //      if(dst[i] > hmax) hmax = dst[i];
-				 //   }
+				   hmin =  1e10;
+				   hmax = -1e10;
+				   for(i = 0; i < dst.length; ++i)
+				   {
+				      dst[i] += dst[i + 1] + dst[i + 2] + dst[i + 3];
+				      if(dst[i] < hmin) hmin = dst[i];
+				      if(dst[i] > hmax) hmax = dst[i];
+				   }
 
-					// for(i = 0; i < dst.length / 4; ++i)
-					// {
-					//   v = (dst[4 * i] - hmin) / (hmax - hmin);
-					//   v = (v - 0.5) + v;
-					//   if(v < 0) v = 0;
-					//   if(v > 1) v = 1;
-					//   dst[4 * i] = v;
-					// }
+					for(i = 0; i < dst.length / 4; ++i)
+					{
+					  v = (dst[4 * i] - hmin) / (hmax - hmin);
+					  v = (v - 0.5) + v;
+					  if(v < 0) v = 0;
+					  if(v > 1) v = 1;
+					  dst[4 * i] = v;
+					}
 
-					// this.querySelector('#c2').getContext('2d').putImageData(newImageData, 0, 0);
+					this.querySelector('#c2').getContext('2d').putImageData(newImageData, 0, 0);
 				}
 				i.src = 'images2/combat_dummy/BODY_animation.png'
 			}

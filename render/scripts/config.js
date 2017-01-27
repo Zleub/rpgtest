@@ -94,14 +94,167 @@ let config = {
     }
 }
 
-let white_magic = {
-    Cure: {
-        base: 10,
-        text: 'Restore small amount of HP'
+let Magic = {
+    'Healing Magic': {
+        'White Magic': {
+            Cure: {
+                base: 10,
+                text: 'Restore small amount of HP'
+            },
+            Cura: {
+                base: 30,
+                text: 'placeholder'
+            },
+            Curaga: {
+                base: 80,
+                text: 'placeholder'
+            },
+            Curaja: {
+                base: 120,
+                text: 'placeholder'
+            }
+        },
+        'Summon': {
+            Heatra: {
+                base: 120,
+                text: 'placeholder'
+            }
+        }
     },
-    Cura: 30,
-    Curaga: 80,
-    Curaja: 120
+    'Offensive Magic': {
+        'White Magic': {
+            Aero: {
+                base: 40,
+                text: 'placeholder'
+            },
+            Aeroga: {
+                base: 200,
+                text: 'placeholder'
+            },
+            Holy: {
+                base: 300,
+                text: 'placeholder'
+            }
+        },
+        'Black Magic': {
+            Fire: {
+                base: 40,
+                text: 'placeholder'
+            },
+            Blizzard: {
+                base: 43,
+                text: 'placeholder'
+            },
+            Thunder: {
+                base: 46,
+                text: 'placeholder'
+            },
+            Poison: {
+                base: 35,
+                text: 'placeholder'
+            },
+            Fira: {
+                base: 85,
+                text: 'placeholder'
+            },
+            Blizzara: {
+                base: 88,
+                text: 'placeholder'
+            },
+            Thundara: {
+                base: 85,
+                text: 'placeholder'
+            },
+            Break: {
+                base: 110,
+                text: 'placeholder'
+            },
+            Blizzaga: {
+                base: 180,
+                text: 'placeholder'
+            },
+            Thundaga: {
+                base: 183,
+                text: 'placeholder'
+            },
+            Firaga: {
+                base: 190,
+                text: 'placeholder'
+            },
+            Bio: {
+                base: 170,
+                text: 'placeholder'
+            },
+            Quake: {
+                base: 140,
+                text: 'placeholder'
+            },
+            Drain: {
+                base: 130,
+                text: 'placeholder'
+            },
+            Flare: {
+                base: 320,
+                text: 'placeholder'
+            },
+            Meteor: {
+                base: 170,
+                text: 'placeholder'
+            }
+        },
+        'Summon': {
+            Icen: {
+                base: 190,
+                text: 'Icy Stare'
+            },
+            Icen: {
+                base: 220,
+                text: 'Diamond Dust'
+            },
+            Spark: {
+                base: 193,
+                text: 'Thunderstorm'
+            },
+            Spark: {
+                base: 220,
+                text: 'Judgment Bolt'
+            },
+            Heatra: {
+                base: 200,
+                text: 'Hellfire'
+            },
+            Heatra: {
+                base: 220,
+                text: 'Inferno'
+            },
+            Hyper: {
+                base: 170,
+                text: 'Clobber'
+            },
+            Hyper: {
+                base: 175,
+                text: 'Stomp'
+            },
+            Hyper: {
+                base: 220,
+                text: 'Earthen Fury'
+            },
+            Catastro: {
+                base: 255,
+                text: 'Slash'
+            },
+            Leviath: {
+                base: 300,
+                text: 'Cyclone'
+            },
+            Leviath: {
+                base: 350,
+                text: 'Tidal Wave'
+            },
+            Bahamur: {
+                base: 400,
+                text: 'Megaflare'
+            },
+        }
+    }
 }
-
-

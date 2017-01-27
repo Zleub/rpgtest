@@ -12,6 +12,7 @@
 <link rel="import" href="adebray-todo.html">
 <link rel="import" href="adebray-effects.html">
 <link rel="import" href="adebray-normal.html">
+<link rel="import" href="adebray-skill-tree.html">
 
 <script type="text/javascript" src=../TODO.js></script>
 
@@ -32,6 +33,7 @@
 			<paper-tab route=work>work</paper-tab>
 			<paper-tab route=graph>graph</paper-tab>
 			<paper-tab route=normal>normal</paper-tab>
+			<paper-tab route=skill-tree>skill-tree</paper-tab>
 		</paper-tabs>
 		<iron-pages attr-for-selected=id selected={{route}}>
 			<section id="map">
@@ -52,6 +54,9 @@
 			<section id="normal">
 				<adebray-normal id=agraph></adebray-normal>
 			</section>
+			<section id="skill-tree">
+				<adebray-skill-tree id=agraph></adebray-skill-tree>
+			</section>
 		</iron-pages>
 
 	</template>
@@ -62,7 +67,7 @@
 			properties: {
 				route: {
 					type: String,
-					value: 'normal',
+					value: 'skill-tree',
 					observer: 'log'
 				}
 			},
