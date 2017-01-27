@@ -1,0 +1,91 @@
+<dom-module id="adebray-skill-tree">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+
+    <template is="dom-repeat" items={{skills}}>
+        {{item}}
+    </template>
+
+    <div class=centered>
+        <div id='container'></div>
+    </div>
+
+	</template>
+	<script>
+    Polymer({
+        is: 'adebray-skill-tree',
+
+        properties: {
+            skills: {
+                type: Array,
+                value: Object.keys(Magic).map( k => [k].concat(Object.keys(Magic[k])) ).reduce( (p, e) => {
+                    p.concat(e)
+                    return p
+                })
+            }
+        },
+
+        attached: function () {
+            var stage = new Konva.Stage({
+                container : this.$$('#container'),
+                width: 800,
+                height: 600
+            })
+            layer = new Konva.Layer({
+                draggable: true
+            })
+
+            stage.add(layer)
+
+            layer.add(new Konva.Rect({
+                offsetX: 16,
+                offsetY: 16,
+                width: 32,
+                height: 32,
+                fill: '#efcded'
+            }))
+
+            let make_side = (x, y, depth = 0) => {
+                for (var i = 0; i < 4; i++) {
+                    let p = (Math.PI / 2) * i
+
+                    if( layer.getIntersection({
+                        x: x + 64 * Math.cos(p),
+                        y: y + 64 * Math.sin(p)
+                    }) === null) {
+
+                        let j = parseInt(Math.random() * 2) + 1
+                        let size = 32 * j
+
+                        layer.add(new Konva.Rect({
+                            x: x + 64 * Math.cos(p),
+                            y: y + 64 * Math.sin(p),
+
+                            offsetX: size / 2,
+                            offsetY: size / 2,
+                            width: size,
+                            height: size,
+                            fill: '#efcded'
+                        }))
+                        layer.draw()
+                    }
+
+                    if (depth < 2)
+                        make_side(x + 64 * Math.cos(p), y + 64 * Math.sin(p), depth + 1)
+                }
+            }
+
+            make_side(0, 0)
+            console.log(layer.children.length)
+
+            layer.x(400)
+            layer.y(300)
+            layer.draw()
+        }
+    })
+    </script>
+</dom-module>
