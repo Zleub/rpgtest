@@ -77,6 +77,22 @@
 					(i) => ({
 					  color: 'pink',
 					  f: (x, y) => Math.sin(x * x + y * y) > i && Math.cos(x * x + y * y) > i
+					}),
+					(i) => ({
+					  color: 'darkred',
+					  f: (x, y) => Math.sin(x * x - y * y) < i || Math.cos(x * x - y * y) < i
+					}),
+					(i) => ({
+					  color: 'darkorange',
+					  f: (x, y) => Math.sin(x * x - y * y) > i || Math.cos(x * x - y * y) > i
+					}),
+					(i) => ({
+					  color: 'olive',
+					  f: (x, y) => Math.sin(x * y -  0.2 * y * y - 0.5) > i || Math.cos(x * y - 0.2 * x * x - 0.5) > i
+					}),
+					(i) => ({
+					  color: 'lime',
+					  f: (x, y) => Math.sin(x * y -  0.2 * y * y - 0.5) > i && Math.cos(x * y - 0.2 * x * x - 0.5) > i
 					})
 				]
 
