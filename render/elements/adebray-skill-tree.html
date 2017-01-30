@@ -1,91 +1,126 @@
+<link rel=import href="adebray-color/color-hash.html">
+<link rel=import href="adebray-color/color-dot.html">
+
 <dom-module id="adebray-skill-tree">
 	<template>
 		<style>
 			:host {
-				display: block;
+				display: inline-block;
 			}
 		</style>
 
-    <template is="dom-repeat" items={{skills}}>
-        {{item}}
-    </template>
 
-    <div class=centered>
-        <div id='container'></div>
-    </div>
+		<div id=head>
+			<color-hash></color-hash>
+		</div>
+
+		<div class=centered>
+			<div id='container'></div>
+		</div>
 
 	</template>
 	<script>
-    Polymer({
-        is: 'adebray-skill-tree',
+	Polymer({
+		is: 'adebray-skill-tree',
 
-        properties: {
-            skills: {
-                type: Array,
-                value: Object.keys(Magic).map( k => [k].concat(Object.keys(Magic[k])) ).reduce( (p, e) => {
-                    p.concat(e)
-                    return p
-                })
-            }
-        },
+		attached: function () {
+			let test = Object.keys(Magic).map( k => Object.keys(Magic[k]).map( e => `${k}.${e}`))
 
-        attached: function () {
-            var stage = new Konva.Stage({
-                container : this.$$('#container'),
-                width: 800,
-                height: 600
-            })
-            layer = new Konva.Layer({
-                draggable: true
-            })
+			console.log(test)
 
-            stage.add(layer)
+			let colors = Object.keys(Magic).concat(['Combat']).map( e => {
+				let dot = document.createElement('color-dot')
+				dot.colorhash = this.querySelector('color-hash')
+				dot.text = e
 
-            layer.add(new Konva.Rect({
-                offsetX: 16,
-                offsetY: 16,
-                width: 32,
-                height: 32,
-                fill: '#efcded'
-            }))
+				this.$.head.appendChild(dot)
 
-            let make_side = (x, y, depth = 0) => {
-                for (var i = 0; i < 4; i++) {
-                    let p = (Math.PI / 2) * i
+				return {
+					text: e,
+					color: dot.customStyle['--custom-color']
+				}
+			})
+			console.log(colors)
 
-                    if( layer.getIntersection({
-                        x: x + 64 * Math.cos(p),
-                        y: y + 64 * Math.sin(p)
-                    }) === null) {
+			var stage = new Konva.Stage({
+				container : this.$$('#container'),
+				width: 800 / 2,
+				height: 600 / 2
+			})
+			layer = new Konva.Layer({
+				draggable: true
+			})
 
-                        let j = parseInt(Math.random() * 2) + 1
-                        let size = 32 * j
+			stage.add(layer)
+			layer.scale({x: 0.25, y: 0.25})
 
-                        layer.add(new Konva.Rect({
-                            x: x + 64 * Math.cos(p),
-                            y: y + 64 * Math.sin(p),
+			let cmp = 0
+			let stack = [{
+				x: 0,
+				y: 0
+			}]
+			let g_size = 32
+			layer.add(new Konva.Rect({
+				x: 0,
+				y: 0,
 
-                            offsetX: size / 2,
-                            offsetY: size / 2,
-                            width: size,
-                            height: size,
-                            fill: '#efcded'
-                        }))
-                        layer.draw()
-                    }
+				offsetX: g_size / 2,
+				offsetY: g_size / 2,
+				width: g_size,
+				height: g_size,
 
-                    if (depth < 2)
-                        make_side(x + 64 * Math.cos(p), y + 64 * Math.sin(p), depth + 1)
-                }
-            }
+				fill: 'black'
+			}))
 
-            make_side(0, 0)
-            console.log(layer.children.length)
+			let make_side = (_x, _y, depth = 0) => {
+				var len = 4
 
-            layer.x(400)
-            layer.y(300)
-            layer.draw()
-        }
-    })
-    </script>
+				for (var i = 0; i < len; i++) {
+					let p = (Math.PI * 2 / len) * i
+
+					let j = parseInt(Math.random() * 2) + 1
+					let size = g_size * j
+
+					let __x = _x + Math.round( size * 2 * Math.cos(p) )
+					let __y = _y + Math.round( size * 2 * Math.sin(p) )
+
+					if ( stack.filter(({x, y}) => x == __x && y == __y ).length == 0 ) {
+						let c = colors[parseInt(Math.random() * colors.length)]
+
+						console.log(__x, __y)
+						stack.push({
+							x: __x,
+							y: __y,
+						})
+						layer.add(new Konva.Rect({
+							x: __x,
+							y: __y,
+
+							offsetX: size / 2,
+							offsetY: size / 2,
+							width: size,
+							height: size,
+
+							fill: c.color
+						}))
+
+					}
+
+					if (depth < 1)
+						make_side(__x, __y, depth + 1)
+				}
+			}
+
+			make_side(0, 0)
+			layer.draw()
+			console.log(layer.children.length)
+
+			layer.x( stage.width() / 2)
+			layer.y( stage.height() / 2)
+			layer.draw()
+		}
+
+
+	})
+	</script>
 </dom-module>
