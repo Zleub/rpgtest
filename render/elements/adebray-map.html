@@ -7,10 +7,6 @@
 				display: block;
 			}
 		</style>
-
-	<div id="container1"></div>
-	<div id="container2"></div>
-
 	</template>
 	<script>
 		Polymer({
@@ -161,8 +157,36 @@
 
 				let noise = new FastSimplexNoise()
 				var map = new Map( { noise, size: 1 } )
+				var map2 = new Map( {
+					noise: {
+						get2DNoise: (x, y) => {
+							return Math.sin(x * x + y * y)
+						}
+					},
+					size: 1
+				} )
+				var map3 = new Map( {
+					noise: {
+						get2DNoise: (x, y) => {
+							return noise.get2DNoise(x, y) * Math.sin(x * x + y * y)
+						}
+					},
+					size: 1
+				} )
+
+
+				var resolution = 800
+				var size = 16
+				var x = 0
+				var y = 0
+
 
 				let makeC = (container, f) => {
+					if (!this.querySelector('#' + container)) {
+						let d = document.createElement('div')
+						d.id = container
+						this.appendChild( d )
+					}
 					var stage = new Konva.Stage({
 					  container: container,
 					  width: resolution,
@@ -172,15 +196,15 @@
 					var layer = new Konva.Layer()
 
 					var data = []
-
+					var t = Math.floor( (resolution / size) / 2 )
 					for (var i = 0; i <= resolution / size; i += 1) {
 						for (var j = 0; j <= resolution / size; j += 1) {
 							let color = 'rgba(0, 0, 0, 0)'
-							let z = f(i + x, j + y)
+							let z = ( f(i + x - t , j + y - t) + 1) / 2
 
-							if (z < 0.3)
+							if (z < 1/3)
 								color = "#0D484E";
-							else if (z < 0.6) {
+							else if (z < 2/3) {
 								color = "#10631A";
 							}
 							else if (z < 1)
@@ -206,7 +230,8 @@
 				}
 
 				makeC('container1', map.get)
-				makeC('container2', map.getSinInterpolate)
+				makeC('container2', map2.get)
+				makeC('container3', map3.get)
 
 				console.log(map.get(0, 0))
 				console.log(map.get(0.2, 0.2))
