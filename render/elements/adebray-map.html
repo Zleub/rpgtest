@@ -168,14 +168,14 @@
 				var map3 = new Map( {
 					noise: {
 						get2DNoise: (x, y) => {
-							return noise.get2DNoise(x, y) * Math.sin(x * x + y * y)
+							return (noise.get2DNoise(x, y) * Math.sin(x * x + y * y))
 						}
 					},
 					size: 1
 				} )
 
 
-				var resolution = 800
+				var resolution = 400
 				var size = 16
 				var x = 0
 				var y = 0

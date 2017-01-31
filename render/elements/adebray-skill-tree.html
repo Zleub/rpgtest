@@ -24,11 +24,25 @@
 		is: 'adebray-skill-tree',
 
 		attached: function () {
-			let test = Object.keys(Magic).map( k => Object.keys(Magic[k]).map( e => `${k}.${e}`))
+			let flatted = (o) => Object.keys(o).map( k => Object.keys(o[k]).map( e => {
+				k = k.match(/\w+/)[0]
+				e = e.toLowerCase()
+				return `${k}.${e}`
+			}))
 
+			let test = flatted(Magic).concat( flatted({
+				"Combat": {
+					"Bare Hands": null,
+					"Harp": null,
+					"Bow": null,
+					"Other": null
+				}
+			}))
+			test = [].concat.apply([], test)
 			console.log(test)
 
-			let colors = Object.keys(Magic).concat(['Combat']).map( e => {
+			// let colors = Object.keys(Magic).concat(['Combat']).map( e => {
+			let colors = test.map( e => {
 				let dot = document.createElement('color-dot')
 				dot.colorhash = this.querySelector('color-hash')
 				dot.text = e
@@ -40,7 +54,7 @@
 					color: dot.customStyle['--custom-color']
 				}
 			})
-			console.log(colors)
+			// console.log(colors)
 
 			var stage = new Konva.Stage({
 				container : this.$$('#container'),
@@ -51,8 +65,15 @@
 				draggable: true
 			})
 
+			let scale = 0.25
+			layer.on('wheel', (e) => {
+				e.preventDefault()
+				scale += e.evt.deltaY / 100
+				layer.scale({x: scale, y: scale})
+			})
+
 			stage.add(layer)
-			layer.scale({x: 0.25, y: 0.25})
+			layer.scale({x: scale, y: scale})
 
 			let cmp = 0
 			let stack = [{
@@ -72,26 +93,46 @@
 				fill: 'black'
 			}))
 
-			let make_side = (_x, _y, depth = 0) => {
+			let c_table = {
+				0: 45,
+				1: 50,
+				2: 3,
+				3: 2
+			}
+
+			if ( Object.keys(c_table).reduce( (p, k) => {
+				return (p += c_table[k])
+			}, 0) != 100)
+				console.log('wrong space')
+
+			let tmp_table = {}
+			let j = parseInt( Object.keys(c_table)[0] )
+			for (var i = 0; i < 100; i++) {
+				tmp_table[i] = j
+				c_table[j] -= 1
+				if (c_table[j] == 0)
+					j += 1
+			}
+
+
+			let res = []
+			let make_side = (_x, _y, prev = 0, depth = 0) => {
 				var len = 4
 
 				for (var i = 0; i < len; i++) {
 					let p = (Math.PI * 2 / len) * i
 
-					let j = parseInt(Math.random() * 2) + 1
+					let j = parseInt(Math.random() * 100)
+					j = tmp_table[j]
 					let size = g_size * j
 
-					let __x = _x + Math.round( size * 2 * Math.cos(p) )
-					let __y = _y + Math.round( size * 2 * Math.sin(p) )
+					let _size = Math.max(size, prev)
+					let __x = _x + Math.round( _size * 2 * Math.cos(p) )
+					let __y = _y + Math.round( _size * 2 * Math.sin(p) )
 
 					if ( stack.filter(({x, y}) => x == __x && y == __y ).length == 0 ) {
 						let c = colors[parseInt(Math.random() * colors.length)]
 
-						console.log(__x, __y)
-						stack.push({
-							x: __x,
-							y: __y,
-						})
 						layer.add(new Konva.Rect({
 							x: __x,
 							y: __y,
@@ -101,19 +142,36 @@
 							width: size,
 							height: size,
 
-							fill: c.color
+							fill: c.color,
+							// draggable: true
 						}))
 
+						res.push(j)
 					}
 
-					if (depth < 1)
-						make_side(__x, __y, depth + 1)
+					stack.push({
+						x: __x,
+						y: __y,
+					})
+
+					if (depth < 6)
+						make_side(__x, __y, size, depth + 1)
 				}
 			}
 
-			make_side(0, 0)
+			make_side(0, 0, g_size)
+
 			layer.draw()
-			console.log(layer.children.length)
+			// console.log(layer.children.length)
+			let d = document.createElement('div')
+			d.innerHTML = JSON.stringify(res.reduce( (p, e) => {
+				if (!p[e])
+					p[e] = 1
+				else
+					p[e] += 1
+				return p
+			}, {}), undefined, '<br>')
+			this.appendChild(d)
 
 			layer.x( stage.width() / 2)
 			layer.y( stage.height() / 2)
