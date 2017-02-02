@@ -96,8 +96,7 @@
 			let c_table = {
 				0: 45,
 				1: 50,
-				2: 3,
-				3: 2
+				2: 5
 			}
 
 			if ( Object.keys(c_table).reduce( (p, k) => {
@@ -154,7 +153,7 @@
 						y: __y,
 					})
 
-					if (depth < 6)
+					if (depth < 2)
 						make_side(__x, __y, size, depth + 1)
 				}
 			}
