@@ -34,7 +34,8 @@
 			},
 
 			attached: function () {
-				this.colorhash.fire('color-hash', this)
+				if (this.colorhash)
+					this.colorhash.fire('color-hash', this)
 			}
 		});
 	</script>

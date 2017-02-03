@@ -14,14 +14,20 @@
 			<color-hash></color-hash>
 		</div>
 
-		<div class=centered>
+		<!-- <div class=centered>
 			<div id='container'></div>
-		</div>
+		</div> -->
 
 	</template>
 	<script>
+	var n
+	var n2
 	Polymer({
 		is: 'adebray-skill-tree',
+
+		properties: {
+			depth: Number
+		},
 
 		attached: function () {
 			let flatted = (o) => Object.keys(o).map( k => Object.keys(o[k]).map( e => {
@@ -32,19 +38,27 @@
 
 			let test = flatted(Magic).concat( flatted({
 				"Combat": {
-					"Bare Hands": null,
-					"Harp": null,
+					// "Bare Hands": null,
+					// "Harp": null,
 					"Bow": null,
 					"Other": null
 				}
 			}))
 			test = [].concat.apply([], test)
-			console.log(test)
+			console.log(test.length)
 
+			let harmonizer = new Harmonizer()
+			let p = []
+			for (var i = 0; i < 360; i += 360 / test.length) {
+				p.push( parseInt(i) )
+			}
+
+			console.log(p)
+			let h = harmonizer.harmonize('#c820f1', p)
 			// let colors = Object.keys(Magic).concat(['Combat']).map( e => {
-			let colors = test.map( e => {
+			let colors = test.map( (e, i) => {
 				let dot = document.createElement('color-dot')
-				dot.colorhash = this.querySelector('color-hash')
+				dot.customStyle['--custom-color'] = h[i]
 				dot.text = e
 
 				this.$.head.appendChild(dot)
@@ -56,8 +70,9 @@
 			})
 			// console.log(colors)
 
+			var c = document.createElement('canvas')
 			var stage = new Konva.Stage({
-				container : this.$$('#container'),
+				container : c,
 				width: 800 / 2,
 				height: 600 / 2
 			})
@@ -65,11 +80,13 @@
 				draggable: true
 			})
 
-			let scale = 0.25
-			layer.on('wheel', (e) => {
-				e.preventDefault()
+			let scale = 0.3
+			stage.on('contentWheel', (e) => {
+				// e.preventDefault()
+				console.log(e.evt.deltaY)
 				scale += e.evt.deltaY / 100
 				layer.scale({x: scale, y: scale})
+				layer.draw()
 			})
 
 			stage.add(layer)
@@ -90,13 +107,15 @@
 				width: g_size,
 				height: g_size,
 
-				fill: 'black'
+				fill: 'black',
+				// stroke: 'blue',
+				// strokeWidth: 10
 			}))
 
 			let c_table = {
-				0: 45,
+				0: 30,
 				1: 50,
-				2: 5
+				2: 20
 			}
 
 			if ( Object.keys(c_table).reduce( (p, k) => {
@@ -113,16 +132,22 @@
 					j += 1
 			}
 
-
+			n = n || new FastSimplexNoise({
+				// random: () => 0.2
+			})
+			n2 = n2 || new FastSimplexNoise(() => 1)
 			let res = []
-			let make_side = (_x, _y, prev = 0, depth = 0) => {
+			let make_side = (_x, _y, prev = 0, depth = 0) => () => {
 				var len = 4
 
+				var callback = []
 				for (var i = 0; i < len; i++) {
 					let p = (Math.PI * 2 / len) * i
 
-					let j = parseInt(Math.random() * 100)
-					j = tmp_table[j]
+					// let j = parseInt(Math.random() * 100)
+					let j = parseInt( n.get2DNoise( _x, _y ) * 100 )
+					// let j = parseInt( Math.cos(_x * _x + _y * _y) * 99 )
+					j = tmp_table[ Math.abs(j) ]
 					let size = g_size * j
 
 					let _size = Math.max(size, prev)
@@ -130,7 +155,7 @@
 					let __y = _y + Math.round( _size * 2 * Math.sin(p) )
 
 					if ( stack.filter(({x, y}) => x == __x && y == __y ).length == 0 ) {
-						let c = colors[parseInt(Math.random() * colors.length)]
+						let c = colors[ parseInt(Math.abs(n.get2DNoise( __x, __y ) * colors.length)) ]
 
 						layer.add(new Konva.Rect({
 							x: __x,
@@ -145,20 +170,23 @@
 							// draggable: true
 						}))
 
-						res.push(j)
+						// res.push(size + c.color)
 					}
+
 
 					stack.push({
 						x: __x,
 						y: __y,
 					})
 
-					if (depth < 2)
-						make_side(__x, __y, size, depth + 1)
+					if (depth < this.depth)
+						callback.push( make_side(__x, __y, size, depth + 1) )
 				}
+
+				callback.forEach(e => e())
 			}
 
-			make_side(0, 0, g_size)
+			make_side(0, 0, g_size)()
 
 			layer.draw()
 			// console.log(layer.children.length)
@@ -175,6 +203,10 @@
 			layer.x( stage.width() / 2)
 			layer.y( stage.height() / 2)
 			layer.draw()
+
+			let im = document.createElement('img')
+			im.onload = () => this.appendChild(im)
+			im.src = stage.toDataURL()
 		}
 
 
