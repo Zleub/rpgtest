@@ -38,12 +38,12 @@ jobs = {
 	Freelancer : {
 		name: 'Freelancer',
 		image: 'images2/combat_dummy/test.png',
-		commands: [
-			'Attack',
-			'Magic',
-			'Guard',
-			'Item'
-		],
+		commands: {
+			'Attack' : [],
+			'Magic' : [ 'White Magic' ],
+			'Guard' : [],
+			'Item' : []
+		},
 		stats: {
 			1:  [  5,  5,  5,  5,  5 ],
 			10: [ 10, 10, 10, 10, 10 ],
@@ -74,12 +74,12 @@ jobs = {
 	"White Mage" : {
 		name: "White Mage",
 		image: 'images2/combat_dummy/test2.png',
-		commands: [
-			'Attack',
-			'Magic',
-			'Guard',
-			'Item'
-		],
+		commands: {
+			'Attack' : [],
+			'Magic' : [ 'White Magic' ],
+			'Guard' : [],
+			'Item' : []
+		},
 		stats: {
 			1:  [  5,  5,  5,  5,  5 ],
 			10: [ 10, 10, 10,  9, 10 ],

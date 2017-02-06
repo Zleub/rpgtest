@@ -37,9 +37,9 @@
 			<paper-input class="inline" label=name value={{character.attrs.name}}></paper-input>
 		</div>
 
-		<span>Commands: {
-		<template is=dom-repeat items={{character.attrs.job.commands}}>
-			{{item}}
+		Commands:
+		<template is=dom-repeat items={{commandify(character.attrs.job.commands)}}>
+			<span class="cmd">{{item}}</span>
 		</template>
 		}</span>
 
@@ -100,6 +100,14 @@
 					this.notifyPath('character.attrs.job')
 					this.notifyPath('character.character.attrs.images')
 				})
+			},
+
+			commandify: function (c) {
+				let arrays = Object.keys(c).map( k => {
+					return [k].concat(c[k].map( e => '(' + e + ')'))
+				})
+
+				return [].concat.apply([], arrays)
 			},
 
 			fill: function () {
