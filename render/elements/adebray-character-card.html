@@ -5,7 +5,40 @@
 	<template>
 		<style>
 			:host {
+				padding: 10%;
+				margin: 4px;
+				/*border: 1px dashed red;*/
+				display: block;
+				background-image: url("../ui/frame.png");
+				background-repeat: no-repeat;
+				background-size: cover;
+				image-rendering: pixelated;
+			}
+
+			paper-item {
+				display: initial;
+			}
+
+			/*.inline {
 				display: inline-block;
+			}*/
+
+			.horizontal {
+				@apply(--layout-horizontal);
+			}
+			.vertical {
+				@apply(--layout-vertical);
+			}
+			.head {
+				@apply(--layout-start);
+			}
+			.flexchild {
+		      @apply(--layout-flex);
+		    }
+
+			.green {
+				display: block;
+				/*border: 1px dashed green;*/
 			}
 		</style>
 
@@ -13,15 +46,30 @@
 		<img id=middle src=../ui/jauge_middle.png on-load='test' hidden></img>
 		<img id=end src=../ui/jauge_end.png on-load='test' hidden></img>
 
-		<paper-item>Job: {{character.attrs.job.name}}</paper-item>
+		<img id=red src=../ui/jauge_red.png on-load='test' hidden></img>
 
-		<paper-item>lvl: {{selected.attrs.lvl}}</paper-item>
-		<canvas width="100" height="20"></canvas>
+		<div class="horizontal">
+			<div class="horizontal flexchild head">
+				<iron-image src={{getFaceImage(character.character.attrs.images)}}></iron-image>
+				<paper-item class=inline>{{character.attrs.name}}</paper-item>
+			</div>
 
-		<paper-item>joblvl: {{do(character, 'joblvl')}}</paper-item>
-		<paper-item>jobpoints: {{do(character, 'jobpoints')}}</paper-item>
+			<div class="vertical green">
+				<paper-item>lvl: {{character.attrs.lvl}}</paper-item>
+				<canvas width="100" height="20"></canvas>
+			</div>
 
-		<iron-image src={{getFaceImage(character.character.attrs.images)}}></iron-image>
+		</div>
+
+		<div class="horizontal">
+			<div class="flexchild">
+				<paper-item>HP: {{do(character, 'life')}} / {{character.attrs.hp_max}}</paper-item>
+				<div>
+					<paper-item class=inline>Job: {{character.attrs.job.name}}</paper-item>
+					<paper-item class=inline>Job lvl: {{do(character, 'joblvl')}}</paper-item>
+				</div>
+			</div>
+		</div>
 
 	</template>
 	<script>
@@ -52,21 +100,30 @@
 					this._m = true
 				if (e.target.id == 'end')
 					this._e = true
+				if (e.target.id == 'red')
+					this._r = true
 
-
-				if (this._s && this._m && this._e) {
+				if (this._s && this._m && this._e && this._r) {
 					let canvas = this.querySelector('canvas')
 					let ctx = canvas.getContext('2d')
 
 					let start = this.querySelector('#start')
 					let mid = this.querySelector('#middle')
 					let end = this.querySelector('#end')
+					let red = this.querySelector('#red')
 					ctx.drawImage(start, 0, 0)
 
 					var i = start.width
 					while (i + mid.width < canvas.width) {
 						ctx.drawImage(mid, i, 0)
 						i += mid.width
+					}
+
+					i = 9
+					let ratio = Math.round(this.character.attrs.experience / this.character.attrs.experience_max * (canvas.width - 18))
+					while (i < ratio) {
+						ctx.drawImage(red, i, 3)
+						i += red.width
 					}
 
 					ctx.drawImage(end, canvas.width - end.width, 0)
