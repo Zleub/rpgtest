@@ -93,8 +93,13 @@ let IA_conf = {
 	},
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
-		if (battlestage.teamB.length <= 0)
+		if (battlestage.teamB.length <= 0) {
+			battlestage.teamA.forEach( e => {
+				console.log('BattleEnd')
+				e.experience(3)
+			})
 			setTimeout(battlestage.end, 700)
+		}
 	}
 }
 

@@ -35,6 +35,8 @@ let eventTable = [
 class Character extends Konva.Group {
 	constructor(opt) {
 		super({
+			name: opt.name,
+
 			experience: opt.experience || 0,
 			experience_max: Level_table[opt.lvl - 1 || 0],
 
@@ -161,8 +163,6 @@ class Character extends Konva.Group {
 	}
 
 	jobpoints(n) {
-		console.dir(this.attrs.joblvls)
-		console.dir(this.attrs.jobpoints)
 		if (n) {
 				if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
 				if ( (this.attrs.joblvls[this.attrs.job.name] += 1) > 99 )
