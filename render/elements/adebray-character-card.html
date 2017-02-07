@@ -40,6 +40,10 @@
 				display: block;
 				/*border: 1px dashed green;*/
 			}
+
+			adebray-skill-tree, .bordered {
+				border: 1px solid black;
+			}
 		</style>
 
 		<img id=start src=../ui/jauge_start.png on-load='test' hidden></img>
@@ -68,7 +72,9 @@
 					<paper-item class=inline>Job: {{character.attrs.job.name}}</paper-item>
 					<paper-item class=inline>Job lvl: {{do(character, 'joblvl')}}</paper-item>
 				</div>
+
 			</div>
+			<adebray-skill-tree width=200 height=200 depth={{character.attrs.lvl}} seed={{character.attrs.seed}}></adebray-skill-tree>
 		</div>
 
 	</template>

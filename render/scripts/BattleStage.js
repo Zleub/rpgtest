@@ -21,6 +21,7 @@ let Player_conf = {
 	},
 
 	click : (battlestage, group) => (e) => {
+		console.log('test')
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
@@ -93,10 +94,10 @@ let IA_conf = {
 	},
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
+		battlestage.teamA.forEach( e => e.experience(3) )
 		if (battlestage.teamB.length <= 0) {
 			battlestage.teamA.forEach( e => {
 				console.log('BattleEnd')
-				e.experience(3)
 			})
 			setTimeout(battlestage.end, 700)
 		}
@@ -131,9 +132,10 @@ class BattleStage extends AdebrayStage {
 				this.teamA[i].attrs._x = w - cmp * step
 				this.teamA[i].attrs._y = h + cmp * step
 
-
-				Object.keys(Player_conf).map( k =>
-					this.teamA[i].on(k, Player_conf[k](this, this.teamA[i])))
+				Object.keys(Player_conf).map( k => {
+					this.teamA[i].on(k, Player_conf[k](this, this.teamA[i]))
+					console.log(i)
+				})
 				this.players += 1
 			}
 
@@ -158,8 +160,7 @@ class BattleStage extends AdebrayStage {
 				this.teamB[i].attrs._x = w + cmp * step
 				this.teamB[i].attrs._y = h + cmp * step
 
-				Object.keys(IA_conf).map( k =>
-					this.teamB[i].on(k, IA_conf[k](this, this.teamB[i])))
+				Object.keys(IA_conf).map( k => this.teamB[i].on(k, IA_conf[k](this, this.teamB[i])))
 			}
 
 			cmp += 1

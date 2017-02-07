@@ -76,10 +76,23 @@ class Character extends Konva.Group {
 			x: opt.x,
 			_x: opt.x,
 			y: opt.y,
-			_y: opt.y
+			_y: opt.y,
+
+			seed: ((size) => {
+				let t = []
+
+				for (let i = 0; i < size; i++) {
+					t.push([])
+					for (let j = 0; j < size; j++) {
+						t[i].push(Math.random())
+					}
+				}
+
+				return t
+			})(1024)
 		})
 
-		console.dir(this.attrs.jobpoints)
+		window[opt.name] = this
 
 		this.lock = false
 		this.add( this.selectionRect = new Konva.Rect({
