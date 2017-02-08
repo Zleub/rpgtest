@@ -4,14 +4,15 @@ class Abstract_Character extends Konva.Group {
 	}
 
 	changeImage(name) {
+		let c = this.character
 		let i = this.character.remove()
 
 		this.character = new Konva.Image({
 			_position: name,
-			x: i.x(),
-			y: i.y(),
-			images: i.attrs.images,
-			image: i.attrs.images[name]
+			x: c.x(),
+			y: c.y(),
+			images: c.attrs.images,
+			image: c.attrs.images[name]
 		})
 		this.add(this.character)
 	}
