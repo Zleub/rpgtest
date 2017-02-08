@@ -43,8 +43,8 @@ class Monster extends Konva.Group {
 			text: opt.name
 		}))
 
-		opt.image = './images2/combat_dummy/' + opt.name.toLowerCase() + '.png'
-		opt.position = 2
+		opt.image = 'LPC/body/male/orc.png'
+		opt.position = 'left'
 
 		makeImage( opt ).then( (e) => {
 			e.x(0)

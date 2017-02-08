@@ -32,7 +32,7 @@ let eventTable = [
 	'death'
 ]
 
-class Character extends Konva.Group {
+class Character extends Abstract_Character {
 	constructor(opt) {
 		super({
 			name: opt.name,
