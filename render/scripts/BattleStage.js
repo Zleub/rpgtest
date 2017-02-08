@@ -56,8 +56,8 @@ let Player_conf = {
 			return
 
 		if (menu.selected == e.target) {
-			menu.$.fight.disabled = false
-			menu.$.item.disabled = false
+			// menu.$.fight.disabled = false
+			// menu.$.item.disabled = false
 		}
 
 		let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
@@ -129,12 +129,12 @@ class BattleStage extends AdebrayStage {
 				this.teamA[i].x(w - cmp * step)
 				this.teamA[i].y(h + cmp * step)
 
+
 				this.teamA[i].attrs._x = w - cmp * step
 				this.teamA[i].attrs._y = h + cmp * step
 
 				Object.keys(Player_conf).map( k => {
 					this.teamA[i].on(k, Player_conf[k](this, this.teamA[i]))
-					console.log(i)
 				})
 				this.players += 1
 			}

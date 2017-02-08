@@ -11,12 +11,13 @@
 <link rel=import href=mdi.html>
 <!-- <link rel=import href=adebray-config.html> -->
 <link rel=import href=adebray-character-menu.html>
+<link rel=import href=../scripts/Character/Character.html>
 
 <script type="text/javascript" src="../scripts/Stage.js"></script>
 <script type="text/javascript" src="../scripts/BattleStage.js"></script>
 <script type="text/javascript" src="../scripts/Jauge.js"></script>
-<script type="text/javascript" src="../scripts/Character/Character.js"></script>
-<script type="text/javascript" src="../scripts/Character/Monster.js"></script>
+<!-- <script type="text/javascript" src="../scripts/Character/Character.js"></script> -->
+<!-- <script type="text/javascript" src="../scripts/Character/Monster.js"></script> -->
 
 <dom-module id="adebray-work">
 	<template>
@@ -76,18 +77,6 @@
 			<paper-icon-button icon="mdi:play" on-tap="toggle"></paper-icon-button>
 		</template>
 
-		<!-- <adebray-config></adebray-config> -->
-<!--
- 		<div class="float">
-			<paper-item>a dluhdil uhawlidu hawl duahiwudh lawiuhd laiu </paper-item>
-			<paper-item>Item 2</paper-item>
-			<paper-item>Item 3</paper-item>
-			<paper-item>Item 4</paper-item>
-		</div>
--->
-
-		<!-- <iron-localstorage id='storage' name="{{key}}" value="{{storage}}"></iron-localstorage> -->
-
 		<div class=centered>
 			<div id='container'></div>
 		</div>
@@ -95,44 +84,13 @@
 		<div style='top: -100px'>
 			<div id='content' class='horizontal centered'>
 				<iron-image class='portrait' src="{{selected.character.attrs.image.src}}" preload sizing="cover"></iron-image>
-				<paper-item id=fight>Fight</paper-item>
+				<template is='dom-repeat' items={{getCommands(selected.attrs.job)}}>
+					<paper-item>{{item}}</paper-item>
+				</template>
+				<!-- <paper-item id=fight>Fight</paper-item>
 				<paper-item id=item>Item</paper-item>
-				<paper-item id=menu>Menu</paper-item>
+				<paper-item id=menu>Menu</paper-item> -->
 			</div>
-
-<!--
-			<div class="layout horizontal centered">
-				<paper-item style="width: 15em">HP: {{do(selected, 'life')}} / {{selected.attrs.hp_max}}</paper-item>
-				<paper-item style="width: 15em">lvl: {{selected.attrs.lvl}}</paper-item>
-				<paper-item style="width: 15em">XP: {{do(selected, 'experience')}} / {{selected.attrs.experience_max}}</paper-item>
-			</div>
-			<div class="layout horizontal centered">
-				<paper-item style="width: 15em">job: {{selected.attrs.job.name}}</paper-item>
-				<paper-item style="width: 15em">joblvl: {{do(selected, 'joblvl')}}</paper-item>
-				<paper-item style="width: 15em">jobpoints: {{do(selected, 'jobpoints')}}</paper-item>
-			</div>
-
-			<div class="layout horizontal centered">
-				<div style="width: 15em">
-					<paper-item>strength: {{selected.attrs.strength}}</paper-item>
-					<paper-item>agility: {{selected.attrs.agility}}</paper-item>
-					<paper-item>vitality: {{selected.attrs.vitality}}</paper-item>
-					<paper-item>intellect: {{selected.attrs.intellect}}</paper-item>
-					<paper-item>mind: {{selected.attrs.mind}}</paper-item>
-				</div>
-				<div style="width: 15em">
-					<paper-item>attack: {{do(selected, 'attack')}}</paper-item>
-					<paper-item>defense: {{do(selected, 'defense')}}</paper-item>
-					<paper-item>magic_defense: {{do(selected, 'magic_defense')}}</paper-item>
-				</div>
-				<div style="width: 15em">
-					<paper-item>head: {{selected.attrs.head.name}}</paper-item>
-					<paper-item>body: {{selected.attrs.body.name}}</paper-item>
-					<paper-item>arms: {{selected.attrs.arms.name}}</paper-item>
-					<paper-item>left: {{selected.attrs.left.name}}</paper-item>
-					<paper-item>right: {{selected.attrs.right.name}}</paper-item>
-				</div>
-			</div> -->
 		</div>
 
 	</template>
@@ -176,7 +134,7 @@
 			},
 
 			observers: [
-				'isSelected(selected)'
+				// 'isSelected(selected)'
 			],
 
 			do: function (obj, method) {
@@ -235,12 +193,20 @@
 			// fightHandler: function (e) {
 			// 	console.log( config.Number_of_Hits(this.selected) )
 			// },
+			getCommands: function (job) {
+				if (job) {
+					return [].concat.apply([], Object.keys(job.commands).map( k => {
+						if (job.commands[k].length != 0) {
+							return job.commands[k]
+						}
+						else {
+							return k
+						}
+					}))
+				}
+			},
 
 			attached: function () {
-				this.$.fight.keyEventTarget = null
-				this.$.item.keyEventTarget = null
-				this.$.menu.keyEventTarget = null
-
 				var stage = new Konva.Stage({
 					container : this.$$('#container'),
 					width: 800,

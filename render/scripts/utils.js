@@ -8,7 +8,7 @@ Array.prototype.extend = function (other_array) {
     other_array.forEach( (v) => this.push(v) )
 }
 
-cropImage = function (e, index, name) {
+cropImage = function (e, x, y, name) {
 	return new Promise( (res, rej) => {
 		let container = document.createElement('div')
 		let layer = new Konva.Layer()
@@ -22,10 +22,10 @@ cropImage = function (e, index, name) {
 		layer.add( new Konva.Image({
 			x: 0, y: 0,
 			crop: {
-				x: index * 64,
-				y: 0,
-				width: 512,
-				height: 64
+				x: x * 64,
+				y: y * 64,
+				width: e.target.width,
+				height: e.target.height
 			},
 			image: e.target
 		}) )
@@ -46,24 +46,51 @@ makeImage = function (item) {
 		imageObj.onload = ((x, y) => (e) => {
 
 			let name = e.target.src
-			let array = []
-			for (var i = 0; i < 8; i++) {
-
-				let n = name.match('\\w://([\.\\w_/]+)')[1] + '/' + i
-				if (!localStorage.getItem(n)) {
-					array.push( this.cropImage(e, i, n) )
-				}
-				else {
-					array.push( new Promise( (res, rej) => {
-						let i = new Image()
-						i.onload = (e) => res(e.target)
-						i.src = localStorage.getItem(n)
-					}))
-				}
-
+			let defs = {
+				'up':    { x:0, y:0 },
+				'down':  { x:0, y:2 },
+				'left':  { x:0, y:1 },
+				'right': { x:0, y:3 }
 			}
 
+			let array = Object.keys(defs).map( (k,i) => {
+					let n = name.match('\\w://([\.\\w_/]+)')[1] + '/' + k
+
+					if (!localStorage.getItem(n)) {
+						return( this.cropImage(e, defs[k].x, defs[k].y, n) )
+					}
+					else {
+						return( new Promise( (res, rej) => {
+							let i = new Image()
+							i.onload = (e) => res(e.target)
+							i.src = localStorage.getItem(n)
+						}))
+					}
+			})
+			// for (var i = 0; i < 8; i++) {
+			//
+			// 	let n = name.match('\\w://([\.\\w_/]+)')[1] + '/' + i
+			// 	if (!localStorage.getItem(n)) {
+			// 		array.push( this.cropImage(e, i, n) )
+			// 	}
+			// 	else {
+			// 		array.push( new Promise( (res, rej) => {
+			// 			let i = new Image()
+			// 			i.onload = (e) => res(e.target)
+			// 			i.src = localStorage.getItem(n)
+			// 		}))
+			// 	}
+			//
+			// }
+
 			Promise.all(array).then( (_) => {
+				_ = Object.keys(defs).reduce( (p, k, i) => {
+					p[k] = _[i]
+					return p
+				}, {})
+
+				console.log(item.position)
+				console.log(_)
 				let i = new Konva.Image({
 					_position: item.position,
 					x: x - _[item.position].width / 2,
@@ -112,9 +139,9 @@ makeAttack = function (battlestage, attacker, defender) {
 			this.time += frame.timeDiff
 
 			var dist = Math.cos(this.time / 30) * 10
-			if (player.character.attrs._position == 6)
+			if (player.character.attrs._position == 'right')
 				player.move({x: dist, y: 0})
-			if (player.character.attrs._position == 2)
+			if (player.character.attrs._position == 'left')
 				player.move({x: -dist, y: 0})
 
 			if (this.time > 200) {

@@ -106,7 +106,10 @@
 					this.removeChild(b)
 				}
 
-				this.team.forEach( e => e.actionJauge.fromNumber(0) )
+				this.team.forEach( e => {
+					e.changeImage('right')
+					e.actionJauge.fromNumber(0)
+				})
 
 				b.teamA = this.team
 				b.teamB = []
@@ -146,12 +149,13 @@
 				if (this.team == null)
 					this.set('team', [])
 
-				this.async( () => {
-					this.addToTeam()
-					this.async( () => {
-						this.addToTeam()
-					}, 200)
-				}, 1000)
+				// this.async( () => {
+				// 	this.addToTeam()
+				// 	this.async( () => {
+				// 		this.addToTeam()
+				// 		this.async( () => this.toggleBattle(), 500 )
+				// 	}, 500)
+				// }, 1000)
 			}
 		});
 	</script>

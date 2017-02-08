@@ -37,7 +37,7 @@ jobs = {
 	// },
 	Freelancer : {
 		name: 'Freelancer',
-		image: 'images2/combat_dummy/test.png',
+		image: 'LPC/body/male/light.png', // 'images2/combat_dummy/test.png',
 		commands: {
 			'Attack' : [],
 			'Magic' : [ 'White Magic' ],
@@ -71,9 +71,33 @@ jobs = {
 			99: [ 50,  0,  0,  0,  0,  0,  0,  0 ]
 		}
 	},
+	"Warrior": {
+		name: "Warrior",
+		image: 'LPC/body/male/dark.png',
+		commands: {
+			'Attack' : [],
+			'Advance' : [],
+			'Guard' : [],
+			'Item' : []
+		},
+		stats: {
+			1:  [  5,  5,  5,  5,  5 ],
+			10: [ 10, 10, 10,  9, 10 ],
+			20: [ 15, 16, 16, 14, 17 ],
+			30: [ 20, 22, 22, 18, 24 ],
+			40: [ 24, 28, 28, 22, 31 ],
+			50: [ 29, 34, 34, 26, 38 ],
+			60: [ 34, 40, 40, 34, 44 ],
+			70: [ 38, 46, 46, 33, 51 ],
+			80: [ 43, 52, 52, 37, 58 ],
+			90: [ 48, 58, 58, 41, 65 ],
+			99: [ 52, 63, 63, 45, 71 ]
+		},
+		mps: {}
+	},
 	"White Mage" : {
 		name: "White Mage",
-		image: 'images2/combat_dummy/test2.png',
+		image: 'LPC/body/male/skeleton.png',
 		commands: {
 			'Attack' : [],
 			'Magic' : [ 'White Magic' ],

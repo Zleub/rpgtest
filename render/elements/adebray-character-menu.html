@@ -42,20 +42,20 @@
 			<span class="cmd">{{item}}</span>
 		</template>
 
+		<template is="dom-if" if={{character.attrs.job.mps.1}}>
 		<table>
-		<tr>
-		<td>Magic:</td>
+		<tr><td>Magic:</td>
 		<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
 			<td>lvl {{incr(index)}}</td>
 		</template>
 		</tr>
-		<tr>
-		<td></td>
+		<tr><td></td>
 		<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
 			<td>{{item}}</td>
 		</template>
 		</tr>
 		</table>
+		</template>
 
 	</template>
 	<script>
@@ -73,7 +73,7 @@
 			incr: function (i) { return i + 1 },
 
 			getFaceImage: function (c) {
-				return c[4].src
+				return c['down'].src
 			},
 
 			getJobI: function (c) {
@@ -112,7 +112,7 @@
 			fill: function () {
 				new Character({
 					name: new Chance().name(),
-					position: 6,
+					position: 'down',
 					class: 'Freelancer',
 					body: items.Vest,
 					left: items.Knife,
