@@ -1,4 +1,6 @@
 <link rel=import href="adebray-character-card.html">
+<link rel=import href="../bower_components/iron-list/iron-list.html">
+<link rel=import href="../bower_components/iron-image/iron-image.html">
 
 <dom-module id="adebray-menu">
 	<template>
@@ -41,6 +43,15 @@
 				/*border: 1px dashed blue;*/
 				display: inline-block;
 			}
+
+			/*:host iron-list {
+				border: 1px solid blue;
+			}*/
+
+			:host iron-image {
+				width: 100px;
+				height: 100px;
+			}
 		</style>
 
 		<!-- <iron-localstorage name="teamStorage" value="{{team}}"></iron-localstorage> -->
@@ -62,14 +73,23 @@
 
 			<paper-button class=button raised>Option</paper-button>
 
-			<div class="layout horizontal">
-				<template is=dom-repeat items={{team}}>
-				<div class="inline" style="width: 49%" item={{item}}>
-					<adebray-character-card character={{item}}></adebray-character-card>
-					<paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
+
+		  <!-- <div class="layout horizontal">
+			  <template is=dom-repeat items={{team}}>
+				  <div class="inline" style="width: 49%" item={{item}}>
+					  <adebray-character-card character={{item}}></adebray-character-card>
+					  <paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
+				  </div>
+			  </template>
+		  </div> -->
+			<iron-list items={{team}}>
+			<template>
+				<div>
+					<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
+					<paper-item class="inline">{{item.attrs.name}}</paper-item>
 				</div>
-				</template>
-			</div>
+			</template>
+			</iron-list>
 
 		</div>
 	</template>
@@ -149,13 +169,13 @@
 				if (this.team == null)
 					this.set('team', [])
 
-				// this.async( () => {
-				// 	this.addToTeam()
-				// 	this.async( () => {
-				// 		this.addToTeam()
-				// 		this.async( () => this.toggleBattle(), 500 )
-				// 	}, 500)
-				// }, 1000)
+				this.async( () => {
+					this.addToTeam()
+					this.async( () => {
+						this.addToTeam()
+						// this.async( () => this.toggleBattle(), 500 )
+					}, 500)
+				}, 1000)
 			}
 		});
 	</script>

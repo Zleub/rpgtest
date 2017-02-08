@@ -67,21 +67,6 @@ makeImage = function (item) {
 						}))
 					}
 			})
-			// for (var i = 0; i < 8; i++) {
-			//
-			// 	let n = name.match('\\w://([\.\\w_/]+)')[1] + '/' + i
-			// 	if (!localStorage.getItem(n)) {
-			// 		array.push( this.cropImage(e, i, n) )
-			// 	}
-			// 	else {
-			// 		array.push( new Promise( (res, rej) => {
-			// 			let i = new Image()
-			// 			i.onload = (e) => res(e.target)
-			// 			i.src = localStorage.getItem(n)
-			// 		}))
-			// 	}
-			//
-			// }
 
 			Promise.all(array).then( (_) => {
 				_ = Object.keys(defs).reduce( (p, k, i) => {
@@ -89,8 +74,6 @@ makeImage = function (item) {
 					return p
 				}, {})
 
-				console.log(item.position)
-				console.log(_)
 				let i = new Konva.Image({
 					_position: item.position,
 					x: x - _[item.position].width / 2,

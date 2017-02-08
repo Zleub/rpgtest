@@ -5,7 +5,7 @@ class Abstract_Character extends Konva.Group {
 
 	changeImage(name) {
 		let i = this.character.remove()
-		console.log(i)
+
 		this.character = new Konva.Image({
 			_position: name,
 			x: i.x(),

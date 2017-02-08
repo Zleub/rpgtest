@@ -99,7 +99,8 @@ let IA_conf = {
 			battlestage.teamA.forEach( e => {
 				console.log('BattleEnd')
 			})
-			setTimeout(battlestage.end, 700)
+			battlestage.report()
+			// setTimeout(battlestage.end, 700)
 		}
 	}
 }
@@ -117,6 +118,13 @@ class BattleStage extends AdebrayStage {
 			opt.callback_end()
 		}
 
+		this.report = () => {
+			opt.report.addEventListener('iron-overlay-closed', () => {
+				this.end()
+			})
+			opt.report.toggle()
+		}
+
 		var cmp = 0
 		var step = 50
 		var w = this.layer.width() / 2 - step
@@ -126,6 +134,7 @@ class BattleStage extends AdebrayStage {
 		this.players = 0
 		for (var i = 0; i < 8; i++) {
 			if (this.teamA[i]) {
+				console.log(this.teamA[i])
 				this.teamA[i].x(w - cmp * step)
 				this.teamA[i].y(h + cmp * step)
 

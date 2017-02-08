@@ -7,6 +7,7 @@
 <link rel=import href=../bower_components/iron-image/iron-image.html>
 <link rel=import href=../bower_components/iron-list/iron-list.html>
 <link rel=import href=../bower_components/paper-icon-button/paper-icon-button.html>
+<link rel=import href=../bower_components/paper-dialog/paper-dialog.html>
 
 <link rel=import href=mdi.html>
 <!-- <link rel=import href=adebray-config.html> -->
@@ -92,6 +93,10 @@
 				<paper-item id=menu>Menu</paper-item> -->
 			</div>
 		</div>
+
+		<paper-dialog id=report>
+		  <h2>Battle Report</h2>
+		</paper-dialog>
 
 	</template>
 
@@ -245,7 +250,8 @@
 						this.set('stack', bs.stack)
 						bs.run()
 					},
-					callback_end: this.callback_end
+					callback_end: this.callback_end,
+					report: this.$.report
 				}))
 
 				// this.stage.run()
