@@ -1,30 +1,19 @@
-class Monster extends Konva.Group {
+class Monster extends Abstract_Character {
 	constructor(opt) {
-		super({
-			x: opt.x,
-			y: opt.y,
-			_x: opt.x,
-			_y: opt.y,
+		super(opt)
 
-			lvl: opt.level || 1,
-			strength: opt.strength || 5,
-			agility: opt.agility || 5,
-			vitality: opt.vitality || 5,
-			intellect: opt.intellect || 5,
-			mind: opt.mind || 5,
+		this.attrs.hp = opt.hp
+		this.attrs.hp_max = opt.hp
 
-			hp: opt.hp,
-			hp_max: opt.hp,
+		this.attrs.attack = opt.attack
+		this.attrs.defense = opt.defense
+		this.attrs.magic_defense = 1
 
-			attack: opt.attack,
-			defense: opt.defense,
-			magic_defense: 1,
+		this.attrs.rightproficiency = 1,
+		this.attrs.leftproficiency = 1
 
-			rightproficiency: 1,
-			leftproficiency: 1,
+		this.attrs.weight = 1
 
-			weight: 1,
-		})
 
 		this.actionJauge = new Jauge({
 			color: 'darkblue',

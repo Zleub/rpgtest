@@ -34,63 +34,51 @@ let eventTable = [
 
 class Character extends Abstract_Character {
 	constructor(opt) {
-		super({
-			name: opt.name,
+		super(opt)
 
-			experience: opt.experience || 0,
-			experience_max: Level_table[opt.lvl - 1 || 0],
+		this.attrs.name = opt.name
 
-			lvl: opt.lvl || 1,
-			strength: opt.strength || 5,
-			agility: opt.agility || 5,
-			vitality: opt.vitality || 5,
-			intellect: opt.intellect || 5,
-			mind: opt.mind || 5,
+		this.attrs.experience = opt.experience || 0
+		this.attrs.experience_max = Level_table[opt.lvl - 1 || 0]
 
-			hp: opt.hp || 100,
-			hp_max: opt.hp_max || 100,
+		this.attrs.hp = opt.hp || 100
+		this.attrs.hp_max = opt.hp_max || 100
 
-			head: opt.head || {},
-			body: opt.body || {},
-			arm: opt.arm || {},
-			left: opt.left || {},
-			right: opt.right || {},
+		this.attrs.head = opt.head || {}
+		this.attrs.body = opt.body || {}
+		this.attrs.arm = opt.arm || {}
+		this.attrs.left = opt.left || {}
+		this.attrs.right = opt.right || {}
 
-			rightproficiency: 1,
-			leftproficiency: 1,
+		this.attrs.rightproficiency = 1
+		this.attrs.leftproficiency = 1
 
-			weight: 1,
+		this.attrs.weight = 1
 
-			job: jobs[opt.class || 'Freelancer'],
-			jobpoints: Object.keys(jobs).reduce((p, e) => {
-				p[e] = 0
-				return p
-			}, {}),
-			joblvls: Object.keys(jobs).reduce((p, e) => {
-				p[e] = 1
-				return p
-			}, {}),
+		this.attrs.job = jobs[opt.class || 'Freelancer']
+		this.attrs.jobpoints = Object.keys(jobs).reduce((p, e) => {
+			p[e] = 0
+			return p
+		}, {})
+		this.attrs.joblvls = Object.keys(jobs).reduce((p, e) => {
+			p[e] = 1
+			return p
+		}, {})
 
-			ready: false,
+		this.attrs.ready = false
 
-			x: opt.x,
-			_x: opt.x,
-			y: opt.y,
-			_y: opt.y,
+		this.attrs.seed = ((size) => {
+			let t = []
 
-			seed: ((size) => {
-				let t = []
-
-				for (let i = 0; i < size; i++) {
-					t.push([])
-					for (let j = 0; j < size; j++) {
-						t[i].push(Math.random())
-					}
+			for (let i = 0; i < size; i++) {
+				t.push([])
+				for (let j = 0; j < size; j++) {
+					t[i].push(Math.random())
 				}
+			}
 
-				return t
-			})(1024)
-		})
+			return t
+		})(1024)
 
 		window[opt.name] = this
 

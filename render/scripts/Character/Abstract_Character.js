@@ -1,6 +1,18 @@
 class Abstract_Character extends Konva.Group {
 	constructor(opt) {
-		super(opt)
+		super({
+			lvl: opt.lvl || 1,
+			strength: opt.strength || 5,
+			agility: opt.agility || 5,
+			vitality: opt.vitality || 5,
+			intellect: opt.intellect || 5,
+			mind: opt.mind || 5,
+
+			x: opt.x,
+			y: opt.y,
+			_x: opt.x,
+			_y: opt.y,
+		})
 	}
 
 	changeImage(name) {
