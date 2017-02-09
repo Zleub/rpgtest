@@ -145,7 +145,7 @@ makeAttack = function (battlestage, attacker, defender) {
 
 	if ( hit_rate > getRandomInt(0, 100) ) {
 
-		target.life(damages)
+		target.life(-damages)
 		t_config.text = String(damages)
 		if (damages <= 0)
 			t_config.fill = 'grey'
