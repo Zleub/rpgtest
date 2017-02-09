@@ -73,23 +73,27 @@
 
 			<paper-button class=button raised>Option</paper-button>
 
-
-		  <!-- <div class="layout horizontal">
-			  <template is=dom-repeat items={{team}}>
-				  <div class="inline" style="width: 49%" item={{item}}>
-					  <adebray-character-card character={{item}}></adebray-character-card>
-					  <paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
-				  </div>
-			  </template>
-		  </div> -->
-			<iron-list items={{team}}>
+			<iron-list selection-enabled items={{team}}>
 			<template>
 				<div>
+					<template is="dom-if" if={{selected}}>
+						{{index}}
+					</template>
 					<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
-					<paper-item class="inline">{{item.attrs.name}}</paper-item>
+					<paper-item disabled class="inline">{{item.attrs.name}}</paper-item>
 				</div>
 			</template>
 			</iron-list>
+
+			<!-- <div class="layout horizontal">
+				<template is=dom-repeat items={{team}}>
+					<div class="inline" style="width: 49%" item={{item}}>
+						<adebray-character-card character={{item}}></adebray-character-card>
+						<paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
+					</div>
+				</template>
+			</div> -->
+
 
 		</div>
 	</template>
