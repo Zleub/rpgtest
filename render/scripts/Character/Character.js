@@ -41,9 +41,6 @@ class Character extends Abstract_Character {
 		this.attrs.experience = opt.experience || 0
 		this.attrs.experience_max = Level_table[opt.lvl - 1 || 0]
 
-		this.attrs.hp = opt.hp || 100
-		this.attrs.hp_max = opt.hp_max || 100
-
 		this.attrs.head = opt.head || {}
 		this.attrs.body = opt.body || {}
 		this.attrs.arm = opt.arm || {}
@@ -67,18 +64,11 @@ class Character extends Abstract_Character {
 
 		this.attrs.ready = false
 
-		this.attrs.seed = ((size) => {
-			let t = []
+		this.attrs.seed = new Seed({ size: 128 })
+		this.attrs.tree = new Tree({ chance: opt.name })
+		this.attrs.tree.levelup()
 
-			for (let i = 0; i < size; i++) {
-				t.push([])
-				for (let j = 0; j < size; j++) {
-					t[i].push(Math.random())
-				}
-			}
-
-			return t
-		})(1024)
+		/* -- */
 
 		window[opt.name] = this
 
@@ -152,7 +142,7 @@ class Character extends Abstract_Character {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility )
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20 )
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
@@ -220,6 +210,7 @@ class Character extends Abstract_Character {
 				this.attrs.intellect = stat[i][3]
 				this.attrs.mind = stat[i][4]
 			}
+			this.attrs.tree.levelup()
 		}
 
 	joblvl() {
@@ -267,21 +258,5 @@ class Character extends Abstract_Character {
 			a += this.attrs.arm.magic_defense
 
 		return a
-	}
-
-	life(value) {
-		if (value) {
-			this.attrs.hp -= value
-
-			this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
-			if (this.attrs.hp < 0) {
-				this.fire('death')
-				this.destroy()
-			}
-
-			this.fire('update')
-		}
-		else
-			return this.attrs.hp
 	}
 }

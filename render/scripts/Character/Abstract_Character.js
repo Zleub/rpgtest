@@ -2,6 +2,10 @@ class Abstract_Character extends Konva.Group {
 	constructor(opt) {
 		super({
 			lvl: opt.lvl || 1,
+
+			hp : Number(opt.hp) || 100,
+			hp_max : Number(opt.hp) || 100,
+
 			strength: opt.strength || 5,
 			agility: opt.agility || 5,
 			vitality: opt.vitality || 5,
@@ -32,5 +36,25 @@ class Abstract_Character extends Konva.Group {
 	replace() {
 		this.x(this.attrs._x)
 		this.y(this.attrs._y)
+	}
+
+	life(value) {
+		if (value) {
+			this.attrs.hp += value
+
+			if (this.attrs.hp < 0) {
+				this.fire('death')
+				this.se.destroy()
+				this.destroy()
+			}
+			if (this.attrs.hp > this.attrs.hp_max) {
+				this.attrs.hp = this.attrs.hp_max
+			}
+			this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
+
+			this.fire('update')
+		}
+		else
+			return this.attrs.hp
 	}
 }

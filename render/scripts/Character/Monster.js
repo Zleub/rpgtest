@@ -2,9 +2,6 @@ class Monster extends Abstract_Character {
 	constructor(opt) {
 		super(opt)
 
-		this.attrs.hp = opt.hp
-		this.attrs.hp_max = opt.hp
-
 		this.attrs.attack = opt.attack
 		this.attrs.defense = opt.defense
 		this.attrs.magic_defense = 1
@@ -13,7 +10,6 @@ class Monster extends Abstract_Character {
 		this.attrs.leftproficiency = 1
 
 		this.attrs.weight = 1
-
 
 		this.actionJauge = new Jauge({
 			color: 'darkblue',
@@ -44,7 +40,6 @@ class Monster extends Abstract_Character {
 			if (opt.callback)
 				opt.callback(this)
 		})
-
 	}
 
 	update(incr) {
@@ -68,22 +63,4 @@ class Monster extends Abstract_Character {
 	joblvl() {
 		return this.attrs.lvl
 	}
-
-	life(value) {
-		if (value) {
-			this.attrs.hp -= value
-
-			this.lifeJauge.fromPercent( this.attrs.hp / this.attrs.hp_max )
-			if (this.attrs.hp < 0) {
-				this.fire('death')
-				this.se.destroy()
-				this.destroy()
-			}
-
-			this.fire('update')
-		}
-		else
-			return this.attrs.hp
-	}
-
 }
