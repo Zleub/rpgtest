@@ -28,4 +28,9 @@ class Abstract_Character extends Konva.Group {
 		})
 		this.add(this.character)
 	}
+
+	replace() {
+		this.x(this.attrs._x)
+		this.y(this.attrs._y)
+	}
 }

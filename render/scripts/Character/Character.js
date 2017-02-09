@@ -284,9 +284,4 @@ class Character extends Abstract_Character {
 		else
 			return this.attrs.hp
 	}
-
-	replace() {
-		this.x(this.attrs._x)
-		this.y(this.attrs._y)
-	}
 }

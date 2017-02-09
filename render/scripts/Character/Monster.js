@@ -47,11 +47,6 @@ class Monster extends Abstract_Character {
 
 	}
 
-	replace() {
-		this.x(this.attrs._x)
-		this.y(this.attrs._y)
-	}
-
 	update(incr) {
 		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility )
 
