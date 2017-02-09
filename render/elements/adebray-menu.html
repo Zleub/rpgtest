@@ -44,14 +44,10 @@
 				display: inline-block;
 			}
 
-			/*:host iron-list {
-				border: 1px solid blue;
-			}*/
-
-			:host iron-image {
-				width: 100px;
-				height: 100px;
+			iron-list, adebray-character-card {
+				width: 250px;
 			}
+
 		</style>
 
 		<!-- <iron-localstorage name="teamStorage" value="{{team}}"></iron-localstorage> -->
@@ -73,27 +69,20 @@
 
 			<paper-button class=button raised>Option</paper-button>
 
-			<iron-list selection-enabled items={{team}}>
+			<div id=_body class="hori">
+
+			<div>
+			<iron-list selection-enabled items={{team}} selected-item={{test}}>
 			<template>
-				<div>
-					<template is="dom-if" if={{selected}}>
-						{{index}}
-					</template>
+				<paper-item class='hori'>
 					<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
-					<paper-item disabled class="inline">{{item.attrs.name}}</paper-item>
-				</div>
+					<span class='layout center'>{{item.attrs.name}}</span>
+				</paper-item>
 			</template>
 			</iron-list>
+			</div>
 
-			<!-- <div class="layout horizontal">
-				<template is=dom-repeat items={{team}}>
-					<div class="inline" style="width: 49%" item={{item}}>
-						<adebray-character-card character={{item}}></adebray-character-card>
-						<paper-icon-button icon="delete" on-tap="deleteFromTeam"></paper-icon-button>
-					</div>
-				</template>
-			</div> -->
-
+			</div>
 
 		</div>
 	</template>
@@ -105,7 +94,29 @@
 				team: {
 					type: Array,
 					notify: true
+				},
+				test: {
+					type: Object,
+					notify: true,
+					observer: '_testChanged'
 				}
+			},
+
+			_testChanged: function (e) {
+				if (e) {
+					let card = document.createElement('adebray-character-card')
+					card.character = e
+					this.$._body.appendChild( card )
+				}
+				else {
+					let card = this.querySelector('adebray-character-card')
+					if (card)
+						this.$._body.removeChild(card)
+				}
+			},
+
+			notNull: function (e) {
+				return e != null
 			},
 
 			toggleTeam: function () {
@@ -125,9 +136,15 @@
 
 					this.async( function() {
 						this.set('team', b.teamA)
+						// this.set('test', this.team[0])
 					}, 100)
 
 					this.removeChild(b)
+
+					// this.async( () => {
+					// 	if (this.team[0].attrs.lvl < 15)
+					// 	this.toggleBattle()
+					// }, 2000)
 				}
 
 				this.team.forEach( e => {
@@ -177,7 +194,9 @@
 					this.addToTeam()
 					this.async( () => {
 						this.addToTeam()
-						// this.async( () => this.toggleBattle(), 500 )
+						this.async( () => this.addToTeam(), 500 )
+						this.async( () => this.addToTeam(), 1000 )
+						this.async( () => this.toggleBattle(), 2000 )
 					}, 500)
 				}, 2000)
 			}

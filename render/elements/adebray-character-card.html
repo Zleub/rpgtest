@@ -5,7 +5,7 @@
 	<template>
 		<style>
 			:host {
-				padding: 10%;
+				/*padding: 10%;*/
 				margin: 4px;
 				/*border: 1px dashed red;*/
 				display: block;
@@ -74,9 +74,16 @@
 					<paper-item class=inline>Job: {{character.attrs.job.name}}</paper-item>
 					<paper-item class=inline>Job lvl: {{do(character, 'joblvl')}}</paper-item>
 				</div>
+				<div>
+					<paper-item class=inline>Strength: {{character.attrs.strength}}</paper-item>
+					<paper-item class=inline>Agility: {{character.attrs.agility}}</paper-item>
+					<paper-item class=inline>Vitality: {{character.attrs.vitality}}</paper-item>
+					<paper-item class=inline>Intellect: {{character.attrs.intellect}}</paper-item>
+					<paper-item class=inline>Mind: {{character.attrs.mind}}</paper-item>
+				</div>
 
 			</div>
-			<adebray-skill-tree width=200 height=200 depth={{character.attrs.lvl}} seed={{character.attrs.seed}}></adebray-skill-tree>
+			<adebray-skill-tree width=200 height=200 character={{character}}></adebray-skill-tree>
 		</div>
 
 	</template>

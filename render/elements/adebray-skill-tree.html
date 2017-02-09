@@ -10,7 +10,6 @@
 			}
 		</style>
 
-
 		<div id=head>
 			<color-hash></color-hash>
 		</div>
@@ -25,21 +24,7 @@
 		is: 'adebray-skill-tree',
 
 		properties: {
-			seed: {
-				type: Array,
-				value: (size) => {
-					let t = []
-
-					for (let i = 0; i < 1024; i++) {
-						t.push([])
-						for (let j = 0; j < 1024; j++) {
-							t[i].push(Math.random())
-						}
-					}
-
-					return t
-				}
-			},
+			character: Object,
 			width: {
 				type: Number,
 				value: 200
@@ -64,6 +49,7 @@
 			y = Math.abs(y)
 			return this.seed[x % 1024][y % 1024]
 		},
+
 		attached: function () {
 			let flatted = (o) => Object.keys(o).map( k => Object.keys(o[k]).map( e => {
 				k = k.match(/\w+/)[0]
@@ -80,7 +66,6 @@
 				}
 			}))
 			test = [].concat.apply([], test)
-			console.log(test.length)
 
 			let harmonizer = new Harmonizer()
 			let p = []
@@ -88,15 +73,12 @@
 				p.push( parseInt(i) )
 			}
 
-			console.log(p)
 			let h = harmonizer.harmonize('#c820f1', p)
-			// let colors = Object.keys(Magic).concat(['Combat']).map( e => {
 			let colors = test.map( (e, i) => {
 				let dot = document.createElement('color-dot')
 				dot.customStyle['--custom-color'] = h[i]
 				dot.text = e
-
-				// this.$.head.appendChild(dot)
+				this.appendChild(dot)
 
 				return {
 					text: e,
@@ -105,11 +87,10 @@
 			})
 			// console.log(colors)
 
-			let c = document.createElement('canvas')
 			let stage = new Konva.Stage({
 				container : this.$['container'],
-				width: this.width / 2,
-				height: this.height / 2
+				width: this.width,
+				height: this.height
 			})
 			let layer = new Konva.Layer({
 				draggable: true
@@ -124,165 +105,28 @@
 			stage.add(layer)
 			layer.scale({x: this.scale, y: this.scale})
 
-			let cmp = 0
-			let lines = []
-			let rects = []
-			let stack = [{
-				x: 0,
-				y: 0
-			}]
-			let g_size = 32
-			layer.add(new Konva.Rect({
-				x: 0,
-				y: 0,
-
-				offsetX: g_size / 2,
-				offsetY: g_size / 2,
-				width: g_size,
-				height: g_size,
-
-				fill: 'black',
-				// stroke: 'blue',
-				// strokeWidth: 10
-			}))
-
-			let c_table = {
-				0: 35,
-				1: 50,
-				2: 15
-			}
-
-			if ( Object.keys(c_table).reduce( (p, k) => {
-				return (p += c_table[k])
-			}, 0) != 100)
-				console.log('wrong space')
-
-			let tmp_table = {}
-			let j = parseInt( Object.keys(c_table)[0] )
-			for (let i = 0; i < 100; i++) {
-				tmp_table[i] = j
-				c_table[j] -= 1
-				if (c_table[j] == 0)
-					j += 1
-			}
-
-			let n = new FastSimplexNoise({
-				// random: () => 0.2
-			})
-			// n2 = n2 || new FastSimplexNoise(() => 1)
-			let res = []
-			let make_side = (_x, _y, prev = 0, depth = 0) => () => {
-				let len = this.side
-
-				let callback = []
-				for (let i = 0; i < len; i++) {
-					let p = (Math.PI * 2 / len) * i
-
-					// let j = parseInt(Math.random() * 99)
-					// let j = parseInt( n.get2DNoise( 12, 12 ) * 99 )
-					// let j = parseInt( Math.cos(_x * _x + _y * _y) * 99 )
-					let j = parseInt( this.getSeed(_x, _y) * 99 )
-					j = tmp_table[ Math.abs(j) ]
-					let size = g_size * j
-
-					let sub_size = (Math.max(size, prev))
-					let _size
-					if (sub_size) {
-						_size = sub_size * 2
-					}
-					else {
-						// console.log(_x, _y)
-						_size = g_size * 2
-					}
-					// let _size = 64
-					let __x = _x + Math.round( _size * Math.cos(p) )
-					let __y = _y + Math.round( _size * Math.sin(p) )
-
-					if ( stack.filter(({x, y}) => x == __x && y == __y ).length == 0 ) {
-						let c = colors[ Math.abs(Math.floor( this.getSeed(__x, __y) * (colors.length - 1))) ]
-						// console.log( Math.abs(Math.floor( Math.cos( __x * __x + __y * __y ) * (colors.length - 1))))
-						// let c = colors[ Math.abs(Math.floor( Math.cos( __x ^ __y ) * (colors.length - 1))) ]
-						// let c = colors[ parseInt( Math.random() * (colors.length - 1)) ]
-
-						rects.push({
-							x: __x,
-							y: __y,
-
-							offsetX: size / 2,
-							offsetY: size / 2,
-							width: size,
-							height: size,
-
-							fill: c.color,
-						})
-
-						// if (j != 0)
-							lines.push({
-								points: [_x, _y, __x, __y],
-								stroke: 'black',
-								tension: 1
-							})
-
-					}
-
-					stack.push({
-						x: __x,
-						y: __y
-					})
-
-					res.push(j)
-
-					// if (depth == 1)
-					// 	console.log(__x, __y)
-
-					if (depth < this.depth - 1) {
-						callback.push( make_side(__x, __y, size, depth + 1) )
-					}
+			if (!this.character)
+			{
+				let t = new Tree( new Seed({size: 128}) )
+				for (var i = 0; i < this.depth; i++) {
+					t.levelup()
 				}
+				console.log('childlen:', t.children.length)
+				console.log('stacklen:', t.stack.length)
 
-				callback.forEach(e => e())
+				layer.add(t)
+				layer.x( stage.width() / 2)
+				layer.y( stage.height() / 2)
+				layer.draw()
 			}
-
-			make_side(0, 0, g_size)()
-
-			lines.forEach( e => layer.add(new Konva.Line(e)))
-			rects.forEach( e => layer.add(new Konva.Rect(e)))
-			// layer.draw()
-
-			while (layer.children.reduce( (p, e) => {
-				if ( Math.abs(e.x() + e.width()) * this.scale > stage.width() / 2)
-					return 1
-				else if ( Math.abs(e.y() + e.height()) * this.scale > stage.height() / 2)
-					return 1
-				else
-					return p
-			}, 0) == 1) {
-				this.scale -= 0.01
-				layer.scale({x: this.scale, y: this.scale})
-				// console.log(this.scale)
+			else
+			{
+				layer.add(this.character.attrs.tree)
+				layer.x( stage.width() / 2)
+				layer.y( stage.height() / 2)
+				layer.draw()
 			}
-
-			// console.log(this.seed[0])
-			// let d = document.createElement('div')
-			// d.innerHTML = JSON.stringify(res.reduce( (p, e) => {
-			// 	if (!p[e])
-			// 		p[e] = 1
-			// 	else
-			// 		p[e] += 1
-			// 	return p
-			// }, {}), undefined, '<br>')
-			// this.appendChild(d)
-
-			layer.x( stage.width() / 2)
-			layer.y( stage.height() / 2)
-			layer.draw()
-
-			// let im = document.createElement('img')
-			// im.onload = () => this.appendChild(im)
-			// im.src = stage.toDataURL()
 		}
-
-
 	})
 	</script>
 </dom-module>
