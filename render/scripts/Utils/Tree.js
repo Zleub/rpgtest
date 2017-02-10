@@ -73,25 +73,33 @@ class Tree extends Konva.Group {
 		this.populate(0, 0)
 	}
 
-	populate(x, y) {
+	populate(x, y, prev_size) {
 		for (var i = 0; i < 4; i++) {
 			let p = (Math.PI * 2) / 4 * i
 
-			let size = tmp_table[ this.chance.integer({min: 0, max: 99}) ]
-			let c = x + Math.round( Math.cos(p) * this.size * 2) * size
-			let s = y + Math.round( Math.sin(p) * this.size * 2) * size
-			if (this.children.filter( _ => c == _.x() && s == _.y()).length == 0) {
-				console.log(colors.length)
-				let c = colors[ chance.integer({min:0, max: colors.length - 1}) ]
+			let size = tmp_table[ this.chance.integer({min: 0, max: 99}) ] * this.size
+
+			let sub_size = (Math.max(size, prev_size))
+			let _size
+			if (sub_size)
+				_size = sub_size * 2
+			else
+				_size = this.size * 2
+
+			let c = x + Math.round( Math.cos(p) * _size)
+			let s = y - Math.round( Math.sin(p) * _size)
+			if (this.children.filter( _ => c == _.x() && s == _.y()).length == 0
+				&& this.stack.filter( _ => c == _.x() && s == _.y()).length == 0) {
+				let cl = colors[ chance.integer({min:0, max: colors.length - 1}) ]
 
 				this.stack.push(new Konva.Rect({
 					x: c,
 					y: s,
-					offsetX: (this.size * size) / 2,
-					offsetY: (this.size * size) / 2,
-					width: this.size * size,
-					height: this.size * size,
-					fill: 'blue'
+					offsetX: (size) / 2,
+					offsetY: (size) / 2,
+					width: size,
+					height: size,
+					fill: cl.color || 'blue'
 				}))
 				this.stack.push(new Konva.Line({
 					points: [x, y, c, s],
@@ -110,7 +118,7 @@ class Tree extends Konva.Group {
 			this.add(e)
 			if (e instanceof Konva.Line)
 				e.moveToBottom()
-			this.populate(e.x(), e.y())
+			this.populate(e.x(), e.y(), e.width())
 		})
 	}
 }
