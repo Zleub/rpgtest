@@ -103,7 +103,7 @@ makeAttack = function (battlestage, attacker, defender) {
 	battlestage.add( new StackElem({
 		node: new Konva.Text({
 			x: player.x(),
-			y: player.y() - 42,
+			y: player.y() - 32,
 			text: hits > 1 ? hits + ' hits' : hits + ' hit',
 			fontSize: 30,
 			fontFamily: 'Calibri',
@@ -135,7 +135,7 @@ makeAttack = function (battlestage, attacker, defender) {
 	}) )
 
 	let t_config = {
-	  x: target.x() + 32,
+	  x: target.x() + 32 + Math.round(Math.random() * 40) - 20,
 	  y: target.y() - 42,
 	  text: damages,
 	  fontSize: 30,

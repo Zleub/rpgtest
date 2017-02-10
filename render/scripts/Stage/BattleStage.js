@@ -21,7 +21,6 @@ let Player_conf = {
 	},
 
 	click : (battlestage, group) => (e) => {
-		console.log('test')
 		e.evt.preventDefault()
 		e.evt.stopPropagation()
 		e.cancelBubble = true
@@ -89,19 +88,18 @@ let IA_conf = {
 		e.cancelBubble = true
 
 		let menu = document.querySelector('adebray-work')
-		if (menu.$.fight.focused && menu.selected.attrs.ready)
-			makeAttack(battlestage, menu.selected, group)
+		console.log('got something to work on')
+		// if (menu.$.fight.focused && menu.selected.attrs.ready)
+			// makeAttack(battlestage, menu.selected, group)
 	},
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
-		battlestage.teamA.forEach( e => e.experience(20) )
+		battlestage.teamA.forEach( _ => _.experience(e.target.attrs.xp * 20) )
 		if (battlestage.teamB.length <= 0) {
-			battlestage.teamA.forEach( e => {
-				e.life(e.attrs.hp_max)
-				console.log('BattleEnd')
-			})
-			// battlestage.report()
-			setTimeout(battlestage.end, 700)
+			// battlestage.teamA.forEach( e => {
+				// console.log('BattleEnd')
+			// })
+			battlestage.report()
 		}
 	}
 }
@@ -135,7 +133,6 @@ class BattleStage extends AdebrayStage {
 		this.players = 0
 		for (var i = 0; i < 8; i++) {
 			if (this.teamA[i]) {
-				console.log(this.teamA[i])
 				this.teamA[i].x(w - cmp * step)
 				this.teamA[i].y(h + cmp * step)
 
