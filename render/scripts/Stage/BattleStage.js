@@ -94,7 +94,7 @@ let IA_conf = {
 	},
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
-		battlestage.teamA.forEach( _ => _.experience(e.target.attrs.xp * 20) )
+		battlestage.teamA.forEach( _ => _.experience(e.target.attrs.xp) )
 		if (battlestage.teamB.length <= 0) {
 			// battlestage.teamA.forEach( e => {
 				// console.log('BattleEnd')
