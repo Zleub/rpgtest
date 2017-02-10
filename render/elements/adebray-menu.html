@@ -1,6 +1,7 @@
 <link rel=import href="adebray-character-card.html">
 <link rel=import href="../bower_components/iron-list/iron-list.html">
 <link rel=import href="../bower_components/iron-image/iron-image.html">
+<link rel=import href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel=import href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="adebray-menu">
@@ -45,19 +46,28 @@
 				display: inline-block;
 			}
 
+			.play {
+				border-color: green;
+			}
+
 			iron-list, adebray-character-card {
 				width: 250px;
+			}
+
+			#menu {
+				@apply(--layout-vertical);
+				@apply(--layout-center);
 			}
 
 		</style>
 
 		<!-- <iron-localstorage name="teamStorage" value="{{team}}"></iron-localstorage> -->
 
-		<div id=menu class="vert">
+		<div id=menu>
 			<iron-image src="/logo.png" alt="Awesome logo"></iron-image>
 
 			<template is=dom-if	if="{{teamHasPlayer(team.length)}}">
-				<paper-button class=button on-tap="toggleBattle" raised>Play</paper-button>
+				<paper-button class="button play" on-tap="toggleBattle" raised>Play</paper-button>
 			</template>
 
 			<template is=dom-if	if="{{teamNotFull(team.length)}}">
@@ -69,21 +79,20 @@
 			</template>
 
 			<paper-button class=button raised>Option</paper-button>
+		</div>
 
-			<div id=_body class="hori">
+		<div id=_body class="hori">
 
-			<div>
-			<iron-list selection-enabled items={{team}} selected-item={{test}}>
-			<template>
-				<paper-item class='hori'>
-					<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
-					<span class='layout center'>{{item.attrs.name}}</span>
-				</paper-item>
-			</template>
-			</iron-list>
-			</div>
-
-			</div>
+		<div>
+		<template is='dom-repeat' items={{team}}>
+		<!-- <template> -->
+			<paper-item class='hori' on-tap='_selection'>
+				<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
+				<span class='layout center'>{{item.attrs.name}}</span>
+			</paper-item>
+		<!-- </template> -->
+		</template>
+		</div>
 
 		</div>
 	</template>
@@ -101,6 +110,21 @@
 					notify: true,
 					observer: '_testChanged'
 				}
+			},
+
+			listeners: {
+				'team-modified': '_teamChanged'
+			},
+
+			_teamChanged: function (e) {
+				// let t = this.team
+				let index = this.team.indexOf(e.detail)
+				this.notifyPath(`team.${index}.character.attrs.image.src`)
+			},
+
+			_selection: function (e) {
+				this.set('test', null)
+				this.set('test', e.model.item)
 			},
 
 			_testChanged: function (e) {
@@ -125,14 +149,14 @@
 			},
 
 			toggleBattle: function () {
-				this.$.menu.hidden = true
+				let parent = this.parentNode
+				this.hidden = true
 
 				let b = document.createElement('adebray-work')
 				let e = monsters[0]
 
-				console.log(e)
 				b.callback_end = () => {
-					this.$.menu.hidden = false
+					this.hidden = false
 					this.set('team', null)
 
 					this.async( function() {
@@ -140,12 +164,7 @@
 						// this.set('test', this.team[0])
 					}, 100)
 
-					this.removeChild(b)
-
-					// this.async( () => {
-					// 	if (this.team[0].attrs.lvl < 15)
-					// 	this.toggleBattle()
-					// }, 2000)
+					parent.removeChild(b)
 				}
 
 				this.team.forEach( e => {
@@ -158,13 +177,13 @@
 				b.teamA.forEach( _ => {
 					b.teamB.push( new Monster(e) )
 				})
-				this.appendChild(b)
+
+				parent.appendChild(b)
 			},
 
 			addToTeam: function () {
 				let c = this.querySelector('adebray-character-menu').character
 				this.querySelector('adebray-character-menu').fill()
-				console.dir(c.attrs.jobpoints)
 				this.push('team', c)
 			},
 

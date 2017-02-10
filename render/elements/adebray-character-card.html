@@ -1,5 +1,15 @@
 <link rel=import href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel=import href="../bower_components/paper-menu-button/paper-menu-button.html">
 <link rel=import href="../bower_components/paper-listbox/paper-listbox.html">
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-styles/demo-pages.html">
 
 <dom-module id="adebray-character-card">
 	<template>
@@ -17,13 +27,13 @@
 				min-width: 350px;
 			}
 
-			paper-item {
+			.initial {
 				display: initial;
 			}
 
-			/*.inline {
+			.inline {
 				display: inline-block;
-			}*/
+			}
 
 			.horizontal {
 				@apply(--layout-horizontal);
@@ -40,7 +50,7 @@
 
 			.green {
 				display: block;
-				/*border: 1px dashed green;*/
+				border: 1px dashed green;
 			}
 
 			adebray-skill-tree, .bordered {
@@ -55,14 +65,22 @@
 		<img id=red src=../ui/jauge_red.png on-load='test' hidden></img>
 
 		<div class="horizontal">
-			<div class="horizontal flexchild head">
-				<iron-image src={{getFaceImage(character.character.attrs.images)}}></iron-image>
-				<paper-item class=inline>{{character.attrs.name}}</paper-item>
+			<div class="horizontal flexchild">
+				<iron-image src={{character.character.attrs.image.src}}></iron-image>
+				<paper-item>{{character.attrs.name}}</paper-item>
+				<paper-menu-button>
+				<paper-icon-button icon="mdi:swap-horizontal" class="dropdown-trigger"></paper-icon-button>
+				<paper-menu class="dropdown-content vertical">
+					<template is="dom-repeat" items={{getJobList(jobs)}}>
+						<paper-item>{{item}}</paper-item>
+					</template>
+				  </paper-menu>
+				</paper-menu-button>
 			</div>
 
 			<div class="vertical green">
 				<paper-item>lvl: {{character.attrs.lvl}}</paper-item>
-				<canvas width="100" height="20"></canvas>
+				<canvas style="display: block" width="100" height="20"></canvas>
 			</div>
 
 		</div>
@@ -82,9 +100,30 @@
 					<paper-item class=inline>Mind: {{character.attrs.mind}}</paper-item>
 				</div>
 
+				<template is="dom-if" if={{character.attrs.job.mps.1}}>
+				<table>
+				<tr><td>
+					<paper-item>Magic:</paper-item>
+				</td>
+				<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
+					<td>
+						<paper-item>lvl {{incr(index)}}</paper-item>
+					</td>
+				</template>
+				</tr>
+				<tr><td></td>
+				<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
+					<td>
+						<paper-item>{{item}}</paper-item>
+					</td>
+				</template>
+				</tr>
+				</table>
+				</template>
 			</div>
 			<adebray-skill-tree width=200 height=200 character={{character}}></adebray-skill-tree>
 		</div>
+
 
 	</template>
 	<script>
@@ -92,20 +131,47 @@
 			is: 'adebray-character-card',
 
 			properties: {
-				character: Object,
+				character: {
+					type: Object,
+					notify: true
+				},
 				jobs: {
 					type: Object,
 					value: jobs
 				}
 			},
 
+			listeners: {
+				'iron-select': 'log'
+			},
+
+			log: function (e) {
+				this.character.changejob(Object.keys(jobs)[e.target.selected], (c) => {
+					this.notifyPath('character.character.attrs.image.src')
+					this.fire('team-modified', c)
+				})
+			},
+
+			incr: function (i) { return i + 1 },
+
+			getJobList: function (jobs) {
+				return Object.keys(jobs)
+			},
+
+
 			getFaceImage: function (c) {
-				return c['down'].src
+				if (c)
+					return c['down'].src
 			},
 
 			do: function (obj, method) {
-				if (obj[method])
+				if (obj && obj[method])
 					return obj[method]()
+			},
+
+			changeJob: function (e) {
+				console.log(this.character)
+				// c.changeJob()
 			},
 
 			test: function (e) {

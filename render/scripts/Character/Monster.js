@@ -11,6 +11,8 @@ class Monster extends Abstract_Character {
 
 		this.attrs.weight = 1
 
+		this.attrs.xp = Number(opt.xp)
+
 		this.actionJauge = new Jauge({
 			color: 'darkblue',
 			border: 'grey'

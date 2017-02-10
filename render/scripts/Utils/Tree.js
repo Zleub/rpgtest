@@ -32,13 +32,12 @@ let test = flatted(Magic).concat( flatted({
 }))
 
 test = [].concat.apply([], test)
-console.log(test.length)
 let harmonizer = new Harmonizer()
 let p = []
 for (let i = 0; i < 360; i += 360 / test.length) {
 	p.push( parseInt(i) )
 }
-console.log(p)
+
 let h = harmonizer.harmonize('#c820f1', p)
 // let colors = Object.keys(Magic).concat(['Combat']).map( e => {
 let colors = test.map( (e, i) => {
@@ -52,14 +51,17 @@ let colors = test.map( (e, i) => {
 	}
 })
 
-console.log('toto')
 class Tree extends Konva.Group {
 	constructor(opt) {
 		super(opt)
 
+		this.level = -1
 		this.size = 32
 		this.stack = []
-		this.chance = new Chance(opt.chance);
+		if (opt)
+			this.chance = new Chance(opt.chance)
+		else
+			this.chance = new Chance()
 		this.add( new Konva.Rect({
 			x: 0,
 			y: 0,
@@ -71,54 +73,74 @@ class Tree extends Konva.Group {
 		}))
 
 		this.populate(0, 0)
+		this.levelup()
 	}
 
 	populate(x, y, prev_size) {
-		for (var i = 0; i < 4; i++) {
-			let p = (Math.PI * 2) / 4 * i
-
+		[
+			{
+				x: (prev_size || this.size) * 2,
+				y: 0
+			},
+			{
+				x: -(prev_size || this.size) * 2,
+				y: 0
+			},
+			{
+				x: 0,
+				y: (prev_size || this.size) * 2
+			},
+			{
+				x: 0,
+				y: -(prev_size || this.size) * 2
+			}
+		].forEach( ({x : _x, y : _y}) => {
 			let size = tmp_table[ this.chance.integer({min: 0, max: 99}) ] * this.size
 
-			let sub_size = (Math.max(size, prev_size))
-			let _size
-			if (sub_size)
-				_size = sub_size * 2
-			else
-				_size = this.size * 2
-
-			let c = x + Math.round( Math.cos(p) * _size)
-			let s = y - Math.round( Math.sin(p) * _size)
-			if (this.children.filter( _ => c == _.x() && s == _.y()).length == 0
-				&& this.stack.filter( _ => c == _.x() && s == _.y()).length == 0) {
-				let cl = colors[ chance.integer({min:0, max: colors.length - 1}) ]
+			let c = x + _x
+			let s = y + _y
+			let pred = (_) => c == _.attrs.x && s == _.attrs.y
+			if ( (this.children.filter( pred ).length == 0 && this.stack.filter( pred ).length == 0) ) {
+				let cl = colors[ this.chance.integer({min:0, max: colors.length - 1}) ]
 
 				this.stack.push(new Konva.Rect({
 					x: c,
 					y: s,
-					offsetX: (size) / 2,
-					offsetY: (size) / 2,
+					offsetX: size / 2,
+					offsetY: size / 2,
 					width: size,
 					height: size,
 					fill: cl.color || 'blue'
 				}))
+
 				this.stack.push(new Konva.Line({
 					points: [x, y, c, s],
 					stroke: 'black',
 					tension: 1
 				}))
 			}
-		}
+		})
 	}
 
 	levelup() {
+		this.level += 1
+
+		if (this.level % 3 != 0)
+			return
+
 		let s = this.stack
 		this.stack = []
 
 		s.forEach( e => {
 			this.add(e)
+		})
+
+		s.forEach( e => {
 			if (e instanceof Konva.Line)
 				e.moveToBottom()
-			this.populate(e.x(), e.y(), e.width())
+			else if (e instanceof Konva.Rect)
+				this.populate(e.attrs.x, e.attrs.y, e.attrs.width)
 		})
+
 	}
 }

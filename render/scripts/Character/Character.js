@@ -93,13 +93,6 @@ class Character extends Abstract_Character {
 		this.lifeJauge.addTo(this)
 		this.lifeJauge.max()
 
-		this.manaJauge = new Jauge({
-			color: 'darkgreen',
-			y: 76
-		})
-		this.manaJauge.addTo(this)
-		this.manaJauge.max()
-
 		eventTable.forEach( (e) => {
 			if (opt[e])
 				this.on(e, opt[e](this))
@@ -126,6 +119,7 @@ class Character extends Abstract_Character {
 
 	changejob(jobname, callback) {
 		this.attrs.job = jobs[jobname]
+		console.log(this.attrs.job.image)
 		makeImage({
 			x: 0,
 			y: 0,
@@ -137,12 +131,13 @@ class Character extends Abstract_Character {
 			this.character.destroy()
 			this.add(e)
 			this.character = e
-			callback(this)
+			if (callback)
+				callback(this)
 		})
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20 )
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20)
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
