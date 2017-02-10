@@ -131,13 +131,14 @@ class Character extends Abstract_Character {
 			this.character.destroy()
 			this.add(e)
 			this.character = e
+			this.updateStats()
 			if (callback)
 				callback(this)
 		})
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20)
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
@@ -165,7 +166,8 @@ class Character extends Abstract_Character {
 		if (n) {
 			if ( (this.attrs.experience += n) > this.attrs.experience_max ) {
 				this.attrs.lvl += 1
-				this.levelup()
+				this.updateStats()
+				this.attrs.tree.levelup()
 				this.attrs.experience = 0
 				this.attrs.experience_max = Level_table[this.attrs.lvl - 1]
 			}
@@ -181,7 +183,7 @@ class Character extends Abstract_Character {
 		})
 	}
 
-	levelup() {
+	updateStats() {
 			let lvl = this.attrs.lvl
 			let stat = jobs[this.attrs.job.name].stats
 
@@ -205,7 +207,6 @@ class Character extends Abstract_Character {
 				this.attrs.intellect = stat[i][3]
 				this.attrs.mind = stat[i][4]
 			}
-			this.attrs.tree.levelup()
 		}
 
 	joblvl() {

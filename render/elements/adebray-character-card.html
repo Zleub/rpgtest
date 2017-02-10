@@ -147,7 +147,8 @@
 
 			log: function (e) {
 				this.character.changejob(Object.keys(jobs)[e.target.selected], (c) => {
-					this.notifyPath('character.character.attrs.image.src')
+					this.character = null
+					this.character = c
 					this.fire('team-modified', c)
 				})
 			},
