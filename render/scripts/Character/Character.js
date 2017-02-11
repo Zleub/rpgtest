@@ -68,8 +68,10 @@ class Character extends Abstract_Character {
 		this.attrs.tree = new Tree({ chance: opt.name })
 		this.attrs.tree.levelup()
 
+
 		/* -- */
 
+		this.updateStats()
 		window[opt.name] = this
 
 		this.lock = false
@@ -138,7 +140,7 @@ class Character extends Abstract_Character {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20)
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
@@ -151,10 +153,11 @@ class Character extends Abstract_Character {
 
 	jobpoints(n) {
 		if (n) {
-				if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
+			if ( (this.attrs.jobpoints[this.attrs.job.name] += n) > 99) {
 				if ( (this.attrs.joblvls[this.attrs.job.name] += 1) > 99 )
 					this.attrs.joblvls[this.attrs.job.name] = 99
 				this.attrs.jobpoints[this.attrs.job.name] = 0
+				this.updateStats()
 			}
 			this.fire('update')
 		}
@@ -206,6 +209,27 @@ class Character extends Abstract_Character {
 				this.attrs.vitality = stat[i][2]
 				this.attrs.intellect = stat[i][3]
 				this.attrs.mind = stat[i][4]
+			}
+
+			if (jobs[this.attrs.job.name].mps) {
+				let lvl = this.attrs.joblvls[this.attrs.job.name]
+				let mp = jobs[this.attrs.job.name].mps
+
+				if (mp[lvl]) {
+					this.attrs.mp = mp[lvl].map( x => x )
+				}
+				else {
+					let i = 1
+					Object.keys(stat).reduce( (p, k) => {
+						if (Number(k) < p)
+							i = Number(k)
+						return p
+					}, lvl)
+					this.attrs.mp = mp[i].map( x => x )
+				}
+			}
+			else {
+				this.attrs.mp = undefined
 			}
 		}
 

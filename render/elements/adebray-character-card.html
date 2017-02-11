@@ -24,7 +24,7 @@
 				background-size: cover;
 				image-rendering: pixelated;
 
-				min-width: 350px;
+				/*min-width: 350px;*/
 			}
 
 			.initial {
@@ -47,6 +47,9 @@
 			.flexchild {
 		      @apply(--layout-flex);
 		    }
+			.end {
+ 				@apply(--layout-end);
+		    }
 
 			.green {
 				display: block;
@@ -55,6 +58,15 @@
 
 			adebray-skill-tree, .bordered {
 				border: 1px solid black;
+			}
+
+			.conditiondrop {
+				font-size: 10px;
+				width: 100px;
+			}
+
+			.note {
+				font-size: 10px;
 			}
 		</style>
 
@@ -70,7 +82,7 @@
 				<paper-item>{{character.attrs.name}}</paper-item>
 				<paper-menu-button>
 				<paper-icon-button icon="mdi:swap-horizontal" class="dropdown-trigger"></paper-icon-button>
-				<paper-menu class="dropdown-content vertical">
+				<paper-menu class="dropdown-content vertical" on-iron-select=log>
 					<template is="dom-repeat" items={{getJobList(jobs)}}>
 						<paper-item>{{item}}</paper-item>
 					</template>
@@ -100,19 +112,19 @@
 					<paper-item class=inline>Mind: {{character.attrs.mind}}</paper-item>
 				</div>
 
-				<template is="dom-if" if={{character.attrs.job.mps.1}}>
+				<template is="dom-if" if={{character.attrs.mp}}>
 				<table>
 				<tr><td>
 					<paper-item>Magic:</paper-item>
 				</td>
-				<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
+				<template is="dom-repeat" items={{character.attrs.mp}}>
 					<td>
 						<paper-item>lvl {{incr(index)}}</paper-item>
 					</td>
 				</template>
 				</tr>
 				<tr><td></td>
-				<template is="dom-repeat" items={{character.attrs.job.mps.1}}>
+				<template is="dom-repeat" items={{character.attrs.mp}}>
 					<td>
 						<paper-item>{{item}}</paper-item>
 					</td>
@@ -120,6 +132,40 @@
 				</tr>
 				</table>
 				</template>
+
+				<template is=dom-repeat items={{character.attrs.gambits}}>
+					<paper-item>{{item}}</paper-item>
+				</template>
+
+				<div class="horizontal end">
+				<paper-dropdown-menu label="Target">
+					<paper-listbox class="dropdown-content gambit1" on-iron-select=changeTarget
+						selectable=".selectable">
+					<template is=dom-repeat items={{getTarget(team)}}>
+						<paper-item class="selectable">{{item.text}}</paper-item>
+					</template>
+				  </paper-listbox>
+				</paper-dropdown-menu>
+				<paper-item>with</paper-item>
+				<paper-dropdown-menu id=gambitDropDown label="Condition">
+				  <paper-listbox class="dropdown-content gambit2" on-iron-select=changeJob>
+					  <template is=dom-repeat items={{gambits}}>
+  						<paper-item>{{item.text}}</paper-item>
+  					</template>
+				  </paper-listbox>
+				</paper-dropdown-menu>
+				<paper-item>></paper-item>
+				<paper-dropdown-menu id=commandDropDown label="Action">
+				  <paper-listbox class="dropdown-content gambit3" on-iron-select=changeJob>
+					<template is=dom-repeat items={{getCommands(character.attrs.job)}}>
+  						<paper-item>{{item}}</paper-item>
+  					</template>
+				  </paper-listbox>
+				</paper-dropdown-menu>
+
+				<paper-icon-button icon="add" on-tap=addRule></paper-icon-button>
+				</div>
+
 			</div>
 			<adebray-skill-tree width=200 height=200 character={{character}}></adebray-skill-tree>
 		</div>
@@ -135,20 +181,67 @@
 					type: Object,
 					notify: true
 				},
+				team: {
+					type: Array,
+					notify: true
+				},
 				jobs: {
 					type: Object,
 					value: jobs
+				},
+				gambits: {
+					type: Array
 				}
 			},
 
-			listeners: {
-				'iron-select': 'log'
+			// listeners: {
+			// 	'iron-select': 'log'
+			// },
+
+			getTarget: function (e) {
+				return targets.concat(this.team.map( e => { return { text: e.attrs.name, type: 'Character'} } ))
+			},
+
+			changeTarget: function (e) {
+				let ts = targets.concat(this.team.map( e => { return { text: e.attrs.name, type: 'Character'} } ))
+				let o = ts[e.target.indexOf(e.detail.item)]
+
+				this.$.gambitDropDown._setSelectedItem(null)
+
+				this.set('gambits', gambits.filter( e => {
+					if (e.target == '*')
+						return true
+					else
+						return e.target == o.type
+				}))
+			},
+
+			addRule: function (e) {
+				let target = this.$$('.gambit1').selectedItem.innerText
+				let condition = this.$$('.gambit2').selectedItem.innerText
+				let action = this.$$('.gambit3').selectedItem.innerText
+
+				this.push('character.attrs.gambits', `${target}:${condition} -> ${action}`)
+			},
+
+			getCommands: function (job) {
+				if (!job) {
+					this.$.commandDropDown._setSelectedItem(null)
+					return []
+				}
+
+				return Object.keys(job.commands).reduce( (p, k) => {
+					if( job.commands[k].length != 0 )
+						return p.concat( job.commands[k] )
+					else
+						return p.concat([k])
+				}, [])
 			},
 
 			log: function (e) {
 				this.character.changejob(Object.keys(jobs)[e.target.selected], (c) => {
-					this.character = null
-					this.character = c
+					this.set('character', null)
+					this.set('character', c)
 					this.fire('team-modified', c)
 				})
 			},
@@ -171,7 +264,7 @@
 			},
 
 			changeJob: function (e) {
-				console.log(this.character)
+				// console.log(this.character)
 				// c.changeJob()
 			},
 
@@ -185,7 +278,7 @@
 				if (e.target.id == 'red')
 					this._r = true
 
-				if (this._s && this._m && this._e && this._r) {
+				if (this._s && this._m && this._e && this._r && this.character) {
 					let canvas = this.querySelector('canvas')
 					let ctx = canvas.getContext('2d')
 
