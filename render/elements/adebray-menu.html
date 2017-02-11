@@ -131,6 +131,7 @@
 				if (e) {
 					let card = document.createElement('adebray-character-card')
 					card.character = e
+					card.team = this.team
 					this.$._body.appendChild( card )
 				}
 				else {
@@ -186,6 +187,11 @@
 				let c = this.querySelector('adebray-character-menu').character
 				this.querySelector('adebray-character-menu').fill()
 				this.push('team', c)
+				let card = this.$$('adebray-character-card')
+				if (card) {
+					card.set('team', [])
+					card.set('team', this.team)
+				}
 			},
 
 			deleteFromTeam: function (e) {
