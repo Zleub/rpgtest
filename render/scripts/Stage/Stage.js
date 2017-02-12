@@ -3,13 +3,22 @@ class StackElem {
 		this.fun = opt.fun
 		this.node = opt.node
 		this.parent = opt.parent
+		this.text = opt.text
 	}
 
 	destroy() {
 		if (this.node) {
 			this.node.destroy()
 		}
-		this.parent.splice( this.parent.indexOf(this), 1)
+
+		this.parent.stack.splice( this.parent.stack.indexOf(this), 1)
+		if (this.parent.notifyStack) {
+			this.parent.notifyStack()
+		}
+	}
+
+	toString() {
+		return this.text
 	}
 }
 
@@ -41,8 +50,11 @@ class AdebrayStage {
 			this.layer.add(stackelem.node)
 
 		stackelem.time = 0
-		stackelem.parent = this.stack
+		stackelem.parent = this
 		this.stack.push(stackelem)
+		if (this.notifyStack) {
+			this.notifyStack()
+		}
 	}
 
 	destroy() {

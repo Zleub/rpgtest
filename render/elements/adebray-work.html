@@ -25,7 +25,7 @@
 			.centered {
 				display: block;
 				@apply(--layout-horizontal);
-				@apply(--layout-center-justified);
+				/*@apply(--layout-center-justified);*/
 			}
 
 			.float {
@@ -72,6 +72,11 @@
 
 		<div class=centered>
 			<div id='container'></div>
+			<div class='vertical'>
+				<template is="dom-repeat" items="{{stack}}">
+					<p>{{item}}</p>
+				</template>
+			</div>
 		</div>
 
 		<div style='top: -100px'>
@@ -80,9 +85,6 @@
 				<template is='dom-repeat' items={{getCommands(selected.attrs.job)}}>
 					<paper-item>{{item}}</paper-item>
 				</template>
-				<!-- <paper-item id=fight>Fight</paper-item>
-				<paper-item id=item>Item</paper-item>
-				<paper-item id=menu>Menu</paper-item> -->
 			</div>
 		</div>
 
@@ -121,7 +123,10 @@
 				stage: {
 					type: Object
 				},
-				stack: Array,
+				stack: {
+					type: Array,
+					notify: true
+				},
 				selected: {
 					type: Object,
 					value: {
@@ -187,9 +192,6 @@
 					})
 			},
 
-			// fightHandler: function (e) {
-			// 	console.log( config.Number_of_Hits(this.selected) )
-			// },
 			getCommands: function (job) {
 				if (job) {
 					return [].concat.apply([], Object.keys(job.commands).map( k => {
@@ -220,8 +222,6 @@
 				})
 
 				back.on('click', (e) => {
-					// console.log('back click', e)
-					// e.cancelBubble = true
 					if (this.selected.attrs) {
 						this.selected.lock = false
 						this.selected.children[0].hide()
@@ -234,7 +234,7 @@
 
 				layer.add(back)
 
-				this.set('stage', new BattleStage({
+				let bs = new BattleStage({
 					layer,
 					teamA: this.teamA,
 					teamB: this.teamB,
@@ -243,8 +243,13 @@
 						bs.run()
 					},
 					callback_end: this.callback_end,
-					report: this.$.report
-				}))
+					report: this.$.report,
+				})
+				bs.notifyStack = (i, e) => {
+					this.set('stack', bs.stack.map(e => e))
+				}
+
+				this.set('stage', bs)
 
 				// this.stage.run()
 			}

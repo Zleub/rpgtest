@@ -36,8 +36,6 @@ class Character extends Abstract_Character {
 	constructor(opt) {
 		super(opt)
 
-		this.attrs.name = opt.name
-
 		this.attrs.experience = opt.experience || 0
 		this.attrs.experience_max = Level_table[opt.lvl - 1 || 0]
 
@@ -140,7 +138,7 @@ class Character extends Abstract_Character {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility * 20)
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true

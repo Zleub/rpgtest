@@ -1,6 +1,8 @@
 class Abstract_Character extends Konva.Group {
 	constructor(opt) {
 		super({
+			name: opt.name,
+
 			gambits: [],
 			lvl: opt.lvl || 1,
 

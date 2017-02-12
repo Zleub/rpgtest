@@ -124,6 +124,8 @@ class BattleStage extends AdebrayStage {
 			opt.report.toggle()
 		}
 
+		this.notifyStack = opt.notifyStack
+
 		var cmp = 0
 		var step = 50
 		var w = this.layer.width() / 2 - step
@@ -193,15 +195,18 @@ class BattleStage extends AdebrayStage {
 		})
 
 		this.layer.children.forEach( (e) => {
-			let se = new StackElem({
-				fun: (frame) => {
-					if (e.nodeType == 'Group') {
-						e.update(frame.timeDiff / 300)
+			if (e instanceof Abstract_Character) {
+				let se = new StackElem({
+					text: `update ${e.attrs.name}`,
+					fun: (frame) => {
+						if (e.nodeType == 'Group') {
+							e.update(frame.timeDiff / 300)
+						}
 					}
-				}
-			})
-			e.se = se
-			this.add( se )
+				})
+				e.se = se
+				this.add( se )
+			}
 		})
 
 		// 	console.log(this.stack.length)
