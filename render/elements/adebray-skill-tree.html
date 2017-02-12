@@ -44,16 +44,18 @@
 				value: 0.25
 			},
 			depth: Number,
+			stage: Object
 		},
 
-		getSeed: function (x, y) {
-			x = Math.abs(x)
-			y = Math.abs(y)
-			return this.seed[x % 1024][y % 1024]
+		draw: function () {
+			console.log('layer draw')
+
+			console.log(this.stage.children[0])
+			this.stage.draw()
 		},
 
 		attached: function () {
-			test.forEach( (e, i) => {
+			skills.forEach( (e, i) => {
 				let dot = document.createElement('color-dot')
 				dot.customStyle['--custom-color'] = h[i]
 				dot.text = e
@@ -78,6 +80,8 @@
 
 			stage.add(layer)
 			layer.scale({x: this.scale, y: this.scale})
+
+			this.set('stage', layer)
 
 			if (!this.character)
 			{

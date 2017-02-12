@@ -82,7 +82,7 @@
 				<paper-item>{{character.attrs.name}}</paper-item>
 				<paper-menu-button>
 				<paper-icon-button icon="mdi:swap-horizontal" class="dropdown-trigger"></paper-icon-button>
-				<paper-menu class="dropdown-content vertical" on-iron-select=log>
+				<paper-menu class="dropdown-content vertical" on-iron-select=updateCharacter>
 					<template is="dom-repeat" items={{getJobList(jobs)}}>
 						<paper-item>{{item}}</paper-item>
 					</template>
@@ -167,6 +167,7 @@
 				</div>
 
 			</div>
+
 			<adebray-skill-tree width=200 height=200 character={{character}}></adebray-skill-tree>
 		</div>
 
@@ -194,9 +195,37 @@
 				}
 			},
 
-			// listeners: {
-			// 	'iron-select': 'log'
-			// },
+			listeners: {
+				'tap': 'log'
+			},
+
+			log: function (e) {
+				let t = e.target
+				if (e.target.tagName == 'IRON-ICON')
+					t = e.target.parentNode
+
+				if (this.character.attrs.lvl - 1 < 1)
+					return
+
+				if (t.id == 'coreup') {
+					this.character.attrs.lvl -= 1
+					this.character.attrs.tree.levelup()
+					this.$$('adebray-skill-tree').draw()
+
+					let c = this.character
+					this.set('character', null)
+					this.set('character', c)
+				}
+				else if (t.id == 'treeup') {
+					this.character.attrs.tree.colorize(t.parentNode.bonus.node)
+					this.character.attrs.lvl -= 1
+					this.$$('adebray-skill-tree').draw()
+
+					let c = this.character
+					this.set('character', null)
+					this.set('character', c)
+				}
+			},
 
 			getTarget: function (e) {
 				return targets.concat(this.team.map( e => { return { text: e.attrs.name, type: 'Character'} } ))
@@ -238,7 +267,7 @@
 				}, [])
 			},
 
-			log: function (e) {
+			updateCharacter: function (e) {
 				this.character.changejob(Object.keys(jobs)[e.target.selected], (c) => {
 					this.set('character', null)
 					this.set('character', c)

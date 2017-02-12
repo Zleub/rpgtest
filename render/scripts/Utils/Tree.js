@@ -18,11 +18,15 @@ for (let i = 0; i < 100; i++) {
 }
 
 let flatted = (o) => Object.keys(o).map( k => Object.keys(o[k]).map( e => {
-	k = k.match(/\w+/)[0]
-	e = e.toLowerCase()
-	return `${k}.${e}`
+	// k = k.match(/\w+/)[0]
+	// e = e.toLowerCase()
+	return {
+		category: k,
+		command: e
+	}
 }))
-let test = flatted(Magic).concat( flatted({
+
+let skills = flatted(Magic).concat( flatted({
 	"Combat": {
 		// "Bare Hands": null,
 		// "Harp": null,
@@ -31,16 +35,17 @@ let test = flatted(Magic).concat( flatted({
 	}
 }))
 
-test = [].concat.apply([], test)
+skills = [].concat.apply([], skills)
 let harmonizer = new Harmonizer()
 let p = []
-for (let i = 0; i < 360; i += 360 / test.length) {
+for (let i = 0; i < 360; i += 360 / skills.length) {
 	p.push( parseInt(i) )
 }
 
 let h = harmonizer.harmonize('#c820f1', p)
 // let colors = Object.keys(Magic).concat(['Combat']).map( e => {
-let colors = test.map( (e, i) => {
+
+let colors = skills.map( (e, i) => {
 	let dot = document.createElement('color-dot')
 	dot.customStyle['--custom-color'] = h[i]
 	dot.text = e
@@ -51,6 +56,17 @@ let colors = test.map( (e, i) => {
 	}
 })
 
+let makeSkills = (o, i) => Object.keys(o).concat().reduce( (p, k) => {
+   p[k] = Object.keys(o[k]).reduce((p, e) => {
+		if (o[k][e])
+			p[e] = Object.keys(o[k][e])
+		else
+			p[e] = null
+	   return p
+   }, {})
+   return p
+}, i || {})
+
 class Tree extends Konva.Group {
 	constructor(opt) {
 		super(opt)
@@ -58,6 +74,15 @@ class Tree extends Konva.Group {
 		this.level = -1
 		this.size = 32
 		this.stack = []
+
+		this.skills = makeSkills(Magic, makeSkills({
+			"Combat": {
+				// "Bare Hands": null,
+				// "Harp": null,
+				"Bow": null,
+				"Other": null
+			}
+		}))
 
 		if (opt)
 			this.chance = new Chance(opt.chance)
@@ -77,12 +102,23 @@ class Tree extends Konva.Group {
 		})
 
 		r.on('mouseover', (e) => {
-			this.dialog.innerHTML = `<div>Core /!\\</div>`
+			this.dialog.innerHTML = `<paper-item>Core [${this.level + 1}]</paper-item>
+				<paper-icon-button id=coreup icon=add></paper-icon-button>
+			`
 		})
 
 		this.add(r)
 		this.populate(0, 0)
 		this.levelup()
+	}
+
+	colorize(id) {
+		this.children.forEach( e => {
+			if (e._id == id) {
+				e.fill(e.attrs.color)
+			}
+		})
+		this.draw()
 	}
 
 	populate(x, y, prev_size) {
@@ -112,6 +148,15 @@ class Tree extends Konva.Group {
 			if ( (this.children.filter( pred ).length == 0 && this.stack.filter( pred ).length == 0) ) {
 				let cl = colors[ this.chance.integer({min:0, max: colors.length - 1}) ]
 
+				let bonus = 'Bonus: '
+				if (size == this.size * 2) {
+					if( this.skills[cl.text.category][cl.text.command] )
+						bonus += this.skills[cl.text.category][cl.text.command].pop()
+				}
+				else if (size == this.size * 1) {
+					bonus += 'Strength'
+				}
+
 				let r = new Konva.Rect({
 					x: c,
 					y: s,
@@ -119,10 +164,19 @@ class Tree extends Konva.Group {
 					offsetY: size / 2,
 					width: size,
 					height: size,
-					fill: 'lightgrey'
+					fill: 'lightgrey',
+					color: cl.color
 				})
 				r.on('mouseover', (e) => {
-					this.dialog.innerHTML = `<div>${cl.text}</div>`
+					this.dialog.bonus = {
+						bonus: bonus,
+						node: r._id
+					}
+					this.dialog.innerHTML = `
+						<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
+						<paper-item>${bonus}</paper-item>
+						<paper-icon-button id=treeup icon=add></paper-icon-button>
+					`
 				})
 
 				this.stack.push(r)
@@ -138,9 +192,6 @@ class Tree extends Konva.Group {
 
 	levelup() {
 		this.level += 1
-
-		if (this.level % 3 != 0)
-			return
 
 		let s = this.stack
 		this.stack = []

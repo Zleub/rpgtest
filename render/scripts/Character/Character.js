@@ -64,7 +64,10 @@ class Character extends Abstract_Character {
 
 		this.attrs.seed = new Seed({ size: 128 })
 		this.attrs.tree = new Tree({ chance: opt.name })
-		this.attrs.tree.levelup()
+
+		this.attrs.commands = Object.keys(jobs).reduce((p, e) => {
+			return p
+		}, {})
 
 
 		/* -- */
@@ -168,7 +171,6 @@ class Character extends Abstract_Character {
 			if ( (this.attrs.experience += n) > this.attrs.experience_max ) {
 				this.attrs.lvl += 1
 				this.updateStats()
-				this.attrs.tree.levelup()
 				this.attrs.experience = 0
 				this.attrs.experience_max = Level_table[this.attrs.lvl - 1]
 			}
