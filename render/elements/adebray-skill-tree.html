@@ -6,7 +6,7 @@
 		<style>
 			:host {
 				display: inline-block;
-				border: 1px solid black;
+				/*border: 1px solid black;*/
 			}
 		</style>
 
@@ -19,6 +19,7 @@
 			<div id='container'></div>
 		</div>
 
+		<div id=dialog></div>
 	</template>
 	<script>
 	Polymer({
@@ -52,39 +53,11 @@
 		},
 
 		attached: function () {
-			let flatted = (o) => Object.keys(o).map( k => Object.keys(o[k]).map( e => {
-				k = k.match(/\w+/)[0]
-				e = e.toLowerCase()
-				return `${k}.${e}`
-			}))
-
-			let test = flatted(Magic).concat( flatted({
-				"Combat": {
-					// "Bare Hands": null,
-					// "Harp": null,
-					"Bow": null,
-					"Other": null
-				}
-			}))
-			test = [].concat.apply([], test)
-
-			let harmonizer = new Harmonizer()
-			let p = []
-			for (let i = 0; i < 360; i += 360 / test.length) {
-				p.push( parseInt(i) )
-			}
-
-			let h = harmonizer.harmonize('#c820f1', p)
-			let colors = test.map( (e, i) => {
+			test.forEach( (e, i) => {
 				let dot = document.createElement('color-dot')
 				dot.customStyle['--custom-color'] = h[i]
 				dot.text = e
-				this.appendChild(dot)
-
-				return {
-					text: e,
-					color: dot.customStyle['--custom-color']
-				}
+				// this.appendChild(dot)
 			})
 			// console.log(colors)
 
@@ -108,7 +81,9 @@
 
 			if (!this.character)
 			{
-				let t = new Tree()
+				let t = new Tree({
+					dialog: this.$.dialog
+				})
 				for (var i = 0; i < this.depth; i++) {
 					t.levelup()
 					layer.draw()
@@ -121,6 +96,7 @@
 			}
 			else
 			{
+				this.character.attrs.tree.dialog = this.$.dialog
 				layer.add(this.character.attrs.tree)
 				layer.x( stage.width() / 2)
 				layer.y( stage.height() / 2)

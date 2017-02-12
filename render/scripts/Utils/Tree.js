@@ -58,11 +58,15 @@ class Tree extends Konva.Group {
 		this.level = -1
 		this.size = 32
 		this.stack = []
+
 		if (opt)
 			this.chance = new Chance(opt.chance)
 		else
 			this.chance = new Chance()
-		this.add( new Konva.Rect({
+
+		this.dialog = opt.dialog
+
+		let r = new Konva.Rect({
 			x: 0,
 			y: 0,
 			offsetX: this.size / 2,
@@ -70,8 +74,13 @@ class Tree extends Konva.Group {
 			width: this.size,
 			height: this.size,
 			fill: 'black'
-		}))
+		})
 
+		r.on('mouseover', (e) => {
+			this.dialog.innerHTML = `<div>Core /!\\</div>`
+		})
+
+		this.add(r)
 		this.populate(0, 0)
 		this.levelup()
 	}
@@ -103,15 +112,20 @@ class Tree extends Konva.Group {
 			if ( (this.children.filter( pred ).length == 0 && this.stack.filter( pred ).length == 0) ) {
 				let cl = colors[ this.chance.integer({min:0, max: colors.length - 1}) ]
 
-				this.stack.push(new Konva.Rect({
+				let r = new Konva.Rect({
 					x: c,
 					y: s,
 					offsetX: size / 2,
 					offsetY: size / 2,
 					width: size,
 					height: size,
-					fill: cl.color || 'blue'
-				}))
+					fill: 'lightgrey'
+				})
+				r.on('mouseover', (e) => {
+					this.dialog.innerHTML = `<div>${cl.text}</div>`
+				})
+
+				this.stack.push(r)
 
 				this.stack.push(new Konva.Line({
 					points: [x, y, c, s],
