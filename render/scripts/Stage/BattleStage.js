@@ -66,8 +66,15 @@ let Player_conf = {
 	},
 
 	death : (battlestage, group) => (e) => {
-		console.log(battlestage.teamB.length)
-		console.log(battlestage.teamB.indexOf(group))
+		console.log(battlestage.teamA.length)
+		console.log(battlestage.teamA.indexOf(group))
+		battlestage.teamA.splice(battlestage.teamA.indexOf(group), 1)
+		if (battlestage.teamA.length <= 0) {
+			// battlestage.teamA.forEach( e => {
+				// console.log('BattleEnd')
+			// })
+			battlestage.report()
+		}
 	}
 }
 
@@ -197,7 +204,7 @@ class BattleStage extends AdebrayStage {
 		this.layer.children.forEach( (e) => {
 			if (e instanceof Abstract_Character) {
 				let se = new StackElem({
-					text: `update ${e.attrs.name}`,
+					text: `update ${e.attrs.name} + ${e.attrs.id}`,
 					fun: (frame) => {
 						if (e.nodeType == 'Group') {
 							e.update(frame.timeDiff / 300)

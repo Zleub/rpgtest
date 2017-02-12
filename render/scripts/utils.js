@@ -101,7 +101,7 @@ makeAttack = function (battlestage, attacker, defender) {
 		player.jobpoints( config.JP_Gain(player) )
 
 	battlestage.add( new StackElem({
-		text: `hits ${attacker.attrs.name}`,
+		text: `hits ${attacker.attrs.name} + ${player.attrs.id}`,
 		node: new Konva.Text({
 			x: player.x(),
 			y: player.y() - 32,
@@ -119,7 +119,7 @@ makeAttack = function (battlestage, attacker, defender) {
 	}) )
 
 	battlestage.add( new StackElem({
-		text: `move ${attacker.attrs.name}`,
+		text: `move ${attacker.attrs.name} + ${player.attrs.id}`,
 		fun: function (frame) {
 			this.time += frame.timeDiff
 
@@ -161,7 +161,7 @@ makeAttack = function (battlestage, attacker, defender) {
 	}
 
 	battlestage.add( new StackElem({
-		text: `damage ${defender.attrs.name}`,
+		text: `damage ${defender.attrs.name} + ${player.attrs.id}`,
 		node: new Konva.Text(t_config),
 		fun: function (frame) {
 			this.time += frame.timeDiff

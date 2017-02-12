@@ -1,10 +1,14 @@
+var __cmp = 0
+
 class Monster extends Abstract_Character {
 	constructor(opt) {
 		super(opt)
 
-		this.attrs.attack = opt.attack
-		this.attrs.defense = opt.defense
+		this.attrs.attack = Number(opt.attack)
+		this.attrs.defense = Number(opt.defense)
 		this.attrs.magic_defense = 1
+
+		this.attrs.id = (__cmp++)
 
 		this.attrs.rightproficiency = 1,
 		this.attrs.leftproficiency = 1
@@ -55,6 +59,7 @@ class Monster extends Abstract_Character {
 	}
 
 	attack() {
+		console.log(this.attrs.attack)
 		return this.attrs.attack
 	}
 

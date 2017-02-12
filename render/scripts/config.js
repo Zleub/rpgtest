@@ -46,10 +46,10 @@ let targets = [
 ]
 
 let gambits = [
-	{ text: 'lowest HP', target: 'Group' },
-	{ text: 'strongest weapon', target: 'Group' },
-	{ text: 'lowest defense', target: 'Group' },
-	{ text: 'lowest magick resist', target: 'Group' },
+	// { text: 'lowest HP', target: 'Group' },
+	// { text: 'strongest weapon', target: 'Group' },
+	// { text: 'lowest defense', target: 'Group' },
+	// { text: 'lowest magick resist', target: 'Group' },
 
 	{ text: 'HP < 100%', target: '*' },
 	{ text: 'HP > 100%', target: '*' },
@@ -190,7 +190,6 @@ let config = {
     },
 
     Basic_Damage: (character, enemy) => {
-    	// console.log(character, enemy)
     	return {
     		left: parseInt( ( character.attack()
 	    		+ character.attrs.strength
@@ -198,7 +197,7 @@ let config = {
 	    		- enemy.defense() / 2
 	    		+ character.joblvl() / 11
 	    		+ character.attrs.leftproficiency / 9)
-	    			* (character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense())
+	    			* ((character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense()))
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */),
 	    	right: parseInt( ( character.attack()
@@ -207,7 +206,7 @@ let config = {
 	    		- enemy.defense() / 2
 	    		+ character.joblvl() / 11
 	    		+ character.attrs.rightproficiency / 9)
-	    			* (character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense())
+	    			* ((character.attack() / enemy.defense()) > 2 ? 2 : (character.attack() / enemy.defense()))
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */)
 	    }
