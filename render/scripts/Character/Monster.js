@@ -49,7 +49,7 @@ class Monster extends Abstract_Character {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility )
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.agility() )
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true

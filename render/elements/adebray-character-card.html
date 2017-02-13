@@ -105,11 +105,11 @@
 					<paper-item class=inline>Job lvl: {{do(character, 'joblvl')}}</paper-item>
 				</div>
 				<div>
-					<paper-item class=inline>Strength: {{character.attrs.strength}}</paper-item>
-					<paper-item class=inline>Agility: {{character.attrs.agility}}</paper-item>
-					<paper-item class=inline>Vitality: {{character.attrs.vitality}}</paper-item>
-					<paper-item class=inline>Intellect: {{character.attrs.intellect}}</paper-item>
-					<paper-item class=inline>Mind: {{character.attrs.mind}}</paper-item>
+					<paper-item class=inline>Strength: {{do(character, 'strength')}}</paper-item>
+					<paper-item class=inline>Agility: {{do(character, 'agility')}}</paper-item>
+					<paper-item class=inline>Vitality: {{do(character, 'vitality')}}</paper-item>
+					<paper-item class=inline>Intellect: {{do(character, 'intellect')}}</paper-item>
+					<paper-item class=inline>Mind: {{do(character, 'mind')}}</paper-item>
 				</div>
 
 				<template is="dom-if" if={{character.attrs.mp}}>
@@ -132,6 +132,10 @@
 				</tr>
 				</table>
 				</template>
+
+				<!-- <template is=dom-repeat items={{getAvailableCommands(character.attrs.skills)}}>
+					<paper-item>{{item}}</paper-item>
+				</template> -->
 
 				<template is=dom-repeat items={{character.attrs.gambits}}>
 					<paper-item>{{item}}</paper-item>
@@ -218,7 +222,27 @@
 				}
 				else if (t.id == 'treeup') {
 					this.character.attrs.tree.colorize(t.parentNode.bonus.node)
-					this.character.attrs[t.parentNode.bonus.bonus.toLowerCase()] += 1
+					this.character.attrs[t.parentNode.bonus.bonus.toLowerCase()].add(1)
+					this.character.attrs.lvl -= 1
+					this.$$('adebray-skill-tree').draw()
+
+					let c = this.character
+					this.set('character', null)
+					this.set('character', c)
+				}
+				else if (t.id == 'bigup') {
+					this.character.attrs.tree.colorize(t.parentNode.bonus.node)
+					if (this.character.attrs[t.parentNode.bonus.bonus.toLowerCase()])
+						this.character.attrs[t.parentNode.bonus.bonus.toLowerCase()].add( Math.abs(Math.round(Math.random() * 4)) )
+					else {
+						let {category, command} = t.parentNode.bonus
+						if (!this.character.attrs.skills[category])
+							this.character.attrs.skills[category] = {}
+						if (!this.character.attrs.skills[category][command])
+							this.character.attrs.skills[category][command] = []
+
+						this.character.attrs.skills[category][command].push(t.parentNode.bonus.bonus)
+					}
 					this.character.attrs.lvl -= 1
 					this.$$('adebray-skill-tree').draw()
 
@@ -251,7 +275,12 @@
 				let condition = this.$$('.gambit2').selectedItem.innerText
 				let action = this.$$('.gambit3').selectedItem.innerText
 
-				this.push('character.attrs.gambits', `${target}:${condition} -> ${action}`)
+				this.push('character.attrs.gambits', {
+					target: target.trim(),
+					condition: condition.trim(),
+					action: action.trim(),
+					toString: function () { return `${this.target}:${this.condition} -> ${this.action}` }
+				})
 			},
 
 			getCommands: function (job) {
@@ -261,8 +290,19 @@
 				}
 
 				return Object.keys(job.commands).reduce( (p, k) => {
+
+					let test = []
+					let skills = this.character.attrs.skills
+
+					Object.keys(skills).forEach( _k => {
+						Object.keys(skills[_k]).forEach( _s => {
+							if (_s == job.commands[k])
+								test = test.concat(skills[_k][_s])
+						})
+					})
+
 					if( job.commands[k].length != 0 )
-						return p.concat( job.commands[k] )
+						return p.concat( test )
 					else
 						return p.concat([k])
 				}, [])

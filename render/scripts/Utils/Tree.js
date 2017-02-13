@@ -83,6 +83,21 @@ let __bonus = {
 	}
 }
 
+let treeTemplate = (category, command, bonus, color, size) => {
+	if (color == 'lightgrey')
+		return `
+				<paper-item>[${category}] ${command}</paper-item>
+				<paper-item>Bonus: ${bonus}</paper-item>
+				<paper-icon-button id='${size}' icon=add></paper-icon-button>
+			`
+	else
+		return `
+			<paper-item>[${category}] ${command}</paper-item>
+			<paper-item>Bonus: ${bonus}</paper-item>
+		`
+
+}
+
 class Tree extends Konva.Group {
 	constructor(opt) {
 		super(opt)
@@ -117,7 +132,7 @@ class Tree extends Konva.Group {
 			fill: 'black'
 		})
 
-		r.on('mouseover', (e) => {
+		r.on('click', (e) => {
 			this.dialog.innerHTML = `<paper-item>Core [${this.level + 1}]</paper-item>
 				<paper-icon-button id=coreup icon=add></paper-icon-button>
 			`
@@ -131,8 +146,18 @@ class Tree extends Konva.Group {
 	colorize(id) {
 		this.children.forEach( e => {
 			if (e._id == id) {
-				e.fill(e.attrs.color)
-				e.off('mouseover')
+				e.fill(e.attrs.info.color)
+				console.dir(e)
+				e.off('click')
+				e.on('click', () => {
+					this.dialog.bonus = {
+						category: e.attrs.info.category,
+						command: e.attrs.info.command,
+						bonus: e.attrs.bonus,
+						node: e._id
+					}
+					this.dialog.innerHTML = treeTemplate(e.attrs.info.category, e.attrs.info.command, e.attrs.bonus)
+				})
 			}
 		})
 		this.draw()
@@ -164,26 +189,23 @@ class Tree extends Konva.Group {
 			let pred = (_) => c == _.attrs.x && s == _.attrs.y
 			if ( (this.children.filter( pred ).length == 0 && this.stack.filter( pred ).length == 0) ) {
 				let cl = colors[ this.chance.integer({min:0, max: colors.length - 1}) ]
+				let {category, command} = cl.text
 
 				let bonus = ''
-				let html = ''
+				let __size
 				if (size == this.size * 2) {
-					if( this.skills[cl.text.category][cl.text.command] )
-						bonus += this.skills[cl.text.category][cl.text.command].pop()
-					html += `
-							<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
-							<paper-item>Bonus: ${bonus}</paper-item>
-							<paper-icon-button id=bigup icon=add></paper-icon-button>
-						`
+					__size = 'bigup'
+					if( this.skills[category][command] )
+						bonus += this.skills[category][command].shift()
+					else {
+						let r = Math.abs( Math.round(Math.random() * (__bonus[category][command].length - 1)) )
+						bonus += __bonus[category][command][r]
+					}
 				}
 				else if (size == this.size * 1) {
-					let r = Math.abs( Math.round(Math.random() * (__bonus[cl.text.category][cl.text.command].length - 1)) )
-					bonus += __bonus[cl.text.category][cl.text.command][r]
-					html += `
-						<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
-						<paper-item>Bonus: ${bonus}</paper-item>
-						<paper-icon-button id=treeup icon=add></paper-icon-button>
-					`
+					__size = 'treeup'
+					let r = Math.abs( Math.round(Math.random() * (__bonus[category][command].length - 1)) )
+					bonus += __bonus[category][command][r]
 				}
 
 				let r = new Konva.Rect({
@@ -194,14 +216,29 @@ class Tree extends Konva.Group {
 					width: size,
 					height: size,
 					fill: 'lightgrey',
-					color: cl.color
+					info: {
+						category: category,
+						command: command,
+						size: __size,
+						color: cl.color
+					},
+					bonus: bonus
 				})
-				r.on('mouseover', (e) => {
+				r.on('click', (e) => {
 					this.dialog.bonus = {
-						bonus: bonus,
-						node: r._id
+						category: e.target.attrs.info.category,
+						command: e.target.attrs.info.command,
+						bonus: e.target.attrs.bonus || '__UNDEFINED__',
+						node: e.target._id
 					}
-					this.dialog.innerHTML = html
+
+					this.dialog.innerHTML = treeTemplate(
+						e.target.attrs.info.category,
+						e.target.attrs.info.command,
+						e.target.attrs.bonus,
+						e.target.attrs.fill,
+						e.target.attrs.info.size
+					)
 				})
 
 				this.stack.push(r)

@@ -1,3 +1,18 @@
+class Statistic {
+	constructor(value) {
+		this.value = value
+		this.bonus = 0
+	}
+
+	set(value) {
+		this.value = value
+	}
+
+	add(value) {
+		this.bonus += value
+	}
+}
+
 class Abstract_Character extends Konva.Group {
 	constructor(opt) {
 		super({
@@ -9,11 +24,11 @@ class Abstract_Character extends Konva.Group {
 			hp : Number(opt.hp) || 100,
 			hp_max : Number(opt.hp) || 100,
 
-			strength: opt.strength || 5,
-			agility: opt.agility || 5,
-			vitality: opt.vitality || 5,
-			intellect: opt.intellect || 5,
-			mind: opt.mind || 5,
+			strength: new Statistic(opt.strength || 5),
+			agility: new Statistic(opt.agility || 5),
+			vitality: new Statistic(opt.vitality || 5),
+			intellect: new Statistic(opt.intellect || 5),
+			mind: new Statistic(opt.mind || 5),
 
 			x: opt.x,
 			y: opt.y,
@@ -21,6 +36,12 @@ class Abstract_Character extends Konva.Group {
 			_y: opt.y,
 		})
 	}
+
+	strength() { return this.attrs.strength.value + this.attrs.strength.bonus }
+	agility() { return this.attrs.agility.value + this.attrs.agility.bonus }
+	vitality() { return this.attrs.vitality.value + this.attrs.vitality.bonus }
+	intellect() { return this.attrs.intellect.value + this.attrs.intellect.bonus }
+	mind() { return this.attrs.mind.value + this.attrs.mind.bonus }
 
 	changeImage(name) {
 		let c = this.character

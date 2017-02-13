@@ -65,10 +65,7 @@ class Character extends Abstract_Character {
 		this.attrs.seed = new Seed({ size: 128 })
 		this.attrs.tree = new Tree({ chance: opt.name })
 
-		this.attrs.commands = Object.keys(jobs).reduce((p, e) => {
-			return p
-		}, {})
-
+		this.attrs.skills = {}
 
 		/* -- */
 
@@ -141,7 +138,7 @@ class Character extends Abstract_Character {
 	}
 
 	update(incr) {
-		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.attrs.agility)
+		this.actionJauge.fromNumber( this.actionJauge.toNumber() + incr * this.agility())
 
 		if ( this.actionJauge.toNumber() > 60 ) {
 			this.attrs.ready = true
@@ -169,7 +166,7 @@ class Character extends Abstract_Character {
 	experience(n) {
 		if (n) {
 			if ( (this.attrs.experience += n) > this.attrs.experience_max ) {
-				this.attrs.hp_max += Math.round(this.attrs.lvl + this.attrs.vitality + (Math.random() / 2) * this.attrs.vitality)
+				this.attrs.hp_max += Math.round(this.attrs.lvl + this.vitality() + (Math.random() / 2) * this.vitality())
 				this.attrs.hp = this.attrs.hp_max
 				this.attrs.lvl += 1
 				this.updateStats()
@@ -193,11 +190,11 @@ class Character extends Abstract_Character {
 			let stat = jobs[this.attrs.job.name].stats
 
 			if (stat[lvl]){
-				this.attrs.strength = stat[lvl][0]
-				this.attrs.agility = stat[lvl][1]
-				this.attrs.vitality = stat[lvl][2]
-				this.attrs.intellect = stat[lvl][3]
-				this.attrs.mind = stat[lvl][4]
+				this.attrs.strength.set(stat[lvl][0])
+				this.attrs.agility.set(stat[lvl][1])
+				this.attrs.vitality.set(stat[lvl][2])
+				this.attrs.intellect.set(stat[lvl][3])
+				this.attrs.mind.set(stat[lvl][4])
 			}
 			else {
 				let i = 1
@@ -206,11 +203,11 @@ class Character extends Abstract_Character {
 						i = Number(k)
 					return p
 				}, lvl)
-				this.attrs.strength = stat[i][0]
-				this.attrs.agility = stat[i][1]
-				this.attrs.vitality = stat[i][2]
-				this.attrs.intellect = stat[i][3]
-				this.attrs.mind = stat[i][4]
+				this.attrs.strength.set(stat[i][0])
+				this.attrs.agility.set(stat[i][1])
+				this.attrs.vitality.set(stat[i][2])
+				this.attrs.intellect.set(stat[i][3])
+				this.attrs.mind.set(stat[i][4])
 			}
 
 			if (jobs[this.attrs.job.name].mps) {

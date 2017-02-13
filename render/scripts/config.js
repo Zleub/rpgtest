@@ -45,126 +45,139 @@ let targets = [
 	{ text: 'Party Leader', type: 'Character' }
 ]
 
-let gambits = [
+let gambits = [].concat.apply([], [
+	'lvl',
+	'hp',
+	'strength',
+	'agility',
+	'vitality',
+	'intellect',
+	'mind'
+].map( e => {
+	return [
+		{ text: `highest ${e}`, target: 'Group' },
+		{ text: `lowest ${e}`, target: 'Group' }
+	]
+})).concat([
 	// { text: 'lowest HP', target: 'Group' },
 	// { text: 'strongest weapon', target: 'Group' },
 	// { text: 'lowest defense', target: 'Group' },
 	// { text: 'lowest magick resist', target: 'Group' },
 
-	{ text: 'HP < 100%', target: '*' },
-	{ text: 'HP > 100%', target: '*' },
-	{ text: 'HP < 90%', target: '*' },
-	{ text: 'HP > 90%', target: '*' },
-	{ text: 'HP < 80%', target: '*' },
-	{ text: 'HP > 80%', target: '*' },
-	{ text: 'HP < 70%', target: '*' },
-	{ text: 'HP > 70%', target: '*' },
-	{ text: 'HP < 60%', target: '*' },
-	{ text: 'HP > 60%', target: '*' },
-	{ text: 'HP < 50%', target: '*' },
-	{ text: 'HP > 50%', target: '*' },
-	{ text: 'HP < 40%', target: '*' },
-	{ text: 'HP > 40%', target: '*' },
-	{ text: 'HP < 30%', target: '*' },
-	{ text: 'HP > 30%', target: '*' },
-	{ text: 'HP < 20%', target: '*' },
-	{ text: 'HP > 20%', target: '*' },
-	{ text: 'HP < 10%', target: '*' },
-	{ text: 'HP > 10%', target: '*' },
-	{ text: 'MP < 100%', target: '*' },
-	{ text: 'MP > 100%', target: '*' },
-	{ text: 'MP < 90%', target: '*' },
-	{ text: 'MP > 90%', target: '*' },
-	{ text: 'MP < 80%', target: '*' },
-	{ text: 'MP > 80%', target: '*' },
-	{ text: 'MP < 70%', target: '*' },
-	{ text: 'MP > 70%', target: '*' },
-	{ text: 'MP < 60%', target: '*' },
-	{ text: 'MP > 60%', target: '*' },
-	{ text: 'MP < 50%', target: '*' },
-	{ text: 'MP > 50%', target: '*' },
-	{ text: 'MP < 40%', target: '*' },
-	{ text: 'MP > 40%', target: '*' },
-	{ text: 'MP < 30%', target: '*' },
-	{ text: 'MP > 30%', target: '*' },
-	{ text: 'MP < 20%', target: '*' },
-	{ text: 'MP > 20%', target: '*' },
-	{ text: 'MP < 10%', target: '*' },
-	{ text: 'MP > 10%', target: '*' },
+	{ text: 'hp < 100%', target: '*' },
+	{ text: 'hp > 100%', target: '*' },
+	{ text: 'hp < 90%', target: '*' },
+	{ text: 'hp > 90%', target: '*' },
+	{ text: 'hp < 80%', target: '*' },
+	{ text: 'hp > 80%', target: '*' },
+	{ text: 'hp < 70%', target: '*' },
+	{ text: 'hp > 70%', target: '*' },
+	{ text: 'hp < 60%', target: '*' },
+	{ text: 'hp > 60%', target: '*' },
+	{ text: 'hp < 50%', target: '*' },
+	{ text: 'hp > 50%', target: '*' },
+	{ text: 'hp < 40%', target: '*' },
+	{ text: 'hp > 40%', target: '*' },
+	{ text: 'hp < 30%', target: '*' },
+	{ text: 'hp > 30%', target: '*' },
+	{ text: 'hp < 20%', target: '*' },
+	{ text: 'hp > 20%', target: '*' },
+	{ text: 'hp < 10%', target: '*' },
+	{ text: 'hp > 10%', target: '*' },
+	// { text: 'MP < 100%', target: '*' },
+	// { text: 'MP > 100%', target: '*' },
+	// { text: 'MP < 90%', target: '*' },
+	// { text: 'MP > 90%', target: '*' },
+	// { text: 'MP < 80%', target: '*' },
+	// { text: 'MP > 80%', target: '*' },
+	// { text: 'MP < 70%', target: '*' },
+	// { text: 'MP > 70%', target: '*' },
+	// { text: 'MP < 60%', target: '*' },
+	// { text: 'MP > 60%', target: '*' },
+	// { text: 'MP < 50%', target: '*' },
+	// { text: 'MP > 50%', target: '*' },
+	// { text: 'MP < 40%', target: '*' },
+	// { text: 'MP > 40%', target: '*' },
+	// { text: 'MP < 30%', target: '*' },
+	// { text: 'MP > 30%', target: '*' },
+	// { text: 'MP < 20%', target: '*' },
+	// { text: 'MP > 20%', target: '*' },
+	// { text: 'MP < 10%', target: '*' },
+	// { text: 'MP > 10%', target: '*' },
 
-	{ text: 'status = KO', target: '*' },
-	{ text: 'status = Stone', target: '*' },
-	{ text: 'status = Petrify', target: '*' },
-	{ text: 'status = Stop', target: '*' },
-	{ text: 'status = Sleep', target: '*' },
-	{ text: 'status = Confuse', target: '*' },
-	{ text: 'status = Doom', target: '*' },
-	{ text: 'status = Blind', target: '*' },
-	{ text: 'status = Poison', target: '*' },
-	{ text: 'status = Silence', target: '*' },
-	{ text: 'status = Sap', target: '*' },
-	{ text: 'status = Oil', target: '*' },
-	{ text: 'status = Reverse', target: '*' },
-	{ text: 'status = Disable', target: '*' },
-	{ text: 'status = Immobilize', target: '*' },
-	{ text: 'status = Slow', target: '*' },
-	{ text: 'status = Disease', target: '*' },
-	{ text: 'status = Lure', target: '*' },
-	{ text: 'status = Protect', target: '*' },
-	{ text: 'status = Shell', target: '*' },
-	{ text: 'status = Haste', target: '*' },
-	{ text: 'status = Bravery', target: '*' },
-	{ text: 'status = Faith', target: '*' },
-	{ text: 'status = Reflect', target: '*' },
-	{ text: 'status = Invisible', target: '*' },
-	{ text: 'status = Regen', target: '*' },
-	{ text: 'status = Float', target: '*' },
-	{ text: 'status = Berserk', target: '*' },
-	{ text: 'status = Bubble', target: '*' },
-	{ text: 'status = HP Critical', target: '*' },
+	// { text: 'status = KO', target: '*' },
+	// { text: 'status = Stone', target: '*' },
+	// { text: 'status = Petrify', target: '*' },
+	// { text: 'status = Stop', target: '*' },
+	// { text: 'status = Sleep', target: '*' },
+	// { text: 'status = Confuse', target: '*' },
+	// { text: 'status = Doom', target: '*' },
+	// { text: 'status = Blind', target: '*' },
+	// { text: 'status = Poison', target: '*' },
+	// { text: 'status = Silence', target: '*' },
+	// { text: 'status = Sap', target: '*' },
+	// { text: 'status = Oil', target: '*' },
+	// { text: 'status = Reverse', target: '*' },
+	// { text: 'status = Disable', target: '*' },
+	// { text: 'status = Immobilize', target: '*' },
+	// { text: 'status = Slow', target: '*' },
+	// { text: 'status = Disease', target: '*' },
+	// { text: 'status = Lure', target: '*' },
+	// { text: 'status = Protect', target: '*' },
+	// { text: 'status = Shell', target: '*' },
+	// { text: 'status = Haste', target: '*' },
+	// { text: 'status = Bravery', target: '*' },
+	// { text: 'status = Faith', target: '*' },
+	// { text: 'status = Reflect', target: '*' },
+	// { text: 'status = Invisible', target: '*' },
+	// { text: 'status = Regen', target: '*' },
+	// { text: 'status = Float', target: '*' },
+	// { text: 'status = Berserk', target: '*' },
+	// { text: 'status = Bubble', target: '*' },
+	// { text: 'status = HP Critical', target: '*' },
 
-	{ text: 'targeting leader', target: 'Group' },
-	{ text: 'targeting self', target: 'Group' },
-	{ text: 'targeting ally', target: 'Group' },
+	// { text: 'targeting leader', target: 'Group' },
+	// { text: 'targeting self', target: 'Group' },
+	// { text: 'targeting ally', target: 'Group' },
 
-	{ text: 'highest HP', target: 'Group' },
-	{ text: 'lowest HP', target: 'Group' },
-	{ text: 'highest max HP', target: 'Group' },
-	{ text: 'lowest max HP', target: 'Group' },
-	{ text: 'highest MP', target: 'Group' },
-	{ text: 'lowest MP', target: 'Group' },
-	{ text: 'highest max MP', target: 'Group' },
-	{ text: 'lowest max MP', target: 'Group' },
-	{ text: 'highest level', target: 'Group' },
-	{ text: 'lowest level', target: 'Group' },
-	{ text: 'highest strength', target: 'Group' },
-	{ text: 'lowest strength', target: 'Group' },
-	{ text: 'highest magick power', target: 'Group' },
-	{ text: 'lowest magick power', target: 'Group' },
-	{ text: 'highest speed', target: 'Group' },
-	{ text: 'lowest speed', target: 'Group' },
-	{ text: 'highest defense', target: 'Group' },
-	{ text: 'highest magick resist', target: 'Group' },
+	// { text: 'highest HP', target: 'Group' },
+	// { text: 'lowest HP', target: 'Group' },
+	// { text: 'highest max HP', target: 'Group' },
+	// { text: 'lowest max HP', target: 'Group' },
+	// { text: 'highest MP', target: 'Group' },
+	// { text: 'lowest MP', target: 'Group' },
+	// { text: 'highest max MP', target: 'Group' },
+	// { text: 'lowest max MP', target: 'Group' },
+	// { text: 'highest level', target: 'Group' },
+	// { text: 'lowest level', target: 'Group' },
+	// { text: 'highest strength', target: 'Group' },
+	// { text: 'lowest strength', target: 'Group' },
+	// { text: 'highest magick power', target: 'Group' },
+	// { text: 'lowest magick power', target: 'Group' },
+	// { text: 'highest speed', target: 'Group' },
+	// { text: 'lowest speed', target: 'Group' },
+	// { text: 'highest defense', target: 'Group' },
+	// { text: 'highest magick resist', target: 'Group' },
 
-	{ text: 'fire-weak', target: '*' },
-	{ text: 'lightning-weak', target: '*' },
-	{ text: 'ice-weak', target: '*' },
-	{ text: 'earth-weak', target: '*' },
-	{ text: 'water-weak', target: '*' },
-	{ text: 'wind-weak', target: '*' },
-	{ text: 'holy-weak', target: '*' },
-	{ text: 'dark-weak', target: '*' },
-	{ text: 'fire-vulnerable', target: '*' },
-	{ text: 'lightning-vulnerable', target: '*' },
-	{ text: 'ice-vulnerable', target: '*' },
-	{ text: 'earth-vulnerable', target: '*' },
-	{ text: 'water-vulnerable', target: '*' },
-	{ text: 'wind-vulnerable', target: '*' },
-	{ text: 'holy-vulnerable', target: '*' },
-	{ text: 'dark-vulnerable', target: '*' },
+	// { text: 'fire-weak', target: '*' },
+	// { text: 'lightning-weak', target: '*' },
+	// { text: 'ice-weak', target: '*' },
+	// { text: 'earth-weak', target: '*' },
+	// { text: 'water-weak', target: '*' },
+	// { text: 'wind-weak', target: '*' },
+	// { text: 'holy-weak', target: '*' },
+	// { text: 'dark-weak', target: '*' },
+	// { text: 'fire-vulnerable', target: '*' },
+	// { text: 'lightning-vulnerable', target: '*' },
+	// { text: 'ice-vulnerable', target: '*' },
+	// { text: 'earth-vulnerable', target: '*' },
+	// { text: 'water-vulnerable', target: '*' },
+	// { text: 'wind-vulnerable', target: '*' },
+	// { text: 'holy-vulnerable', target: '*' },
+	// { text: 'dark-vulnerable', target: '*' },
 
-	{ text: 'undead', target: '*' }
-]
+	// { text: 'undead', target: '*' }
+])
 
 let config = {
 	JP_Gain: (character) => {
@@ -177,12 +190,12 @@ let config = {
 	Number_of_Hits: (character) => {
 		return {
 			left: parseInt( 1
-		+ character.attrs.agility / 7
+		+ character.agility() / 7
 		+ character.joblvl() / 14
 		+ (character.attrs.leftproficiency - 1) / 7
 		- /* Wt. of Equipment */ 1 / 6 ),
 			right: parseInt( 1
-		+ character.attrs.agility / 7
+		+ character.agility() / 7
 		+ character.joblvl() / 14
 		+ (character.attrs.rightproficiency - 1) / 7
 		- /* Wt. of Equipment */ 1 / 6 )
@@ -192,8 +205,8 @@ let config = {
     Basic_Damage: (character, enemy) => {
     	return {
     		left: parseInt( ( character.attack()
-	    		+ character.attrs.strength
-	    		- enemy.attrs.vitality / 2
+	    		+ character.strength()
+	    		- enemy.vitality() / 2
 	    		- enemy.defense() / 2
 	    		+ character.joblvl() / 11
 	    		+ character.attrs.leftproficiency / 9)
@@ -201,8 +214,8 @@ let config = {
 	    			* 1 /* Weapon Property Adjustment */
 	    			* 1 /* Magical Property Adjustment */),
 	    	right: parseInt( ( character.attack()
-	    		+ character.attrs.strength
-	    		- enemy.attrs.vitality / 2
+	    		+ character.strength()
+	    		- enemy.vitality() / 2
 	    		- enemy.defense() / 2
 	    		+ character.joblvl() / 11
 	    		+ character.attrs.rightproficiency / 9)
@@ -215,9 +228,9 @@ let config = {
     Hit_Rate : (character, enemy) => {
     	return parseInt( (80 +
     		/* Weapon Hit Rate*/ 80 +
-    		character.attrs.agility / 10 +
+    		character.agility() / 10 +
     		character.joblvl() / 10 -
-    		enemy.attrs.agility / 20 -
+    		enemy.agility() / 20 -
     		/* Wt. of the Weapon */ 1 / 6) / 2)
     }
 }

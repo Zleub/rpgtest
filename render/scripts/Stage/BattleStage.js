@@ -59,10 +59,67 @@ let Player_conf = {
 			// menu.$.item.disabled = false
 		}
 
-		let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
-		let enemy = battlestage.layer.children[rand]
-		if (enemy instanceof Monster)
-			makeAttack(battlestage, group, enemy)
+		let targets = {
+			'Ally': (battlestage.teamA.indexOf(group) != -1 ? battlestage.teamA : battlestage.teamB),
+			'Foe': (battlestage.teamA.indexOf(group) == -1 ? battlestage.teamA : battlestage.teamB),
+			'Any': battlestage.teamA.concat(battlestage.teamB),
+			'Self': [group],
+			'Party Leader': undefined
+		}
+
+		let res
+		let g = group.attrs.gambits.find( e => {
+
+			let m = e.condition.match(/highest\s*(\w+)/)
+			if (m && m[1]) {
+				targets[e.target].forEach( e => {
+					if (!res)
+						res = e
+					else if (res.attrs[m[1]] < e.attrs[m[1]])
+						res = e
+				})
+				return true
+			}
+
+			m = e.condition.match(/lowest\s*(\w+)/)
+			if (m && m[1]) {
+				targets[e.target].forEach( e => {
+					if (!res)
+						res = e
+					else if (res.attrs[m[1]] > e.attrs[m[1]])
+						res = e
+				})
+				return true
+			}
+
+			m = e.condition.match(/(\w+)\s*<\s*(\w+)/)
+			if (m && m[1] && m[2]) {
+				res = targets[e.target].find( e => {
+					if ( (e.attrs[m[1]] / e.attrs[`${m[1]}_max`]) * 100 <= m[2])
+						return true
+				})
+				return true
+			}
+
+			m = e.condition.match(/(\w+)\s*>\s*(\w+)/)
+			if (m && m[1] && m[2]) {
+				res = targets[e.target].find( e => {
+					if ( (e.attrs[m[1]] / e.attrs[`${m[1]}_max`]) * 100 >= m[2])
+						return true
+				})
+				return true
+			}
+		})
+
+		// console.log(g, res)
+
+		if (res && g.action == 'Attack')
+		 	makeAttack(battlestage, group, res)
+
+		// battlestage.boolean = false
+		// let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
+		// let enemy = battlestage.layer.children[rand]
+		// if (enemy instanceof Monster)
 	},
 
 	death : (battlestage, group) => (e) => {
