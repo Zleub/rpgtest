@@ -218,6 +218,7 @@
 				}
 				else if (t.id == 'treeup') {
 					this.character.attrs.tree.colorize(t.parentNode.bonus.node)
+					this.character.attrs[t.parentNode.bonus.bonus.toLowerCase()] += 1
 					this.character.attrs.lvl -= 1
 					this.$$('adebray-skill-tree').draw()
 

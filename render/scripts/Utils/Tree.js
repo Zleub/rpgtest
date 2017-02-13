@@ -67,6 +67,22 @@ let makeSkills = (o, i) => Object.keys(o).concat().reduce( (p, k) => {
    return p
 }, i || {})
 
+let __bonus = {
+	'Combat': {
+		'Bow': [ 'Strength', 'Agility' ],
+		'Other': [ 'Strength' ],
+	},
+	'Healing Magic': {
+		'Summon': [ 'Mind', 'Intellect' ],
+		'White Magic': [ 'Mind', 'Intellect' ]
+	},
+	'Offensive Magic': {
+		'Black Magic': [ 'Mind', 'Intellect' ],
+		'Summon': [ 'Mind', 'Intellect' ],
+		'White Magic': [ 'Mind', 'Intellect' ]
+	}
+}
+
 class Tree extends Konva.Group {
 	constructor(opt) {
 		super(opt)
@@ -116,6 +132,7 @@ class Tree extends Konva.Group {
 		this.children.forEach( e => {
 			if (e._id == id) {
 				e.fill(e.attrs.color)
+				e.off('mouseover')
 			}
 		})
 		this.draw()
@@ -148,13 +165,25 @@ class Tree extends Konva.Group {
 			if ( (this.children.filter( pred ).length == 0 && this.stack.filter( pred ).length == 0) ) {
 				let cl = colors[ this.chance.integer({min:0, max: colors.length - 1}) ]
 
-				let bonus = 'Bonus: '
+				let bonus = ''
+				let html = ''
 				if (size == this.size * 2) {
 					if( this.skills[cl.text.category][cl.text.command] )
 						bonus += this.skills[cl.text.category][cl.text.command].pop()
+					html += `
+							<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
+							<paper-item>Bonus: ${bonus}</paper-item>
+							<paper-icon-button id=bigup icon=add></paper-icon-button>
+						`
 				}
 				else if (size == this.size * 1) {
-					bonus += 'Strength'
+					let r = Math.abs( Math.round(Math.random() * (__bonus[cl.text.category][cl.text.command].length - 1)) )
+					bonus += __bonus[cl.text.category][cl.text.command][r]
+					html += `
+						<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
+						<paper-item>Bonus: ${bonus}</paper-item>
+						<paper-icon-button id=treeup icon=add></paper-icon-button>
+					`
 				}
 
 				let r = new Konva.Rect({
@@ -172,11 +201,7 @@ class Tree extends Konva.Group {
 						bonus: bonus,
 						node: r._id
 					}
-					this.dialog.innerHTML = `
-						<paper-item>[${cl.text.category}] ${cl.text.command}</paper-item>
-						<paper-item>${bonus}</paper-item>
-						<paper-icon-button id=treeup icon=add></paper-icon-button>
-					`
+					this.dialog.innerHTML = html
 				})
 
 				this.stack.push(r)
@@ -206,6 +231,5 @@ class Tree extends Konva.Group {
 			else if (e instanceof Konva.Rect)
 				this.populate(e.attrs.x, e.attrs.y, e.attrs.width)
 		})
-
 	}
 }

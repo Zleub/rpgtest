@@ -49,8 +49,7 @@
 
 		draw: function () {
 			console.log('layer draw')
-
-			console.log(this.stage.children[0])
+			this.$.dialog.innerHTML = ''
 			this.stage.draw()
 		},
 

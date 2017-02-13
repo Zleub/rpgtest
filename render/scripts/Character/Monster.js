@@ -59,7 +59,6 @@ class Monster extends Abstract_Character {
 	}
 
 	attack() {
-		console.log(this.attrs.attack)
 		return this.attrs.attack
 	}
 

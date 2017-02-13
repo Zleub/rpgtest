@@ -169,6 +169,8 @@ class Character extends Abstract_Character {
 	experience(n) {
 		if (n) {
 			if ( (this.attrs.experience += n) > this.attrs.experience_max ) {
+				this.attrs.hp_max += Math.round(this.attrs.lvl + this.attrs.vitality + (Math.random() / 2) * this.attrs.vitality)
+				this.attrs.hp = this.attrs.hp_max
 				this.attrs.lvl += 1
 				this.updateStats()
 				this.attrs.experience = 0
