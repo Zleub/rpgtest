@@ -232,7 +232,39 @@ let config = {
     		character.joblvl() / 10 -
     		enemy.agility() / 20 -
     		/* Wt. of the Weapon */ 1 / 6) / 2)
-    }
+    },
+
+	Healing_Magic: (character, target, magic) => {
+		return Math.round(magic.base * (character.mind() / 2 + character.joblvl() / 4 + target.vitality() / 8))
+	},
+
+	Offensive_Magic: (character, target, magic) => {
+		let success_rate = (30 + character.intellect() - target.mind())
+		let damages = (magic.base + character.joblvl() - target.magic_defense() - target.mind()) * character.intellect() / 3
+		if ( Math.random() * 100 > Success_Rate )
+		{
+			let r = (Math.random() / 5) + 0.9
+			console.log('passed', r)
+			return damages * r
+		}
+		else {
+			let r = (Math.random() / 10) + 0.5
+			console.log('not passed', r)
+			return damages * r
+		}
+	}
+}
+
+let isHealingMagic = (magicname) => {
+	return Object.keys(Magic['Healing Magic']).reduce( _ => {
+		return Magic['Healing Magic'][_][Object.keys(Magic['Healing Magic'][_]).find( e => e == magicname)]
+	})
+}
+
+let isOffensiveMagic = (magicname) => {
+	return Object.keys(Magic['Offensive Magic']).reduce( _ => {
+		return Magic['Offensive Magic'][_][Object.keys(Magic['Offensive Magic'][_]).find( e => e == magicname)]
+	})
 }
 
 let Magic = {
@@ -279,66 +311,82 @@ let Magic = {
         },
         'Black Magic': {
             Fire: {
+				level: 1,
                 base: 40,
                 text: 'placeholder'
             },
             Blizzard: {
+				level: 1,
                 base: 43,
                 text: 'placeholder'
             },
             Thunder: {
+				level: 2,
                 base: 46,
                 text: 'placeholder'
             },
             Poison: {
+				level: 2,
                 base: 35,
                 text: 'placeholder'
             },
             Fira: {
+				level: 3,
                 base: 85,
                 text: 'placeholder'
             },
             Blizzara: {
+				level: 3,
                 base: 88,
                 text: 'placeholder'
             },
             Thundara: {
+				level: 3,
                 base: 85,
                 text: 'placeholder'
             },
             Break: {
+				level: 4,
                 base: 110,
                 text: 'placeholder'
             },
             Blizzaga: {
+				level: 4,
                 base: 180,
                 text: 'placeholder'
             },
             Thundaga: {
+				level: 4,
                 base: 183,
                 text: 'placeholder'
             },
             Firaga: {
+				level: 6,
                 base: 190,
                 text: 'placeholder'
             },
             Bio: {
+				level: 6,
                 base: 170,
                 text: 'placeholder'
             },
             Quake: {
+				level: 7,
                 base: 140,
                 text: 'placeholder'
             },
             Drain: {
+				level: 7,
                 base: 130,
                 text: 'placeholder'
             },
             Flare: {
+				level: 8,
                 base: 320,
                 text: 'placeholder'
             },
             Meteor: {
+				level: 8,
                 base: 170,
                 text: 'placeholder'
             }

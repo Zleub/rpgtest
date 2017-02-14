@@ -70,7 +70,9 @@ class Abstract_Character extends Konva.Group {
 				this.fire('death')
 				this.se.destroy()
 				this.destroy()
+				return
 			}
+
 			if (this.attrs.hp > this.attrs.hp_max) {
 				this.attrs.hp = this.attrs.hp_max
 			}

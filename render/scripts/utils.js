@@ -152,7 +152,7 @@ makeAttack = function (battlestage, attacker, defender) {
 		if (damages <= 0)
 			t_config.fill = 'grey'
 		else
-			t_config.fill = 'green'
+			t_config.fill = 'black'
 	}
 	else {
 		t_config.text = 'miss'
@@ -174,4 +174,51 @@ makeAttack = function (battlestage, attacker, defender) {
 
 	player.attrs.ready = false
 	player.actionJauge.reset()
+}
+
+makeHealingMagic = function (battlestage, attacker, defender, magic) {
+	let m = isHealingMagic(magic)
+	let recovery = config['Healing_Magic'](attacker, defender, m)
+
+	battlestage.add( new StackElem({
+		text: `magic ${attacker.attrs.name} + ${attacker.attrs.id}`,
+		node: new Konva.Text({
+			x: attacker.x(),
+			y: attacker.y() - 32,
+			text: magic,
+			fontSize: 30,
+			fontFamily: 'Calibri',
+			fill: 'black'
+		}),
+		fun: function (frame) {
+			this.time += frame.timeDiff
+			if (this.time > 400) {
+				this.destroy()
+			}
+		}
+	}) )
+
+	defender.life(recovery)
+
+	battlestage.add( new StackElem({
+		text: `damage ${defender.attrs.name} + ${attacker.attrs.id}`,
+		node: new Konva.Text({
+		  x: defender.x() + 32 + Math.round(Math.random() * 40) - 20,
+		  y: defender.y() - 42,
+		  text: recovery,
+		  fontSize: 30,
+		  fontFamily: 'Calibri',
+		  fill: 'green'
+		}),
+		fun: function (frame) {
+			this.time += frame.timeDiff
+			this.node.move({x: 0, y: -frame.timeDiff / 10})
+			if (this.time > 400) {
+				this.destroy()
+			}
+		}
+	}) )
+
+	attacker.attrs.ready = false
+	attacker.actionJauge.reset()
 }

@@ -78,7 +78,8 @@ let Player_conf = {
 					else if (res.attrs[m[1]] < e.attrs[m[1]])
 						res = e
 				})
-				return true
+				if (res)
+					return true
 			}
 
 			m = e.condition.match(/lowest\s*(\w+)/)
@@ -89,7 +90,8 @@ let Player_conf = {
 					else if (res.attrs[m[1]] > e.attrs[m[1]])
 						res = e
 				})
-				return true
+				if (res)
+					return true
 			}
 
 			m = e.condition.match(/(\w+)\s*<\s*(\w+)/)
@@ -98,7 +100,8 @@ let Player_conf = {
 					if ( (e.attrs[m[1]] / e.attrs[`${m[1]}_max`]) * 100 <= m[2])
 						return true
 				})
-				return true
+				if (res)
+					return true
 			}
 
 			m = e.condition.match(/(\w+)\s*>\s*(\w+)/)
@@ -107,14 +110,26 @@ let Player_conf = {
 					if ( (e.attrs[m[1]] / e.attrs[`${m[1]}_max`]) * 100 >= m[2])
 						return true
 				})
-				return true
+				if (res)
+					return true
 			}
 		})
+
+		if (!g) {
+			console.log('no Gambit')
+			return
+		}
 
 		// console.log(g, res)
 
 		if (res && g.action == 'Attack')
-		 	makeAttack(battlestage, group, res)
+			makeAttack(battlestage, group, res)
+
+		if ( res && isHealingMagic(g.action) )
+		{
+			let m = isHealingMagic(g.action)
+			makeHealingMagic(battlestage, group, res, g.action)
+		}
 
 		// battlestage.boolean = false
 		// let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
@@ -158,7 +173,7 @@ let IA_conf = {
 	},
 	death : (battlestage, group) => (e) => {
 		battlestage.teamB.splice(battlestage.teamB.indexOf(group), 1)
-		battlestage.teamA.forEach( _ => _.experience(e.target.attrs.xp) )
+		battlestage.teamA.forEach( _ => _.experience(e.target.attrs.xp))
 		if (battlestage.teamB.length <= 0) {
 			// battlestage.teamA.forEach( e => {
 				// console.log('BattleEnd')
@@ -175,16 +190,14 @@ class BattleStage extends AdebrayStage {
 		this.teamA = opt.teamA
 		this.teamB = opt.teamB
 
-		this.end = () => {
-			this.teamA.forEach(e => e.purgeEvents())
-			this.destroy()
-			opt.callback_end()
-		}
-
 		this.report = () => {
 			opt.report.addEventListener('iron-overlay-closed', () => {
-				this.end()
+				this.teamA.forEach(e => e.purgeEvents())
+				this.destroy()
+				opt.callback_end()
 			})
+			if (document.querySelector('#autofight').checked)
+				setTimeout( () => opt.report.toggle(), 1000)
 			opt.report.toggle()
 		}
 

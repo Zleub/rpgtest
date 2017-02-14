@@ -94,6 +94,7 @@
 				<paper-item class='hori' on-tap='_selection'>
 					<iron-image src="{{item.character.attrs.image.src}}"></iron-image>
 					<span class='layout center'>{{item.attrs.name}}</span>
+					<paper-icon-button index={{index}} icon="remove" on-tap=deleteFromTeam></paper-icon-button>
 				</paper-item>
 			<!-- </template> -->
 			</template>
@@ -170,7 +171,8 @@
 					this.async( function() {
 						this.set('team', b.teamA)
 
-						this.async( () => this.autoFight(), 2000 )
+						if (this.$.autofight.checked)
+							this.async( () => this.autoFight(), 2000 )
 					}, 100)
 
 					parent.removeChild(b)
@@ -208,11 +210,11 @@
 			},
 
 			deleteFromTeam: function (e) {
-				var el = e.target
-				while (el.tagName != 'DIV')
-					el = el.parentNode
-
-				this.splice('team', this.team.indexOf(el.item), 1)
+				let t = e.target
+				if (e.target.tagName == 'IRON-ICON')
+					t = e.target.parentNode
+  				this.splice('team', t.index, 1)
+				this.async( () => this.set('test', null) )
 			},
 
 			getLen: function (team) {

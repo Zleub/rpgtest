@@ -101,44 +101,38 @@
 			<div class="flexchild">
 				<paper-item>HP: {{do(character, 'life')}} / {{character.attrs.hp_max}}</paper-item>
 				<div>
-					<paper-item class=inline>Job: {{character.attrs.job.name}}</paper-item>
-					<paper-item class=inline>Job lvl: {{do(character, 'joblvl')}}</paper-item>
-				</div>
+					<paper-item class='inline'>Job: {{character.attrs.job.name}}</paper-item>
+					<paper-item class='inline'>Job lvl: {{do(character, 'joblvl')}}</paper-item>
+				</paper-item>
 				<div>
-					<paper-item class=inline>Strength: {{do(character, 'strength')}}</paper-item>
-					<paper-item class=inline>Agility: {{do(character, 'agility')}}</paper-item>
-					<paper-item class=inline>Vitality: {{do(character, 'vitality')}}</paper-item>
-					<paper-item class=inline>Intellect: {{do(character, 'intellect')}}</paper-item>
-					<paper-item class=inline>Mind: {{do(character, 'mind')}}</paper-item>
+					<paper-item class='inline'>Strength: {{do(character, 'strength')}}</paper-item>
+					<paper-item class='inline'>Agility: {{do(character, 'agility')}}</paper-item>
+					<paper-item class='inline'>Vitality: {{do(character, 'vitality')}}</paper-item>
+					<paper-item class='inline'>Intellect: {{do(character, 'intellect')}}</paper-item>
+					<paper-item class='inline'>Mind: {{do(character, 'mind')}}</paper-item>
 				</div>
 
 				<template is="dom-if" if={{character.attrs.mp}}>
-				<table>
-				<tr><td>
-					<paper-item>Magic:</paper-item>
-				</td>
-				<template is="dom-repeat" items={{character.attrs.mp}}>
-					<td>
-						<paper-item>lvl {{incr(index)}}</paper-item>
-					</td>
-				</template>
-				</tr>
-				<tr><td></td>
-				<template is="dom-repeat" items={{character.attrs.mp}}>
-					<td>
-						<paper-item>{{item}}</paper-item>
-					</td>
-				</template>
-				</tr>
-				</table>
-				</template>
 
-				<!-- <template is=dom-repeat items={{getAvailableCommands(character.attrs.skills)}}>
-					<paper-item>{{item}}</paper-item>
-				</template> -->
+				<div>
+					<paper-item class='inline'>Magic:</paper-item>
+					<template is="dom-repeat" items={{character.attrs.mp}}>
+						<template is="dom-if" if="{{item}}" restamp="true">
+							<paper-item class='inline'>
+								lvl {{incr(index)}} [{{item}}]
+							</paper-item>
+						</template>
+					</template>
+				</div>
+
+			</template>
+
 
 				<template is=dom-repeat items={{character.attrs.gambits}}>
-					<paper-item>{{item}}</paper-item>
+					<paper-item>
+						<paper-icon-button icon="remove" on-tap="removeGambit" index={{index}}></paper-icon-button>
+						<paper-item>{{item}}</paper-item>
+					</paper-item>
 				</template>
 
 				<div class="horizontal end">
@@ -201,6 +195,20 @@
 
 			listeners: {
 				'tap': 'log'
+			},
+
+			getCanvas: function (e) {
+				console.log(e)
+			},
+
+			removeGambit: function (e) {
+				let t = e.target
+				if (e.target.tagName == 'IRON-ICON') {
+					t = e.target.parentNode
+					console.log('getParent')
+				}
+
+				this.splice('character.attrs.gambits', t.index, 1)
 			},
 
 			log: function (e) {
