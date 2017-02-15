@@ -193,7 +193,10 @@ class BattleStage extends AdebrayStage {
 
 		this.report = () => {
 			opt.report.addEventListener('iron-overlay-closed', () => {
-				this.teamA.forEach(e => e.purgeEvents())
+				this.teamA.forEach(e => {
+					e.remove()
+					e.purgeEvents()
+				})
 				this.destroy()
 				opt.callback_end()
 			})
