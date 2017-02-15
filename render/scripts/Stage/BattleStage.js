@@ -272,11 +272,13 @@ class BattleStage extends AdebrayStage {
 		let divisor = 20
 
 		// Promise.all(promises).then( _ => {
-		this.teamA.forEach( e => {
-			this.layer.add(e)
+		this.teamA.forEach( (e, i) => {
+			if (i < 8)
+				this.layer.add(e)
 		})
-		this.teamB.forEach( e => {
-			this.layer.add(e)
+		this.teamB.forEach( (e, i) => {
+			if (i < 8)
+				this.layer.add(e)
 		})
 
 		this.layer.children.forEach( (e) => {
