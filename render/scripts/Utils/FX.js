@@ -1,18 +1,27 @@
 class FX {
-	constructor(parent, layer, model, fun, quantity, duration) {
+	constructor(opt) {
+		let {duration, layer, model, quantity, fun} = opt
+
 		this.duration = duration
 		this.time = 0
-		this.layer = layer
 		this.fun = fun
-		this.quantity = quantity
 		this.stack = []
-		this.parent = parent
+		this.quantity = quantity
+		this.model = model
 
 		for (var i = 0; i < quantity; i++) {
-			let c = model.clone()
+			let c = this.model.clone()
+			c.offsetX( -(opt.x) + opt.offsetX)
+			c.offsetY( -(opt.y) + opt.offsetY)
 			this.stack.push(c)
-			this.layer.add(c)
+			layer.add(c)
 		}
+
+	}
+
+	destroy() {
+		this.stack.forEach( e => e.destroy() )
+		this.parent.stack.splice( this.parent.stack.indexOf(this), 1)
 	}
 
 	update(frame) {
@@ -22,39 +31,4 @@ class FX {
 			this.destroy()
 	}
 
-	destroy() {
-		this.stack.forEach( e => e.destroy() )
-		this.parent.remove(this)
-	}
-
-	zero() {
-		this.update({time: 0, timeDiff: 0})
-		this.layer.draw()
-	}
-}
-
-class FXPlayer {
-	constructor(layer, model) {
-		this.layer = layer
-		this.stack = []
-		this.model = model
-	}
-
-	create(quantity, model, fun) {
-		this.stack.push( new FX(this, this.layer, model || this.model.clone(), fun, quantity))
-	}
-
-	remove(e) {
-		if (this.stack.indexOf(e) != -1)
-			this.stack.splice(this.stack.indexOf(e), 1)
-	}
-
-	update(frame) {
-		this.stack.forEach( e => e.update(frame) )
-	}
-
-	zero() {
-		this.update({time: 0, timeDiff: 0})
-		this.layer.draw()
-	}
 }

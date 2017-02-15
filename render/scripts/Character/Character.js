@@ -62,7 +62,6 @@ class Character extends Abstract_Character {
 
 		this.attrs.ready = false
 
-		this.attrs.seed = new Seed({ size: 128 })
 		this.attrs.tree = new Tree({ chance: opt.name })
 
 		this.attrs.skills = {}

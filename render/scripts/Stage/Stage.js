@@ -6,6 +6,10 @@ class StackElem {
 		this.text = opt.text
 	}
 
+	update(frame) {
+		this.fun(frame)
+	}
+
 	destroy() {
 		if (this.node) {
 			this.node.destroy()
@@ -24,6 +28,7 @@ class StackElem {
 
 class AdebrayStage {
 	constructor (opt) {
+		this.stage = opt.stage
 		this.layer = opt.layer
 
 		this.boolean = true
@@ -37,7 +42,9 @@ class AdebrayStage {
 	run() {
 		this.loop = new Konva.Animation( (frame) => {
 			if (this.boolean) {
-				this.stack.forEach( (e) => e.fun(frame))
+				this.stack.forEach( (e) => {
+					e.update(frame)
+				})
 				return true
 			}
 		}, this.layer)
@@ -46,11 +53,13 @@ class AdebrayStage {
 	}
 
 	add(stackelem) {
+		// console.log('add', stackelem)
 		if (stackelem.node)
 			this.layer.add(stackelem.node)
 
-		stackelem.time = 0
 		stackelem.parent = this
+
+		stackelem.time = 0
 		this.stack.push(stackelem)
 		if (this.notifyStack) {
 			this.notifyStack()

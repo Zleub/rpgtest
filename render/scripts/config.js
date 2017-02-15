@@ -226,6 +226,7 @@ let config = {
     },
 
     Hit_Rate : (character, enemy) => {
+		// console.log(enemy)
     	return parseInt( (80 +
     		/* Weapon Hit Rate*/ 80 +
     		character.agility() / 10 +
@@ -241,30 +242,28 @@ let config = {
 	Offensive_Magic: (character, target, magic) => {
 		let success_rate = (30 + character.intellect() - target.mind())
 		let damages = (magic.base + character.joblvl() - target.magic_defense() - target.mind()) * character.intellect() / 3
-		if ( Math.random() * 100 > Success_Rate )
+		if ( Math.random() * 100 > success_rate )
 		{
 			let r = (Math.random() / 5) + 0.9
-			console.log('passed', r)
-			return damages * r
+			return Math.round( damages * r )
 		}
 		else {
 			let r = (Math.random() / 10) + 0.5
-			console.log('not passed', r)
-			return damages * r
+			return Math.round( damages * r )
 		}
 	}
 }
 
 let isHealingMagic = (magicname) => {
-	return Object.keys(Magic['Healing Magic']).reduce( _ => {
-		return Magic['Healing Magic'][_][Object.keys(Magic['Healing Magic'][_]).find( e => e == magicname)]
-	})
+	return Object.keys(Magic['Healing Magic']).reduce( (p, e) => {
+		return p || Magic['Healing Magic'][e][ Object.keys(Magic['Healing Magic'][e]).find( e => e == magicname) ]
+	}, null)
 }
 
 let isOffensiveMagic = (magicname) => {
-	return Object.keys(Magic['Offensive Magic']).reduce( _ => {
-		return Magic['Offensive Magic'][_][Object.keys(Magic['Offensive Magic'][_]).find( e => e == magicname)]
-	})
+	return Object.keys(Magic['Offensive Magic']).reduce( (p, e) => {
+		return p || Magic['Offensive Magic'][e][ Object.keys(Magic['Offensive Magic'][e]).find( e => e == magicname) ]
+	}, null)
 }
 
 let Magic = {

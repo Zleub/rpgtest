@@ -66,6 +66,10 @@ class Monster extends Abstract_Character {
 		return this.attrs.defense
 	}
 
+	magic_defense() {
+		return this.attrs.defense
+	}
+
 	joblvl() {
 		return this.attrs.lvl
 	}

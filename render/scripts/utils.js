@@ -180,25 +180,120 @@ makeHealingMagic = function (battlestage, attacker, defender, magic) {
 	let m = isHealingMagic(magic)
 	let recovery = config['Healing_Magic'](attacker, defender, m)
 
+	let w = 10
+	let h = w / 2
+	let radius = 50
+
+	let fxstack = new FX({
+		x: attacker.x(),
+		y: attacker.y(),
+		offsetX: -attacker.character.width() / 2,
+		offsetY: -attacker.character.height(),
+		duration: 400,
+		layer: battlestage.layer,
+		model: new Konva.Shape({
+			fill: 'blue',
+			sceneFunc : function(context) {
+			    context.beginPath();
+			    context.moveTo(w / 2, 0);
+			    context.lineTo(w, h / 2);
+			    context.lineTo(w / 2, h);
+			    context.lineTo(0, h / 2);
+			    context.closePath();
+			    context.fillStrokeShape(this);
+			}
+		}),
+		quantity: 8,
+		fun: (frame, FX) => (e, i) => {
+			let c = Math.cos( (frame.time / 6) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+			let s = Math.sin( (frame.time / 6) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+
+			e.x( (40) * c )
+			e.y( (40 / 4) * s )
+			if (s > 0)
+				e.moveToTop()
+			else
+				e.moveToBottom()
+
+			// let a = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+			// e.fill(`rgba(0, ${a}, 255, 1)`);
+		}
+	})
+
+	battlestage.add(fxstack)
+
+	defender.life(recovery)
+
 	battlestage.add( new StackElem({
-		text: `magic ${attacker.attrs.name} + ${attacker.attrs.id}`,
+		text: `damage ${defender.attrs.name} + ${attacker.attrs.id}`,
 		node: new Konva.Text({
-			x: attacker.x(),
-			y: attacker.y() - 32,
-			text: magic,
-			fontSize: 30,
-			fontFamily: 'Calibri',
-			fill: 'black'
+		  x: defender.x() + 32 + Math.round(Math.random() * 40) - 20,
+		  y: defender.y() - 42,
+		  text: recovery,
+		  fontSize: 30,
+		  fontFamily: 'Calibri',
+		  fill: 'green'
 		}),
 		fun: function (frame) {
 			this.time += frame.timeDiff
+			this.node.move({x: 0, y: -frame.timeDiff / 10})
 			if (this.time > 400) {
 				this.destroy()
 			}
 		}
 	}) )
 
-	defender.life(recovery)
+	attacker.attrs.ready = false
+	attacker.actionJauge.reset()
+}
+
+makeOffensiveMagic = function (battlestage, attacker, defender, magic) {
+	let m = isOffensiveMagic(magic)
+	let recovery = config['Offensive_Magic'](attacker, defender, m)
+
+	let w = 10
+	let h = w / 2
+	let radius = 50
+
+	let fxstack = new FX({
+		x: attacker.x(),
+		y: attacker.y(),
+		offsetX: -attacker.character.width() / 2,
+		offsetY: -attacker.character.height(),
+		duration: 400,
+		layer: battlestage.layer,
+		model: new Konva.Shape({
+			fill: 'red',
+			sceneFunc : function(context) {
+			    context.beginPath();
+			    context.moveTo(w / 2, 0);
+			    context.lineTo(w, h / 2);
+			    context.lineTo(w / 2, h);
+			    context.lineTo(0, h / 2);
+			    context.closePath();
+			    context.fillStrokeShape(this);
+			}
+		}),
+		quantity: 8,
+		fun: (frame, FX) => (e, i) => {
+			let c = Math.cos( (frame.time / 6) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+			let s = Math.sin( (frame.time / 6) * Math.PI / 180 + (Math.PI / (FX.quantity / 2)) * (i + 1) )
+
+			e.x( (40) * c )
+			e.y( (40 / 4) * s )
+			if (s > 0)
+				e.moveToTop()
+			else
+				e.moveToBottom()
+
+			// let a = parseInt(127 * Math.abs(Math.cos((frame.time / 8) * Math.PI / 180)))
+			// e.fill(`rgba(255, ${a},0, 1)`);
+		}
+	})
+
+	battlestage.add(fxstack)
+
+	defender.life(-recovery)
 
 	battlestage.add( new StackElem({
 		text: `damage ${defender.attrs.name} + ${attacker.attrs.id}`,

@@ -130,6 +130,11 @@ let Player_conf = {
 			let m = isHealingMagic(g.action)
 			makeHealingMagic(battlestage, group, res, g.action)
 		}
+		if ( res && isOffensiveMagic(g.action) )
+		{
+			let m = isOffensiveMagic(g.action)
+			makeOffensiveMagic(battlestage, group, res, g.action)
+		}
 
 		// battlestage.boolean = false
 		// let rand = getRandomInt(battlestage.players + 1, battlestage.players + 2)
@@ -157,8 +162,9 @@ let IA_conf = {
 		group.attrs.ready = false
 		group.actionJauge.reset()
 
-		let rand = getRandomInt(1, battlestage.players)
-		let enemy = battlestage.layer.children[rand]
+		let rand = Math.round( Math.abs(Math.random() * battlestage.teamA.length - 1))
+		// console.log(rand)
+		let enemy = battlestage.teamA[rand]
 		makeAttack(battlestage, group, enemy)
 	},
 	click : (battlestage, group) => (e) => {
@@ -187,7 +193,6 @@ class BattleStage extends AdebrayStage {
 	constructor (opt) {
 		super(opt)
 
-		this.stage = opt.stage
 		this.teamA = opt.teamA
 		this.teamB = opt.teamB
 
