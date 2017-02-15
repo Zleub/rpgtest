@@ -225,7 +225,6 @@ class BattleStage extends AdebrayStage {
 				this.teamA[i].x(w - cmp * step)
 				this.teamA[i].y(h + cmp * step)
 
-
 				this.teamA[i].attrs._x = w - cmp * step
 				this.teamA[i].attrs._y = h + cmp * step
 
@@ -248,7 +247,6 @@ class BattleStage extends AdebrayStage {
 		var h = this.layer.height() / 2 + step
 
 		for (var i = 0; i < 8; i++) {
-
 			if (this.teamB[i]) {
 				this.teamB[i].x(w + cmp * step)
 				this.teamB[i].y(h + cmp * step)

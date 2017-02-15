@@ -64,7 +64,7 @@
 
 		<!-- <iron-localstorage name="teamStorage" value="{{team}}"></iron-localstorage> -->
 
-		<paper-checkbox id="autofight">auto fight</paper-checkbox>
+		<paper-checkbox id="autofight" on-tap=toggleBattle>auto fight</paper-checkbox>
 
 
 		<div id=container>
@@ -158,6 +158,10 @@
 
 			toggleBattle: function () {
 				let parent = this.parentNode
+
+				if (parent.querySelector('adebray-work'))
+					return
+
 				this.$.container.hidden = true
 				this.test = null
 
@@ -172,7 +176,7 @@
 						this.set('team', b.teamA)
 
 						if (this.$.autofight.checked)
-							this.async( () => this.autoFight(), 2000 )
+							this.async( () => this.autoFight() )
 					}, 100)
 
 					let bs = parent.removeChild(b)
