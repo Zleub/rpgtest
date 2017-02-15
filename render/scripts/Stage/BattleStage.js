@@ -162,9 +162,10 @@ let IA_conf = {
 		group.attrs.ready = false
 		group.actionJauge.reset()
 
-		let rand = Math.round( Math.abs(Math.random() * battlestage.teamA.length - 1))
+		let rand = Math.floor( Math.abs(Math.random() * battlestage.teamA.length - 1))
 		// console.log(rand)
 		let enemy = battlestage.teamA[rand]
+		console.log(rand, enemy)
 		makeAttack(battlestage, group, enemy)
 	},
 	click : (battlestage, group) => (e) => {
