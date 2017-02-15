@@ -187,6 +187,7 @@ class BattleStage extends AdebrayStage {
 	constructor (opt) {
 		super(opt)
 
+		this.stage = opt.stage
 		this.teamA = opt.teamA
 		this.teamB = opt.teamB
 

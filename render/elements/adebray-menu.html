@@ -175,7 +175,9 @@
 							this.async( () => this.autoFight(), 2000 )
 					}, 100)
 
-					parent.removeChild(b)
+					let bs = parent.removeChild(b)
+					bs.stage.stage.destroyChildren()
+					bs.stage.stage.destroy()
 				}
 
 				this.team.forEach( e => {
