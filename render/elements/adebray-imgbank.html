@@ -107,12 +107,15 @@
 
 				Promise.all(p).then( _ => {
 					let anims = _.reduce( (p, e, i) => {
-						if (i % row == 0) {
-							p.push([])
-							p[p.length - 1].push(e)
-						}
-						else {
-							p[p.length - 1].push(e)
+						if (e.src != 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAhElEQVR4Xu3VAREAMAwCseLfdIV85qAcGbv4W/z+E4AGxBNAIF4AnyACCMQTQCBeACuAAALxBBCIF8AKIIBAPAEE4gWwAgggEE8AgXgBrAACCMQTQCBeACuAAALxBBCIF8AKIIBAPAEE4gWwAgggEE8AgXgBrAACCMQTQCBeACuAQJ3AA2jYAEGs/2CBAAAAAElFTkSuQmCC')
+						{
+							if (i % row == 0) {
+								p.push([])
+								p[p.length - 1].push(e)
+							}
+							else {
+								p[p.length - 1].push(e)
+							}
 						}
 						return p
 					}, [])
@@ -132,7 +135,7 @@
 						})
 
 						let a = new Konva.Animation( (frame) => {
-							img.setImage(anim[Math.round((frame.time / 200) % anim.length)])
+							img.setImage(anim[Math.round((frame.time / 100) % (anim.length - 1))])
 						}, layer)
 
 						a.start()
