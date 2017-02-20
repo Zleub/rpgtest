@@ -72,7 +72,7 @@
 
 				// layer.children[0].cache()
 				// layer.cache()
-				// layer.filters([Konva.Filters.Sepia])
+				// layer.children[0].filters([Konva.Filters.Sepia])
 				layer.draw()
 
 				let p = []
@@ -135,7 +135,7 @@
 						})
 
 						let a = new Konva.Animation( (frame) => {
-							img.setImage(anim[Math.round((frame.time / 100) % (anim.length - 1))])
+							img.setImage(anim[Math.round((frame.time / 200) % (anim.length - 1))])
 						}, layer)
 
 						a.start()

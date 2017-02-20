@@ -1,10 +1,14 @@
 [
 	[
 		"LPC/body/male/dark.png",
+		"LPC/hair/male/plain/black.png",
+		"LPC/torso/leather/chest_male.png",
 		"LPC/weapons/right hand/female/spear_female.png"
 	],
 	[
 		"LPC/body/female/dark.png",
+		"LPC/torso/leather/chest_female.png",
+		"LPC/hair/female/longknot.png",
 		"LPC/weapons/right hand/female/spear_female.png"
 	],
 	[
