@@ -13,6 +13,7 @@
 <link rel="import" href="adebray-normal.html">
 <link rel="import" href="adebray-skill-tree.html">
 <link rel="import" href="adebray-magic-canvas.html">
+<link rel="import" href="adebray-imgbank.html">
 
 <dom-module id="adebray-home">
 	<template>
@@ -27,6 +28,7 @@
 		<paper-tabs attr-for-selected=route selected={{route}}>
 			<paper-tab route=map>map</paper-tab>
 			<paper-tab route=pretty>pretty</paper-tab>
+			<paper-tab route=prettyII>prettyII</paper-tab>
 			<!-- <paper-tab route=effects>effects</paper-tab> -->
 			<paper-tab route=work>work</paper-tab>
 			<paper-tab route=graph>graph</paper-tab>
@@ -40,6 +42,9 @@
 			</section>
 			<section id="pretty">
 				<adebray-pretty></adebray-pretty>
+			</section>
+			<section id="prettyII">
+				<adebray-imgbank></adebray-imgbank>
 			</section>
 			<!-- <section id="effects">
 				<adebray-effects></adebray-effects>
@@ -100,7 +105,7 @@
 				},
 				route: {
 					type: String,
-					value: 'work',
+					value: 'prettyII',
 					observer: 'log'
 				}
 			},
