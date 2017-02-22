@@ -1,0 +1,34 @@
+<dom-module id="adebray-processing">
+  <template>
+	<style>
+	  :host {
+		display: block;
+	  }
+	</style>
+
+	<iron-ajax
+	  auto
+	  url="{{url}}"
+	  handle-as="text"
+	  on-response="handleResponse">
+  	</iron-ajax>
+
+	<paper-item>{{url}}</paper-item>
+	<canvas></canvas>
+
+  </template>
+  <script>
+	Polymer({
+	  is: 'adebray-processing',
+
+	  properties: {
+		  url: String
+	  },
+
+	  handleResponse: function (e) {
+		  var sketch = Processing.compile(e.detail.response).sourceCode;
+          var projs = new Processing(this.$$('canvas'), eval(sketch));
+	  }
+	});
+  </script>
+</dom-module>

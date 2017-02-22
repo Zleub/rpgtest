@@ -70,8 +70,8 @@
 					layer.add(i)
 				})
 
-				// layer.children[0].cache()
 				// layer.cache()
+				// layer.children[0].cache()
 				// layer.children[0].filters([Konva.Filters.Sepia])
 				layer.draw()
 
@@ -105,7 +105,9 @@
 					}
 				}
 
+
 				Promise.all(p).then( _ => {
+					layer.destroy()
 					let anims = _.reduce( (p, e, i) => {
 						if (e.src != 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAhElEQVR4Xu3VAREAMAwCseLfdIV85qAcGbv4W/z+E4AGxBNAIF4AnyACCMQTQCBeACuAAALxBBCIF8AKIIBAPAEE4gWwAgggEE8AgXgBrAACCMQTQCBeACuAAALxBBCIF8AKIIBAPAEE4gWwAgggEE8AgXgBrAACCMQTQCBeACuAQJ3AA2jYAEGs/2CBAAAAAElFTkSuQmCC')
 						{

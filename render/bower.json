@@ -22,6 +22,7 @@
     "iron-elements": "^1.0.10",
     "paper-elements": "^1.0.7",
     "google-chart": "^1.1.1",
-    "chance": "^1.0.4"
+    "chance": "^1.0.4",
+    "Processing.js": "processing#^1.6.4"
   }
 }

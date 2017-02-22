@@ -3,7 +3,7 @@
 		"LPC/body/male/dark.png",
 		"LPC/hair/male/plain/black.png",
 		"LPC/torso/leather/chest_male.png",
-		"LPC/weapons/right hand/female/spear_female.png"
+		"LPC/weapons/right hand/either/bow.png"
 	],
 	[
 		"LPC/body/female/dark.png",
@@ -12,8 +12,8 @@
 		"LPC/weapons/right hand/female/spear_female.png"
 	],
 	[
-		"LPC/body/male/dark.png",
+		"LPC/body/male/dark2.png",
 		"LPC/torso/shirts/longsleeve/male/brown_longsleeve.png",
-		"LPC/hair/female/long/gray.png"
+		"LPC/hair/male/long/gray.png"
 	]
 ]
