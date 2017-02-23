@@ -15,6 +15,7 @@
 <link rel="import" href="adebray-magic-canvas.html">
 <link rel="import" href="adebray-imgbank.html">
 <link rel="import" href="adebray-processing.html">
+<link rel="import" href="adebray-ia.html">
 
 <dom-module id="adebray-home">
 	<template>
@@ -88,6 +89,10 @@
 				<adebray-magic-canvas value="42"></adebray-magic-canvas>
 				<adebray-magic-canvas value="99"></adebray-magic-canvas>
 			</section>
+
+			<section id="ia">
+				<adebray-ia></adebray-ia>
+			</section>
 		</iron-pages>
 
 	</template>
@@ -113,7 +118,7 @@
 				},
 				route: {
 					type: String,
-					value: 'processing',
+					value: 'ia',
 					observer: 'log'
 				}
 			},
