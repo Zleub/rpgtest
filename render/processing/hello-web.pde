@@ -25,8 +25,6 @@ void draw() {
 
 	if (mode == 0)
 		background(0);
-	if (mode == 1)
-		background(125);
 
 	arc(200, 200, 200, 200, 0, PI * time);
 }
