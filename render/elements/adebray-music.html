@@ -1,0 +1,48 @@
+<dom-module id="adebray-music">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+	<paper-button raised on-tap="start">Start</paper-button>
+	<paper-button raised on-tap="stop">Stop</paper-button>
+
+	<template is="dom-repeat" items="{{nodes}}" index-as="index">
+		{{item}}
+	</template>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'adebray-music',
+
+	  properties: {
+		  nodes: {
+			  type: Array,
+			  value: []
+		  }
+	  },
+
+	  start: function () {
+		  this.oscillator.start()
+	  },
+	  stop: function () {
+		  this.oscillator.stop()
+	  },
+
+	  attached: function () {
+		//   let AudioContext = window.AudioContext || window.webkitAudioContext
+		let audioCtx = new AudioContext()
+		this.oscillator = audioCtx.createOscillator()
+		this.oscillator.connect(audioCtx.destination)
+
+		this.push('nodes', audioCtx)
+		this.push('nodes', this.oscillator)
+
+	  }
+
+    });
+  </script>
+</dom-module>

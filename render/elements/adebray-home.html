@@ -16,6 +16,7 @@
 <link rel="import" href="adebray-imgbank.html">
 <link rel="import" href="adebray-processing.html">
 <link rel="import" href="adebray-ia.html">
+<link rel="import" href="adebray-music.html">
 
 <dom-module id="adebray-home">
 	<template>
@@ -38,6 +39,8 @@
 			<!-- <paper-tab route=skill-tree>skill-tree</paper-tab> -->
 			<paper-tab route=magic-canvas>magic-canvas</paper-tab>
 			<paper-tab route=processing>processing</paper-tab>
+			<paper-tab route=ia>ia</paper-tab>
+			<paper-tab route=music>music</paper-tab>
 		</paper-tabs>
 		<iron-pages attr-for-selected=id selected={{route}}>
 			<section id="map">
@@ -93,6 +96,9 @@
 			<section id="ia">
 				<adebray-ia></adebray-ia>
 			</section>
+			<section id="music">
+				<adebray-music></adebray-music>
+			</section>
 		</iron-pages>
 
 	</template>
@@ -118,7 +124,7 @@
 				},
 				route: {
 					type: String,
-					value: 'ia',
+					value: 'music',
 					observer: 'log'
 				}
 			},

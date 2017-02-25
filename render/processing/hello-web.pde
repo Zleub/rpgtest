@@ -2,6 +2,7 @@ int mode = 0;
 int time = 0;
 
 void setup() {
+	frameRate(24);
 	size(400, 400);
 	background(0);
 	stroke(125, 125, 125);
@@ -10,7 +11,7 @@ void setup() {
 }
 
 void draw() {
-	time += 0.01;
+	time += frameRate;
 
 	if (time > 2 && mode == 0) {
 		mode = 1;
