@@ -41,13 +41,13 @@
 
 	  attached: function () {
 		//   let AudioContext = window.AudioContext || window.webkitAudioContext
-		let audioCtx = new AudioContext()
+		// let audioCtx = new AudioContext()
 
-		this.oscillator = audioCtx.createOscillator()
+		// this.oscillator = audioCtx.createOscillator()
 		// this.oscillator = audioCtx.createMediaElementSource(this.$$('audio'))
 
 
-		this.analyser = audioCtx.createAnalyser()
+		this.analyser = timbre.fn._audioContext.createAnalyser()
 
 
 		var mml0, mml1;
@@ -92,9 +92,11 @@
 		  this.stop();
 		}).set({buddies:master});
 
-		new Konva.Animation( (frame) => {
-			master.plot({target:this.$.canva})
-		}).start()
+		// console.log(this.mml instanceof AudioNode)
+
+		// new Konva.Animation( (frame) => {
+		// 	master.plot({target:this.$.canva})
+		// }).start()
 
 		let bufSize = 256
 		this.analyser.fftSize = bufSize
@@ -102,11 +104,11 @@
 		let dataFrequency = new Uint8Array(bufSize)
 
 
-		this.oscillator.connect(this.analyser)
-		this.analyser.connect(audioCtx.destination)
-
-		this.push('nodes', audioCtx)
-		this.push('nodes', this.oscillator)
+		// this.oscillator.connect(this.analyser)
+		this.analyser.connect(timbre.fn._audioContext)
+		//
+		// this.push('nodes', audioCtx)
+		// this.push('nodes', this.oscillator)
 
 		let layerTimeDomain = new Konva.Layer()
 		new Konva.Stage({
