@@ -18,7 +18,7 @@ function createWindow () {
 		slashes: true
 	}))
 
-	win.webContents.openDevTools()
+	// win.webContents.openDevTools()
 
 	win.on('app-command', (e, cmd) => {
 		console.log(e, cmd)
