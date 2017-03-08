@@ -1,0 +1,28 @@
+<dom-module id="stage-menu">
+<template>
+	<style>
+	:host {
+		display: block;
+	}
+	</style>
+
+
+</template>
+<script>
+	Polymer({
+		is: 'stage-menu',
+
+		behaviors: [Polymer.IronResizableBehavior, StageBehavior],
+
+		attached: function () {
+			this.stage = new Konva.Stage({
+				container: this,
+				width: this.clientWidth,
+				height: 600
+			})
+
+			this.layer = new Konva.Layer()
+		}
+	});
+</script>
+</dom-module>

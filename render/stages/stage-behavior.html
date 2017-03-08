@@ -1,0 +1,17 @@
+<script>
+    StageBehavior = {
+		properties: {
+			stage: Object,
+			layer: Object
+		},
+
+		listeners: {
+			'iron-resize' : '_resize'
+		},
+
+		_resize: function () {
+			if (this.stage instanceof Konva.Stage)
+				this.stage.setWidth(this.clientWidth)
+		}
+	};
+</script>

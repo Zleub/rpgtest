@@ -1,5 +1,5 @@
 {
-  "name": "render",
+  "name": "RPGTEST",
   "homepage": "https://github.com/Zleub/rpgtest",
   "authors": [
     "Zleub <debray.arnaud@gmail.com>"
@@ -16,14 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "simplexnoise.js": "*",
-    "konva": "^1.2.2",
-    "polymer": "^1.7.1",
-    "iron-elements": "^1.0.10",
-    "paper-elements": "^1.0.7",
-    "google-chart": "^1.1.1",
-    "chance": "^1.0.4",
-    "Processing.js": "processing#^1.6.4",
-    "blip": "^0.3.0"
+    "polymer": "^1.8.1",
+    "iron-resizable-behavior": "^1.0.5",
+    "konva": "^1.4.0"
   }
 }
