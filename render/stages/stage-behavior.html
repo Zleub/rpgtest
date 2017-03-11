@@ -10,8 +10,10 @@
 		},
 
 		_resize: function () {
-			if (this.stage instanceof Konva.Stage)
-				this.stage.setWidth(this.clientWidth)
+			if (this.stage instanceof Konva.Stage) {
+				// this.stage.width(this.clientWidth)
+				console.log('this.stage.width', this.stage.width())
+			}
 		}
 	};
 </script>

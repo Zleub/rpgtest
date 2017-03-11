@@ -3,14 +3,13 @@
 	<style>
 	:host {
 		display: block;
+		margin: 4px;
+		padding: 8px;
 	}
 	</style>
 
 	<div id=background></div>
-
-	<div id=container>
-		JELLY BELLY
-	</div>
+	<div id=container></div>
 
 </template>
 <script>
@@ -22,43 +21,30 @@
 		attached: function () {
 			let harmonizer = new Harmonizer()
 			let divizer = []
-			for (var i = 0; i < 360; i += 12) {
+			for (var i = 0; i < 360; i += 36) {
 				divizer.push(i)
 			}
 			let colors = harmonizer.harmonize('#AA3939', divizer)
 
 			this.stage = new Konva.Stage({
 				container: this.$.background,
-				width: 600,
-				height: 600
+				width: 400,
+				height: 400
 			})
 
 			this.layer = new Konva.Layer()
 			this.stage.add(this.layer)
 
-
 			let color = colors[ Math.floor(Math.random() * colors.length) ]
-
 			let rect = new Konva.Rect({
 				width: this.stage.width(),
 				height: this.stage.height(),
 				fill: color
 			})
 
+			rect.cache()
+			rect.filters([test])
 			this.layer.add(rect)
-
-			// rect = new Konva.Rect({
-			// 	x: this.stage.width(),
-			// 	scaleX: -1,
-			// 	width: 200,
-			// 	height: this.stage.height(),
-			// 	fill: color,
-			// 	draggable: true
-			// })
-			// this.layer.add(rect)
-
-			this.layer.cache()
-			this.layer.filters([test])
 
 			this.layer.draw()
 		}
