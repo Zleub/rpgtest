@@ -1,5 +1,5 @@
 {
-  "name": "RPGTEST",
+  "name": "rpgtest",
   "homepage": "https://github.com/Zleub/rpgtest",
   "authors": [
     "Zleub <debray.arnaud@gmail.com>"
@@ -20,6 +20,13 @@
     "iron-resizable-behavior": "^1.0.5",
     "konva": "^1.4.0",
     "iron-image": "^1.2.5",
-    "color": "^3.0.4"
+    "color": "^3.0.4",
+    "iron-elements": "^1.0.10",
+    "paper-item": "^1.2.1",
+    "chance": "^1.0.6",
+    "paper-spinner": "^1.2.1",
+    "paper-input": "^1.1.23",
+    "app-layout": "^0.10.7",
+    "paper-icon-button": "^1.1.4"
   }
 }

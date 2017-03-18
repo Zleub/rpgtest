@@ -6,11 +6,39 @@
 		margin: 4px;
 		padding: 8px;
 	}
+
+	.cell {
+		display: inline-block;
+		width: 42px;
+		height: 42px;
+		border: 1px solid black;
+		text-align: center;
+	}
+
+	img {
+		display: inline-block;
+	}
 	</style>
 
-	<div id=background></div>
-	<div id=container></div>
+	<paper-spinner active></paper-spinner>
 
+	<div id=content hidden>
+		<h3>{{matrix_name}}</h3>
+		<img id='src' src="../images/Portal_Companion_Cube.jpg"></img>
+		<div style="display: inline-block">
+		<template is="dom-repeat" items="{{convolution}}" index-as='i'>
+			<template is="dom-repeat" items="{{item}}" index-as='j'>
+				<div class="cell" row='{{i}}' col='{{j}}' contenteditable>{{item}}</div>
+			</template>
+			<br>
+		</template>
+		<paper-input id="offset" label="offset" value=0 type="number"></paper-input>
+		<paper-input id="divisor" label="divisor" value=1 type="number"></paper-input>
+		<paper-button raised on-tap='test'>Update</paper-button>
+		</div>
+
+		<paper-spinner id=waiting></paper-spinner>
+	</div>
 </template>
 <script>
 	Polymer({
@@ -18,35 +46,124 @@
 
 		behaviors: [Polymer.IronResizableBehavior, StageBehavior],
 
+		properties: {
+			convolution: Array,
+			matrix_name: String
+		},
+
+		toggleSpinner : function () {
+			let s = this.querySelector('paper-spinner')
+			s.active = !s.active
+
+			let c = this.querySelector('#content')
+			c.hidden = !c.hidden
+		},
+
+		test: function (e) {
+			let w = this.$.content.querySelector('#waiting')
+			w.active = !w.active
+
+			this.querySelectorAll('.cell').forEach( e => {
+				this.convolution[e.row][e.col] = Number(e.innerText)
+			})
+
+			let dest = this.$.content.querySelector('#dest')
+			if (dest)
+				this.$.content.removeChild(dest)
+
+			let c = new Convolution({
+				matrix: this.convolution,
+				src: this.$.content.querySelector('#src'),
+				offset: Number(this.$.offset.value),
+				divisor: Number(this.$.divisor.value),
+			})
+			c.apply()
+			c.toImage().then( e => {
+				e.id = 'dest'
+				this.$.content.appendChild(e)
+				w.active = !w.active
+			})
+		},
+
 		attached: function () {
-			let harmonizer = new Harmonizer()
-			let divizer = []
-			for (var i = 0; i < 360; i += 36) {
-				divizer.push(i)
+			this.querySelector('#src').onload = () => {
+
+				var c = document.createElement('canvas')
+				var ctx = c.getContext("2d")
+				var img = this.querySelector('#src')
+				ctx.drawImage(img, 10, 10)
+				let b64 = c.toDataURL()
+
+				let worker = new Worker('scripts/service_worker.js')
+				worker.postMessage({
+					matrix: this.convolution,
+					src: b64,
+					offset: Number(this.$.offset.value),
+					divisor: Number(this.$.divisor.value),
+				})
+				worker.onmessage = (e) => {
+					let i = document.createElement('img')
+					i.onload = (e) => {
+						e = e.target
+						e.id = 'dest'
+						this.$.content.appendChild(e)
+						this.toggleSpinner()
+					}
+					i.src = 'data:image/png;base64,' + e.data
+
+					console.log('C', i.src.length)
+				}
+
+				// let c = new Convolution({
+				// 	matrix: this.convolution,
+				// 	src: this.$.content.querySelector('#src'),
+				// 	offset: Number(this.$.offset.value),
+				// 	divisor: Number(this.$.divisor.value),
+				// })
+				// c.apply()
+				// c.toImage().then( e => {
+				// 	e.id = 'dest'
+				// 	this.$.content.appendChild(e)
+				// 	this.toggleSpinner()
+				// })
 			}
-			let colors = harmonizer.harmonize('#AA3939', divizer)
 
-			this.stage = new Konva.Stage({
-				container: this.$.background,
-				width: 400,
-				height: 400
-			})
-
-			this.layer = new Konva.Layer()
-			this.stage.add(this.layer)
-
-			let color = colors[ Math.floor(Math.random() * colors.length) ]
-			let rect = new Konva.Rect({
-				width: this.stage.width(),
-				height: this.stage.height(),
-				fill: color
-			})
-
-			rect.cache()
-			rect.filters([test])
-			this.layer.add(rect)
-
-			this.layer.draw()
+			// let harmonizer = new Harmonizer()
+			// let divizer = []
+			// for (var i = 0; i < 360; i += 36) {
+			// 	divizer.push(i)
+			// }
+			// let colors = harmonizer.harmonize('#AA3939', divizer)
+			//
+			// let container = document.createElement('div')
+			// this.stage = new Konva.Stage({
+			// 	container: container,
+			// 	width: 100,
+			// 	height: 100
+			// })
+			//
+			// this.layer = new Konva.Layer()
+			// this.stage.add(this.layer)
+			//
+			// let color = colors[ Math.floor(Math.random() * colors.length) ]
+			// color = '#aa397d'
+			// let rect = new Konva.Rect({
+			// 	width: this.stage.width(),
+			// 	height: this.stage.height(),
+			// 	fill: color
+			// })
+			//
+			// rect.cache()
+			// rect.filters([Konva.Filters.Adebray])
+			// this.layer.add(rect)
+			//
+			// this.layer.draw()
+			//
+			// this.stage.toImage({
+			// 	callback: (e) => {
+			// 		this.appendChild(e)
+			// 	}
+			// })
 		}
 	});
 </script>
